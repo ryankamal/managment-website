@@ -1,0 +1,261 @@
+
+
+
+
+
+
+
+
+<!-- new vacancy -->
+<div class="modal fade text-xs-left in" id="new_vacancy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="myModalLabel1">ادراج مُسمى وظيفي جديد</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form ">
+                      <div class="form-body">
+                        <div class="form-group row">
+                            <div class="col-md-3"><label for="eventRegInput1">المُسمى الوظيفي</label></div>
+                            <div class="col-md-9"><input type="text" id="eventRegInput1" class="form-control" placeholder="المُسمى الوظيفي" name="">
+                            </div>
+                            </div>
+                        <div class="form-group row">
+                            <div class="col-md-3"><label  for="eventRegInput2">التعريف الوظيفي</label></div>
+                              <div class="col-md-9"><textarea id="eventRegInput2" rows="2" class="form-control" name="" placeholder="التعريف الوظيفي" style="margin-top: 0px; margin-bottom: 0px;"></textarea>
+                              </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3"><label for="eventRegInput3">المهام الوظيفية</label></div>
+                            <div class="col-md-9 job-duties">
+                                <input type="text" id="eventRegInput3" class="form-control" placeholder="اكتب كل مهمة واضغط ادخال" name="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3"><label  for="eventRegInput4">الملفات المطلوبة</label></div>
+                            <div class="col-md-9 job-documents"><input type="text" id="eventRegInput4" class="form-control" placeholder="اكتب اسم كل ملف واضغط ادخال" name="">
+                            </div>
+                            </div>
+                        <div class=" row offset-md-3">
+                            <div class="form-group col-md-6">
+                                <label  for="eventRegInput4">ساعات العمل اليومية</label>
+                                <input type="text" data-bts-min="0" id="eventRegInput4" class="form-control touchspin" placeholder="8" name="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label  for="eventRegInput4">الراتب الشهري</label>
+                                <input type="text" data-bts-min="0" data-bts-max="10000000" data-bts-step="5" id="eventRegInput4" class="form-control touchspin" placeholder="1200" name="">
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
+                                  <button type="button" class="btn btn-primary btn-min-width">تثبيت</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row">
+        <div class="content-header-left col-md-6 col-xs-12 mb-2">
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-xs-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
+                </li>
+                <li class="breadcrumb-item active">الموظفين
+                </li>
+              </ol>
+            </div>
+          </div>
+          <h3 class="content-header-title mb-0">الموظفين</h3>
+        </div>
+        <div class="content-header-right col-md-6 col-xs-12">
+            <div class="form-group" style="text-align: left">
+                          <!-- button group -->
+                          
+                          <div class="btn-group" role="group" aria-label="Basic example">
+                              <div class="btn-group">
+                            <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="employees_times.php">الحضور والانصراف</a>
+                                <a class="dropdown-item" href="vacations.php">الأجازات</a>
+                              <a class="dropdown-item" href="#">المرتبات</a>
+                              <a class="dropdown-item" href="#">المكافئات</a>
+                              <a class="dropdown-item" href="#">التقييمات</a>
+                            </div>
+                          </div>
+                            <button type="button" class="btn btn-secondary" data-toggleM="modal" data-target="#new_vacancy">ادراج مُسمى وظيفي</button>
+                            <a href="employee_profile.php"  class="btn btn-secondary">ادراج موظف جديد</a>
+                          </div>
+                        </div>
+        </div>
+      </div>
+      <div class="content-header row">
+      </div>
+        <div class="content-body">
+            <div class="row employees-cards">
+          <div class="col-xl-3 col-md-6 col-xs-12">
+            <div class="card cursor-pointer">
+              <div class="text-xs-center">
+                <div class="card-block">
+                  <img src="app-assets/images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image">
+                </div>
+                <div class="card-block">
+                  <h4 class="card-title">Michelle Howard</h4>
+                  <h6 class="card-subtitle text-muted">Managing Director</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-xs-12">
+            <div class="card cursor-pointer">
+              <div class="text-xs-center">
+                <div class="card-block">
+                  <img src="app-assets/images/portrait/medium/avatar-m-1.png" class="rounded-circle  height-150" alt="Card image">
+                </div>
+                <div class="card-block">
+                  <h4 class="card-title">Joseph Ryan</h4>
+                  <h6 class="card-subtitle text-muted">Marketing Head</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-xs-12">
+            <div class="card cursor-pointer">
+              <div class="text-xs-center">
+                <div class="card-block">
+                  <img src="app-assets/images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image">
+                </div>
+                <div class="card-block">
+                  <h4 class="card-title">Frances Butler</h4>
+                  <h6 class="card-subtitle text-muted">Technical Lead</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 col-xs-12">
+            <div class="card cursor-pointer">
+              <div class="text-xs-center">
+                <div class="card-block">
+                  <img src="app-assets/images/portrait/medium/avatar-m-5.png" class="rounded-circle  height-150" alt="Card image">
+                </div>
+                <div class="card-block">
+                  <h4 class="card-title">Andrew Davis</h4>
+                  <h6 class="card-subtitle text-muted">UI/UX Designer</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    
+  
+    
+    
+    
+    
+    
+    
+//    $(document).on('change','input[name="salary_edit"]',function(){
+//        debugger;
+//    alert('ssss');
+//    var form_length = $('.salary-form').length;
+//    if($('input[name="salary_edit"]:checked').val() == 'increase'){
+//        var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+//        if(form_length < 1){
+//           $('.salary_form').append(form);
+//       }else{
+//           $('.salary_form').empty();
+//           $('.salary_form').append(form);
+//       }
+//    }else if($('input[name="salary_edit"]:checked').val() == 'decrease'){
+//        var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+//        if(form_length < 1){
+//           $('.salary_form').append(form);
+//       }else{
+//           $('.salary_form').empty();
+//           $('.salary_form').append(form);
+//       }
+//    }
+//});
+    
+    
+    $(document).on('keyup','.job-duties input',function(e){
+    var code = (e.keyCode ? e.keyCode : e.which );
+    var value = $(this).val();
+    var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
+    var form = '<ul class="duties-options"><p class="title">قائمة المهام الوظيفية :</p>'+option+'</ul>';
+    var form_length = $('.job-duties ul.duties-options').length;
+    if (code == 13) { //Enter keycode
+        if(form_length < 1 && $.trim(value) !== ''){
+            $(form).insertAfter('.job-duties input');
+        }else if(form_length >= 1 && $.trim(value) !== ''){
+            $('.job-duties ul.duties-options').append(option);
+        }
+        $('.job-duties input').val('');
+    }
+});
+
+
+$(document).on('click','.job-duties ul.duties-options li button',function(){
+    $(this).parents('li').remove();
+    var options = $('.job-duties ul.duties-options li').length;
+    if(options < 1){
+        $('ul.duties-options').remove();
+    }
+});
+
+
+$(document).on('keyup','.job-documents input',function(e){
+    var code = (e.keyCode ? e.keyCode : e.which );
+    var value = $(this).val();
+    var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
+    var form = '<ul class="documents-options"><p class="title">قائمة المستندات المطلوبة :</p>'+option+'</ul>';
+    var form_length = $('.job-documents ul.documents-options').length;
+    if (code == 13) { //Enter keycode
+        if(form_length < 1 && $.trim(value) !== ''){
+            $(form).insertAfter('.job-documents input');
+        }else if(form_length >= 1 && $.trim(value) !== ''){
+            $('.job-documents ul.documents-options').append(option);
+        }
+        $('.job-documents input').val('');
+    }
+});
+
+$(document).on('click','.job-documents ul.documents-options li button',function(){
+    $(this).parents('li').remove();
+    var options = $('.job-documents ul.documents-options li').length;
+    if(options < 1){
+        $('ul.documents-options').remove();
+    }
+});
+
+
+
+
+
+
+
+
+
+
+    </script>

@@ -1,0 +1,342 @@
+@{title('Index')};
+
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <!-- Analytics spakline & chartjs  -->
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="card">
+              <div class="card-header no-border-bottom">
+                <h4 class="card-title">نظرة عامة</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body collapse in">
+                <div class="card-block">
+                  <div class="row my-1">
+                    <div class="col-lg-4 col-xs-12">
+                      <div class="text-xs-center">
+                        <h3>23,454</h3>
+                        <p class="text-muted">المبيعات
+                          <span class="success"><i class="ft-arrow-up"></i> 8.16%</span>
+                        </p>
+                        <div id="sp-tristate-bar-total-revenue"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12">
+                      <div class="text-xs-center">
+                        <h3>6,630</h3>
+                        <p class="text-muted">المشتروات
+                          <span class="danger"><i class="ft-arrow-down"></i> 2.30%</span>
+                        </p>
+                        <div id="sp-stacked-bar-total-sales"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12">
+                      <div class="text-xs-center">
+                        <h3>86,578</h3>
+                        <p class="text-muted">المصروفات
+                          <span class="warning"><i class="ft-arrow-up"></i> 4.27%</span>
+                        </p>
+                        <div id="sp-bar-total-cost"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="chartjs">
+                        <canvas id="line-stacked-area" height="300"></canvas>
+                      </div>
+                      <ul class="list-inline text-xs-center mt-1">
+                        
+                        
+                        <li class="mr-1">
+                          <h6><i class="fa fa-circle success"></i>
+                            <span>المبيعات</span>
+                          </h6>
+                        </li>
+                        <li class="mr-1">
+                          <h6><i class="fa fa-circle danger"></i>
+                            <span>المشتروات</span>
+                          </h6>
+                        </li>
+                        <li class="mr-1">
+                          <h6><i class="fa fa-circle warning"></i>
+                            <span>المصروفات</span>
+                          </h6>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ Analytics spakline & chartjs  -->
+        <!--stats-->
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-block">
+                  <div class="media">
+                    <div class="media-body text-xs-left">
+                      <h3 class="primary">78%</h3>
+                      <span>الهدف الشهري</span>
+                    </div>
+                    <div class="media-right media-middle">
+                      <i class="icon-user-follow primary font-large-2 float-xs-right"></i>
+                    </div>
+                  </div>
+                  <progress class="progress progress-sm progress-primary mt-1 mb-0" value="80" max="100"></progress>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-block">
+                  <div class="media">
+                    <div class="media-body text-xs-left">
+                      <h3 class="danger">423</h3>
+                      <span>حد المشتروات</span>
+                    </div>
+                    <div class="media-right media-middle">
+                      <i class="icon-social-dropbox danger font-large-2 float-xs-right"></i>
+                    </div>
+                    <progress class="progress progress-sm progress-danger mt-1 mb-0" value="40" max="100"></progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-block">
+                  <div class="media">
+                    <div class="media-body text-xs-left">
+                      <h3 class="success">64.89 %</h3>
+                      <span>حد المصروفات</span>
+                    </div>
+                    <div class="media-right media-middle">
+                      <i class="icon-layers success font-large-2 float-xs-right"></i>
+                    </div>
+                    <progress class="progress progress-sm progress-success mt-1 mb-0" value="60" max="100"></progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/stats-->
+        <!-- Audience by country & users visit-->
+        <div class="row match-height">
+          <div class="col-xl-6 col-lg-12">
+            <div class="card">
+              <div class="card-header no-border">
+                <h4 class="card-title">آخر 10 تعاملات</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="goal-list-scroll" class="table-responsive position-relative">
+                  <table class="table mb-0">
+                    <thead>
+                      <tr>
+                        <th>كود</th>
+                        <th>التاريخ</th>
+                        <th>النوع</th>
+                        <th>القيمة</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>105</td>
+                        <td>15/7/2017</td>
+                        <td>حجز</td>
+                        <td>152 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>107</td>
+                        <td>15/7/2017</td>
+                        <td>محلي</td>
+                        <td>210 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>105</td>
+                        <td>15/7/2017</td>
+                        <td>حجز</td>
+                        <td>152 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>107</td>
+                        <td>15/7/2017</td>
+                        <td>محلي</td>
+                        <td>210 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>105</td>
+                        <td>15/7/2017</td>
+                        <td>حجز</td>
+                        <td>152 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>107</td>
+                        <td>15/7/2017</td>
+                        <td>محلي</td>
+                        <td>210 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>105</td>
+                        <td>15/7/2017</td>
+                        <td>حجز</td>
+                        <td>152 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>107</td>
+                        <td>15/7/2017</td>
+                        <td>محلي</td>
+                        <td>210 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>105</td>
+                        <td>15/7/2017</td>
+                        <td>حجز</td>
+                        <td>152 جنيه</td>
+                      </tr>
+                      <tr>
+                        <td>107</td>
+                        <td>15/7/2017</td>
+                        <td>محلي</td>
+                        <td>210 جنيه</td>
+                      </tr>
+                      
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-xl-6 col-lg-12">
+            <div class="card">
+              <div class="card-header no-border">
+                <h4 class="card-title">آخر 10 تحركات بالمخازن</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="goal-list-scroll" class="table-responsive position-relative">
+                  <table class="table mb-0">
+                    <thead>
+                      <tr>
+                        <th>كود</th>
+                        <th>التاريخ</th>
+                        <th>الصنف</th>
+                        <th>الكمية</th>
+                        <th>النوع</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      <tr>
+                        <td>123</td>
+                        <td>15/7/2017</td>
+                        <td>عجينة بيتزا</td>
+                        <td>15</td>
+                        <td>طعام</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

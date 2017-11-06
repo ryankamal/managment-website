@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" data-textdirection="rtl" class="loading">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+  rel="stylesheet">
+  @{import('meta', 'head', 'bootstrap.min.css', 'fonts/feather/style.min.css', 'fonts/font-awesome/css/font-awesome.min.css','fonts/flag-icon-css/css/flag-icon.min.css','extensions/pace.css','charts/jquery-jvectormap-2.0.3.css','charts/morris.css','extensions/unslider.css','weather-icons/climacons.min.css','forms/selects/select2.min.css','forms/spinner/jquery.bootstrap-touchspin.css','pickers/datetime/bootstrap-datetimepicker.css','plugins/forms/switch.min.css','forms/toggle/switchery.min.css','forms/icheck/icheck.css','forms/icheck/custom.css','plugins/forms/checkboxes-radios.min.css','plugins/forms/wizard.min.css','calendars/fullcalendar.min.css','plugins/calendars/fullcalendar.min.css','bootstrap-extended.min.css','app.min.css','colors.min.css','custom-rtl.min.css','plugins/treetable/jquery.treetable.css','fonts/font-awesome/css/font-awesome.min.css','core/menu/menu-types/vertical-menu.min.css','core/menu/menu-types/vertical-overlay-menu.min.css','style-rtl.css')}
+  
+</head>
+<body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar scrollbar">
+  <!-- navbar-fixed-top-->
+  <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item">
+            <a href="index" class="navbar-brand">
+              <img alt="stack admin logo" src="images/logo/stack-logo-light.png"
+              class="brand-logo">
+              <h2 class="brand-text">Session</h2>
+            </a>
+          </li>
+          <li class="nav-item hidden-md-up float-xs-right">
+            <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-container content container-fluid">
+        <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
+          <ul class="nav navbar-nav">
+            <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu"></i></a></li>
+            <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i class="ficon ft-maximize"></i></a></li>
+            <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search"></i></a>
+              <div class="search-input">
+                <input type="text" placeholder="Explore Stack..." class="input">
+              </div>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav float-xs-right">
+            <li class="dropdown dropdown-language nav-item"><a id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" class="dropdown-toggle nav-link"><i class="flag-icon flag-icon-eg"></i><span class="selected-language"></span></a>
+              <div aria-labelledby="dropdown-flag" class="dropdown-menu">
+                  <a href="#" class="dropdown-item"><i class="flag-icon flag-icon-eg"></i> العربية</a>
+                  <a href="#" class="dropdown-item"><i class="flag-icon flag-icon-us"></i> English</a>
+                <a href="#" class="dropdown-item"><i class="flag-icon flag-icon-fr"></i> French</a>
+              </div>
+            </li>
+            <li class="dropdown dropdown-notification nav-item">
+              <a href="#" data-toggle="dropdown" class="nav-link nav-link-label"><i class="ficon ft-bell"></i>
+                <span class="tag tag-pill tag-default tag-danger tag-default tag-up">5</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">Notifications</span>
+                    <span class="notification-tag tag tag-default tag-danger float-xs-right m-0">5 New</span>
+                  </h6>
+                </li>
+                <li class="list-group scrollable-container">
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left valign-middle"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">You have new order!</h6>
+                        <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">30 minutes ago</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left valign-middle"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading red darken-1">99% Server load</h6>
+                        <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Five hour ago</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left valign-middle"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
+                        <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Today</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left valign-middle"><i class="ft-check-circle icon-bg-circle bg-cyan"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Complete the task</h6>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Last week</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left valign-middle"><i class="ft-file icon-bg-circle bg-teal"></i></div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Generate monthly report</h6>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Last month</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-menu-footer"><a href="javascript:void(0)" class="dropdown-item text-muted text-xs-center">Read all notifications</a></li>
+              </ul>
+            </li>
+            <li class="dropdown dropdown-notification nav-item">
+              <a href="#" data-toggle="dropdown" class="nav-link nav-link-label"><i class="ficon ft-mail"></i>
+                <span class="tag tag-pill tag-default tag-warning tag-default tag-up">3</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                <li class="dropdown-menu-header">
+                  <h6 class="dropdown-header m-0">
+                    <span class="grey darken-2">Messages</span>
+                    <span class="notification-tag tag tag-default tag-warning float-xs-right m-0">4 New</span>
+                  </h6>
+                </li>
+                <li class="list-group scrollable-container">
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left">
+                        <span class="avatar avatar-sm avatar-online rounded-circle">
+                          <img src="images/portrait/small/avatar-s-1.png"
+                          alt="avatar"><i></i></span>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Margaret Govan</h6>
+                        <p class="notification-text font-small-3 text-muted">I like your portfolio, let's start the project.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Today</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left">
+                        <span class="avatar avatar-sm avatar-busy rounded-circle">
+                          <img src="images/portrait/small/avatar-s-2.png"
+                          alt="avatar"><i></i></span>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Bret Lezama</h6>
+                        <p class="notification-text font-small-3 text-muted">I have seen your work, there is</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Tuesday</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left">
+                        <span class="avatar avatar-sm avatar-online rounded-circle">
+                          <img src="images/portrait/small/avatar-s-3.png"
+                          alt="avatar"><i></i></span>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Carie Berra</h6>
+                        <p class="notification-text font-small-3 text-muted">Can we have call in this week ?</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Friday</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="list-group-item">
+                    <div class="media">
+                      <div class="media-left">
+                        <span class="avatar avatar-sm avatar-away rounded-circle">
+                          <img src="images/portrait/small/avatar-s-6.png"
+                          alt="avatar"><i></i></span>
+                      </div>
+                      <div class="media-body">
+                        <h6 class="media-heading">Eric Alsobrook</h6>
+                        <p class="notification-text font-small-3 text-muted">We have project party this saturday night.</p>
+                        <small>
+                          <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">last month</time>
+                        </small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-menu-footer"><a href="javascript:void(0)" class="dropdown-item text-muted text-xs-center">Read all messages</a></li>
+              </ul>
+            </li>
+            <li class="dropdown dropdown-user nav-item">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+                <span class="avatar avatar-online">
+                  <img src="images/portrait/small/avatar-s-1.png"
+                  alt="avatar"><i></i></span>
+                <span class="user-name">Ryan Kamal</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="ft-user"></i> اعدادات الحساب</a>
+                <a
+                href="#" class="dropdown-item"><i class="ft-mail"></i> البريد</a>
+                  <a href="#" class="dropdown-item"><i class="ft-check-square"></i> المهام</a>
+                  <a href="#" class="dropdown-item"><i class="ft-comment-square"></i> المحادثات</a>
+                  <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="ft-power"></i> تسجيل الخروج</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+    <div class="main-menu-content">
+      <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+        <!--li class=" navigation-header">
+          <span>General</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li-->
+        <li class="nav-item"><a href="/"><i class="ft-home"></i><span data-i18n="" class="menu-title">الرئيسية</span></a>
+        </li>
+        <li class="nav-item"><a href="#"><i class="ft-comment-circle"></i><span data-i18n="" class="menu-title">الرسائل</span></a>
+        </li>
+        
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">موارد النظام</span></a>
+          <ul class="menu-content">
+              <li><a href="list" class="menu-item">ادارة الاصناف</a>
+            </li>
+            <li><a href="#" class="menu-item">ادارة الفروع</a>
+            </li>
+            <li><a href="#" class="menu-item">ادارة المباني</a>
+            </li>
+          </ul>
+        </li>
+        
+        
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">ادارة المخازن</span></a>
+          <ul class="menu-content">
+              <li><a href="treasury" class="menu-item">ادارة المخازن</a>
+            </li>
+            <li><a href="sales" class="menu-item">تقارير المخازن</a>
+            </li>
+          </ul>
+        </li>
+        
+        
+        <li class=" navigation-header">
+          <span>الماليات</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li>
+        
+        
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">الحسابات</span></a>
+          <ul class="menu-content">
+              <li><a href="treasury" class="menu-item">حركة الخزينة</a>
+            </li>
+            <li><a href="sales" class="menu-item">المبيعات</a>
+            </li>
+            <li><a href="purchases" class="menu-item">المشتروات</a>
+            </li>
+            <li><a href="expenses" class="menu-item">المصروفات</a>
+            </li>
+            <li><a href="bills" class="menu-item">الفواتير</a>
+            </li>
+            <li><a href="suppliers" class="menu-item">الموردون</a>
+            </li>
+            <li><a href="customers" class="menu-item">العملاء</a>
+            </li>
+            <li><a href="licences" class="menu-item">أذونات</a>
+            </li>
+          </ul>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-zap"></i><span data-i18n="" class="menu-title">الحسابات المتقدمة</span><span class="tag tag tag-danger tag-pill float-xs-right mr-2">New</span></a>
+          <ul class="menu-content">
+              <li class="has-sub"><a href="#" class="menu-item">القوائم المالية</a>
+              <ul class="menu-content">
+                  <li class=""><a href="income_list" class="menu-item">قائمة الدخل</a>
+                </li>
+                <li class=""><a href="property-rights" class="menu-item">قائمة حقوق الملكية</a>
+                </li>
+                <li class=""><a href="balance_sheet" class="menu-item">قائمة المركز المالي</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="#" class="menu-item">العمليات التمويلية</a>
+              <ul class="menu-content">
+                  <li class=""><a href="capital_management" class="menu-item">رأس المال</a>
+                </li>
+                <li class=""><a href="personal_withdrew" class="menu-item">المسحوبات الشخصية</a>
+                </li>
+                <li class=""><a href="loans" class="menu-item">القروض</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" class="menu-item">الأوراق التجارية</a>
+            </li>
+            
+          </ul>
+        </li>
+        
+        
+        
+        <li class=" navigation-header">
+          <span>التشغيل والمتابعة</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li>
+        
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">ادارة التشغيل</span></a>
+          <ul class="menu-content">
+              <li><a href="employees" class="menu-item">ادارة التوظيف</a>
+            </li>
+            <li><a href="#" class="menu-item">ادارة التوريد</a>
+            </li>
+            <li><a href="#" class="menu-item">ادارة المنتجات</a>
+            </li>
+          </ul>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">المتابعة والكفاءة</span></a>
+          <ul class="menu-content">
+              <li><a href="#" class="menu-item">كفاءة التشغيل</a>
+            </li>
+            <li><a href="#" class="menu-item">كفاءة الانتاج</a>
+            </li>
+          </ul>
+        </li>
+        
+        
+        
+        
+        
+        <li class=" navigation-header">
+          <span>التسويق</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li>
+        <li class="nav-item"><a href="#"><i class="ft-home"></i><span data-i18n="" class="menu-title">دراسة السوق</span></a>
+        </li>
+        <li class="nav-item"><a href="#"><i class="ft-comment-circle"></i><span data-i18n="" class="menu-title">ادارة المنافسين</span></a>
+        </li>
+        
+        
+        <li class=" navigation-header">
+          <span>الأمن والحماية</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li>
+        <li class="nav-item"><a href="#"><i class="ft-home"></i><span data-i18n="" class="menu-title">مراقبة الكاميرات</span></a>
+        </li>
+        <li class="nav-item"><a href="#"><i class="ft-comment-circle"></i><span data-i18n="" class="menu-title">أنظمة الدخول</span></a>
+        </li>
+        
+        
+        
+        
+        <li class=" navigation-header">
+          <span>خدمات اضافية</span><i data-toggle="tooltip" data-placement="right" data-original-title="General"
+          class=" ft-minus"></i>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">التواصل</span></a>
+          <ul class="menu-content">
+            <li><a href="#" class="menu-item">المنتدى</a>
+            </li>
+            <li><a href="#" class="menu-item">المكتبة</a>
+            </li>
+          </ul>
+        </li>
+        <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span data-i18n="" class="menu-title">الملفات</span></a>
+          <ul class="menu-content">
+            <li><a href="#" class="menu-item">ملفاتي</a>
+            </li>
+            <li><a href="#" class="menu-item">مصادر</a>
+            </li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+
+          @{body}
+@{import('vendors.min.js','extensions/jquery.knob.min.js','extensions/knob.min.js','charts/raphael-min.js','charts/morris.min.js','charts/jvector/jquery-jvectormap-2.0.3.min.js','charts/jvector/jquery-jvectormap-world-mill.js','jvector/visitor-data.js','charts/chart.min.js','charts/jquery.sparkline.min.js','extensions/unslider-min.js','tables/jquery.dataTables.min.js','forms/icheck/icheck.min.js','core/app-menu.min.js','core/app.min.js','scripts/customizer.min.js','scripts/pages/dashboard-analytics.min.js','scripts/tables/datatables/datatable-styling.js','scripts/treetable/jquery.treetable.js','tables/datatable/dataTables.bootstrap4.min.js','tables/datatable/dataTables.buttons.min.js','tables/datatable/buttons.bootstrap4.min.js','scripts/modal/components-modal.min.js','tables/jszip.min.js','tables/pdfmake.min.js','tables/vfs_fonts.js','tables/buttons.html5.min.js','tables/buttons.print.min.js','scripts/tables/datatables/datatable-advanced.js','forms/select/select2.full.min.js','forms/select/form-select2.min.js','scripts/list_newItem.js','extensions/jquery.steps.min.js','forms/validation/jquery.validate.min.js','forms/spinner/jquery.bootstrap-touchspin.js','forms/input-groups.min.js','forms/toggle/bootstrap-checkbox.min.js','forms/toggle/switchery.min.js','forms/switch.min.js','forms/checkbox-radio.min.js','extensions/moment.min.js','ui/jquery-ui.min.js','/socket.io/socket.io.js','https://cdn.jsdelivr.net/npm/async@2.5.0/dist/async.min.js')}
+<script>
+    var socket = io.connect();
+    
+    
+    
+   
+    
+    
+    
+</script>
+</body>
+    
+    
+    
