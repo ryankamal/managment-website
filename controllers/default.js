@@ -31,12 +31,12 @@ exports.install = function() {
         F.route('/suppliers','suppliers');
         F.route('/treasury','treasury');
         F.route('/vacations','vacations');
-        
+
 	// or
 	// F.route('/');
 };
 
-	
+
 F.on('load',function(){
     /*
      * socket.io configuration
@@ -47,8 +47,13 @@ F.on('load',function(){
        console.log('new connection has been made');
        _socket.on('fetch_last_10added',fetch_last_10added);
        _socket.on('fetch_all_products',fetch_all_products);
+       _socket.on('fetch_groups_data',fetch_groups_data);
+       _socket.on('update_groupdata',function(group_name){
+         update_groupdata(group_name);
+         groups_data_chart();
+       });
     });
-    
+
 });
 
 
@@ -92,27 +97,33 @@ function fetch_all_products(){
         }) ;
 }
 
+function fetch_groups_data(){
+  const query="select products.p_group as name, count(products.p_id) as total_products, (select sum(bills.total_price) as total_sales from bills where bills.p_group = products.p_group ), min(products.p_name), max(products.p_name)  from products group by products.p_group";
+  pool.query(query,(err,res)=>{
+    if(err){
+      console.log('err on fetch_groups_data function');
+    }else{
+      console.log('result',res.rows);
+      _socket.emit('fetch_groups_data',res.rows);
+    }
+  })
+}
 
+function update_groupdata(group_name){
+  const query = 'SELECT ((select count(*) from bills where p_group = $1 )::float/(COUNT(*))::float) * 100 as percentage, (select sum(total_price) from bills where p_group = $1), (select "name" as heighest_sale from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total where sum = (select max(sum) from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total)), (select "name" as lowest_sale from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total where sum = (select min(sum) from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total) limit 1) from bills ';
+  const values = [""+group_name+""];
+  pool.query(query,values,(err,res)=>{
+    if(err){
+      console.log('err on update_groupdata function',err.stack);
+    }else{
+      console.log('result',res.rows);
+      _socket.emit('update_groupdata',res.rows);
+    }
+  });
 
+}
 
+function groups_data_chart(){
+  const query = "";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

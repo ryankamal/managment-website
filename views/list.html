@@ -267,37 +267,11 @@
 
               <div class="card">
               <div class="card-header no-border">
-                <h4 class="card-title">آخر 10 أصناف مُضافة</h4>
+                <h4 class="card-title">المجموعات</h4>
 
               </div>
               <div class="card-body">
                   <div class="card-block product-groups pt-0">
-                      <div class="product-group">
-                          <p>
-                              sandwich
-                          </p>
-                          <i class="ft-x-square"></i>
-                      </div><div class="product-group">
-                          <p>
-                              sandwich
-                          </p>
-                          <i class="ft-x-square"></i>
-                      </div><div class="product-group">
-                          <p>
-                              sandwich
-                          </p>
-                          <i class="ft-x-square"></i>
-                      </div><div class="product-group">
-                          <p>
-                              sandwich
-                          </p>
-                          <i class="ft-x-square"></i>
-                      </div><div class="product-group">
-                          <p>
-                              sandwich
-                          </p>
-                          <i class="ft-x-square"></i>
-                      </div>
                   </div>
               </div>
             </div>
@@ -389,7 +363,7 @@
                 <div class="col-xs-8">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">قائمة الأصناف</h4>
+                  <h4 class="card-title">تفاصيل المجموعات</h4>
                   <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -401,32 +375,46 @@
                 </div>
                 <div class="card-body collapse in">
                     <div class="card-block card-dashboard" style="padding-top: 0px;">
-                    <table class="table table-striped table-bordered  all_products">
+                    <table class="table table-striped table-bordered groups_data ">
                       <thead>
                         <tr>
-                          <th>كود</th>
-                          <th>الصنف</th>
-                          <th>المجموعة</th>
-                          <th>الكمية المتاحة</th>
-                          <th>سعر التكلفة</th>
-                          <th>سعر البيع</th>
-                          <th>كمية المبيعات</th>
-                          <th>عائد المبيعات</th>
-                          <th>تاريخ الاضافة</th>
+                          <th>
+اسم المجموعة
+                          </th>
+                          <th>
+عدد الأصناف
+                          </th>
+                          <th>
+المبيعات
+                          </th>
+                          <th>
+الاعلى قيمة
+                          </th>
+                          <th>
+الاقل قيمة
+                          </th>
                         </tr>
                       </thead>
-                      <tbody></tbody>
+                      <tbody>
+
+                      </tbody>
                       <tfoot>
                         <tr>
-                          <th>كود</th>
-                          <th>الصنف</th>
-                          <th>المجموعة</th>
-                          <th>الكمية المتاحة</th>
-                          <th>سعر التكلفة</th>
-                          <th>سعر البيع</th>
-                          <th>كمية المبيعات</th>
-                          <th>عائد المبيعات</th>
-                          <th>تاريخ الاضافة</th>
+                          <th>
+اسم المجموعة
+                          </th>
+                          <th>
+عدد الأصناف
+                          </th>
+                          <th>
+المبيعات
+                          </th>
+                          <th>
+الاعلى قيمة
+                          </th>
+                          <th>
+الاقل قيمة
+                          </th>
                         </tr>
                       </tfoot>
                     </table>
@@ -436,20 +424,11 @@
             </div>
                 <div class="col-xs-4 ">
               <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">قائمة الأصناف</h4>
-                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                  <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
                 <div class="card-body collapse in">
                     <div class="card-block card-dashboard" style="padding-top: 0px;">
-
+                      <div id="groups_data_chart" style="height:200px; width:100%">
+                      </div>
+                      <div class="groups_chart_data"></div>
                   </div>
                 </div>
               </div>
@@ -470,6 +449,7 @@
 
         socket.emit('fetch_last_10added');
         socket.emit('fetch_all_products');
+        socket.emit('fetch_groups_data');
 
 
     socket.on('fetch_last_10added',function(data){
@@ -479,14 +459,18 @@
            var product = '<tr><td>'+_data.p_id+'</td><td>'+_data.p_name+'</td><td>'+_data.p_price+'</td></tr>';
            $('.last_10added tbody').append(product);
         });
+
+
+
+
     }).on('fetch_all_products',function(data){
         $('.all_products tbody').empty();
         async.parallel([
             function(callback){
                 $(data).each(function(){
            var _data = JSON.parse(JSON.stringify(this));
-           var product = '<tr><td>'+_data.p_id+'</td><td>'+_data.p_name+'</td><td>'+_data.p_group+'</td><td>'+_data.p_quantity+'</td><td>'+_data.p_cost+'</td><td>'+_data.p_price+'</td><td>'+_data.total_sales_amount+'</td><td>'+_data.total_sales_cash+'</td><td>'+_data.p_created+'</td></tr>';
-           $('.all_products tbody').append(product);
+           var item = '<tr ><td>'+_data.p_id+'</td><td>'+_data.p_name+'</td><td>'+_data.p_group+'</td><td>'+_data.p_quantity+'</td><td>'+_data.p_cost+'</td><td>'+_data.p_price+' جنيه</td><td>'+_data.total_sales_amount+'</td><td>'+_data.total_sales_cash+' جنيه</td><td>'+_data.p_created+'</td></tr>';
+           $('.all_products tbody').append(item);
         });
         callback();
             }
@@ -498,9 +482,58 @@
 
 
 
+    }).on('fetch_groups_data',function(data){
+      $('.groups_data tbody,.product-groups').empty();
+      $(data).each(function(){
+        var _data = JSON.parse(JSON.stringify(this));
+        var item = '<tr data-groupName="'+_data.name+'"><td>'+_data.name+'</td><td>'+_data.total_products+'</td><td>'+_data.total_sales+' جنيه</td><td>'+_data.max+'</td><td>'+_data.min+'</td></tr>';
+        $('.groups_data tbody').append(item);
+
+        var item_2 = '<div class="product-group"><p> '+_data.name+'</p><i class="ft-x-square"></i></div>';
+        $('.product-groups').append(item_2);
+
+
+      })
+
+
+
+    }).on('update_groupdata',function(data){
+      $('.groups_chart_data').empty();
+      var _data = JSON.parse(JSON.stringify(data[0]));
+      var form = '<center><p>  تمثل المجموعة '+parseInt(_data.percentage)+'% من اجمالي الاصناف بمبيعات حوالي '+_data.sum+' جنيه</p></center><table class="table"><tbody><tr><td> العنصر الأعلى مبيعا</td><td> '+_data.heighest_sale+'</td></tr><tr><td> العنصر الأقل مبيعا</td><td>'+_data.lowest_sale+'</td></tr></tbody></table> <button type="button" class="btn btn-secondary float-xs-right">عرض المزيد</button>';
+      $('.groups_chart_data').append(form);
     });
 
 
+
+
+
+    	Morris.Donut({
+    		element: "groups_data_chart",
+    		data: [{
+    			label: "Custard",
+    			value: 25
+    		}, {
+    			label: "Frosted",
+    			value: 40
+    		}, {
+    			label: "Jam",
+    			value: 25
+    		}, {
+    			label: "Sugar",
+    			value: 10
+    		}],
+    		resize: !0,
+    		colors: ["#00A5A8", "#FF7D4D", "#FF4558", "#626E82"]
+    	});
+
+$(document).on('click','.groups_data tbody tr',function(){
+  var group_name = $(this).attr('data-groupName');
+  update_groupdata(group_name);
+});
+function update_groupdata(group_name){
+  socket.emit('update_groupdata',group_name);
+}
 
     });
 
