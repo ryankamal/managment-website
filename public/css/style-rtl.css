@@ -31,7 +31,7 @@ div.dataTables_wrapper div.dataTables_filter label{
     text-align: left;
 }
 .table td, .table th{
-    padding: auto !important; 
+    padding: auto !important;
 }
 /*.footer{
     position: absolute;
@@ -333,6 +333,9 @@ custom-options
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
+}
+.product-groups .product-group:first-of-type{
+  margin-right: 0px;
 }
 .product-groups .product-group p{
     margin: 0px 5px;

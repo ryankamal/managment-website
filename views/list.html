@@ -1,5 +1,24 @@
 
-
+<style>
+.icheck_square [class*=icheckbox_], .icheck_square [class*=iradio_], .skin [class*=icheckbox_], .skin [class*=iradio_]{
+  margin-left: 0px;
+}
+.custom-combobox {
+  position: relative;
+  display: inline-block;
+}
+.custom-combobox-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+}
+.custom-combobox-input {
+  margin: 0;
+  padding: 5px 10px;
+}
+</style>
 <!-- item excel -->
 <div class="modal fade text-xs-left in" id="items_excel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
                             <div class="modal-dialog modal-sm" role="document">
@@ -29,8 +48,9 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary btn-min-width mr-1">تثبيت الأصناف</button>
                                   <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
-                                  <button type="button" class="btn btn-primary btn-min-width">تثبيت الأصناف</button>
+
                                 </div>
                               </div>
                             </div>
@@ -43,7 +63,7 @@
 
 <!-- new manual item -->
 <div class="modal fade text-xs-left in" id="manual_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -52,78 +72,104 @@
                                   <h4 class="modal-title" id="myModalLabel1">اضافة صنف جديد</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="form">
+                                    <form class="form add_new_product">
                       <div class="form-body">
-                        <div class="row">
-                          <div class="form-group col-xs-6 mb-2">
-                            <label for="eventInput1">اسم الصنف</label>
-                            <input type="text" class="form-control" placeholder="اسم الصنف" name="itemname">
-                          </div>
-                          <div class="form-group col-xs-6 mb-2">
-                            <label for="eventInput1">اسم المجموعة</label>
-                            <select class="form-control">
-                                <option>
-                                    سندوتشات
-                                </option>
-                                <option>
-                                    وجبات
-                                </option>
-                                <option>
-                                    مشروبات
-                                </option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="form-group col-xs-12 mb-2">
-                              <div class="form-section flex-fill">
-                                  <p style="margin: 0px"><i class="ft-user"></i> أحجام الصنف</p>
-                                  <button type="button" class="btn btn-outline-secondary btn-sm new_size"> حجم جديد</button>
-                              </div>
-                              <div class="size_section"><div class="list_empty">
-                                  <i class="fa fa-exclamation-circle"></i>
-                                  <p>
-                                      لم تقم بتحديد أي أحجام بعد
-                                  </p>
-                              </div></div>
-
-                          </div>
-                        </div>
+                        <div class="col-md-9">
                           <div class="row">
-                          <div class="form-group col-xs-12 mb-2">
-                              <div class="form-section flex-fill extras_head">
-                                  <p style="margin: 0px"><i class="ft-user"></i> اضافات الصنف</p>
-                                  <fieldset class="form-group extras_engine_input engine_collapsed">
-                      <input type="text" class="form-control" placeholder="ابحث عن الاضافات المتاحة">
-                      <div class="form-control-position">
-                        <i class="ft-x-square danger"></i>
-                      </div>
-                      <div class="extras_engine_result">
+                            <div class="form-group col-xs-6 mb-2">
+                              <label for="item_name">اسم الصنف</label>
+                              <input id="item_name" data-complete="ryan-complete" type="text" class="form-control" placeholder="اسم الصنف" name="product_name">
+                            </div>
+                            <div class="form-group col-xs-6 mb-2">
+                              <label for="item_group">اسم المجموعة</label>
+                              <input id="item_group" data-complete="ryan-complete" type="text" class="form-control" placeholder="اسم المجموعة" name="group_name">
 
-                      </div>
-                    </fieldset>
-                              </div>
-                              <div class="extras_section">
-                                  <div class="list_empty">
-                                  <i class="fa fa-exclamation-circle"></i>
-                                  <p>
-                                      لم تقم بتحديد أي اضافات بعد
-                                  </p>
-                              </div>
-                              </div>
+                            </div>
                           </div>
-                        </div>
                           <div class="row">
-                          <div class="form-group col-xs-12 mb-2">
+                            <div class="form-group col-xs-12 mb-2">
+                                <div class="form-section flex-fill">
+                                    <p style="margin: 0px"><i class="ft-user"></i> أحجام الصنف</p>
+                                    <button type="button" class="btn btn-outline-secondary btn-sm new_size"> حجم جديد</button>
+                                </div>
+                                <div class="size_section"><div class="list_empty">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <p>
+                                        لم تقم بتحديد أي أحجام بعد
+                                    </p>
+                                </div></div>
+
+                            </div>
+                          </div>
+                            <div class="row">
+                            <div class="form-group col-xs-12 mb-2">
+                                <div class="form-section flex-fill extras_head">
+                                    <p style="margin: 0px"><i class="ft-user"></i> اضافات الصنف</p>
+                                    <fieldset class="form-group extras_engine_input engine_collapsed">
+                          <input type="text" class="form-control" placeholder="ابحث عن الاضافات المتاحة">
+                          <div class="form-control-position">
+                          <i class="ft-x-square danger"></i>
+                          </div>
+                          <div class="extras_engine_result">
 
                           </div>
+                          </fieldset>
+                                </div>
+                                <div class="extras_section">
+                                    <div class="list_empty">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <p>
+                                        لم تقم بتحديد أي اضافات بعد
+                                    </p>
+                                </div>
+                                </div>
+                            </div>
+                          </div>
                         </div>
+	<div class="col-md-3">
+    <div class="row">
+      <div class="form-group col-xs-12 mb-2">
+        <label for="eventInput1">
+          الوقت المطلوب لتجهيز الصنف
+        </label>
+        <div id="time_for_prepare"></div>
+        <small name="time_value"> 5 دقايق</small>
+        </div>
+
+        <div class="form-group col-xs-12 mb-2">
+          <label for="eventInput1">
+            أقصى عدد يمكن تجهيزه خلال <span name="time_value"></span>
+          </label>
+          <div id="prepare_at_once"></div>
+          <small name="prepare_value">3 وحدات</small>
+          </div>
+
+
+          <div class="form-group col-xs-12 mb-2  skin skin-line">
+            <label for="eventInput1">
+              طبيعة الكمية المتوفرة
+            </label>
+            <fieldset >
+              <input type="radio" name="input-radio-1" id="input-radio-1" checked>
+              <label for="input-radio-1">غير محدودة</label>
+            </fieldset>
+            <fieldset >
+              <input type="radio" name="input-radio-1" id="input-radio-2">
+              <label for="input-radio-2">محدودة</label>
+            </fieldset>
+          </div>
+
+
+    </div>
+  </div>
+
                       </div>
                     </form>
                                 </div>
                                 <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary btn-min-width mr-1 submit_add_new_product">تثبيت الصنف</button>
                                   <button type="button" class="btn grey btn-outline-secondary cancel_manual_item" data-dismiss="modal">اغلاق</button>
-                                  <button type="button" class="btn btn-primary btn-min-width">تثبيت الصنف</button>
+
                                 </div>
                               </div>
                             </div>
@@ -180,8 +226,9 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary btn-min-width mr-1">تثبيت المجموعة</button>
                                   <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">اغلاق</button>
-                                  <button type="button" class="btn btn-primary btn-min-width">تثبيت المجموعة</button>
+
                                 </div>
                               </div>
                             </div>
@@ -199,12 +246,13 @@
           <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                <li class="breadcrumb-item"><a href="index">الرئيسية</a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">الموارد</a>
                 </li>
                 <li class="breadcrumb-item active">الأصناف
                 </li>
+
               </ol>
             </div>
           </div>
@@ -217,7 +265,7 @@
                               <div class="btn-group">
                             <button type="button" class="btn btn-secondary btn-min-width dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">اضافة صنف جديد</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="list_library.php" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك الاختيار بسهولة من بين مئات الأصناف الموجودة بشكل تلقائي في النظام
+                                <a class="dropdown-item" href="list_library" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك الاختيار بسهولة من بين مئات الأصناف الموجودة بشكل تلقائي في النظام
 " >اختيار من المكتبة</a>
                               <a class="dropdown-item"  data-toggleM="modal" data-target="#manual_item" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك ادخال صنف أو أكثر بشكل يدوي وملأ البيانات حسب رغباتك">ادخال صنف يدوي</a>
                               <a class="dropdown-item" data-toggleM="modal" data-target="#items_excel" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك استيراد العديد من الاصناف دُفعة واحدة من خلال استيراد ملف Excel جاهز
@@ -237,33 +285,42 @@
         <div class="content-body">
             <div class="row">
           <div class="col-xl-8 col-lg-12">
-              <div class="card">
+              <div class="row">
+            <div class="col-xl-6 col-lg-6 col-xs-12">
+              <div class="card bg-danger">
                 <div class="card-body">
                   <div class="card-block">
-                    <div class="row">
-                      <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3">
-                        <div class="float-xs-right pl-2">
-                          <span class="font-large-3 text-bold-300">589</span>
-                        </div>
-                        <div class="float-xs-left mt-2 ml-1">
-                          <span class="blue-grey darken-1 block">اجمالي</span>
-                          <span class="blue-grey darken-1 block">المجموعات</span>
-                        </div>
+                    <div class="media">
+                      <div class="media-body white text-xs-left">
+                        <h2 class="total_groups_number"></h2>
+                        <span>اجمالي المجموعات</span>
                       </div>
-                      <div class="col-lg-6 col-md-6 col-xs-12  ">
-                        <div class="float-xs-left pl-2">
-                          <span class="font-large-3 text-bold-300">765</span>
-                        </div>
-                        <div class="float-xs-right mt-2 ml-1">
-                          <span class="blue-grey darken-1 block">اجمالي</span>
-                          <span class="blue-grey darken-1 block">الأصناف</span>
-                        </div>
+                      <div class="media-right media-middle">
+                        <i class="icon-grid white font-large-2 float-xs-right"></i>
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-xs-12">
+              <div class="card bg-primary">
+                <div class="card-body">
+                  <div class="card-block">
+                    <div class="media">
+                      <div class="media-body white text-xs-left">
+                        <h2 class="total_products_number"></h2>
+                        <span>اجمالي الأصناف</span>
+                      </div>
+                      <div class="media-right media-middle">
+                        <i class="icon-list white font-large-2 float-xs-right"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
               <div class="card">
               <div class="card-header no-border">
@@ -291,7 +348,8 @@
               </div>
               <div class="card-body">
                 <div id="goal-list-scroll" class="table-responsive position-relative ps-container ps-theme-default ps-active-x" data-ps-id="ae819e01-2d0f-4a42-cd34-dc01b79ba1ff">
-                  <table class="table mb-0 last_10added">
+                  <div class="card-block card-dashboard pt-0 pb-0">
+                  <table class="table table-striped table-bordered last_10added">
                     <thead>
                       <tr>
                         <th>كود</th>
@@ -301,12 +359,14 @@
                     </thead>
                     <tbody></tbody>
                   </table>
-                <div class="ps-scrollbar-x-rail" style="width: 471px; left: -1px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 13px; width: 457px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 464px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><div class="ps-scrollbar-x-rail" style="width: 471px; left: -1px; bottom: 3px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 13px; width: 457px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 464px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-            <div class="row">
+
+
+        <section id="products_data">
                 <div class="col-xs-12 col-lg-12">
               <div class="card">
                 <div class="card-header">
@@ -355,11 +415,9 @@
                 </div>
               </div>
             </div>
-            </div>
+</section>
 
-
-
-            <div class="row">
+<scetion id="groups_data">
                 <div class="col-xs-8">
               <div class="card">
                 <div class="card-header">
@@ -433,7 +491,10 @@
                 </div>
               </div>
             </div>
-            </div>
+          </section>
+
+
+
         </div>
     </div>
 </div>
@@ -441,12 +502,12 @@
 
 
 
-@{import('vendors.min.js')};
+@{import('vendors.min.js','custom_plugins/auto_complete.js')};
 <script>
-
+var groups_data_chart ;
 
     $(function(){
-
+        socket.emit('fetch_counts');
         socket.emit('fetch_last_10added');
         socket.emit('fetch_all_products');
         socket.emit('fetch_groups_data');
@@ -478,20 +539,25 @@
    $('.all_products').dataTable({
        info:false
    });
+   $('.total_products_number').text(data.length);
 });
 
 
 
     }).on('fetch_groups_data',function(data){
       $('.groups_data tbody,.product-groups').empty();
-      $(data).each(function(){
+      $(data).each(function(i){
         var _data = JSON.parse(JSON.stringify(this));
         var item = '<tr data-groupName="'+_data.name+'"><td>'+_data.name+'</td><td>'+_data.total_products+'</td><td>'+_data.total_sales+' جنيه</td><td>'+_data.max+'</td><td>'+_data.min+'</td></tr>';
         $('.groups_data tbody').append(item);
 
-        var item_2 = '<div class="product-group"><p> '+_data.name+'</p><i class="ft-x-square"></i></div>';
+        var item_2 = '<div class="product-group bg-danger"><p> '+_data.name+'</p><i class="ft-x-square"></i></div>';
         $('.product-groups').append(item_2);
 
+        if(i == 0){
+          socket.emit('update_groupdata',''+_data.name+'');
+        }
+        $('.total_groups_number').text(data.length);
 
       })
 
@@ -500,40 +566,110 @@
     }).on('update_groupdata',function(data){
       $('.groups_chart_data').empty();
       var _data = JSON.parse(JSON.stringify(data[0]));
-      var form = '<center><p>  تمثل المجموعة '+parseInt(_data.percentage)+'% من اجمالي الاصناف بمبيعات حوالي '+_data.sum+' جنيه</p></center><table class="table"><tbody><tr><td> العنصر الأعلى مبيعا</td><td> '+_data.heighest_sale+'</td></tr><tr><td> العنصر الأقل مبيعا</td><td>'+_data.lowest_sale+'</td></tr></tbody></table> <button type="button" class="btn btn-secondary float-xs-right">عرض المزيد</button>';
+      var form = '<center><p>  تمثل المجموعة '+Math.ceil(_data.percentage)+'% من اجمالي الاصناف بمبيعات حوالي '+_data.sum+' جنيه</p></center><table class="table"><tbody><tr><td> العنصر الأعلى مبيعا</td><td> '+_data.heighest_sale+'</td></tr><tr><td> العنصر الأقل مبيعا</td><td>'+_data.lowest_sale+'</td></tr></tbody></table> <button type="button" class="btn btn-secondary float-xs-right">عرض المزيد</button>';
       $('.groups_chart_data').append(form);
+
+
+
+
+
+    }).on('groups_data_chart',function(data){
+      $('#groups_data_chart').empty();
+      var chart_array = [];
+      $(data).each(function(){
+        var _data = JSON.parse(JSON.stringify(this));
+        var chart_data = {label: ""+_data.label+"", value: ""+Math.ceil((_data.value / _data.total) * 100)+""};
+        chart_array.push(chart_data);
+      });
+      console.log(chart_array);
+        groups_data_chart = Morris.Donut({
+        element: "groups_data_chart",
+        data: chart_array,
+        resize: !0,
+        colors: ["#00A5A8", "#FF7D4D", "#FF4558", "#626E82"]
+      });
+      groups_data_chart.select(0);
+      for(i = 0; i < groups_data_chart.segments.length; i++) {
+        groups_data_chart.segments[i].handlers['hover'].push( function(i){
+          var group_name = groups_data_chart.data[i].label;
+          socket.emit('update_groupdata_only',group_name);
+        });
+      };
     });
 
 
 
 
 
-    	Morris.Donut({
-    		element: "groups_data_chart",
-    		data: [{
-    			label: "Custard",
-    			value: 25
-    		}, {
-    			label: "Frosted",
-    			value: 40
-    		}, {
-    			label: "Jam",
-    			value: 25
-    		}, {
-    			label: "Sugar",
-    			value: 10
-    		}],
-    		resize: !0,
-    		colors: ["#00A5A8", "#FF7D4D", "#FF4558", "#626E82"]
-    	});
+
 
 $(document).on('click','.groups_data tbody tr',function(){
   var group_name = $(this).attr('data-groupName');
-  update_groupdata(group_name);
+  update_groupdata(group_name,$(this).index());
 });
-function update_groupdata(group_name){
+function update_groupdata(group_name,index){
   socket.emit('update_groupdata',group_name);
+  setTimeout(function(){
+    groups_data_chart.select(index);
+  },5);
 }
+
+
+$(document).on('click','.submit_add_new_product',function(){
+  var data = $('.add_new_product').serialize();
+  console.log(data);
+});
+
+
+
+
+var time_for_prepare = document.getElementById('time_for_prepare');
+
+noUiSlider.create(time_for_prepare, {
+  start: get_value_of_precent(60,15),
+  step: 0.5,
+	connect: "lower",
+	range: {
+	  'min': 0,
+	  'max': 60
+	}
+});
+time_for_prepare.noUiSlider.on('update', function ( values, handle ) {
+  $('[name="time_value"]').text(values[handle]+' دقيقة');
+});
+
+
+var prepare_at_once = document.getElementById('prepare_at_once');
+
+noUiSlider.create(prepare_at_once, {
+  start: get_value_of_precent(100,15),
+  step: 1,
+	connect: "lower",
+	range: {
+	  'min': 0,
+	  'max': 100
+	}
+});
+prepare_at_once.noUiSlider.on('update', function ( values, handle ) {
+  $('[name="prepare_value"]').text(values[handle]+' وحدات');
+});
+
+
+$(document).on('keyup','#item_group',function(){
+$(this).auto_complete({
+  data: ['sandwich2','meals2','deserts2','drinks2']
+});
+});
+$(document).on('keyup','#item_name',function(){
+$(this).auto_complete({
+  data: ['burger beef','checkien','7up']
+});
+});
+
+
+
+
+
 
     });
 

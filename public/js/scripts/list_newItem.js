@@ -1,4 +1,4 @@
-/* 
+/*
  * this part has been designed and developed by ryan kamal
  * email: social.ryankamal@gmail.com
  */
@@ -6,12 +6,12 @@
 
 
 /*
- * let`s append a space for new size 
+ * let`s append a space for new size
  */
 
 $(document).on('click','.new_size',function(){
     $('.size_section').find('.list_empty').remove();
-    var option = '<div class="row colored-row option"> <div class="col-xs-5"> <input type="text" class="form-control "  placeholder="اسم الحجم" name="size_name"> </div><div class="col-xs-5"> <input type="text" class="form-control " placeholder="سعر الحجم" name="fullname"> </div><div class="col-xs-2" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button> </div></div>';
+    var option = '<div class="colored-row option"><div class="col-xs-3"> <input type="text" class="form-control " placeholder="اسم الحجم" name="size_name"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-2"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
     $('.size_section').append(option);
     check_options('size_section');
     check_sizes();
@@ -23,18 +23,22 @@ $(document).on('click','.new_size',function(){
  */
 
 $(document).on('click','.option_remove',function(){
-    $(this).parents('.option').remove();
-        check_options('size_section');
-        check_options('extras_section');
-        check_sizes();
+  if($(this).parents().hasClass('size_section')){
+    var name = $(this).parents('.colored-row').find('input[name="size_name"]').val();
+    $('.extras_section').find('[data-size="'+name+'"]').remove();
+  }
+  $(this).parents('.option').remove();
+  check_options('size_section');
+  check_options('extras_section');
+    check_sizes();
 });
 
 
 /*
- * check if lists are empty or not 
+ * check if lists are empty or not
  */
 function check_options(type){
-    var options = $('.'+type+'').find('.row').length;
+    var options = $('.'+type+'').find('.colored-row').length;
     var warning = $('.'+type+'').find('.list_empty').length;
     if(options == 0 && type == 'size_section' && warning < 1){
         var message = '<div class="list_empty"> <i class="fa fa-exclamation-circle"></i> <p> لم تقم بتحديد أي أحجام بعد </p></div>';
@@ -73,7 +77,7 @@ $(document).on('keyup','.extras_engine_input input',function(){
         }else{
             $('.extras_engine_result').css('opacity','1').css('height',''+(options * 30 + 10)+'').css('border','0px 1px 1px 1px solid #ddd');
         }
-        
+
     }else{
         $('.extras_engine_result').empty();
         $('.extras_engine_result').css('opacity','0').css('height','0px');
@@ -89,17 +93,17 @@ $(document).on('click','.extras_engine_result .option',function(){
     var extras_legnth = $('.extras_section').find('.'+name+'').length;
     var sizes = [];
     var current_sizes = [];
-    
+
     for(var i = 0; i < extras_legnth; i++){
         current_sizes.push($('.extras_section').find('.'+name+'').eq(i).data('size'));
     }
-    
+
     if(extras_legnth > 0){
     for(var i = 0; i < sizes_length; i++){
     sizes.push($('.size_section').find('input[name=size_name]').eq(i).val());
-    
+
         if(sizes[i] != current_sizes[i] && extras_legnth != sizes_length && $.trim(sizes[i]) !== ''){
-            var option = '<div class="option '+name+' " data-size="'+sizes[i]+'" ><div class="option_data"><div class="_plus">'+name+'</div><div class="_plus">'+sizes[i]+'</div><input placeholder="السعر" /></div><div class="option_close"><button type="button" class="option_remove" ></button></div></div>';
+            var option = '<div class="colored-row option '+name+'" data-size="'+sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="'+name+'" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
     $('.extras_section').append(option);
         }
     }
@@ -107,14 +111,14 @@ $(document).on('click','.extras_engine_result .option',function(){
         for(var i = 0; i < sizes_length; i++){
     sizes.push($('.size_section').find('input[name=size_name]').eq(i).val());
     if($.trim(sizes[i]) !== ''){
-    var option = '<div class="row colored-row option '+name+'" data-size="'+sizes[i]+'"> <div class="col-xs-3"> <input type="text" class="form-control " value = "'+name+'"  name="extra_name" disabled >  </div> <div class="col-xs-3"> <input type="text" class="form-control " value = "'+sizes[i]+'"  name="size_name" disabled >  </div> <div class="col-xs-4"> <input type="text" class="form-control " placeholder="سعر الاضافة" name="extra_price"> </div><div class="col-xs-2" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button> </div></div>';
+    var option = '<div class="colored-row option '+name+'" data-size="'+sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="'+name+'" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
             $('.extras_section').append(option);
             $('.extras_section').find('.list_empty').remove();
         }
     }
     }
-    
-    
+
+
     $('.extras_engine_result').empty();
     $('.extras_engine_result').css('opacity','0').css('height','0px');
     $('.extras_engine_input input').val('');

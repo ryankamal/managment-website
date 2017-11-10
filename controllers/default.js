@@ -52,6 +52,9 @@ F.on('load',function(){
          update_groupdata(group_name);
          groups_data_chart();
        });
+       _socket.on('update_groupdata_only',function(group_name){
+         update_groupdata(group_name);
+       });
     });
 
 });
@@ -73,6 +76,13 @@ var pool = new Pool({
 /*
  * products list page functions
  */
+
+function fetch_counts(){
+  const query="";
+}
+
+
+
 function fetch_last_10added() {
         const query = "select * from products";
         pool.query(query,(err,res)=>{
@@ -98,7 +108,7 @@ function fetch_all_products(){
 }
 
 function fetch_groups_data(){
-  const query="select products.p_group as name, count(products.p_id) as total_products, (select sum(bills.total_price) as total_sales from bills where bills.p_group = products.p_group ), min(products.p_name), max(products.p_name)  from products group by products.p_group";
+  const query="select p_out.p_group as name, count(p_out.p_id) as total_products,(select sum(bills.total_price) as total_sales from bills where bills.p_group = p_out.p_group ),max(p_out.p_name) as max,min(p_out.p_name) as min from products p_out group by p_out.p_group";
   pool.query(query,(err,res)=>{
     if(err){
       console.log('err on fetch_groups_data function');
@@ -110,7 +120,7 @@ function fetch_groups_data(){
 }
 
 function update_groupdata(group_name){
-  const query = 'SELECT ((select count(*) from bills where p_group = $1 )::float/(COUNT(*))::float) * 100 as percentage, (select sum(total_price) from bills where p_group = $1), (select "name" as heighest_sale from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total where sum = (select max(sum) from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total)), (select "name" as lowest_sale from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total where sum = (select min(sum) from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total) limit 1) from bills ';
+  const query = 'SELECT ((select count(*) from products where p_group = $1  )::float/(COUNT(*))) * 100 as percentage, (select sum(total_price) from bills where p_group = $1), (select "name" as heighest_sale from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total where sum = (select max(sum) from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total)), (select "name" as lowest_sale from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total where sum = (select min(sum) from (select "name" , sum(total_price) from bills where p_group = $1 group by "name") as total) limit 1) from products ';
   const values = [""+group_name+""];
   pool.query(query,values,(err,res)=>{
     if(err){
@@ -124,6 +134,14 @@ function update_groupdata(group_name){
 }
 
 function groups_data_chart(){
-  const query = "";
+  const query = "select p_group as label, count(*) as value , (select count(*) as total from products )  from products group by p_group";
+  pool.query(query,(err,res)=>{
+    if(err){
+      console.log('error on groups_data_chart',err.stack);
+    }else{
+      console.log('result',res.rows);
+      _socket.emit('groups_data_chart',res.rows);
+    }
+  });
 
 }
