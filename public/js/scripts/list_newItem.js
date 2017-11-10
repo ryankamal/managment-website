@@ -11,10 +11,17 @@
 
 $(document).on('click','.new_size',function(){
     $('.size_section').find('.list_empty').remove();
-    var option = '<div class="colored-row option"><div class="col-xs-3"> <input type="text" class="form-control " placeholder="اسم الحجم" name="size_name"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-2"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+    var option = '<div class="colored-row option"><div class="col-xs-1 skin skin-flat"><fieldset> <input name="select_option" type="checkbox" id="input-15"></fieldset></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="اسم الحجم" name="size_name"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
     $('.size_section').append(option);
     check_options('size_section');
     check_sizes();
+    $(".skin-flat input").iCheck({
+		checkboxClass: "icheckbox_flat-green",
+		radioClass: "iradio_flat-green"
+	});
+  $('input[name="select_option"]').on('ifToggled', function(){
+    $(this).parents('.option').toggleClass('option_selected');
+  });
 });
 
 
@@ -30,7 +37,7 @@ $(document).on('click','.option_remove',function(){
   $(this).parents('.option').remove();
   check_options('size_section');
   check_options('extras_section');
-    check_sizes();
+  check_sizes();
 });
 
 
@@ -89,7 +96,7 @@ $(document).on('keyup','.extras_engine_input input',function(){
 
 $(document).on('click','.extras_engine_result .option',function(){
     var name = $(this).data('name');
-    var sizes_length = $('.size_section').find('.option').length;
+    var sizes_length = $('.size_section').find('.option.option_selected').length;
     var extras_legnth = $('.extras_section').find('.'+name+'').length;
     var sizes = [];
     var current_sizes = [];
@@ -100,7 +107,7 @@ $(document).on('click','.extras_engine_result .option',function(){
 
     if(extras_legnth > 0){
     for(var i = 0; i < sizes_length; i++){
-    sizes.push($('.size_section').find('input[name=size_name]').eq(i).val());
+    sizes.push($('.size_section').find('.option_selected input[name=size_name]').eq(i).val());
 
         if(sizes[i] != current_sizes[i] && extras_legnth != sizes_length && $.trim(sizes[i]) !== ''){
             var option = '<div class="colored-row option '+name+'" data-size="'+sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="'+name+'" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
@@ -109,7 +116,7 @@ $(document).on('click','.extras_engine_result .option',function(){
     }
     }else{
         for(var i = 0; i < sizes_length; i++){
-    sizes.push($('.size_section').find('input[name=size_name]').eq(i).val());
+    sizes.push($('.size_section').find('.option_selected input[name=size_name]').eq(i).val());
     if($.trim(sizes[i]) !== ''){
     var option = '<div class="colored-row option '+name+'" data-size="'+sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="'+name+'" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
             $('.extras_section').append(option);
