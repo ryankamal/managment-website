@@ -226,7 +226,7 @@
                             <div class="row">
                           <div class="col-md-12">
                       <div class="float-xs-right">
-                        <input type="checkbox" name="" id="salary_field" data-target="salary" class="switchery"/>
+                        <input type="checkbox" name="salary_edit" id="salary_field" data-target="salary" class="switchery"/>
                       </div>
                       <label for="salary_field" class="font-medium-2 ">تعديل المرتب</label>
                           <div class="salary">
@@ -298,77 +298,61 @@
 </div>
 @{import('vendors.min.js')};
 <script>
-$(document).on('change','input[name="salary_edit"]',function(){
-    debugger;
-alert('ssss');
-var form_length = $('.salary-form').length;
-if($('input[name="salary_edit"]:checked').val() == 'increase'){
-    var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
-    if(form_length < 1){
-       $('.salary_form').append(form);
-   }else{
-      $('.salary_form').empty();
-      $('.salary_form').append(form);
-   }
-}else if($('input[name="salary_edit"]:checked').val() == 'decrease'){
-    var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
-    if(form_length < 1){
-       $('.salary_form').append(form);
-   }else{
-       $('.salary_form').empty();
-       $('.salary_form').append(form);
-   }
-}
+
+$(document).on('change','.switchery',function(){
+    var target = $(this).data('target');
+        if($(this).is(':checked')){
+            $('.'+target).fadeIn(500);
+        }else{
+            $('.'+target).fadeOut(500);
+        }
 });
 
-
-$(document).on('keyup','.job-duties input',function(e){
-var code = (e.keyCode ? e.keyCode : e.which );
-var value = $(this).val();
-var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
-var form = '<ul class="duties-options"><p class="title">قائمة المهام الوظيفية :</p>'+option+'</ul>';
-var form_length = $('.job-duties ul.duties-options').length;
-if (code == 13) { //Enter keycode
-    if(form_length < 1 && $.trim(value) !== ''){
-        $(form).insertAfter('.job-duties input');
-    }else if(form_length >= 1 && $.trim(value) !== ''){
-        $('.job-duties ul.duties-options').append(option);
+$(document).on('click','.new_experience',function(){
+    var form = '<div class="row"><hr> <div class="form-group col-md-8"> <label for="eventRegInput4">مقر العمل السابق</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="مقر العمل السابق" name=""> </div><div class="form-group col-md-4"> <label for="eventRegInput4">سنوات الخبرة</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+    $(''+form+'').insertBefore('.experience_tools');
+    $('.touchspin').TouchSpin();
+    if($('.experience_tools').find('.remove_last').length < 1){
+        var remove_last = '<button type="button" class="btn btn-danger btn-sm remove_last ">حذف الأخيرة</button>';
+        $('.experience_tools').prepend(remove_last);
     }
-    $('.job-duties input').val('');
-}
 });
 
-
-$(document).on('click','.job-duties ul.duties-options li button',function(){
-$(this).parents('li').remove();
-var options = $('.job-duties ul.duties-options li').length;
-if(options < 1){
-    $('ul.duties-options').remove();
-}
-});
-
-
-$(document).on('keyup','.job-documents input',function(e){
-var code = (e.keyCode ? e.keyCode : e.which );
-var value = $(this).val();
-var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
-var form = '<ul class="documents-options"><p class="title">قائمة المستندات المطلوبة :</p>'+option+'</ul>';
-var form_length = $('.job-documents ul.documents-options').length;
-if (code == 13) { //Enter keycode
-    if(form_length < 1 && $.trim(value) !== ''){
-        $(form).insertAfter('.job-documents input');
-    }else if(form_length >= 1 && $.trim(value) !== ''){
-        $('.job-documents ul.documents-options').append(option);
+$(document).on('click','.remove_last',function(){
+    if($('.experience .row').length > 1){
+       $('.experience').find('.row:last').remove();
+       if($('.experience .row').length == 1){
+           $('.remove_last').remove();
+       }
     }
-    $('.job-documents input').val('');
-}
 });
 
-$(document).on('click','.job-documents ul.documents-options li button',function(){
-$(this).parents('li').remove();
-var options = $('.job-documents ul.documents-options li').length;
-if(options < 1){
-    $('ul.documents-options').remove();
-}
+
+$(document).on('mouseup','.salary .skin fieldset',function(){
+    var _action = $(this).find('input[name="salary_edit"]').val();
+    var form_length = $('.salary-form').length;
+    $(this).find('label').click();
+    if( _action == 'increase'){
+        var form = '<div class="row salary-form increase"> <div class="form-group col-md-8"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-4"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+        var form_type = $('.increase').length;
+    if(form_length < 1){
+           $('.salary_form').append(form);
+       }else if (form_length >= 1 && form_type !== 1){
+           $('.salary_form').empty();
+           $('.salary_form').append(form);
+       }
+       $('.touchspin').TouchSpin();
+    }else if(_action == 'decrease'){
+        var form = '<div class="row salary-form decrease"> <div class="form-group col-md-8"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-4"> <label for="eventRegInput4">قيمة الخفض</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+        var form_type = $('.decrease').length;
+    if(form_length < 1){
+           $('.salary_form').append(form);
+       }else if (form_length >= 1 && form_type !== 1){
+           $('.salary_form').empty();
+           $('.salary_form').append(form);
+       }
+       $('.touchspin').TouchSpin();
+    }
 });
+
 </script>
