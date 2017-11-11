@@ -187,7 +187,7 @@ width: 100%;
     background-color: white;
     margin: 4px;
     border-radius: 3px;
-    border: 1px solid #ddd;
+    border: 1px solid #d0d4dc;
     transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
     cursor: pointer;
     overflow: hidden;
@@ -197,6 +197,7 @@ width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+        overflow: hidden;
 }
 .library_item > .item_icon > img {
     width: 65px;
@@ -204,8 +205,7 @@ width: 100%;
     transition: 0.2s;
 }
 .library_item > .item_name {
-    height: calc(25% - 1px);
-    border-top: 1px solid #ddd;
+    height: 25%;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -213,7 +213,7 @@ width: 100%;
 }
 
 .library_item:hover .item_name {
-    background-color: #ddd;
+    background-color: #f5f7fa;
     -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     border-color: #F5F7FA;
