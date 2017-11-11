@@ -296,4 +296,79 @@
         </div>
     </div>
 </div>
-@{import('vendors.min.js','custom_plugins/auto_complete.js')};
+@{import('vendors.min.js')};
+<script>
+$(document).on('change','input[name="salary_edit"]',function(){
+    debugger;
+alert('ssss');
+var form_length = $('.salary-form').length;
+if($('input[name="salary_edit"]:checked').val() == 'increase'){
+    var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+    if(form_length < 1){
+       $('.salary_form').append(form);
+   }else{
+      $('.salary_form').empty();
+      $('.salary_form').append(form);
+   }
+}else if($('input[name="salary_edit"]:checked').val() == 'decrease'){
+    var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+    if(form_length < 1){
+       $('.salary_form').append(form);
+   }else{
+       $('.salary_form').empty();
+       $('.salary_form').append(form);
+   }
+}
+});
+
+
+$(document).on('keyup','.job-duties input',function(e){
+var code = (e.keyCode ? e.keyCode : e.which );
+var value = $(this).val();
+var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
+var form = '<ul class="duties-options"><p class="title">قائمة المهام الوظيفية :</p>'+option+'</ul>';
+var form_length = $('.job-duties ul.duties-options').length;
+if (code == 13) { //Enter keycode
+    if(form_length < 1 && $.trim(value) !== ''){
+        $(form).insertAfter('.job-duties input');
+    }else if(form_length >= 1 && $.trim(value) !== ''){
+        $('.job-duties ul.duties-options').append(option);
+    }
+    $('.job-duties input').val('');
+}
+});
+
+
+$(document).on('click','.job-duties ul.duties-options li button',function(){
+$(this).parents('li').remove();
+var options = $('.job-duties ul.duties-options li').length;
+if(options < 1){
+    $('ul.duties-options').remove();
+}
+});
+
+
+$(document).on('keyup','.job-documents input',function(e){
+var code = (e.keyCode ? e.keyCode : e.which );
+var value = $(this).val();
+var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
+var form = '<ul class="documents-options"><p class="title">قائمة المستندات المطلوبة :</p>'+option+'</ul>';
+var form_length = $('.job-documents ul.documents-options').length;
+if (code == 13) { //Enter keycode
+    if(form_length < 1 && $.trim(value) !== ''){
+        $(form).insertAfter('.job-documents input');
+    }else if(form_length >= 1 && $.trim(value) !== ''){
+        $('.job-documents ul.documents-options').append(option);
+    }
+    $('.job-documents input').val('');
+}
+});
+
+$(document).on('click','.job-documents ul.documents-options li button',function(){
+$(this).parents('li').remove();
+var options = $('.job-documents ul.documents-options li').length;
+if(options < 1){
+    $('ul.documents-options').remove();
+}
+});
+</script>
