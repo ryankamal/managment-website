@@ -5,24 +5,42 @@
 
 
 
-/*
- * let`s append a space for new size
- */
+ /*
+  * let`s append a space for new size
+  */
 
-$(document).on('click','.new_size',function(){
-    $('.size_section').find('.list_empty').remove();
-    var option = '<div class="colored-row option"><div class="col-xs-1 skin skin-flat"><fieldset> <input name="select_option" type="checkbox" id="input-15"></fieldset></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="اسم الحجم" name="size_name"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
-    $('.size_section').append(option);
-    check_options('size_section');
-    check_sizes();
-    $(".skin-flat input").iCheck({
-		checkboxClass: "icheckbox_flat-green",
-		radioClass: "iradio_flat-green"
-	});
-  $('input[name="select_option"]').on('ifToggled', function(){
-    $(this).parents('.option').toggleClass('option_selected');
-  });
-});
+ $(document).on('click','.new_size',function(){
+     $('.size_section').find('.list_empty').remove();
+     var option = '<div class="colored-row option"><div class="col-xs-1 skin skin-flat"><fieldset> <input name="select_option" type="checkbox" id="input-15"></fieldset></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="اسم الحجم" name="size_name"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+     $('.size_section').append(option);
+     check_options('size_section');
+     check_sizes();
+     $(".skin-flat input").iCheck({
+ 		checkboxClass: "icheckbox_flat-green",
+ 		radioClass: "iradio_flat-green"
+ 	});
+   $('input[name="select_option"]').on('ifToggled', function(){
+     $(this).parents('.option').toggleClass('option_selected');
+   });
+ });
+
+
+
+ /*
+  * let`s append a space for new taste
+  */
+
+ $(document).on('click','.new_taste',function(){
+   var sizes_length = $('.size_section').find('.option.option_selected').length;
+   var sizes = [];
+   var current_sizes = [];
+   for(var i = 0; i < extras_legnth; i++){
+       current_sizes.push($('.taste_section').find('.'+name+'').eq(i).data('size'));
+   }
+ });
+
+
+
 
 
 /*
@@ -104,7 +122,6 @@ $(document).on('click','.extras_engine_result .option',function(){
     for(var i = 0; i < extras_legnth; i++){
         current_sizes.push($('.extras_section').find('.'+name+'').eq(i).data('size'));
     }
-
     if(extras_legnth > 0){
     for(var i = 0; i < sizes_length; i++){
     sizes.push($('.size_section').find('.option_selected input[name=size_name]').eq(i).val());
@@ -124,8 +141,6 @@ $(document).on('click','.extras_engine_result .option',function(){
         }
     }
     }
-
-
     $('.extras_engine_result').empty();
     $('.extras_engine_result').css('opacity','0').css('height','0px');
     $('.extras_engine_input input').val('');

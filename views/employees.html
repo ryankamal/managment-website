@@ -72,7 +72,7 @@
           <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                <li class="breadcrumb-item"><a href="index">الرئيسية</a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
                 </li>
@@ -86,20 +86,20 @@
         <div class="content-header-right col-md-6 col-xs-12">
             <div class="form-group" style="text-align: left">
                           <!-- button group -->
-                          
+
                           <div class="btn-group" role="group" aria-label="Basic example">
                               <div class="btn-group">
                             <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="employees_times.php">الحضور والانصراف</a>
-                                <a class="dropdown-item" href="vacations.php">الأجازات</a>
+                                <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
+                                <a class="dropdown-item" href="vacations">الأجازات</a>
                               <a class="dropdown-item" href="#">المرتبات</a>
                               <a class="dropdown-item" href="#">المكافئات</a>
                               <a class="dropdown-item" href="#">التقييمات</a>
                             </div>
                           </div>
                             <button type="button" class="btn btn-secondary" data-toggleM="modal" data-target="#new_vacancy">ادراج مُسمى وظيفي</button>
-                            <a href="employee_profile.php"  class="btn btn-secondary">ادراج موظف جديد</a>
+                            <a href="employee_profile"  class="btn btn-secondary">ادراج موظف جديد</a>
                           </div>
                         </div>
         </div>
@@ -164,41 +164,41 @@
         </div>
     </div>
 </div>
-
+@{import('vendors.min.js','custom_plugins/auto_complete.js')};
 <script>
-    
-    
-  
-    
-    
-    
-    
-    
-    
-//    $(document).on('change','input[name="salary_edit"]',function(){
-//        debugger;
-//    alert('ssss');
-//    var form_length = $('.salary-form').length;
-//    if($('input[name="salary_edit"]:checked').val() == 'increase'){
-//        var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
-//        if(form_length < 1){
-//           $('.salary_form').append(form);
-//       }else{
-//           $('.salary_form').empty();
-//           $('.salary_form').append(form);
-//       }
-//    }else if($('input[name="salary_edit"]:checked').val() == 'decrease'){
-//        var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
-//        if(form_length < 1){
-//           $('.salary_form').append(form);
-//       }else{
-//           $('.salary_form').empty();
-//           $('.salary_form').append(form);
-//       }
-//    }
-//});
-    
-    
+
+
+
+
+
+
+
+
+
+    $(document).on('change','input[name="salary_edit"]',function(){
+        debugger;
+    alert('ssss');
+    var form_length = $('.salary-form').length;
+   if($('input[name="salary_edit"]:checked').val() == 'increase'){
+        var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+        if(form_length < 1){
+           $('.salary_form').append(form);
+       }else{
+          $('.salary_form').empty();
+          $('.salary_form').append(form);
+       }
+    }else if($('input[name="salary_edit"]:checked').val() == 'decrease'){
+        var form = '<div class="row salary-form"> <div class="form-group col-md-6"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-6"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+        if(form_length < 1){
+           $('.salary_form').append(form);
+       }else{
+           $('.salary_form').empty();
+           $('.salary_form').append(form);
+       }
+    }
+});
+
+
     $(document).on('keyup','.job-duties input',function(e){
     var code = (e.keyCode ? e.keyCode : e.which );
     var value = $(this).val();
