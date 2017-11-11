@@ -32,12 +32,22 @@
 
  $(document).on('click','.new_taste',function(){
    var sizes_length = $('.size_section').find('.option.option_selected').length;
-   var taste_length = $('.taste_length').find('.option').length;
-   var sizes = [];
+   var tastes_length = $('.taste_section').find('.option').length;
+   var selected_sizes = [];
    var current_sizes = [];
-   for(var i = 0; i < extras_legnth; i++){
-       current_sizes.push($('.taste_section').find('.'+name+'').eq(i).data('size'));
+   
+   if(sizes_length > 0){
+     for(var i = 0; i < sizes_length; i++){
+     selected_sizes.push($('.size_section').find('.option_selected input[name=size_name]').eq(i).val());
+
+         if($.trim(selected_sizes[i]) !== ''){
+             var option = '<div class="colored-row option " data-size="'+selected_sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(selected_sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+     $('.taste_section').append(option);
+         }
+     }
    }
+   check_options('taste_section');
+
  });
 
 
