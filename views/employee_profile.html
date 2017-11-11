@@ -1,4 +1,4 @@
-
+@{import('custom_plugins/image_upload.css')};
 
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
@@ -26,30 +26,27 @@
         <div class="content-body">
             <div class="row">
                 <div class="col-md-4 mb-1">
-                    <input type="file" id="employee-profile-img" hidden="" />
-                    <label for="employee-profile-img">
-                    <div class="col-md-12 pl-0 pr-0 mb-1 employee-profile-img cursor-pointer">
-                        <div class="profile-img-upload"><i class="ft-upload"></i>الصورة الشخصية</div>
-<!--                            <img class="img-thumbnail img-fluid" src="app-assets/images/gallery/2.jpg" alt="employee profile image">-->
-                    </div>
-                    </label>
-                    <div class="dropdown-menu" style="display: block; position: static; width: 100%; margin-top: 0; float: none;">
-                      <button class="dropdown-item" type="button">الترقية أو تعديل المرتب</button>
-                      <button class="dropdown-item" type="button">الخصومات و الجزاءات</button>
-                      <button class="dropdown-item" type="button">التقييمات والتوصيات</button>
-                      <button class="dropdown-item" type="button">الحضور والانصراف</button>
-                      <button class="dropdown-item" type="button">الأجازات</button>
-                      <button class="dropdown-item" type="button">المكافئات</button>
-                      <div class="dropdown-divider"></div>
-                      <div class="dropdown-submenu">
-                        <button class="dropdown-item" type="button">More Options</button>
-                        <div class="dropdown-menu" role="menu">
-                          <button class="dropdown-item" type="button">Submenu Item</button>
-                          <button class="dropdown-item" type="button">Submenu Item</button>
-                          <button class="dropdown-item" type="button">Submenu Item</button>
+                    <div class="col-md-12 mb-2 image_element"></div>
+                    <div class="col-md-12">
+                      <div class="dropdown-menu" style="display: block; position: static; width: 100%; margin-top: 0; float: none;">
+                        <button class="dropdown-item" type="button">الترقية أو تعديل المرتب</button>
+                        <button class="dropdown-item" type="button">الخصومات و الجزاءات</button>
+                        <button class="dropdown-item" type="button">التقييمات والتوصيات</button>
+                        <button class="dropdown-item" type="button">الحضور والانصراف</button>
+                        <button class="dropdown-item" type="button">الأجازات</button>
+                        <button class="dropdown-item" type="button">المكافئات</button>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-submenu">
+                          <button class="dropdown-item" type="button">More Options</button>
+                          <div class="dropdown-menu" role="menu">
+                            <button class="dropdown-item" type="button">Submenu Item</button>
+                            <button class="dropdown-item" type="button">Submenu Item</button>
+                            <button class="dropdown-item" type="button">Submenu Item</button>
+                          </div>
                         </div>
                       </div>
                     </div>
+
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -296,7 +293,7 @@
         </div>
     </div>
 </div>
-@{import('vendors.min.js')};
+@{import('vendors.min.js','custom_plugins/image_upload.js')};
 <script>
 
 $(document).on('change','.switchery',function(){
@@ -353,6 +350,15 @@ $(document).on('mouseup','.salary .skin fieldset',function(){
        }
        $('.touchspin').TouchSpin();
     }
+});
+
+$(document).ready(function(){
+  $('.image_element').image_upload({
+    name: 'item_image',
+    background: '#FFF',
+    height:'150px',
+    width:'60%'
+  });
 });
 
 </script>

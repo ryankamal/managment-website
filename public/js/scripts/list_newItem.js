@@ -31,20 +31,22 @@
   */
 
  $(document).on('click','.new_taste',function(){
+   $('.taste_section').find('.list_empty').remove();
    var sizes_length = $('.size_section').find('.option.option_selected').length;
    var tastes_length = $('.taste_section').find('.option').length;
    var selected_sizes = [];
-   var current_sizes = [];
-   
    if(sizes_length > 0){
      for(var i = 0; i < sizes_length; i++){
      selected_sizes.push($('.size_section').find('.option_selected input[name=size_name]').eq(i).val());
 
          if($.trim(selected_sizes[i]) !== ''){
-             var option = '<div class="colored-row option " data-size="'+selected_sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(selected_sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+             var option = '<div class="colored-row option " data-size="'+selected_sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="" name="taste_name" ></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(selected_sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
      $('.taste_section').append(option);
          }
      }
+   }else{
+     var option = '<div class="colored-row option " "><div class="col-xs-3"> <input type="text" class="form-control " value="" name="taste_name" ></div><div class="col-xs-2"> <input type="text" class="form-control " value="public" name="taste_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+$('.taste_section').append(option);
    }
    check_options('taste_section');
 
@@ -66,6 +68,7 @@ $(document).on('click','.option_remove',function(){
   $(this).parents('.option').remove();
   check_options('size_section');
   check_options('extras_section');
+  check_options('taste_section');
   check_sizes();
 });
 
@@ -77,11 +80,14 @@ function check_options(type){
     var options = $('.'+type+'').find('.colored-row').length;
     var warning = $('.'+type+'').find('.list_empty').length;
     if(options == 0 && type == 'size_section' && warning < 1){
-        var message = '<div class="list_empty"> <i class="fa fa-exclamation-circle"></i> <p> لم تقم بتحديد أي أحجام بعد </p></div>';
+        var message = '<div class="list_empty"> <i class="ft-alert-circle"></i> <p> لم تقم بتحديد أي أحجام بعد </p></div>';
         $('.'+type+'').append(message);
     }else if(options == 0 && type == 'extras_section' && warning < 1){
-        var message = '<div class="list_empty"> <i class="fa fa-exclamation-circle"></i> <p> لم تقم بتحديد أي اضافات بعد </p></div>';
+        var message = '<div class="list_empty"> <i class="ft-alert-circle"></i> <p> لم تقم بتحديد أي اضافات بعد </p></div>';
         $('.'+type+'').append(message);
+    }else if(options == 0 && type == 'taste_section' && warning < 1){
+      var message = '<div class="list_empty"> <i class="ft-alert-circle"></i> <p> لم تقم بتحديد أي مذاقات بعد</p></div>';
+      $('.'+type+'').append(message);
     }
 }
 
