@@ -250,13 +250,13 @@
                                 <hr>
                                 <div class="row">
                               <div class="col-md-12">
-                          <div class="float-xs-right">
+                          <div class="float-xs-right medical-btn">
                             <input type="checkbox" name="" id="medical_field" data-target="medical" class="switchery"/>
                           </div>
                           <label for="medical_field" class="font-medium-2">الشهادة الصحية</label>
                                   <div class="medical" >
                                   <div class=" row mt-1">
-                                <div class="form-group col-md-8 medical-float">
+                                <div class="form-group col-md-8 medical-float medical-attach">
                                   <label class="custom-file center-block block">
                                     <input type="file" id="file" class="custom-file-input">
                                     <span class="custom-file-control"></span>
@@ -266,7 +266,7 @@
                               </div>
                               </div>
                             </div>
-                            <hr>        
+                            <hr>
                             <div class="row">
                           <div class="col-md-12 mb-1 pl-0 pr-0" >
                               <div class="col-md-4">
@@ -354,6 +354,13 @@ $(document).on('click','.remove_last',function(){
        }
     }
 });
+
+$(.medical-btn).on('click', function () {
+
+  'use strict';
+  $(.medical-attach).show();
+
+})
 
 $(document).on('mouseup','.salary .skin fieldset',function(){
     var _action = $(this).find('input[name="salary_edit"]').val();

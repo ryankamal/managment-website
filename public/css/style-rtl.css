@@ -359,3 +359,7 @@ custom-options
 .medical-float {
   float: left;
 }
+
+.medical-attach {
+  display: none;
+}
