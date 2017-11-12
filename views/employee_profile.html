@@ -336,12 +336,13 @@ $(document).on('click','.new_experience',function(){
     }
 });
 
-$(document).on('click','.remove_last',function(){
-    if($('.medical .row').length > 1){
-       $('.medical').find('.row:last').remove();
-       if($('.medical .row').length == 1){
-           $('.remove_last').remove();
-       }
+$(document).on('click','.new_medical',function(){
+    var form = '<div class="row"><hr> <div class="form-group col-md-8"> <label for="eventRegInput4">مقر العمل السابق</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="مقر العمل السابق" name=""> </div><div class="form-group col-md-4"> <label for="eventRegInput4">سنوات الخبرة</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+    $(''+form+'').insertBefore('.medical_tools');
+    $('.touchspin').TouchSpin();
+    if($('.medical_tools').find('.remove_last').length < 1){
+        var remove_last = '<button type="button" class="btn btn-danger btn-sm remove_last ">حذف الأخيرة</button>';
+        $('.medical_tools').prepend(remove_last);
     }
 });
 
@@ -354,6 +355,14 @@ $(document).on('click','.remove_last',function(){
     }
 });
 
+$(document).on('click','.remove_last',function(){
+    if($('.medical .row').length > 1){
+       $('.medical').find('.row:last').remove();
+       if($('.medical .row').length == 1){
+           $('.remove_last').remove();
+       }
+    }
+});
 
 $(document).on('mouseup','.salary .skin fieldset',function(){
     var _action = $(this).find('input[name="salary_edit"]').val();
