@@ -346,22 +346,6 @@ $(document).on('click','.remove_last',function(){
     }
 });
 
-$(document).on('click','.remove_last',function(){
-    if($('.medical .row').length > 1){
-       $('.medical').find('.row:last').remove();
-       if($('.medical .row').length == 1){
-           $('.remove_last').remove();
-       }
-    }
-});
-
-$(.medicalbtn .switchery).on('click', function () {
-
-  'use strict';
-  $(.medicalattach).show();
-
-});
-
 $(document).on('mouseup','.salary .skin fieldset',function(){
     var _action = $(this).find('input[name="salary_edit"]').val();
     var form_length = $('.salary-form').length;
