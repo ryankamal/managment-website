@@ -379,23 +379,36 @@ border-radius: 3px;
 * list_library deign
 */
 
-.preview_item_image{
+.preview_item_header{
   width: 108%;
   height: 130px;
   margin-right: -14.5px;
-  margin-top: -15px;
-  background-image: -webkit-gradient(linear,right top,left top,from(#06a2a5),to(#70e2e4));
-  background-image: -webkit-linear-gradient(right,#06a2a5 0,#70e2e4 100%);
-  background-image: -moz-linear-gradient(right,#06a2a5 0,#70e2e4 100%);
-  background-image: -o-linear-gradient(right,#06a2a5 0,#70e2e4 100%);
-  background-image: linear-gradient(to left,#06a2a5 0,#70e2e4 100%);
-  background-repeat: repeat-x;
-
+  margin-top: -15px
 }
-.preview_item_items{
+.preview_item_header .header_data{
+  width: 100%;
+    height: 100%;
+    background-image: url('/images/carousel/sandwich.png');
+    background-size: 40% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.preview_item_header .header_data .header_words{
+  width: 60%;
+height: auto;
+max-height: 100%;
+background: #00000021;
+color: #fff;
+padding: 5px;
+margin-right: -10px;
+}
+.preview_item_list{
   padding: 10px 0px;
 }
-.preview_item_items span{
+.preview_item_list span{
   padding: 0px 10px;
   background-color: #09979a24;
   color: #0cb1b4;
