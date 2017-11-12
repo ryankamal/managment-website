@@ -337,6 +337,15 @@ $(document).on('click','.new_experience',function(){
 });
 
 $(document).on('click','.remove_last',function(){
+    if($('.medical .row').length > 1){
+       $('.medical').find('.row:last').remove();
+       if($('.medical .row').length == 1){
+           $('.remove_last').remove();
+       }
+    }
+});
+
+$(document).on('click','.remove_last',function(){
     if($('.experience .row').length > 1){
        $('.experience').find('.row:last').remove();
        if($('.experience .row').length == 1){
