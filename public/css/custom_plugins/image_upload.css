@@ -13,10 +13,10 @@ justify-content: center;
 align-items: center;
 background: #f5f7fa;
 border-radius: 50%;
-border: 1px solid #d0d4dc;
 font-size: 30px;
 margin: 0px;
 cursor: pointer;
+box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.07), 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
 .image_upload label i{
 transition: 0.3s linear
