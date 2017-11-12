@@ -76,13 +76,6 @@ var pool = new Pool({
 /*
  * products list page functions
  */
-
-function fetch_counts(){
-  const query="";
-}
-
-
-
 function fetch_last_10added() {
         const query = "select * from products";
         pool.query(query,(err,res)=>{
