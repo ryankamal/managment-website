@@ -355,3 +355,7 @@ custom-options
 .product-groups .product-group i:hover{
     background-color: #00000059;
 }
+
+.medical-float {
+  float: left;
+}
