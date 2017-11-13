@@ -61,9 +61,10 @@ $('.taste_section').append(option);
  */
 
 $(document).on('click','.option_remove',function(){
-  if($(this).parents().hasClass('size_section')){
+  if($(this).parents().hasClass('size_section') || $(this).parents().hasClass('taste_section')){
     var name = $(this).parents('.colored-row').find('input[name="size_name"]').val();
     $('.extras_section').find('[data-size="'+name+'"]').remove();
+    $('.taste_section').find('[data-size="'+name+'"]').remove();
   }
   $(this).parents('.option').remove();
   check_options('size_section');
@@ -146,9 +147,13 @@ $(document).on('click','.extras_engine_result .option',function(){
         if(sizes[i] != current_sizes[i] && extras_legnth != sizes_length && $.trim(sizes[i]) !== ''){
             var option = '<div class="colored-row option '+name+'" data-size="'+sizes[i]+'"><div class="col-xs-3"> <input type="text" class="form-control " value="'+name+'" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="'+get_first_letter(sizes[i])+'" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
     $('.extras_section').append(option);
-        }
+  }
     }
-    }else{
+  }else if(sizes_length == 0){
+        var option = '<div class="colored-row option '+name+'" ><div class="col-xs-3"> <input type="text" class="form-control " value="'+name+'" name="extra_name" disabled></div><div class="col-xs-2"> <input type="text" class="form-control " value="public" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+  $('.extras_section').append(option);
+  $('.extras_section').find('.list_empty').remove();
+  }else{
         for(var i = 0; i < sizes_length; i++){
     sizes.push($('.size_section').find('.option_selected input[name=size_name]').eq(i).val());
     if($.trim(sizes[i]) !== ''){
