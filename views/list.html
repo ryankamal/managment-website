@@ -314,7 +314,7 @@
                   <div class="card-block">
                     <div class="media">
                       <div class="media-body white text-xs-left">
-                        <h2 class="total_groups_number"></h2>
+                        <h2 class="total_groups_number">@{model.productGroups.length}</h2>
                         <span>اجمالي المجموعات</span>
                       </div>
                       <div class="media-right media-middle">
@@ -331,7 +331,7 @@
                   <div class="card-block">
                     <div class="media">
                       <div class="media-body white text-xs-left">
-                        <h2 class="total_products_number"></h2>
+                        <h2 class="total_products_number">@{model.allProducts.length}</h2>
                         <span>اجمالي الأصناف</span>
                       </div>
                       <div class="media-right media-middle">
@@ -351,6 +351,9 @@
               </div>
               <div class="card-body">
                   <div class="card-block product-groups pt-0">
+                    @{foreach group in model.productGroups}
+                    <div class="product-group bg-danger"><p>@{group.name}</p><i class="ft-x-square"></i></div>
+                    @{end}
                   </div>
               </div>
             </div>
@@ -379,7 +382,15 @@
                         <th>السعر</th>
                       </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                      @{foreach product in model.last10products}
+                      <tr>
+                        <td>@{product.p_id}</td>
+                        <td>@{product.p_name}</td>
+                        <td>@{product.p_price} جنيه</td>
+                      </tr>
+                      @{end}
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -418,7 +429,38 @@
                           <th>تاريخ الاضافة</th>
                         </tr>
                       </thead>
-                      <tbody></tbody>
+                      <tbody>
+                        @{foreach product in model.allProducts}
+                        <tr>
+                          <td>@{product.p_id}
+                          </td>
+
+                          <td>@{product.p_name}
+                          </td>
+
+                          <td>@{product.p_group}
+                          </td>
+
+                          <td>@{product.p_quantity}
+                          </td>
+
+                          <td>@{product.p_cost}
+                          </td>
+
+                          <td>@{product.p_price} جنيه
+                          </td>
+
+                          <td>@{product.total_sales_amount}
+                          </td>
+
+                          <td>@{product.total_sales_cash} جنيه
+                          </td>
+
+                          <td>@{product.p_created}
+                          </td>
+                      </tr>
+                        @{end}
+                      </tbody>
                       <tfoot>
                         <tr>
                           <th>كود</th>
@@ -476,7 +518,15 @@
                         </tr>
                       </thead>
                       <tbody>
-
+                        @{foreach group in model.productGroups}
+                        <tr data-groupname="@{group.name}">
+                          <td>@{group.name}</td>
+                          <td>@{group.total_products}</td>
+                          <td>@{group.total_sales}</td>
+                          <td>@{group.max}</td>
+                          <td>@{group.min}</td>
+                        </tr>
+                        @{end}
                       </tbody>
                       <tfoot>
                         <tr>
@@ -529,7 +579,7 @@
 var groups_data_chart ;
 
     $(function(){
-        socket.emit('fetch_counts');
+      /*  socket.emit('fetch_counts');
         socket.emit('fetch_last_10added');
         socket.emit('fetch_all_products');
         socket.emit('fetch_groups_data');
@@ -585,24 +635,21 @@ var groups_data_chart ;
 
 
 
-    }).on('update_groupdata',function(data){
-      $('.groups_chart_data').empty();
-      var _data = JSON.parse(JSON.stringify(data[0]));
-      var form = '<center><p>  تمثل المجموعة '+Math.ceil(_data.percentage)+'% من اجمالي الاصناف بمبيعات حوالي '+_data.sum+' جنيه</p></center><table class="table"><tbody><tr><td> العنصر الأعلى مبيعا</td><td> '+_data.heighest_sale+'</td></tr><tr><td> العنصر الأقل مبيعا</td><td>'+_data.lowest_sale+'</td></tr></tbody></table> <button type="button" class="btn btn-secondary float-xs-right">عرض المزيد</button>';
-      $('.groups_chart_data').append(form);
+    })
+*/
 
-
-
-
-
-    }).on('groups_data_chart',function(data){
+    socket.on('groups_data_chart',function(data){
       $('#groups_data_chart').empty();
       var chart_array = [];
-      $(data).each(function(){
-        var _data = JSON.parse(JSON.stringify(this));
-        var chart_data = {label: ""+_data.label+"", value: ""+Math.ceil((_data.value / _data.total) * 100)+""};
-        chart_array.push(chart_data);
-      });
+for(var i = 0; i <data.length; i ++){
+  var _data = JSON.parse(JSON.stringify(data[i]));
+  var chart_data = {label: ""+_data.label+"", value: ""+Math.ceil((_data.value / _data.total) * 100)+""};
+  chart_array.push(chart_data);
+  if(i == 0){
+    socket.emit('update_groupdata_only',''+_data.label+'');
+  }
+}
+
       console.log(chart_array);
         groups_data_chart = Morris.Donut({
         element: "groups_data_chart",
@@ -617,7 +664,14 @@ var groups_data_chart ;
           socket.emit('update_groupdata_only',group_name);
         });
       };
-    });
+    }).on('update_groupdata',function(data){
+      $('.groups_chart_data').empty();
+      var _data = JSON.parse(JSON.stringify(data[0]));
+      var form = '<center><p>  تمثل المجموعة '+Math.ceil(_data.percentage)+'% من اجمالي الاصناف بمبيعات حوالي '+_data.sum+' جنيه</p></center><table class="table"><tbody><tr><td> العنصر الأعلى مبيعا</td><td> '+_data.heighest_sale+'</td></tr><tr><td> العنصر الأقل مبيعا</td><td>'+_data.lowest_sale+'</td></tr></tbody></table> <button type="button" class="btn btn-secondary float-xs-right">عرض المزيد</button>';
+      $('.groups_chart_data').append(form);
+
+});
+
 
 
 
@@ -626,11 +680,12 @@ var groups_data_chart ;
 
 
 $(document).on('click','.groups_data tbody tr',function(){
-  var group_name = $(this).attr('data-groupName');
+  var group_name = $(this).attr('data-groupname');
   update_groupdata(group_name,$(this).index());
 });
+
 function update_groupdata(group_name,index){
-  socket.emit('update_groupdata',group_name);
+  socket.emit('update_groupdata_only',group_name);
   setTimeout(function(){
     groups_data_chart.select(index);
   },5);
@@ -678,9 +733,7 @@ prepare_at_once.noUiSlider.on('update', function ( values, handle ) {
 
 
 $(document).on('keyup','#item_group',function(){
-$(this).auto_complete({
-  data: ['sandwich2','meals2','deserts2','drinks2']
-});
+$(this).auto_complete();
 });
 $(document).on('keyup','#item_name',function(){
 $(this).auto_complete({

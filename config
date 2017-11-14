@@ -10,3 +10,8 @@ mail-smtp-options               : {"secure":false,"port":25,"user":"","password"
 mail-address-from               : your@yourwebsite.com
 mail-address-reply              : your@yourwebsite.com
 mail-address-copy               :
+
+
+
+Connection string
+database      : postgres://postgres:postgres@localhost:5432/postgres
