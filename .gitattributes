@@ -1,3 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+<<<<<<< HEAD
 tmp
+=======
+tmp
+>>>>>>> f9fe3b716ce78f95fe4e4c1323a362b60d8fb2cc

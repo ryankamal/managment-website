@@ -23,7 +23,7 @@
         <div class="content-header-right col-md-6 col-xs-12">
             <div class="form-group" style="text-align: left">
                           <!-- button group -->
-                          
+
                           <div class="btn-group" role="group" aria-label="Basic example">
                               <div class="btn-group">
                             <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
@@ -134,10 +134,10 @@
               </div>
           </div>
         </div>
-                          
-                          
-                          
-                          
+
+
+
+
                           <div class="row">
                 <div class="col-xs-12 col-lg-12">
               <div class="card">
@@ -193,11 +193,11 @@
                             <td>17</td>
                             <td>4</td>
                         </tr>
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
                       </tbody>
                       <tfoot>
                         <tr>
@@ -224,7 +224,7 @@
                 </div>
                 <div class="card-body">
                   <div class="card-block">
-                      
+
                   </div>
                 </div>
               </div>
@@ -253,20 +253,20 @@
                   </div>
                 </div>
               </div>
-                
+
                 <div class="card">
                 <div class="card-header">
                   <h4 class="card-title">قانون الأجازات</h4>
                 </div>
                 <div class="card-body">
                   <div class="card-block " >
-                      
+
                   </div>
                 </div>
               </div>
             </div>
-                              
-                              
+
+
           </div>
                       </div>
                     </div>
@@ -275,7 +275,7 @@
               </div>
             </div>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -292,12 +292,12 @@
             checkOptions();
         }
     });
-    
+
     $(document).on('click','.custom-options-container span i',function(){
         $(this).parent('span').remove();
         checkOptions();
     });
-    
+
     function checkOptions(){
         var listEmpty = '<div class="list_empty"><i class="fa fa-exclamation-circle"></i><p>لم تقم بإدخال أي أنواع</p></div>';
         if($('.custom-options-container span').length < 1){
@@ -307,4 +307,4 @@
        }
     }
     </script>
-    
+    @{import('vendors.min.js')};
