@@ -1,7 +1,4 @@
-var {
-    Pool,
-    Client
-} = require('pg');
+
 var socketio ;
 var _socket;
 
@@ -10,7 +7,6 @@ var _socket;
  */
 exports.install = function() {
 	F.route('/');
-        F.route('/list','list');
         F.route('/balance_sheet','balance_sheet');
         F.route('/bills','bills');
         F.route('/capital_management','capital_management');
@@ -36,11 +32,11 @@ exports.install = function() {
 	// F.route('/');
 };
 
-
+/*
 F.on('load',function(){
     /*
      * socket.io configuration
-     */
+     *
     socketio = require('socket.io').listen(this.server);
     socketio.on('connection',function(socket){
         _socket = socket;
@@ -59,23 +55,15 @@ F.on('load',function(){
 
 });
 
+*/
 
-
-
-/*
- * connect to database
- */
-var connectionString = 'postgresql://postgres:postgres@localhost/postgres';
-var pool = new Pool({
-    connectionString: connectionString
-});
 
 
 
 
 /*
  * products list page functions
- */
+
 function fetch_last_10added() {
         const query = "select * from products";
         pool.query(query,(err,res)=>{
@@ -137,4 +125,4 @@ function groups_data_chart(){
     }
   });
 
-}
+}*/
