@@ -450,5 +450,8 @@ border-radius: 3px;
   justify-content: space-around;
 }
 .flexed-centered{
+  justify-content:center;
+}
+.flexed-vcentered{
   align-items: center;
 }

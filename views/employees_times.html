@@ -56,23 +56,36 @@
               </div>
               <div class="card-body collapse in">
                 <div class="card-block">
-                  <div class="row my-1">
-                    <div class="col-lg-6">
-                      <div class="text-xs-center">
-                        <h3>112</h3>
-                        <p class="text-muted">اجمالي الموظفين
-                        </p>
+                  <canvas id="times" class="mb-1" style="height:300px !important; width:100%;"></canvas>
+                  <div class="row">
+                      <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
+                        <div class="float-xs-left pl-2">
+                          <span class="font-large-2 text-bold-300 primary">589</span>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="text-xs-center">
-                        <h3>93.5%</h3>
-                        <p class="text-muted">معدل الالتزام
-                          <span class="danger"><i class="ft-arrow-down"></i> 2.30%</span>
-                        </p>
+                        <div class="float-xs-left ml-1">
+                          <span class="blue-grey darken-1 block">اجمالي</span>
+                          <span class="blue-grey darken-1 block">الحضور</span>
                         </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
+                        <div class="float-xs-left pl-2">
+                          <span class="font-large-2 text-bold-300 danger">36</span>
+                        </div>
+                        <div class="float-xs-left ml-1">
+                          <span class="blue-grey darken-1 block">اجمالي</span>
+                          <span class="blue-grey darken-1 block">الغياب</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-xs-12 flexed-row flexed-centered flexed-vcentered">
+                        <div class="float-xs-left pl-2">
+                          <span class="font-large-2 text-bold-300 success">77%</span>
+                        </div>
+                        <div class="float-xs-left ml-1">
+                          <span class="blue-grey darken-1 block">معدل</span>
+                          <span class="blue-grey darken-1 block">الالتزام</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -84,7 +97,7 @@
           <div class="col-xl-6 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                <h4 class="card-title">أعلى 5 موظفين التزاما</h4>
+                <h4 class="card-title">أعلى الموظفين التزاما</h4>
               </div>
 
               <div class="card-body">
@@ -93,28 +106,36 @@
                       <thead>
                         <tr>
                           <th>اسم الموظف</th>
-                          <th>معدل الالتزام</th>
+                          <th>الحضور</th>
+                          <th>الغياب</th>
+                          <th>الالتزام</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>ريان كمال فهمي</td>
+                          <td>76</td>
+                          <td>12</td>
                           <td>98.2%</td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
+                          <td>76</td>
+                          <td>12</td>
                           <td>98.2%</td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
+                          <td>76</td>
+                          <td>12</td>
                           <td>98.2%</td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
+                          <td>76</td>
+                          <td>12</td>
                           <td>98.2%</td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
+                          <td>76</td>
+                          <td>12</td>
                           <td>98.2%</td>
                         </tr>
                       </tbody>
@@ -126,7 +147,7 @@
             <div class="col-xl-6 col-lg-12">
             <div class="card" >
               <div class="card-header">
-                <h4 class="card-title">أقل 5 موظفين التزاما</h4>
+                <h4 class="card-title">أقل الموظفين التزاما</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive table-outer">
@@ -134,29 +155,37 @@
                       <thead>
                         <tr>
                           <th>اسم الموظف</th>
-                          <th>معدل الالتزام</th>
+                          <th>الحضور</th>
+                          <th>الغياب</th>
+                          <th>الالتزام</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>ريان كمال فهمي</td>
-                          <td>75.2%</td>
-                        </tr>
-                        <tr>
+                          <td>76</td>
+                          <td>60</td>
+                          <td>10.2%</td>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
-                          <td>75.2%</td>
-                        </tr>
-                        <tr>
+                          <td>76</td>
+                          <td>60</td>
+                          <td>10.2%</td>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
-                          <td>75.2%</td>
-                        </tr>
-                        <tr>
+                          <td>76</td>
+                          <td>60</td>
+                          <td>10.2%</td>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
-                          <td>75.2%</td>
-                        </tr>
-                        <tr>
+                          <td>76</td>
+                          <td>60</td>
+                          <td>10.2%</td>
+                        </tr><tr>
                           <td>ريان كمال فهمي</td>
-                          <td>75.2%</td>
+                          <td>76</td>
+                          <td>60</td>
+                          <td>10.2%</td>
                         </tr>
                       </tbody>
                     </table>
@@ -186,42 +215,77 @@
                     <table class="table table-striped table-bordered base-style">
                       <thead>
                         <tr>
-                          <th>التاريخ</th>
+                          <th>تاريخ اليوم</th>
                           <th>اسم الموظف</th>
+                          <th>ميعاد الدخول</th>
                           <th>الدخول</th>
+                          <th>ميعاد الخروج</th>
                           <th>الخروج</th>
                           <th>معدل الالتزام</th>
-
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                             <td>15/07/2017</td>
                             <td>ريان كمال</td>
-                            <td>9.30</td>
-                            <td>2.30</td>
+                            <td>9:00 ص</td>
+                            <td>9:30 ص</td>
+                            <td>5:30 م</td>
+                            <td>5:22 م</td>
                             <td>95%</td>
-
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td>15/07/2017</td>
                             <td>ريان كمال</td>
-                            <td>9.30</td>
-                            <td>2.30</td>
+                            <td>9:00 ص</td>
+                            <td>9:30 ص</td>
+                            <td>5:30 م</td>
+                            <td>5:22 م</td>
                             <td>95%</td>
-
+                        </tr><tr>
+                            <td>15/07/2017</td>
+                            <td>ريان كمال</td>
+                            <td>9:00 ص</td>
+                            <td>9:30 ص</td>
+                            <td>5:30 م</td>
+                            <td>5:22 م</td>
+                            <td>95%</td>
+                        </tr><tr>
+                            <td>15/07/2017</td>
+                            <td>ريان كمال</td>
+                            <td>9:00 ص</td>
+                            <td>9:30 ص</td>
+                            <td>5:30 م</td>
+                            <td>5:22 م</td>
+                            <td>95%</td>
+                        </tr><tr>
+                            <td>15/07/2017</td>
+                            <td>ريان كمال</td>
+                            <td>9:00 ص</td>
+                            <td>9:30 ص</td>
+                            <td>5:30 م</td>
+                            <td>5:22 م</td>
+                            <td>95%</td>
+                        </tr><tr>
+                            <td>15/07/2017</td>
+                            <td>ريان كمال</td>
+                            <td>9:00 ص</td>
+                            <td>9:30 ص</td>
+                            <td>5:30 م</td>
+                            <td>5:22 م</td>
+                            <td>95%</td>
                         </tr>
 
 
                       </tbody>
                       <tfoot>
                         <tr>
-                          <th>التاريخ</th>
+                          <th>تاريخ اليوم</th>
                           <th>اسم الموظف</th>
+                          <th>ميعاد الدخول</th>
                           <th>الدخول</th>
+                          <th>ميعاد الخروج</th>
                           <th>الخروج</th>
                           <th>معدل الالتزام</th>
-
                         </tr>
                       </tfoot>
                     </table>
@@ -233,4 +297,51 @@
         </div>
     </div>
 </div>
-@{import('vendors.min.js','custom_plugins/auto_complete.js')};
+@{import('vendors.min.js')};
+<script>
+$(function(){
+  var ctx = document.getElementById("times").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+              label: 'الحضور ',
+              data: [90, 95, 97, 96, 97, 94],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          },
+          {
+              label: 'الغياب ',
+              data: [10, 5, 3, 4, 3, 6],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+});
+</script>
