@@ -1,1 +1,0 @@
-function get_value_of_precent(value,percent){return((value/100)*percent)}function get_first_letter(str){var result=''; $(str.split(' ')).each(function(key,value){result+=value.charAt(0)});return(result)}

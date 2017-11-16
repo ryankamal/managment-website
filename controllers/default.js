@@ -13,6 +13,7 @@ exports.install = function() {
         F.route('/customers','customers');
         F.route('/employee_profile','employee_profile');
         F.route('/employees','employees');
+				F.route('/employees2','employees2');
         F.route('/employees_times','employees_times');
         F.route('/expenses','expenses');
         F.route('/income_list','income_list');

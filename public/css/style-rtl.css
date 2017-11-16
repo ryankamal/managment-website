@@ -417,3 +417,38 @@ margin-right: -10px;
   border-radius: 3px;
   cursor: default;
 }
+
+
+
+.tag-listing-style span{
+  padding: 0px 5px;
+background-color: #11d19552;
+border-radius: 3px;
+}
+.tag-listing-style span:first-of-type{
+  margin-left: 5px;
+}
+.tag-listing-style span + span{
+  margin-left: 5px;
+}
+
+/*
+*flexd style
+*/
+.flexed-row{
+  display: flex;
+  flex-flow: row wrap;
+}
+.flexed-column{
+  display: flex;
+  flex-flow: column wrap;
+}
+.flexed-between{
+  justify-content: space-between;
+}
+.flexed-around{
+  justify-content: space-around;
+}
+.flexed-centered{
+  align-items: center;
+}
