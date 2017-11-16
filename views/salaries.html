@@ -51,6 +51,7 @@
           <div class="content-body">
             <!-- Simple Bar Chart -->
             <div class="row">
+              <canvas id="salaries" class="mb-1" style="height:300px !important; width:100%;"></canvas>
               <div class="col-xs-12">
                 <div class="card">
                   <div class="card-header">
@@ -207,4 +208,125 @@
     </div>
 </div>
 
+@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js')};
+<script
+
+$(document).ready(function(){
+  var ctx = document.getElementById("salaries").getContext('2d');
+  var salaries = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+                label: 'الصافي',
+                data: [12, 1200, 1500, 1600, 1000, 1200],
+                backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
+                borderColor: '#41efb9',
+                borderWidth: 1,
+                type: 'line'
+
+            },
+            {
+              label: 'الأساسي',
+              data: [12, 1200, 1500, 1600, 1000, 1200],
+              backgroundColor: '#ffebd7',
+              borderColor: '#feb66f',
+              borderWidth: 1
+          },
+          {
+              label: 'الخصومات',
+              data: [25, 34, 14, 12, 14, 25],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          },
+          {
+              label: 'المكافآت',
+              data: [0, 360, 25, 361, 210, 14],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+  var ctx = document.getElementById("attendence").getContext('2d');
+  var salaries = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+              label: 'الحضور ',
+              data: [28, 30, 30, 25, 30, 29],
+              backgroundColor: '#ffebd7',
+              borderColor: '#feb66f',
+              borderWidth: 1
+          },
+          {
+              label: 'الغياب ',
+              data: [0, 0, 0, 2, 0, 0],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          },
+          {
+              label: 'الاجازات',
+              data: [2, 0, 0, 3, 0, 1],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+
+
+});
+
+
+</script>
 @{import('vendors.min.js')};
