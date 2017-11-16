@@ -1,0 +1,46 @@
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-xs-12 mb-2">
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-xs-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
+                </li>
+                <li class="breadcrumb-item"><a href="employees.php">الموظفين</a>
+                </li>
+                <li class="breadcrumb-item active">المرتبات
+                </li>
+              </ol>
+            </div>
+          </div>
+          <h3 class="content-header-title mb-0">المرتبات</h3>
+        </div>
+        <div class="content-header-right col-md-6 col-xs-12">
+            <div class="form-group" style="text-align: left">
+                          <!-- button group -->
+
+                          <div class="btn-group" role="group" aria-label="Basic example">
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">الحضور والانصراف</a>
+                                  <a class="dropdown-item" href="#">الأجازات</a>
+                                  <a class="dropdown-item" href="#">المرتبات</a>
+                                  <a class="dropdown-item" href="#">المكافئات</a>
+                                  <a class="dropdown-item" href="#">التقييمات</a>
+                                </div>
+                              </div>
+                              <button type="button" class="btn btn-secondary">ادارة المرتبات</button>
+                              <button type="button" class="btn btn-secondary">تعديل المرتبات</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    </div>
+</div>
+
+
+@{import('vendors.min.js')};
