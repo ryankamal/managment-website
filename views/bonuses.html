@@ -1,0 +1,263 @@
+@{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css')}
+<style>
+
+.bonus-btn {
+}
+
+</style>
+
+<div class="app-content content container-fluid">
+   <div class="content-wrapper">
+     <div class="content-header row">
+       <div class="content-header-left col-md-6 col-xs-12 mb-2">
+         <div class="row breadcrumbs-top">
+           <div class="breadcrumb-wrapper col-xs-12">
+             <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+               </li>
+               <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
+               </li>
+               <li class="breadcrumb-item"><a href="employees.php">الموظفين</a>
+               </li>
+               <li class="breadcrumb-item active">المكافآت
+               </li>
+             </ol>
+           </div>
+         </div>
+         <h3 class="content-header-title mb-0">المكافآت</h3>
+       </div>
+       <div class="content-header-right col-md-6 col-xs-12">
+           <div class="form-group" style="text-align: left">
+             <!-- button group -->
+             <div class="btn-group" role="group" aria-label="Basic example">
+             <div class="btn-group">
+               <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+               <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">الحضور والانصراف</a>
+              <a class="dropdown-item" href="#">الأجازات</a>
+              <a class="dropdown-item" href="#">المرتبات</a>
+              <a class="dropdown-item" href="#">المكافئات</a>
+              <a class="dropdown-item" href="#">التقييمات</a>
+                </div>
+             </div>
+             <button type="button" class="btn btn-secondary">اضافة مكافأة</button>
+             </div>
+            </div>
+           </div>
+        </div>
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-block">
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
+                        <div class="float-xs-left pl-2">
+                          <span class="font-large-3 text-bold-300">120</span>
+                        </div>
+                        <div class="float-xs-left ml-1">
+                          <span class="blue-grey darken-1 block">اجمالي</span>
+                          <span class="blue-grey darken-1 block">الموظفين</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
+                        <div class="float-xs-left pl-2">
+                          <span class="font-large-3 text-bold-300">2.163</span>
+                        </div>
+                        <div class="float-xs-left ml-1">
+                          <span class="blue-grey darken-1 block">اجمالى</span>
+                          <span class="blue-grey darken-1 block">المكافآت</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 col-xs-12 flexed-row flexed-centered flexed-vcentered">
+                        <div class="float-xs-left pl-2">
+                          <span class="font-large-3 text-bold-300">283</span>
+                        </div>
+                        <div class="float-xs-left  ml-1">
+                          <span class="blue-grey darken-1 block">مكافآت</span>
+                          <span class="blue-grey darken-1 block">مستحقة</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row match-height">
+        <div class="col-xl-6 col-lg-12">
+          <div class="card">
+              <div class="card-header">
+              <h4 class="card-title">أعلى الموظفين التزاما</h4>
+            </div>
+
+            <div class="card-body">
+              <div class="table-responsive table-outer">
+                  <table class="table table-bordered right mb-0 ">
+                    <thead>
+                      <tr>
+                        <th>اسم الموظف</th>
+                        <th>تاريخ التعيين</th>
+                        <th>اجمالى المكافآت</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ريان كمال فهمي</td>
+                        <td>11/8/2017</td>
+                        <td>360</td>
+                      </tr><tr>
+                        <td>ريان كمال فهمي</td>
+                        <td>11/8/2017</td>
+                        <td>360</td>
+                      </tr><tr>
+                        <td>ريان كمال فهمي</td>
+                        <td>11/8/2017</td>
+                        <td>360</td>
+                      </tr><tr>
+                        <td>ريان كمال فهمي</td>
+                        <td>11/8/2017</td>
+                        <td>360</td>
+                      </tr><tr>
+                        <td>ريان كمال فهمي</td>
+                        <td>11/8/2017</td>
+                        <td>360</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+        </div>
+          <div class="col-xl-6 col-lg-12">
+          <div class="card" >
+            <div class="card-header">
+              <h4 class="card-title">قيمة المكافآت<h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive table-outer">
+                  <table class="table table-bordered right mb-0">
+                    <thead>
+                      <tr>
+                        <th>اسم المكافآة</th>
+                        <th>القيمة</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>الجودة</td>
+                        <td>40</td>
+                      </tr><tr>
+                        <td>الجودة</td>
+                        <td>40</td>
+                      </tr><tr>
+                        <td>الجودة</td>
+                        <td>40</td>
+                      </tr><tr>
+                        <td>الجودة</td>
+                        <td>40</td>
+                      </tr><tr>
+                        <td>الجودة</td>
+                        <td>40</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12 col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">سجل المكافآت</h4>
+            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+            <div class="heading-elements">
+              <ul class="list-inline mb-0">
+                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-body collapse in">
+              <div class="card-block card-dashboard" style="padding-top: 0px;">
+              <table class="table table-striped table-bordered base-style right">
+                <thead>
+                  <tr>
+                    <th>كود</th>
+                    <th>اسم الموظف</th>
+                    <th>تاريخ التعيين</th>
+                    <th>اجمالى المكافآت</th>
+                    <th>المكافآت المستحقة</th>
+                    <th>تاريخ آخر مكافأة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>101</td>
+                      <td>ريان كمال فهمي</td>
+                      <th>11/8/2017</th>
+                      <td>230</td>
+                      <td>40</td>
+                      <td>1/11/2017
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>ريان كمال فهمي</td>
+                      <th>11/8/2017</th>
+                      <td>230</td>
+                      <td>40</td>
+                      <td>1/11/2017
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>ريان كمال فهمي</td>
+                      <th>11/8/2017</th>
+                      <td>230</td>
+                      <td>40</td>
+                      <td>1/11/2017
+                  </tr>
+                  <tr>
+                      <td>101</td>
+                      <td>ريان كمال فهمي</td>
+                      <th>11/8/2017</th>
+                      <td>230</td>
+                      <td>40</td>
+                      <td>1/11/2017
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>كود</th>
+                    <th>اسم الموظف</th>
+                    <th>تاريخ التعيين</th>
+                    <th>اجمالى المكافآت</th>
+                    <th>المكافآت المستحقة</th>
+                    <th>تاريخ آخر مكافأة</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+
+
+        </div>
+   </div>
+</div>
+
+
+
+
+@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js')};
+<script>
+
+
+
+</script>
+@{import('vendors.min.js')};
