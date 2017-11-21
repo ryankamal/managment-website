@@ -1,5 +1,26 @@
 @{title('souq')}
 
+<div class="modal fade text-xs-left in" id="preview_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+                            <div class="modal-dialog modal-lg" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="myModalLabel1">طماطم طازجة</h4>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
 <div class="app-content content container-fluid">
   <nav class="header-navbar navbar navbar-with-menu navbar-light navbar-shadow border-grey border-darken-2 navbar-fixed-top">
                   <div class="navbar-wrapper">
@@ -119,7 +140,7 @@
           <div class="row">
           <div class="col-lg-8 col-md-8" id="vegetables">
             <img src="images/souq/vegetables-banner.jpg" class="height-200 marginb width-850">
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-4 col-md-12" data-toggle="modal" data-target="#preview_product">
               <div class="card">
                 <div class="card-body">
                   <img class="card-img-top img-fluid" src="/images/souq/tomato.jpg"
