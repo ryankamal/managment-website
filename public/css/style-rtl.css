@@ -18,6 +18,12 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 body, .navigation, .navigation .navigation-header, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .breadcrumb, .header-navbar{
     font-family: dubai !important;
 }
+.background-main{
+  background-color: #F5F7FA;
+}
+.btns-2group button{
+  width: calc(50% - 5px);
+}
 
 .table td, .table th{
         white-space: nowrap;

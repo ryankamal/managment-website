@@ -1,4 +1,18 @@
 @{title('souq')}
+<style>
+.product-specs-section .specs-block{
+  width: 50%;
+}
+.product-specs-section .specs-block p{
+  padding: 5px;
+}
+.product-specs-section .specs-block p.specs-data{
+background-color: #f5f7fa
+}
+.list-group-flush .list-group-item{
+  padding: 0.5rem;
+}
+</style>
 
 <div class="modal fade text-xs-left in" id="preview_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
                             <div class="modal-dialog modal-lg" role="document">
@@ -9,10 +23,180 @@
                                   </button>
                                   <h4 class="modal-title" id="myModalLabel1">طماطم طازجة</h4>
                                 </div>
-                                <div class="modal-body">
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
+                                <div class="modal-body background-main">
+                                  <div class="row">
+                                    <div class="col-lg-5 col-md-12 col-sm-12">
+                                          <div class="card">
+                                            <div class="card-body">
+                                              <div class="card-block p-0">
+                                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+                                                  <ol class="carousel-indicators">
+                                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                                  </ol>
+                                                  <div class="carousel-inner" role="listbox">
+                                                    <div class="carousel-item active">
+                                                      <img src="images/souq/tomato.jpg" alt="tomato" class="height-300">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                      <img src="images/souq/tomato1.jpg" alt="tomato" class="height-300">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                      <img src="images/souq/tomato2.jpg" alt="tomato" class="height-300">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group btns-2group flexed-row flexed-between">
+                                            <button type="button" class="btn mb-1 btn-primary  "><i class="icon-basket"></i> شراء الآن</button>
+                                            <button type="button" class="btn mb-1 btn-danger "><i class="icon-heart"></i> اضافة الى المفضلة</button>
+                                          </div>
+                                      <div class="card">
+                                        <div class="text-xs-center">
+                                          <div class="card-block">
+                                            <img src="images/souq/port.png" class="rounded-circle  height-150"
+                                            alt="Card image">
+                                          </div>
+                                          <div class="card-block">
+                                            <h4 class="card-title">شركة سما للتجارة</h4>
+                                            <p>
+                                              شركة سما التجارية هى شركة متخصصة فى تجارة الخضروات .... وتمتلك الكثير من الخبرة
+                                              ... ولديها كفاءة فى تجارة كافة أنواع الخضروات
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div class="list-group list-group-flush">
+                                          <a href="#" class="list-group-item">اضافة الى جهات الاتصال</a>
+                                          <a href="#" class="list-group-item">اضافة الى قائمة الموردين</a>
+                                          <a href="#" class="list-group-item">ارسال رسالة</a>
+                                        </div>
+                                      </div>
+                                      </div>
+
+
+                                       <div class="col-lg-7">
+                                         <div class="card">
+                                           <div class="card-body collapse in">
+                                             <div class="card-block">
+                                               <div class="row">
+                                                 <div class="col-md-12">
+                                                   <p>
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                     ...أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم
+                                                   </p>
+                                                 </div>
+                                               </div>
+                                             </div>
+                                           </div>
+                                         </div>
+                                         <div class="card">
+                                           <div class="card-body collapse in">
+                                             <div class="card-block">
+                                                     <div class="product-specs-section flexed-row flexed-between">
+                                                       <div class="specs-block flexed-row ">
+                                                         <p>النوع :</p>
+                                                         <p class="specs-data">خضروات</p>
+                                                       </div>
+                                                       <div class="specs-block flexed-row ">
+                                                         <p>الحالة :</p>
+                                                         <p class="specs-data">طازة</p>
+                                                       </div>
+                                                     </div>
+                                                     <div class="product-specs-section flexed-row flexed-between">
+                                                       <div class="specs-block flexed-row ">
+                                                         <p>الكمية المتاحة :</p>
+                                                         <p class="specs-data">150 كيلو</p>
+                                                       </div>
+                                                       <div class="specs-block flexed-row ">
+                                                         <p>الحد الأدنى للطلب :</p>
+                                                         <p class="specs-data">30 كيلو</p>
+                                                       </div>
+                                                     </div>
+                                                     <div class="product-specs-section flexed-row flexed-between">
+                                                       <div class="specs-block flexed-row ">
+                                                         <p>السعر بالكيلو :</p>
+                                                         <p class="specs-data">50 قرش</p>
+                                                       </div>
+                                                       <div class="specs-block flexed-row ">
+                                                         <p>الشحن إلى :</p>
+                                                         <p class="specs-data">جميع المحافظات</p>
+                                                       </div>
+                                                     </div>
+                                             </div>
+                                           </div>
+                                         </div>
+                                          <div class="card ">
+                                              <div class="card-block ">
+                                                <div class="media">
+                                                  <div class="media-left">
+                                                    <a href="#">
+                                                      <span class="avatar avatar-online">
+                                                        <img src="/images/souq/11.png"
+                                                        alt="avatar">
+                                                      </span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="media-body">
+                                                    <p class="text-bold-600 mb-0"><a href="#">أحمد على</a></p>
+                                                    <p class="m-0">.شركة أكثر من رائعة سررت بالعمل معهم</p>
+                                                    <ul class="list-inline mb-1">
+                                                      <li class="pr-1">
+                                                        <a href="#" class="">
+                                                          <span class="fa fa-thumbs-o-up"></span> أعجبنى</a>
+                                                      </li>
+                                                      <li class="pr-1">
+                                                        <a href="#" class="">
+                                                          <span class="fa fa-commenting-o"></span> رد</a>
+                                                      </li>
+                                                    </ul>
+                                                    <div class="media">
+                                                      <div class="media-left">
+                                                        <a href="#">
+                                                          <span class="avatar avatar-online">
+                                                            <img src="/images/souq/port.png"
+                                                            alt="avatar">
+                                                          </span>
+                                                        </a>
+                                                      </div>
+                                                      <div class="media-body">
+                                                        <p class="text-bold-600 mb-0"><a href="#">شركة سما للتجارة</a></p>
+                                                        <p>.شكرا لك .. تشرفنا بالتعامل معك</p>
+                                                        <ul class="list-inline mb-1">
+                                                          <li class="pr-1">
+                                                            <a href="#" class="">
+                                                              <span class="fa fa-thumbs-o-up"></span> أعجبنى</a>
+                                                          </li>
+                                                          <li class="pr-1">
+                                                            <a href="#" class="">
+                                                              <span class="fa fa-commenting-o"></span> رد</a>
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="card-block">
+                                                <fieldset class="form-group position-relative has-icon-left mb-0">
+                                                  <input type="text" class="form-control" placeholder="Write comments...">
+                                                  <div class="form-control-position">
+                                                    <i class="fa fa-dashcube"></i>
+                                                  </div>
+                                                </fieldset>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                 </div>
                               </div>
                             </div>

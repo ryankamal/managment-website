@@ -32,7 +32,6 @@ exports.install = function() {
         F.route('/treasury','treasury');
         F.route('/vacations','vacations');
 				F.route('/souq',souq);
-				F.route('/ppreview',ppreview);
 
 	// or
 	// F.route('/');
@@ -47,11 +46,7 @@ function souq(){
 	self.view('/souq/index');
 }
 
-function ppreview(){
-	var self = this;
-	self.layout('/souq/layout');
-	self.view('/souq/ppreview');
-}
+
 
 /*
 F.on('load',function(){
