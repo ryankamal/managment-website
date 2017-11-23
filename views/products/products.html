@@ -1,4 +1,4 @@
-@{import('custom_plugins/image_upload.css')};
+@{import('custom_plugins/image_upload.css')}
 <style>
 .icheck_square [class*=icheckbox_], .icheck_square [class*=iradio_], .skin [class*=icheckbox_], .skin [class*=iradio_]{
   margin-left: 0px;
@@ -19,6 +19,12 @@
   padding: 5px 10px;
 }
 </style>
+
+
+
+<div class="modalpreview"></div>
+
+
 <!-- item excel -->
 <div class="modal fade text-xs-left in" id="items_excel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
                             <div class="modal-dialog modal-sm" role="document">
@@ -61,141 +67,7 @@
 
 
 
-<!-- new manual item -->
-<div class="modal fade text-xs-left in" id="manual_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-                            <div class="modal-dialog modal-lg" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="myModalLabel1">اضافة صنف جديد</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form add_new_product">
-                      <div class="form-body">
-                        <div class="col-md-9">
-                          <div class="row">
-                            <div class="form-group col-xs-6 mb-2">
-                              <label for="item_name">اسم الصنف</label>
-                              <input id="item_name" data-complete="ryan-complete" type="text" class="form-control" placeholder="اسم الصنف" name="product_name">
-                            </div>
-                            <div class="form-group col-xs-6 mb-2">
-                              <label for="item_group">اسم المجموعة</label>
-                              <input id="item_group" data-complete="ryan-complete" type="text" class="form-control" placeholder="اسم المجموعة" name="group_name">
 
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="form-group col-xs-12 mb-2">
-                                <div class="form-section flex-fill">
-                                    <p style="margin: 0px"><i class="ft-user"></i> أحجام الصنف</p>
-                                    <button type="button" class="btn btn-outline-secondary btn-sm new_size"> حجم جديد</button>
-                                </div>
-                                <div class="size_section"><div class="list_empty">
-                                    <i class="ft-alert-circle"></i>
-                                    <p>
-                                        لم تقم بتحديد أي أحجام بعد
-                                    </p>
-                                </div></div>
-
-                            </div>
-                          </div>
-                          <div class="row">
-                          <div class="form-group col-xs-12 mb-2">
-                              <div class="form-section flex-fill extras_head">
-                                  <p style="margin: 0px"><i class="ft-user"></i> اضافات الصنف</p>
-                                  <fieldset class="form-group extras_engine_input engine_collapsed">
-                        <input type="text" class="form-control" placeholder="ابحث عن الاضافات المتاحة">
-                        <div class="form-control-position">
-                        <i class="ft-x-square danger"></i>
-                        </div>
-                        <div class="extras_engine_result">
-
-                        </div>
-                        </fieldset>
-                              </div>
-                              <div class="extras_section">
-                                  <div class="list_empty">
-                                  <i class="ft-alert-circle"></i>
-                                  <p>
-                                      لم تقم بتحديد أي اضافات بعد
-                                  </p>
-                              </div>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="form-group col-xs-12 mb-2">
-                              <div class="form-section flex-fill">
-                                  <p style="margin: 0px"><i class="ft-user"></i> مذاقات الصنف</p>
-                                  <button type="button" class="btn btn-outline-secondary btn-sm new_taste"> مذاق جديد</button>
-                              </div>
-                              <div class="taste_section">
-                                <div class="list_empty">
-                                  <i class="ft-alert-circle"></i>
-                                  <p>
-                                      لم تقم بتحديد أي مذاقات بعد
-                                  </p>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                        </div>
-	<div class="col-md-3">
-    <div class="row">
-      <div class="form-group col-xs-12 mb-2 image_element" >
-      </div>
-
-      <div class="form-group col-xs-12 mb-2">
-        <label for="eventInput1">
-          الوقت المطلوب لتجهيز الصنف
-        </label>
-        <div id="time_for_prepare" data-value=""></div>
-        <small name="time_value"> 5 دقايق</small>
-        </div>
-
-        <div class="form-group col-xs-12 mb-2">
-          <label for="eventInput1">
-            أقصى عدد يمكن تجهيزه خلال <span name="time_value"></span>
-          </label>
-          <div id="prepare_at_once" data-value=""></div>
-          <small name="prepare_value">3 وحدات</small>
-          </div>
-
-
-          <div class="form-group col-xs-12 mb-2  skin skin-line availability">
-            <label for="eventInput1">
-              طبيعة الكمية المتوفرة
-            </label>
-            <fieldset >
-              <input type="radio" name="availability" id="input-radio-1" >
-              <label for="input-radio-1">غير محدودة</label>
-            </fieldset>
-            <fieldset >
-              <input type="radio" name="availability" id="input-radio-2">
-              <label for="input-radio-2">محدودة</label>
-            </fieldset>
-          </div>
-
-
-
-
-    </div>
-  </div>
-
-                      </div>
-                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary btn-min-width mr-1 submit_add_new_product">تثبيت الصنف</button>
-                                  <button type="button" class="btn grey btn-outline-secondary cancel_manual_item" data-dismiss="modal">اغلاق</button>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
 
 
 
@@ -289,7 +161,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="productsLibrary" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك الاختيار بسهولة من بين مئات الأصناف الموجودة بشكل تلقائي في النظام
 " >اختيار من المكتبة</a>
-                              <a class="dropdown-item"  data-toggle="modal" data-target="#manual_item" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك ادخال صنف أو أكثر بشكل يدوي وملأ البيانات حسب رغباتك">ادخال صنف يدوي</a>
+                              <a class="dropdown-item addNewProductManually"  data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك ادخال صنف أو أكثر بشكل يدوي وملأ البيانات حسب رغباتك">ادخال صنف يدوي</a>
                               <a class="dropdown-item" data-toggle="modal" data-target="#items_excel" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك استيراد العديد من الاصناف دُفعة واحدة من خلال استيراد ملف Excel جاهز
 ">استيراد ملف Excel</a>
                               <div class="dropdown-divider"></div>
@@ -697,115 +569,26 @@ function update_groupdata(group_name,index){
 
 
 
-var time_for_prepare = document.getElementById('time_for_prepare');
-
-noUiSlider.create(time_for_prepare, {
-  start: get_value_of_precent(60,15),
-  step: 0.5,
-	connect: "lower",
-	range: {
-	  'min': 0,
-	  'max': 60
-	}
-});
-time_for_prepare.noUiSlider.on('update', function ( values, handle ) {
-  $('[name="time_value"]').text(values[handle]+' دقيقة');
-  $('#time_for_prepare').attr('data-value',values[handle]);
-});
 
 
-var prepare_at_once = document.getElementById('prepare_at_once');
 
-noUiSlider.create(prepare_at_once, {
-  start: get_value_of_precent(100,15),
-  step: 1,
-	connect: "lower",
-	range: {
-	  'min': 0,
-	  'max': 100
-	}
-});
-prepare_at_once.noUiSlider.on('update', function ( values, handle ) {
-  $('[name="prepare_value"]').text(values[handle]+' وحدات');
-  $('#prepare_at_once').attr('data-value',values[handle]);
+
+
+
+
+
+$('.addNewProductManually').on('click',function(){
+  $('.modalpreview').empty();
+  $.ajax({
+    method:'get',
+    url:'/addNewProductManually',
+    success:function(data){
+      $('.modalpreview').append(data);
+      $('#addNewProductManually').modal('show');
+    }
+  });
 });
 
-
-$(document).on('keyup','#item_group',function(){
-$(this).auto_complete();
-});
-$(document).on('keyup','#item_name',function(){
-$(this).auto_complete({
-  data: ['burger beef','checkien','7up']
-});
-});
-
-
-
-
-
-$('.image_element').image_upload({
-  name: 'item_image'
-});
-
-
-
-
-$('.submit_add_new_product').on('click',function(){
-
-var p_name = $('input[name="product_name"]').val();
-var p_group = $('input[name="group_name"]').val();
-var p_image = $('input[name="item_image"]').val().replace(/C:\\fakepath\\/i, '');
-var max_time = $('#time_for_prepare').attr('data-value');
-var max_prepare = $('#prepare_at_once').attr('data-value');
-/* p_sizes  */
-var p_sizes = [];
-$('.size_section .colored-row').each(function(){
-var size = new Object();
-size.name = $(this).find('input[name="size_name"]').val();
-size.cost = $(this).find('input[name="cost_price"]').val();
-size.sale = $(this).find('input[name="sale_price"]').val();
-size.sym = get_first_letter($(this).find('input[name="size_name"]').val());
-p_sizes.push(size);
-});
-/* p_extras */
-var p_extras = [];
-$('.extras_section .colored-row').each(function(){
-var extra = new Object();
-extra.name = $(this).find('input[name="extra_name"]').val();
-extra.size = $(this).find('input[name="size_name"]').val();
-extra.cost = $(this).find('input[name="cost_price"]').val();
-extra.sale = $(this).find('input[name="sale_price"]').val();
-p_extras.push(extra);
-});
-/* p_tastes */
-var p_tastes = [];
-$('.taste_section .colored-row').each(function(){
-var taste = new Object();
-taste.name = $(this).find('input[name="taste_name"]').val();
-taste.size = $(this).find('input[name="size_name"]').val();
-taste.cost = $(this).find('input[name="cost_price"]').val();
-taste.sale = $(this).find('input[name="sale_price"]').val();
-p_tastes.push(taste);
-});
-
-var data = new Object();
-data.p_name = p_name;
-data.p_group = p_group;
-data.p_image = p_image;
-data.max_time = max_time;
-data.max_prepare = max_prepare;
-data.p_sizes = p_sizes;
-data.p_extras = p_extras;
-data.p_tastes = p_tastes;
-console.log(data.p_extras);
-
-socket.emit('insertNewProduct',data);
-
-
-
-
-});
 
     });
 

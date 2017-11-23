@@ -1,144 +1,28 @@
+<!-- recieve goods -->
 <div class="modal fade text-xs-left in" id="recieve_goods" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-  <div class="app-content content container-fluid">
-      <div class="content-wrapper">
-        <div class="content-header row">
-          <div class="content-header-right col-md-6 col-xs-12">
+                            <div class="modal-dialog " role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="myModalLabel1">اذن استلام البضاعة</h4>
+                                </div>
+                                <div class="modal-body">
 
-                          </div>
-                        </div>
-                        <div class="content-header row">
-                        </div>
-            <div class="content-body">
-              <!-- Simple Bar Chart -->
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4 class="card-title">التدفق الشهرى للبضاعه المستلمة</h4>
-                      <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                      <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                          <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                          <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                          <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                          <li><a data-action="close"><i class="ft-x"></i></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="card-body collapse in">
-                      <div class="card-block">
-                        <canvas id="goods" class="mb-1" style="height:300px !important, width:100%;"></canvas>
-                          <div class="row">
-                              <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
-                                <div class="float-xs-left pl-2">
-                                  <span class="font-large-2 text-bold-300 primary">1,326</span>
+
+                                  <center>استلام البضاعة</center>
+
+
+
                                 </div>
-                                <div class="float-xs-left ml-1">
-                                  <span class="blue-grey darken-1 block">اجمالي</span>
-                                  <span class="blue-grey darken-1 block">البضاعة المستلمة</span>
-                                </div>
-                              </div>
-                              <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
-                                <div class="float-xs-left pl-2">
-                                  <span class="font-large-2 text-bold-300 danger">367</span>
-                                </div>
-                                <div class="float-xs-left ml-1">
-                                  <span class="blue-grey darken-1 block">البضاعة</span>
-                                  <span class="blue-grey darken-1 block">المتاحة</span>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
+
                                 </div>
                               </div>
                             </div>
-                        <div id="bar-chart" class="">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-12 col-lg-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h4 class="card-title">سجل البضاعه المستلمة</h4>
-                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                    <div class="heading-elements">
-                      <ul class="list-inline mb-0">
-                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="card-body collapse in">
-                      <div class="card-block card-dashboard" style="padding-top: 0px;">
-                      <table class="table table-striped table-bordered base-style right">
-                        <thead>
-                          <tr>
-                            <th>كود</th>
-                            <th>نوع البضاعه</th>
-                            <th>الكمية</th>
-                            <th>تاريخ الاستلام</th>
-                            <th>اسم المورد</th>
-                            <th>اسم المستلم</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                              <td>101</td>
-                              <td>طماطم</td>
-                              <th>20</th>
-                              <td>11/8/2017</td>
-                              <td>شركة سما التجارية</td>
-                              <td>ريان كمال فهمى</td>
-                          </tr>
-                          <tr>
-                              <td>101</td>
-                              <td>طماطم</td>
-                              <th>20</th>
-                              <td>11/8/2017</td>
-                              <td>شركة سما التجارية</td>
-                              <td>ريان كمال فهمى</td>
-                          </tr>
-                          <tr>
-                              <td>101</td>
-                              <td>طماطم</td>
-                              <th>20</th>
-                              <td>11/8/2017</td>
-                              <td>شركة سما التجارية</td>
-                              <td>ريان كمال فهمى</td>
-                          </tr>
-                          <tr>
-                              <td>101</td>
-                              <td>طماطم</td>
-                              <th>20</th>
-                              <td>11/8/2017</td>
-                              <td>شركة سما التجارية</td>
-                              <td>ريان كمال فهمى</td>
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <th>كود</th>
-                            <th>نوع البضاعه</th>
-                            <th>الكمية</th>
-                            <th>تاريخ الاستلام</th>
-                            <th>اسم المورد</th>
-                            <th>اسم المستلم</th>
-                          </tr>
-                        </tfoot>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                </div>
-
-            </div>
-      </div>
-  </div>
-
-</div>
-
+                          </div>
 
 
 <div class="app-content content container-fluid">

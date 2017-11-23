@@ -9,7 +9,7 @@ function fetch_productsLibrary(product_id) {
     self.$get(options, function(err,response) {
         //self.plain(response);
         self.layout('');
-        self.view('productsLibraryItem',response);
+        self.view('/products/productsLibraryItem',response);
     });
 }
 

@@ -10,6 +10,6 @@ function fetch_productsLibrary() {
     var self = this;
     var options = {};
     self.$get(options, function(err,response) {
-        self.view('productsLibrary', response);
+        self.view('/products/productsLibrary', response);
     });
 }
