@@ -152,7 +152,7 @@
         <label for="eventInput1">
           الوقت المطلوب لتجهيز الصنف
         </label>
-        <div id="time_for_prepare"></div>
+        <div id="time_for_prepare" data-value=""></div>
         <small name="time_value"> 5 دقايق</small>
         </div>
 
@@ -160,21 +160,21 @@
           <label for="eventInput1">
             أقصى عدد يمكن تجهيزه خلال <span name="time_value"></span>
           </label>
-          <div id="prepare_at_once"></div>
+          <div id="prepare_at_once" data-value=""></div>
           <small name="prepare_value">3 وحدات</small>
           </div>
 
 
-          <div class="form-group col-xs-12 mb-2  skin skin-line">
+          <div class="form-group col-xs-12 mb-2  skin skin-line availability">
             <label for="eventInput1">
               طبيعة الكمية المتوفرة
             </label>
             <fieldset >
-              <input type="radio" name="input-radio-1" id="input-radio-1" checked>
+              <input type="radio" name="availability" id="input-radio-1" >
               <label for="input-radio-1">غير محدودة</label>
             </fieldset>
             <fieldset >
-              <input type="radio" name="input-radio-1" id="input-radio-2">
+              <input type="radio" name="availability" id="input-radio-2">
               <label for="input-radio-2">محدودة</label>
             </fieldset>
           </div>
@@ -287,7 +287,7 @@
                               <div class="btn-group">
                             <button type="button" class="btn btn-secondary btn-min-width dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">اضافة صنف جديد</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="list_library" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك الاختيار بسهولة من بين مئات الأصناف الموجودة بشكل تلقائي في النظام
+                                <a class="dropdown-item" href="productsLibrary" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك الاختيار بسهولة من بين مئات الأصناف الموجودة بشكل تلقائي في النظام
 " >اختيار من المكتبة</a>
                               <a class="dropdown-item"  data-toggle="modal" data-target="#manual_item" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك ادخال صنف أو أكثر بشكل يدوي وملأ البيانات حسب رغباتك">ادخال صنف يدوي</a>
                               <a class="dropdown-item" data-toggle="modal" data-target="#items_excel" data-toggle="tooltip" data-placement="right" title="" data-original-title="يمكنك استيراد العديد من الاصناف دُفعة واحدة من خلال استيراد ملف Excel جاهز
@@ -692,10 +692,7 @@ function update_groupdata(group_name,index){
 }
 
 
-$(document).on('click','.submit_add_new_product',function(){
-  var data = $('.add_new_product').serialize();
-  console.log(data);
-});
+
 
 
 
@@ -713,6 +710,7 @@ noUiSlider.create(time_for_prepare, {
 });
 time_for_prepare.noUiSlider.on('update', function ( values, handle ) {
   $('[name="time_value"]').text(values[handle]+' دقيقة');
+  $('#time_for_prepare').attr('data-value',values[handle]);
 });
 
 
@@ -729,6 +727,7 @@ noUiSlider.create(prepare_at_once, {
 });
 prepare_at_once.noUiSlider.on('update', function ( values, handle ) {
   $('[name="prepare_value"]').text(values[handle]+' وحدات');
+  $('#prepare_at_once').attr('data-value',values[handle]);
 });
 
 
@@ -750,6 +749,63 @@ $('.image_element').image_upload({
 });
 
 
+
+
+$('.submit_add_new_product').on('click',function(){
+
+var p_name = $('input[name="product_name"]').val();
+var p_group = $('input[name="group_name"]').val();
+var p_image = $('input[name="item_image"]').val().replace(/C:\\fakepath\\/i, '');
+var max_time = $('#time_for_prepare').attr('data-value');
+var max_prepare = $('#prepare_at_once').attr('data-value');
+/* p_sizes  */
+var p_sizes = [];
+$('.size_section .colored-row').each(function(){
+var size = new Object();
+size.name = $(this).find('input[name="size_name"]').val();
+size.cost = $(this).find('input[name="cost_price"]').val();
+size.sale = $(this).find('input[name="sale_price"]').val();
+size.sym = get_first_letter($(this).find('input[name="size_name"]').val());
+p_sizes.push(size);
+});
+/* p_extras */
+var p_extras = [];
+$('.extras_section .colored-row').each(function(){
+var extra = new Object();
+extra.name = $(this).find('input[name="extra_name"]').val();
+extra.size = $(this).find('input[name="size_name"]').val();
+extra.cost = $(this).find('input[name="cost_price"]').val();
+extra.sale = $(this).find('input[name="sale_price"]').val();
+p_extras.push(extra);
+});
+/* p_tastes */
+var p_tastes = [];
+$('.taste_section .colored-row').each(function(){
+var taste = new Object();
+taste.name = $(this).find('input[name="taste_name"]').val();
+taste.size = $(this).find('input[name="size_name"]').val();
+taste.cost = $(this).find('input[name="cost_price"]').val();
+taste.sale = $(this).find('input[name="sale_price"]').val();
+p_tastes.push(taste);
+});
+
+var data = new Object();
+data.p_name = p_name;
+data.p_group = p_group;
+data.p_image = p_image;
+data.max_time = max_time;
+data.max_prepare = max_prepare;
+data.p_sizes = p_sizes;
+data.p_extras = p_extras;
+data.p_tastes = p_tastes;
+console.log(data.p_extras);
+
+socket.emit('insertNewProduct',data);
+
+
+
+
+});
 
     });
 
