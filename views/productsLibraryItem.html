@@ -1,0 +1,79 @@
+<!-- preview item -->
+<div class="modal fade text-xs-left in" style="display:block" id="preview_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+                            <div class="modal-dialog modal-sm" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                  <h4 class="modal-title" id="myModalLabel1">@{model.product_data[0].p_name}</h4>
+                                </div>
+                                <div class="modal-body preview_item">
+                                  <div class=" preview_item_header mb-1 p-2 bg-gradient-x-primary">
+                                    <div class="header_data" style="background-image:url('/images/library_uploads/@{model.product_data[0].p_img}')">
+                                      <div class="header_words">@{model.product_data[0].p_desc}</div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group mb-2">
+                                      @{if model.product_sizes.length > 0}
+                                    <h5>
+                                      <i class="icon-grid"></i>
+                                    الأحجام
+                                    </h5>
+                                    <div class="preview_item_list">
+                                      @{foreach size in model.product_sizes}
+                                      <span>@{size.name}</span>
+                                      @{end}
+                                    </div>
+                                    @{fi}
+
+                                  </div>
+                                  <div class="form-group mb-2">
+                                      @{if model.product_extras.length > 0}
+                                    <h5>
+                                      <i class="icon-grid"></i>
+                                      الاضافات
+                                    </h5>
+                                    <div class="preview_item_list">
+                                      @{foreach extra in model.product_extras}
+                                      <span>@{extra.name}</span>
+                                      @{end}
+                                    </div>
+                                    @{fi}
+
+                                  </div>
+                                  <div class="form-group mb-2">
+                                      @{if model.product_tastes.length > 0}
+                                    <h5>
+                                      <i class="icon-grid"></i>
+                                      المذاقات
+                                    </h5>
+                                    <div class="preview_item_list">
+                                      @{foreach taste in model.product_tastes}
+                                      <span>@{taste.name}</span>
+                                      @{end}
+                                    </div>
+                                    @{fi}
+                                  </div>
+                                  <hr>
+                                  <div class="form-group">
+                                    متوسط الأسعار
+                                    <code>@{model.product_data[0].p_prmin}</code>
+                                    :
+                                    <code>@{model.product_data[0].p_prmax} جنيه</code>
+                                  </div>
+                                  <div class="form-group">
+                                    <small>
+                                      *
+                                      يمكنك تعديل خصائص الصنف وملحقاته بما في ذلك الأسعار بعد تثبيته
+                                    </small>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-primary btn-min-width mr-1">تثبيت</button>
+                                  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">الغاء</button>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>

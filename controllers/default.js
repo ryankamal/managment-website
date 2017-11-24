@@ -22,7 +22,6 @@ exports.install = function() {
         F.route('/income_list','income_list');
         F.route('/inventory','inventory');
         F.route('/licences','licences');
-        F.route('/list_library','list_library');
         F.route('/loans','loans');
         F.route('/personal_withdrew','personal_withdrew');
         F.route('/property-rights','property-rights');

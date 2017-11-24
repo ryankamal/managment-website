@@ -16,12 +16,20 @@ F.on('load',function(){
       _socket = socket;
      console.log('new connection has been made');
      groups_data_chart();
+
+
      _socket.on('update_groupdata_only',function(group_name){
        update_groupdata(group_name);
      }).on('update_groupdata',function(group_name){
        update_groupdata(group_name);
        //groups_data_chart();
      });
+
+
+     /* Insert a new product manually */
+     _socket.on('insertNewProduct',function(data){
+       insertNewProduct(data);
+     })
      })
 });
 
@@ -64,4 +72,32 @@ function fetch_products() {
     self.$get(options, function(err,response) {
         self.view('list', response);
     });
+}
+
+
+
+/* function to insert a new product */
+function insertNewProduct(data){
+  sql.query('insertNewProduct',"INSERT INTO products (p_name,p_group,p_image) VALUES ('"+data.p_name+"','"+data.p_group+"','"+data.p_img+"') RETURNING p_id");
+   sql.exec(function(err,response){
+     if(err){
+       console.log(err);
+     }else{
+       console.log('insertNewProduct',response.insertNewProduct[0].p_id);
+       /* insert new product sizes */
+       for(var i = 0; i < data.p_sizes.length; i++){
+         var _data = data.p_sizes[i];
+         sql.query('insert sizes',"insert into products_options (name, cost, price , sym, type, product_id) values ('"+_data.p_name+"',"+_data.cost+","+_data.sale+",'"+_data.sym+"','size',"+response.insertNewProduct[0].p_id+")");
+         sql.exec(function(err,response){
+           if(err){
+             console.log(err);
+             return;
+           }
+         });
+       }
+     }
+    
+  });
+console.log('p_name',data.p_name);
+console.log('p_sizes',data.p_sizes);
 }

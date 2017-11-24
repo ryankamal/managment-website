@@ -45,7 +45,7 @@
          }
      }
    }else{
-     var option = '<div class="colored-row option " "><div class="col-xs-3"> <input type="text" class="form-control " value="" name="taste_name" ></div><div class="col-xs-2"> <input type="text" class="form-control " value="public" name="taste_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
+     var option = '<div class="colored-row option " "><div class="col-xs-3"> <input type="text" class="form-control " value="" name="taste_name" ></div><div class="col-xs-2"> <input type="text" class="form-control " value="public" name="size_name" disabled></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر التكلفة" name="cost_price"></div><div class="col-xs-3"> <input type="text" class="form-control " placeholder="سعر البيع" name="sale_price"></div><div class="col-xs-1" style="text-align: center"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i> </button></div></div>';
 $('.taste_section').append(option);
    }
    check_options('taste_section');
