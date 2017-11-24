@@ -1,3 +1,179 @@
+<div class="modal fade text-xs-left in" id="recieve_goods" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+  <div class="app-content content container-fluid">
+      <div class="content-wrapper">
+        <div class="content-header row">
+          <div class="content-header-left col-md-6 col-xs-12 mb-2">
+            <div class="row breadcrumbs-top">
+              <div class="breadcrumb-wrapper col-xs-12">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="employees.php">الموظفين</a>
+                  </li>
+                  <li class="breadcrumb-item active">المرتبات
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <h3 class="content-header-title mb-0">المرتبات</h3>
+          </div>
+          <div class="content-header-right col-md-6 col-xs-12">
+              <div class="form-group" style="text-align: left">
+                            <!-- button group -->
+
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">الحضور والانصراف</a>
+                                    <a class="dropdown-item" href="#">الأجازات</a>
+                                    <a class="dropdown-item" href="#">المرتبات</a>
+                                    <a class="dropdown-item" href="#">المكافئات</a>
+                                    <a class="dropdown-item" href="#">التقييمات</a>
+                                  </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary">ادارة المرتبات</button>
+                                <button type="button" class="btn btn-secondary">تعديل المرتبات</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="content-header row">
+                        </div>
+            <div class="content-body">
+              <!-- Simple Bar Chart -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">التدفق الشهرى للبضاعه المستلمة</h4>
+                      <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                      <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                          <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                          <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                          <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                          <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body collapse in">
+                      <div class="card-block">
+                        <canvas id="goods" class="mb-1" style="height:300px !important, width:100%;"></canvas>
+                          <div class="row">
+                              <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
+                                <div class="float-xs-left pl-2">
+                                  <span class="font-large-2 text-bold-300 primary">1,326</span>
+                                </div>
+                                <div class="float-xs-left ml-1">
+                                  <span class="blue-grey darken-1 block">اجمالي</span>
+                                  <span class="blue-grey darken-1 block">البضاعة المستلمة</span>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
+                                <div class="float-xs-left pl-2">
+                                  <span class="font-large-2 text-bold-300 danger">367</span>
+                                </div>
+                                <div class="float-xs-left ml-1">
+                                  <span class="blue-grey darken-1 block">البضاعة</span>
+                                  <span class="blue-grey darken-1 block">المتاحة</span>
+                                </div>
+                              </div>
+                            </div>
+                        <div id="bar-chart" class="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-12 col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">سجل البضاعه المستلمة</h4>
+                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                      <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body collapse in">
+                      <div class="card-block card-dashboard" style="padding-top: 0px;">
+                      <table class="table table-striped table-bordered base-style right">
+                        <thead>
+                          <tr>
+                            <th>كود</th>
+                            <th>نوع البضاعه</th>
+                            <th>الكمية</th>
+                            <th>تاريخ الاستلام</th>
+                            <th>اسم المورد</th>
+                            <th>اسم المستلم</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                              <td>101</td>
+                              <td>طماطم</td>
+                              <th>20</th>
+                              <td>11/8/2017</td>
+                              <td>شركة سما التجارية</td>
+                              <td>ريان كمال فهمى</td>
+                          </tr>
+                          <tr>
+                              <td>101</td>
+                              <td>طماطم</td>
+                              <th>20</th>
+                              <td>11/8/2017</td>
+                              <td>شركة سما التجارية</td>
+                              <td>ريان كمال فهمى</td>
+                          </tr>
+                          <tr>
+                              <td>101</td>
+                              <td>طماطم</td>
+                              <th>20</th>
+                              <td>11/8/2017</td>
+                              <td>شركة سما التجارية</td>
+                              <td>ريان كمال فهمى</td>
+                          </tr>
+                          <tr>
+                              <td>101</td>
+                              <td>طماطم</td>
+                              <th>20</th>
+                              <td>11/8/2017</td>
+                              <td>شركة سما التجارية</td>
+                              <td>ريان كمال فهمى</td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <th>كود</th>
+                            <th>نوع البضاعه</th>
+                            <th>الكمية</th>
+                            <th>تاريخ الاستلام</th>
+                            <th>اسم المورد</th>
+                            <th>اسم المستلم</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+
+            </div>
+      </div>
+  </div>
+
+</div>
+
+
 
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
@@ -24,7 +200,7 @@
                             <div class="btn-group">
                             <button type="button" class="btn btn-secondary btn-min-width dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">أذونـات</button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">استلام بضاعة</a>
+                              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#recieve_goods">استلام بضاعة</a>
                               <a class="dropdown-item" href="#">صرف بضاعة</a>
                               <a class="dropdown-item" href="#">اتلاف بضاعة</a>
                             </div>
@@ -316,4 +492,121 @@
         </div>
     </div>
 </div>
+
+<script>
+
+$(document).ready(function(){
+  var ctx = document.getElementById("goods").getContext('2d');
+  var goods = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+                label: 'الصافي',
+                data: [12, 1200, 1500, 1600, 1000, 1200],
+                backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
+                borderColor: '#41efb9',
+                borderWidth: 1,
+                type: 'line'
+
+            },
+            {
+              label: 'الأساسي',
+              data: [12, 1200, 1500, 1600, 1000, 1200],
+              backgroundColor: '#ffebd7',
+              borderColor: '#feb66f',
+              borderWidth: 1
+          },
+          {
+              label: 'الخصومات',
+              data: [25, 34, 14, 12, 14, 25],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          },
+          {
+              label: 'المكافآت',
+              data: [0, 360, 25, 361, 210, 14],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+  var ctx = document.getElementById("attendence").getContext('2d');
+  var goods = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+              label: 'الحضور ',
+              data: [28, 30, 30, 25, 30, 29],
+              backgroundColor: '#ffebd7',
+              borderColor: '#feb66f',
+              borderWidth: 1
+          },
+          {
+              label: 'الغياب ',
+              data: [0, 0, 0, 2, 0, 0],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          },
+          {
+              label: 'الاجازات',
+              data: [2, 0, 0, 3, 0, 1],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+
+</script>
 @{import('vendors.min.js')};
