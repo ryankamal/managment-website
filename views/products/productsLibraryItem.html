@@ -1,14 +1,4 @@
-<!-- preview item -->
-<div class="modal fade text-xs-left in" style="display:block" id="preview_item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-                            <div class="modal-dialog modal-sm" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="myModalLabel1">@{model.product_data[0].p_name}</h4>
-                                </div>
-                                <div class="modal-body preview_item">
+<div class="preview_item">
                                   <div class=" preview_item_header mb-1 p-2 bg-gradient-x-primary">
                                     <div class="header_data" style="background-image:url('/images/library_uploads/@{model.product_data[0].p_img}')">
                                       <div class="header_words">@{model.product_data[0].p_desc}</div>
@@ -56,11 +46,14 @@
                                     @{fi}
                                   </div>
                                   <hr>
-                                  <div class="form-group">
-                                    متوسط الأسعار
+                                  <div class="form-group flexed-row flexed-between flexed-vcentered ">
+                                    <p>
+                                      متوسط الأسعار
                                     <code>@{model.product_data[0].p_prmin}</code>
                                     :
                                     <code>@{model.product_data[0].p_prmax} جنيه</code>
+                                    </p>
+                                    <button type="button" class="btn btn-primary install_product" data-pid="@{model.product_data[0].p_id}">تثبيت الآن</button>
                                   </div>
                                   <div class="form-group">
                                     <small>
@@ -68,12 +61,8 @@
                                       يمكنك تعديل خصائص الصنف وملحقاته بما في ذلك الأسعار بعد تثبيته
                                     </small>
                                   </div>
+                                  <section id="scrolldown" class="demo">
+                                  <small>اضغط لمعرفة المزيد من التفاصيل</small>
+                                  <a href="#"><span></span></a>
+                                  </section>
                                 </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary btn-min-width mr-1">تثبيت</button>
-                                  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">الغاء</button>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>

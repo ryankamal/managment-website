@@ -6,19 +6,22 @@ $(function(){
    },options);
    var key_word = $(this).val();
    $(this).addClass('active');
-   console.log(key_word);
-   console.log(settings.data);
+   //console.log(key_word);
+   //console.log(settings.data);
 
 
    /*
    *lets append our main html structure to our destination element
    */
    var search_result = '<div class="search_result"></div>';
+   var width = parseFloat($(this).width()) + (parseFloat($(this).css('padding'))*2) + 1;
    if(!$(this).parent().eq(0).find('.search_result').length > 0){
      $(this).parent().eq(0).append(search_result);
    }else{
      $(this).parent().eq(0).find('.search_result').show();
    }
+   $(this).parent().eq(0).find('.search_result').css('width',width+'px');
+   //console.log(width);
 
    /*
    *look at our array

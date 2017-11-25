@@ -1,5 +1,3 @@
-var socketio ;
-var _socket;
 var sql = DB();
 
 exports.install = function() {
@@ -13,3 +11,30 @@ function fetch_productsLibrary() {
         self.view('/products/productsLibrary', response);
     });
 }
+
+
+/*
+F.on('load',function(){
+  /*
+   * socket.io configuration
+   *
+  socketio = require('socket.io').listen(this.server);
+  socketio.on('connection',function(socket){
+      _socket = socket;
+     console.log('new connection has been made');
+
+     /* Install a product *
+     _socket.on('install_product',function(p_id){
+         install_product(p_id);
+     });
+     });
+});*/
+
+
+
+
+
+
+
+
+

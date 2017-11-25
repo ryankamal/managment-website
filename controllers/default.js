@@ -20,7 +20,6 @@ exports.install = function() {
 				F.route('/reports','reports');
         F.route('/expenses','expenses');
         F.route('/income_list','income_list');
-        F.route('/inventory','inventory');
         F.route('/licences','licences');
         F.route('/loans','loans');
         F.route('/personal_withdrew','personal_withdrew');

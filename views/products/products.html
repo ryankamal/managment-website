@@ -1,4 +1,4 @@
-@{import('custom_plugins/image_upload.css')}
+@{import('custom_plugins/image_upload.css','plugins/forms/validation/form-validation.css')}
 <style>
 .icheck_square [class*=icheckbox_], .icheck_square [class*=iradio_], .skin [class*=icheckbox_], .skin [class*=iradio_]{
   margin-left: 0px;
@@ -22,7 +22,8 @@
 
 
 
-<div class="modalpreview"></div>
+<div id="modal2">
+</div>
 
 
 <!-- item excel -->
@@ -215,7 +216,12 @@
               </div>
             </div>
           </div>
-
+          @{if model.lib_suspended_products_count[0].total_suspended > 0}
+          <div class="alert bg-warning alert-icon-left alert-dismissible fade in mb-2" role="alert">
+                          <strong>ريان ، </strong> لديك @{model.lib_suspended_products_count[0].total_suspended} أصناف تم تثبيتها حديثا ولم يتم تعديل أسعارها بعد ، لقد قُمت باخفائها من أجلك مؤقتا ، ويمكنك الاطلاع عليها من 
+                          <a href="#" class="alert-link">هُنـــا</a> .
+                        </div>
+                        @{fi}
               <div class="card">
               <div class="card-header no-border">
                 <h4 class="card-title">المجموعات</h4>
@@ -446,11 +452,35 @@
 
 
 
-@{import('vendors.min.js','custom_plugins/auto_complete.js','custom_plugins/image_upload.js')};
+
+@{import('vendors.min.js','custom_plugins/auto_complete.js','custom_plugins/image_upload.js','forms/validation/jqBootstrapValidation.js','forms/validation/form-validation.js')}
 <script>
-var groups_data_chart ;
+
 
     $(function(){
+      var groups_data_chart ;
+$('#modal2').iziModal({
+    title: 'اضافة صنف جديد',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 900,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/addNewProductManually',
+    success:function(data){
+      $("#modal2 .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+
+
       /*  socket.emit('fetch_counts');
         socket.emit('fetch_last_10added');
         socket.emit('fetch_all_products');
@@ -575,19 +605,30 @@ function update_groupdata(group_name,index){
 
 
 
-
-
-$('.addNewProductManually').on('click',function(){
-  $('.modalpreview').empty();
-  $.ajax({
-    method:'get',
-    url:'/addNewProductManually',
-    success:function(data){
-      $('.modalpreview').append(data);
-      $('#addNewProductManually').modal('show');
-    }
-  });
+$(document).on('click','.addNewProductManually',function(event){
+event.preventDefault();
+  
+  //$('#modal2').iziModal('open');
+  $("#modal2").iziModal('open');
 });
+
+
+socket.on('insertNewProductCallback',function(message){
+if(message == 'success'){
+  console.log('submitted correctly');
+  $("#modal2").iziModal('close');
+}else{
+  console.log('oops');
+  toastr.error('تعذر ادراج هذا الصنف لسبب ما ، حاول مجددا','للأسف');
+}
+});
+/*$().on('click',function(event){
+  
+
+
+  /*$('.modalpreview').empty();
+  
+});*/
 
 
     });

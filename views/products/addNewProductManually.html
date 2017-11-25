@@ -1,25 +1,24 @@
-<!-- new manual item -->
-<div class="modal fade text-xs-left in" id="addNewProductManually" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-                            <div class="modal-dialog modal-lg" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="myModalLabel1">اضافة صنف جديد</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form add_new_product">
+<form class="form add_new_product mt-1">
                       <div class="form-body">
                         <div class="col-md-9">
                           <div class="row">
-                            <div class="form-group col-xs-6 mb-2">
+                            <div class="form-group col-xs-3 mb-2">
                               <label for="item_name">اسم الصنف</label>
-                              <input id="item_name" data-complete="ryan-complete" type="text" class="form-control" placeholder="اسم الصنف" name="product_name">
+                              <input id="item_name" required  data-complete="ryan-complete" autocomplete="off" type="text" class="form-control" placeholder="اسم الصنف" name="product_name">
                             </div>
-                            <div class="form-group col-xs-6 mb-2">
+                            <div class="form-group col-xs-3 mb-2">
                               <label for="item_group">اسم المجموعة</label>
-                              <input id="item_group" data-complete="ryan-complete" type="text" class="form-control" placeholder="اسم المجموعة" name="group_name">
+                              <input id="item_group" data-complete="ryan-complete" autocomplete="off" type="text" class="form-control" placeholder="اسم المجموعة" name="group_name">
+
+                            </div>
+                            <div class="form-group col-xs-3 mb-2">
+                              <label for="p_cost_price">سعر التكلفة</label>
+                              <input id="p_cost_price"  type="text" class="form-control" placeholder="سعر التكلفة " name="p_cost_price">
+
+                            </div>
+                            <div class="form-group col-xs-3 mb-2">
+                              <label for="p_sale_price">سعر البيع</label>
+                              <input id="p_sale_price" type="text" class="form-control" placeholder=" سعر البيع" name="p_sale_price">
 
                             </div>
                           </div>
@@ -116,23 +115,20 @@
             </fieldset>
           </div>
 
+          <div class="form-group col-xs-12 mb-2 " style="position:fixed; bottom:0px">
+            <button type="submit" class="btn btn-primary submit_add_new_product" >ادراج الصنف</button>
+          </div>
+
+          
+
 
 
 
     </div>
   </div>
-
+  
                       </div>
                     </form>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary btn-min-width mr-1 submit_add_new_product">تثبيت الصنف</button>
-                                  <button type="button" class="btn grey btn-outline-secondary cancel_manual_item" data-dismiss="modal">اغلاق</button>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
 
 
 
@@ -197,6 +193,8 @@ $('.submit_add_new_product').on('click',function(){
 
 var p_name = $('input[name="product_name"]').val();
 var p_group = $('input[name="group_name"]').val();
+var p_cost_price = $('input[name="p_cost_price"]').val();
+var p_sale_price = $('input[name="p_sale_price"]').val();
 var p_image = $('input[name="item_image"]').val().replace(/C:\\fakepath\\/i, '');
 var max_time = $('#time_for_prepare').attr('data-value');
 var max_prepare = $('#prepare_at_once').attr('data-value');
@@ -264,21 +262,22 @@ p_tastes.push(taste);
 var data = new Object();
 data.p_name = p_name;
 data.p_group = p_group;
+data.p_cost_price =p_cost_price;
+data.p_sale_price =p_sale_price;
 data.p_image = p_image;
 data.max_time = max_time;
 data.max_prepare = max_prepare;
 data.p_sizes = p_sizes;
 data.p_extras = p_extras;
 data.p_tastes = p_tastes;
+data.p_created = getFullDate(new Date());
 console.log(data.p_extras);
 
 socket.emit('insertNewProduct',data);
-$()
-toastr.success('تم اضافة '+data.p_name+' الى قائمة الاصناف بنجاح','ممتاز جدا');
-
-
-
 
 });
+
+
+
                               });
                           </script>

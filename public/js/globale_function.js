@@ -16,6 +16,96 @@ function get_first_letter(str){
   return(result);
 }
 
+
+//get date formatted like 1997/03/25 :: ISO Standard
+function getFullDate(date){
+    var _date = new Date(date);
+    var day = _date.getDate();
+    var month = _date.getMonth()+1;
+    var year = _date.getFullYear();
+    var new_date = ""+year+"/"+month+"/"+day+"";
+    return new_date;
+}
+
+//get time formatted like 02:30 PM
+function getTime(date){
+    var _date = new Date(date);
+    var hour = _date.getHours();
+    var minutes = _date.getMinutes();
+    var a_p ;
+if (hour < 12)
+   {
+   a_p = "ص";
+   }
+else
+   {
+   a_p = "م";
+   }
+if (hour == 0)
+   {
+   hour = 12;
+   }
+if (hour > 12)
+   {
+   hour = hour - 12;
+   }
+   if(hour < 10){
+        var new_hour = '0'+hour;
+    }else{
+        var new_hour = hour;
+    }
+    var new_time = ""+new_hour+":"+minutes+" "+a_p+"";
+    return new_time;
+}
+
+
+function minutes_controller(minutes){
+    if(minutes == 1){
+        return 'دقيقة واحدة';
+    }else if(minutes == 2){
+        return 'دقيقتين';
+    }else if(minutes > 2 && minutes <= 10){
+        return minutes + ' دقائق ';
+    }else if(minutes > 10){
+        return minutes + ' دقيقة ';
+    }
+}
+
+
+/*
+ * convert 24 hour time to 12 hour time
+ */
+
+function allDaytohalf(date){
+    var _date = new Date(date);
+    var hour = _date.getHours();
+    var minutes = _date.getMinutes();
+    
+    var new_day = getFullDate(date);
+    
+    if(hour > 12){
+        var new_hour = hour - 12;
+    }else if(hour == 0){
+        var new_hour = 12;
+    }else if(hour <= 12){
+        var new_hour = hour;
+    }
+    
+    var new_date = new_day +' '+new_hour+':'+minutes;
+    return(new_date)
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
 /*
 * auto complete with submit new option
 */

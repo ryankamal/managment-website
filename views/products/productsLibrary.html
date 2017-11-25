@@ -1,6 +1,6 @@
 
 
-<div class="modalpreview"></div>
+<div id="product_preview"></div>
 
 
 
@@ -32,7 +32,7 @@
             <div class="row">
                                         <div class="col-xs-9 library_list">
                                           @{foreach product in model.allProducts}
-                                            <div  class="library_item" data-id="@{product.p_id}">
+                                            <div  class="library_item" data-id="@{product.p_id}" data-name="@{product.p_name}">
                                               <div class="item_icon">
                                               <img src="images/library_uploads/@{product.p_img}" width="100%" height="100%">
                                               </div>
@@ -46,7 +46,7 @@
                                             <div class="form-group" style="text-align: center">
                           <!-- Outline Icon Button group -->
                           <div class="btn-group" role="group" aria-label="Basic example" dir="ltr">
-                            <button type="button" class="btn btn-icon btn-outline-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="icon-cup"></i></button>
+                            <button type="button" class="btn btn-icon btn-outline-secondary"><i class="icon-cup"></i></button>
                             <button type="button" class="btn btn-icon btn-outline-secondary"><i class="icon-cup"></i></button>
                             <button type="button" class="btn btn-icon btn-outline-secondary"><i class="icon-cup"></i></button>
                             <button type="button" class="btn btn-icon btn-outline-secondary"><i class="icon-cup"></i></button>
@@ -54,13 +54,45 @@
                           </div>
                         </div>
                                             <fieldset class="form-group position-relative">
-                      <input type="text" class="form-control form-control-lg input-lg" id="iconLeft3" placeholder="ابحث عن الأصناف">
+                      <input type="text" class="form-control form-control-lg input-lg default-shadow font-medium-1" id="iconLeft3" placeholder="ابحث عن الأصناف">
                       <div class="form-control-position">
                         <i class="ft-search info font-medium-4"></i>
                       </div>
                                                         </fieldset>
-
-                                             <button type="button" class="btn btn-primary btn-min-width  mr-1 mb-1" style="width: 100%"> ثبيت الأصناف <span class="tag tag tag-danger tag-pill">3</span></button>
+                                                        <div class="card">
+                                                          <div class="card-body">
+                                                            <div class="card-block">
+                                                              <p class="preview_item_list mb-0">
+                                                                اجمالي الأصناف : 
+                                                                <span>1520</span>
+                                                                 صنف
+                                                              </p>
+                                                              <p class="preview_item_list mb-0">
+                                                                الأصناف المثبتة : 
+                                                                <span> 250 </span>
+                                                                 صنف
+                                                              </p>
+                                                              <hr >
+                                                              <p class="mb-0">
+                                                                الأصناف الأكثر انتشارا :
+                                                              </p>
+                                                              <div class="preview_item_list mb-0">
+                                                                <span>شاورما</span><span>شاورما</span><span>شاورما</span>
+                                                              </div>
+                                                              <hr >
+                                                              <p class="mb-0">
+                                                                الأصناف الأعلى مبيعا :
+                                                              </p>
+                                                              <div class="preview_item_list mb-0">
+                                                                <span>شاورما</span><span>شاورما</span><span>شاورما</span>
+                                                              </div>
+                                                              <a href="#" >
+                                                                
+                                                                <small>اضغط لمعرفة المزيد من التفاصيل</small>
+                                                              </a>
+                                                            </div>
+                                                          </div>
+                                                        </div>
                                         </div>
                                     </div>
 
@@ -73,18 +105,48 @@
 @{import('vendors.min.js')};
 <script>
  $(function(){
+   var p_id ;
+   var p_name ;
+$('#product_preview').iziModal({
+    title: ''+p_name+'',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/productsLibraryItem/'+p_id+'',
+    success:function(data){
+      $("#product_preview .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+
+
    $('.library_item').on('click',function(){
-      $('.modalpreview').empty();
-     var p_id = $(this).attr('data-id');
-     $.ajax({
-       method:'get',
-       url:'/productsLibraryItem/'+p_id+'',
-       success:function(data){
-         $('.modalpreview').append(data);
-         $('#preview_item').modal('show');
-       }
-     });
+      p_id = $(this).attr('data-id');
+      p_name = $(this).attr('data-name');
+     $("#product_preview").iziModal('open');
+     $('.iziModal-header-title').text(p_name);
    });
+
+
+
+   /*
+   *Install a new product 
+   */
+   $(document).on('click','.install_product',function(){
+     var p_id = $(this).attr('data-pid');
+     socket.emit('install_product',p_id);
+   });
+
+   
 
 
  });

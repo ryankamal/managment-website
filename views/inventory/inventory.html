@@ -1,199 +1,5 @@
-<style>
-
-span {
-  <!-- color: #1abc9c;-->
-  margin-right: 4px;
-}
-
-.tab {
-  margin-bottom: 10px;
-}
-
-.box {
-  border: 2px dashed #404E67;
-  height: 100%;
-  margin: auto;
-}
-
-.code {
-  font-size: 50px;
-  text-align: center;
-  line-height: 150px;
-  height: 100%
-}
-
-.quantity {
-  font-size: 50px;
-  text-align: center;
-  line-height: 150px;
-  height: 100%;
-}
-
-
-.det {
-  text-align: center;
-  font-size: 23px;
-  border-left: 2px dashed #404E67;
-  border-right:  2px dashed #404E67;
-  height: 100%;
-  line-height: 55px;
-
-}
-
-.name {
-  border-bottom: 2px dashed #404E67;
-  text-align: center;
-  margin-bottom: 5px;
-  margin-top: 5px;
-}
-
-.date {
-  text-align: center;
-  margin-top: 5px;
-}
-
-.special-h {
-    position: relative;
-}
-
-.special-h:after {
-    content: "";
-    display: block;
-    width: 65px;
-    position: absolute;
-    top: 35px;
-    left: 0;
-    border-bottom: 3px solid #1abc9c;
-}
-
-.tckt {
-  background-color: #feffdb;
-  width: 96%;
-  margin: auto;
-  height: 150px;
-}
-
-</style>
-
-
-<!-- recieve goods -->
-<div class="modal fade text-xs-left in" id="recieve_goods" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-                            <div class="modal-dialog " role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="myModalLabel1">اذن استلام البضاعة</h4>
-                                </div>
-                                <div class="modal-body">
-
-                                  <div class="row">
-                                      <div class="col-lg-4 col-md-12 tab">
-                                        <div class="form-group">
-                                          <button type="button" class="btn mb-1 btn-secondary btn-lg btn-block">الأذونات الجديدة <span class="tag tag-pill tag-success">3</span></button>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-lg-4 col-md-12 tab">
-                                        <div class="form-group">
-                                          <button type="button" class="btn mb-1 btn-secondary btn-lg btn-block">الأذونات المقبولة <span class="tag tag-pill tag-success">5</span></button>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-lg-4 col-md-12 tab">
-                                        <div class="form-group">
-                                          <button type="button" class="btn mb-1 btn-secondary btn-lg btn-block">المرتجعات</button>
-                                        </div>
-                                      </div>
-                                 </div>
-
-                                  <hr>
-
-                                  <div class="row tckt">
-                                    <div class="box col-lg-12">
-
-                                      <div class="code col-lg-3 ">
-                                        <p>405</p>
-                                      </div>
-
-                                      <div class="col-lg-6 det">
-                                        <div class="col-lg-12 name">
-                                          <p>ريان كمال فهمى </p>
-                                        </div>
-                                        <div class="col-lg-12 date">
-                                          <p>24/8/2017</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-lg-3 quantity">
-                                        <p>27<p>
-                                      </div>
-
-                                      </div>
-                                  </div>
-
-                                  <hr>
-
-                                  <div class="row tckt">
-                                    <div class="box col-lg-12">
-
-                                      <div class="code col-lg-3 ">
-                                        <p>405</p>
-                                      </div>
-
-                                      <div class="col-lg-6 det">
-                                        <div class="col-lg-12 name">
-                                          <p>ريان كمال فهمى </p>
-                                        </div>
-                                        <div class="col-lg-12 date">
-                                          <p>24/8/2017</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-lg-3 quantity">
-                                        <p>27<p>
-                                      </div>
-
-                                      </div>
-                                  </div>
-
-                                  <hr>
-
-                                  <div class="row tckt">
-                                    <div class="box col-lg-12">
-
-                                      <div class="code col-lg-3 ">
-                                        <p>405</p>
-                                      </div>
-
-                                      <div class="col-lg-6 det">
-                                        <div class="col-lg-12 name">
-                                          <p>ريان كمال فهمى </p>
-                                        </div>
-                                        <div class="col-lg-12 date">
-                                          <p>24/8/2017</p>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-lg-3 quantity">
-                                        <p>27<p>
-                                      </div>
-
-                                      </div>
-                                  </div>
-
-
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
+<div id="modal_preview">
+</div>
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
@@ -219,7 +25,7 @@ span {
                             <div class="btn-group">
                             <button type="button" class="btn btn-secondary btn-min-width dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">أذونـات</button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#recieve_goods">استلام بضاعة</a>
+                              <a class="dropdown-item recieve_permission" href="#" >استلام بضاعة</a>
                               <a class="dropdown-item" href="#">صرف بضاعة</a>
                               <a class="dropdown-item" href="#">اتلاف بضاعة</a>
                             </div>
@@ -511,121 +317,55 @@ span {
         </div>
     </div>
 </div>
-
+@{import('vendors.min.js')};
 <script>
 
-$(document).ready(function(){
-  var ctx = document.getElementById("goods").getContext('2d');
-  var goods = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
-          datasets: [
-            {
-                label: 'الصافي',
-                data: [12, 1200, 1500, 1600, 1000, 1200],
-                backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
-                borderColor: '#41efb9',
-                borderWidth: 1,
-                type: 'line'
 
-            },
-            {
-              label: 'الأساسي',
-              data: [12, 1200, 1500, 1600, 1000, 1200],
-              backgroundColor: '#ffebd7',
-              borderColor: '#feb66f',
-              borderWidth: 1
-          },
-          {
-              label: 'الخصومات',
-              data: [25, 34, 14, 12, 14, 25],
-              backgroundColor: '#ffdfe5',
-              borderColor: '#fe6c8b',
-              borderWidth: 1
-          },
-          {
-              label: 'المكافآت',
-              data: [0, 360, 25, 361, 210, 14],
-              backgroundColor: '#daf2f2',
-              borderColor: '#76d0d0',
-              borderWidth: 1
-          }
-          ]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          },
-          legend: {
-            labels: {
-                // This more specific font property overrides the global property
-                fontColor: '#404E67',
-                fontFamily: 'dubai'
-            }
-        },
-        tooltips: {
-          bodyFontFamily: 'dubai',
-          titleFontFamily: 'dubai'
-        }
-      }
+$(function(){
+$('#modal_preview').iziModal({
+    title: 'اذونات استلام بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/recieve_permission',
+    success:function(data){
+      $("#modal_preview .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
   });
 
-  var ctx = document.getElementById("attendence").getContext('2d');
-  var goods = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
-          datasets: [
-            {
-              label: 'الحضور ',
-              data: [28, 30, 30, 25, 30, 29],
-              backgroundColor: '#ffebd7',
-              borderColor: '#feb66f',
-              borderWidth: 1
-          },
-          {
-              label: 'الغياب ',
-              data: [0, 0, 0, 2, 0, 0],
-              backgroundColor: '#ffdfe5',
-              borderColor: '#fe6c8b',
-              borderWidth: 1
-          },
-          {
-              label: 'الاجازات',
-              data: [2, 0, 0, 3, 0, 1],
-              backgroundColor: '#daf2f2',
-              borderColor: '#76d0d0',
-              borderWidth: 1
-          }
-          ]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          },
-          legend: {
-            labels: {
-                // This more specific font property overrides the global property
-                fontColor: '#404E67',
-                fontFamily: 'dubai'
-            }
-        },
-        tooltips: {
-          bodyFontFamily: 'dubai',
-          titleFontFamily: 'dubai'
-        }
-      }
+  $(document).on('click','.recieve_permission',function(){
+    event.preventDefault();
+  
+  $("#modal_preview").iziModal('open');
   });
+
+});
+
+
+
+
+$(document).on('click','.tab-slider--nav li',function(){
+  $(".tab-slider--body").hide();
+  var activeTab = $(this).attr("rel");
+  $("#"+activeTab).fadeIn();
+	if($(this).attr("rel") == "tab2"){
+		$('.tab-slider--tabs').addClass('slide');
+	}else{
+		$('.tab-slider--tabs').removeClass('slide');
+	}
+  $(".tab-slider--nav li").removeClass("active");
+  $(this).addClass("active");
+});
+
 
 
 </script>
-@{import('vendors.min.js')};
