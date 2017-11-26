@@ -3,7 +3,7 @@ author                          : Ryan Kamal
 version                         : 1.0.0
 secret                          : secret-key-for-web
 allow-websocket                 : false
-
+allow-compile-js                : false
 // Mail settings
 mail-smtp                       : smtp.yourwebsite.com
 mail-smtp-options               : {"secure":false,"port":25,"user":"","password":"","timeout":10000}

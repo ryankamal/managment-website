@@ -1,5 +1,13 @@
-<div id="modal_preview">
+<div id="recieve_permission_modal">
+  </div>
+
+<div id="export_permission_modal">
 </div>
+
+<div id="destroy_permission_modal">
+</div>
+
+
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
@@ -26,8 +34,9 @@
                             <button type="button" class="btn btn-secondary btn-min-width dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">أذونـات</button>
                             <div class="dropdown-menu">
                               <a class="dropdown-item recieve_permission" href="#" >استلام بضاعة</a>
-                              <a class="dropdown-item" href="#">صرف بضاعة</a>
-                              <a class="dropdown-item" href="#">اتلاف بضاعة</a>
+                              <a class="dropdown-item export_permission" href="#">صرف بضاعة</a>
+                              <a class="dropdown-item destroy_permission" href="#">اتلاف بضاعة</a>
+                              <a class="dropdown-item return_permission" href="#">ارتجاع بضاعة</a>
                             </div>
                           </div>
                             <button type="button" class="btn btn-secondary">اضافة مخزن جديد</button>
@@ -322,12 +331,20 @@
 
 
 $(function(){
-$('#modal_preview').iziModal({
+  
+
+
+  /**
+   * recieve_permission
+   **/
+$('#recieve_permission_modal').iziModal({
     title: 'اذونات استلام بضاعة',
     subtitle: '',
     headerColor: 'rgb(54, 68, 94)',
     width: 400,
     zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
     onOpening: function(modal){
       
         modal.startLoading();
@@ -335,18 +352,139 @@ $('#modal_preview').iziModal({
     method:'get',
     url:'/recieve_permission',
     success:function(data){
-      $("#modal_preview .iziModal-content").html(data);
+      $("#recieve_permission_modal .iziModal-content").html(data);
       modal.stopLoading();
     }
   });
+    },
+    onClosed: function(){
+      $("#recieve_permission_modal").find('style').remove();
+      $("#recieve_permission_modal").find('script').remove();
     }
   });
 
   $(document).on('click','.recieve_permission',function(){
     event.preventDefault();
   
-  $("#modal_preview").iziModal('open');
+  $("#recieve_permission_modal").iziModal('open');
   });
+
+
+  /**
+   * export_permission
+   **/
+
+   $('#export_permission_modal').iziModal({
+    title: 'اذونات صرف بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/export_permission',
+    success:function(data){
+      $("#export_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#export_permission_modal").find('style').remove();
+      $("#export_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.export_permission',function(){
+    event.preventDefault();
+  
+  $("#export_permission_modal").iziModal('open');
+  });
+
+
+
+    /**
+   * destroy_permission
+   **/
+
+   $('#destroy_permission_modal').iziModal({
+    title: 'اذونات اهلاك بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/destroy_permission',
+    success:function(data){
+      $("#destroy_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#destroy_permission_modal").find('style').remove();
+      $("#destroy_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.destroy_permission',function(){
+    event.preventDefault();
+  
+  $("#destroy_permission_modal").iziModal('open');
+  });
+
+
+      /**
+   * return_permission
+   **/
+
+   $('#return_permission_modal').iziModal({
+    title: 'اذونات اهلاك بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/return_permission',
+    success:function(data){
+      $("#return_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#return_permission_modal").find('style').remove();
+      $("#return_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.return_permission',function(){
+    event.preventDefault();
+  
+  $("#return_permission_modal").iziModal('open');
+  });
+
+
+
+
+
 
 });
 
@@ -354,16 +492,24 @@ $('#modal_preview').iziModal({
 
 
 $(document).on('click','.tab-slider--nav li',function(){
-  $(".tab-slider--body").hide();
-  var activeTab = $(this).attr("rel");
-  $("#"+activeTab).fadeIn();
-	if($(this).attr("rel") == "tab2"){
-		$('.tab-slider--tabs').addClass('slide');
+  var that = this;
+  $(that).parentsUntil('.tab-slider--container').find('.tab-slider--body').hide();
+  var activeTab = $(that).attr("rel");
+  $(that).parentsUntil('.tab-slider--container').find("#"+activeTab).fadeIn();
+	if($(that).index() != 0){
+		$(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs').addClass('slide');
 	}else{
-		$('.tab-slider--tabs').removeClass('slide');
+		$(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs').removeClass('slide');
 	}
-  $(".tab-slider--nav li").removeClass("active");
-  $(this).addClass("active");
+  $(that).parentsUntil('.tab-slider--container').find(".tab-slider--nav li").removeClass("active");
+  $(that).addClass("active");
+  var offset = $(that).position().left;
+  if($(that).index() != 0){
+    $(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs .after').css('left',offset);
+  }else{
+    $(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs .after').css('left',0);
+  }
+  
 });
 
 

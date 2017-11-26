@@ -1,0 +1,155 @@
+<style>
+	.tab-slider--trigger,.tab-slider--tabs .after{
+		width: 50%;
+	}
+	.tab-slider--tabs .after{
+		left: 50%;
+	}
+	.tab-slider--nav.filled {
+            margin-top: -45px;
+        }
+</style>
+<div class="tab-slider-container">
+<div class="tab-slider--nav filled" dir="ltr">
+		<ul class="tab-slider--tabs">
+			<li class="tab-slider--trigger " rel="tab1"> اذونات ماضية</li>
+			<li class="tab-slider--trigger active" rel="tab2"> اذن صرف جديد</li>
+			<div class="after"></div>
+		</ul>
+	</div>
+	<div class="tab-slider--container">
+		<div id="tab1" class="tab-slider--body">
+				
+				<div class="form-group float-xs-right" style="margin-top:-10px;">
+						<label>الفترة الزمنية للعرض</label>
+						<div class="input-group">
+						  <input type="text" class="form-control showdropdowns">
+						  <span class="input-group-addon">
+							<span class="fa fa-calendar"></span>
+						  </span>
+						</div>
+						<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
+					  </div>
+		<div class="permission-cards">
+				<div class="permission-card">
+						<div class="permission-part id"><p>1</p></div>
+						<div class="permission-part data">
+								<div class="flexed-row flexed-vcentered">
+										<i class="ft-user" style="margin-left:5px" ></i>
+										<p class="no-margin">
+												
+												ريان كمال فهمي
+											</p>
+								</div>
+								<div class="flexed-row flexed-vcentered">
+										<i class="icon-calendar " style="margin-left:5px"></i> 
+										<p class="no-margin">
+												
+												 25 مارس 2017
+											</p>
+								</div>
+						</div>
+						
+				</div>
+				<div class="permission-card">
+						<div class="permission-part id"><p>1</p></div>
+						<div class="permission-part data">
+								<div class="flexed-row flexed-vcentered">
+										<i class="ft-user" style="margin-left:5px" ></i>
+										<p class="no-margin">
+												
+												ريان كمال فهمي
+											</p>
+								</div>
+								<div class="flexed-row flexed-vcentered">
+										<i class="icon-calendar " style="margin-left:5px"></i> 
+										<p class="no-margin">
+												
+												 25 مارس 2017
+											</p>
+								</div>
+						</div>
+						
+				</div>
+				
+		</div>
+
+
+	    </div>
+		<div id="tab2" class="tab-slider--body" style="display:block">
+				<div class="form-group float-xs-right" style="margin-top:-10px;width:100%">
+						<label>اضف الاصناف المراد صرفها بسهولة</label>
+						<div class="input-group">
+						  <input type="text" class="form-control" placeholder="اكتب الأحرف الاولى من الصنف وابدأ البحث">
+						</div>
+						<small class="text-muted">يُمكنك البحث عن أي صنف والضغط عليه لتقوم بإدراجه في قائمة الأصناف المراد صرفها</small>
+					  </div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							اسم الصنف
+						</th>
+						<th>
+							الكمية
+						</th>
+						<th>
+							الوحدة
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							1
+						</td>
+						<td>
+							صلصة طماطم
+						</td>
+						<td>
+							4
+						</td>
+						<td>
+							جركن
+						</td>
+					</tr>
+					<tr>
+						<td>
+							1
+						</td>
+						<td>
+							صلصة طماطم
+						</td>
+						<td>
+							4
+						</td>
+						<td>
+							جركن
+						</td>
+					</tr>
+					<tr>
+						<td>
+							1
+						</td>
+						<td>
+							صلصة طماطم
+						</td>
+						<td>
+							4
+						</td>
+						<td>
+							جركن
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<button type="button" class="btn btn-secondary float-xs-right">
+				تأكيد صرف الأصناف
+			</button>
+		</div>
+	</div>
+</div>

@@ -1,29 +1,241 @@
-<div class="tab-slider--nav" dir="ltr">
+<style>
+        .tab-slider--trigger,.tab-slider--tabs .after{
+            width: 50%;
+        }
+        .tab-slider--tabs .after{
+            left: 50%;
+        }
+    </style>
+<!--div class="permission-view">
+	<div class="permission-header flexed-row flexed-between">
+		<div >
+			<p class="no-margin">الأذونات الجديدة</p>
+		</div>
+		<div>
+			<a href="#" class="flexed-row flexed-vcentered"  >
+				عودة
+				<i class="icon-arrow-left" style="margin-right:5px;"></i>
+			</a>
+		</div>
+	</div>
+	<div class="permission-head-data mb-1">
+		<div class="flexed-row flexed-between" style="margin-bottom:5px;">
+			<div class="flexed-row flexed-vcentered">
+					<i class="ft-user" style="margin-left:5px" ></i>
+					<p class="no-margin">
+							
+							اسم المورد : ريان كمال فهمي
+						</p>
+			</div>
+			<div class="flexed-row flexed-vcentered">
+					<i class="icon-calendar " style="margin-left:5px"></i> 
+					<p class="no-margin">
+							
+							 25 مارس 2017
+						</p>
+			</div>
+		</div>
+		<div class="flexed-row flexed-vcentered">
+			<i class="icon-tag" style="margin-left:5px"></i>
+			<p class="no-margin">
+			رقم اذن الاستلام : 10
+			</p>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					#
+				</th>
+				<th>
+					اسم الصنف
+				</th>
+				<th>
+					الكمية
+				</th>
+				<th>
+					الوحدة
+				</th>
+				<th>
+					الطبيعة
+				</th>
+				<th>
+					س الشراء
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+						<td>
+							1
+						</td>
+						<td>
+							صلصة طماطم
+						</td>
+						<td>
+							2
+						</td>
+						<td>
+							جركن
+						</td>
+						<td>
+							خام
+						</td>
+						<td>
+							110 جنيه
+						</td>
+					</tr>
+					<tr>
+							<td>
+								1
+							</td>
+							<td>
+								صلصة طماطم
+							</td>
+							<td>
+								2
+							</td>
+							<td>
+								جركن
+							</td>
+							<td>
+								خام
+							</td>
+							<td>
+								110 جنيه
+							</td>
+						</tr>
+						<tr>
+				<td>
+					1
+				</td>
+				<td>
+					صلصة طماطم
+				</td>
+				<td>
+					2
+				</td>
+				<td>
+					جركن
+				</td>
+				<td>
+					خام
+				</td>
+				<td>
+					110 جنيه
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div-->
+
+
+<div class="tab-slider--nav filled" dir="ltr">
 		<ul class="tab-slider--tabs">
-			<li class="tab-slider--trigger active" rel="tab1">المرتجعات</li>
-			<li class="tab-slider--trigger" rel="tab2">الأذونات المقبولة</li>
-            <li class="tab-slider--trigger" rel="tab3">الأذونات الجديدة</li>
+			<li class="tab-slider--trigger" rel="tab2"> الأذونات الماضية</li>
+			<li class="tab-slider--trigger active" rel="tab3"><span class="tag tag tag-success tag-pill">3</span> الأذونات الجديدة</li>
+			<div class="after"></div>
 		</ul>
 	</div>
 	<div class="tab-slider--container">
-		<div id="tab1" class="tab-slider--body">
-			<h2>First Tab</h2>
-			<p>Toggle switch style tab navigation. Currently only works with two tabs.</p>
-			<p>Donec ullamcorper nulla non metus auctor fringilla. Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue.</p>
-		</div>
 		<div id="tab2" class="tab-slider--body">
-			<h2>Second Tab</h2>
-			<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+				<div class="form-group float-xs-right" style="margin-top:-10px;">
+						<label>الفترة الزمنية للعرض</label>
+						<div class="input-group">
+						  <input type="text" class="form-control showdropdowns">
+						  <span class="input-group-addon">
+							<span class="fa fa-calendar"></span>
+						  </span>
+						</div>
+						<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
+					  </div>
+				<div class="permission-cards">
+						<div class="permission-card">
+								<div class="permission-part id"><p>2</p></div>
+								<div class="permission-part data">
+									<p>
+										ريان كمال فهمي
+									</p>
+									<p>
+										25 مارس 2017
+									</p>
+								</div>
+						</div>
+						<div class="permission-card">
+								<div class="permission-part id"><p>2</p></div>
+								<div class="permission-part data">
+									<p>
+										ريان كمال فهمي
+									</p>
+									<p>
+										25 مارس 2017
+									</p>
+								</div>
+						</div>
+						<div class="permission-card">
+								<div class="permission-part id"><p>2</p></div>
+								<div class="permission-part data">
+									<p>
+										ريان كمال فهمي
+									</p>
+									<p>
+										25 مارس 2017
+									</p>
+								</div>
+						</div>
+				</div>
 		</div>
-        <div id="tab3" class="tab-slider--body">
-			<h2>Second Tab333</h2>
-			<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+        <div id="tab3" class="tab-slider--body" style="display:block">
+				<div class="alert alert-icon-left alert-warning alert-dismissibl mt-3" role="alert">
+						يوجد 3 أذونات استلام بضاعة جديدة لم يتم التعامل معها بعد
+						
+					  </div>
+					  <div class="form-group float-xs-right" style="margin-top:-10px;">
+							<label>الفترة الزمنية للعرض</label>
+							<div class="input-group">
+							  <input type="text" class="form-control showdropdowns">
+							  <span class="input-group-addon">
+								<span class="fa fa-calendar"></span>
+							  </span>
+							</div>
+							<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
+						  </div>
+			<div class="permission-cards">
+					<div class="permission-card">
+							<div class="permission-part id"><p>1</p></div>
+							<div class="permission-part data">
+								<p>
+									ريان كمال فهمي
+								</p>
+								<p>
+									25 مارس 2017
+								</p>
+							</div>
+					</div>
+					<div class="permission-card">
+							<div class="permission-part id"><p>1</p></div>
+							<div class="permission-part data">
+								<p>
+									ريان كمال فهمي
+								</p>
+								<p>
+									25 مارس 2017
+								</p>
+							</div>
+					</div>
+					<div class="permission-card">
+							<div class="permission-part id"><p>1</p></div>
+							<div class="permission-part data">
+								<p>
+									ريان كمال فهمي
+								</p>
+								<p>
+									25 مارس 2017
+								</p>
+							</div>
+					</div>
+			</div>
 		</div>
 	</div>
 
-    <script>
-        $("document").ready(function(){
-  $(".tab-slider--body").hide();
-  $(".tab-slider--body:first").show();
-});
-    </script>
