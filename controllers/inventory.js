@@ -4,6 +4,8 @@ exports.install = function() {
     F.route('/export_permission', export_permission);
     F.route('/destroy_permission', destroy_permission);
     F.route('/return_permission', return_permission);
+    F.route('/inventories_reports', '/inventory/inventories_reports');
+    F.route('/inventory_new', '/inventory/inventory_new');
 };
 
 function recieve_permission(){
