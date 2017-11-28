@@ -6,6 +6,8 @@ F.on('load',function(){
    /*
    * socket.io configuration
    */
+
+   
   socketio = require('socket.io').listen(this.server);
 
 
@@ -35,7 +37,7 @@ F.on('load',function(){
       * for products page
       */
 
-     groups_data_chart();
+     //groups_data_chart();
 
 
      _socket.on('update_groupdata_only',function(group_name){
@@ -83,6 +85,17 @@ F.on('load',function(){
 
 
 
+
+
+
+
+
+     /**
+      * for Inventory pages
+      */
+      _socket.on('add_new_inventory',function(data){
+        add_new_inventory(data);
+      });
 
 
 
@@ -253,5 +266,37 @@ function install_product(p_id){
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     /********************************************************************
+      * for Inventory pages
+      ********************************************************************/
+
+      /**
+       * add_new_inventory
+       */
+      function add_new_inventory(data){
+        sql.query('add_new_inventory',"insert into inventories (i_name,i_branch,i_desc,i_color,i_address,i_mobile) values ('"+data.name+"','"+data.branch+"','"+data.desc+"','"+data.color+"','"+data.address+"','"+data.mobile+"')");
+        sql.exec(function(err,response){
+          if(err){
+            console.log(err);
+          }else{
+            console.log('added new inventory');
+          }
+        });
+      }
 
 

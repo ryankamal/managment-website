@@ -1,0 +1,93 @@
+
+        <div class="col-md-6">
+            <div class="form-group">
+                    <label for="name">اسم المخزن</label>
+                    <input id="name" type="text" class="form-control" name="i_name" />
+                    <small class="text-muted">الاسم الذي سيظهر على النظام بشكل دائم ولا يمكن تعديله مرة أخرى</small>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                    <label for="branch">اسم الفرع</label>
+                    <input id="branch" type="text" class="form-control" name="i_branch" />
+                    <small class="text-muted">حدد اسم الفرع المرتبط به هذا المخزن</small>
+            </div>
+        </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                        <label for="desc">وصف المخزن</label>
+                        <textarea id="desc" class="form-control" rows="2" name="i_desc" ></textarea>
+                        <small class="text-muted">وصف سريع ومختصر لما يمكن أن يحتوي عليه هذا المخزن</small>
+                </div>
+            </div>
+
+        <div class="col-md-12 mb-1">
+            <small class="text-muted flexed-row flexed-vcentered">
+                سيظهر هذا المخزن في التقارير والجداول والرسوم البيانية بهذا اللون
+                <span class="color-platte" style="background-color:rgba(129,177,211,0.3)" name="i_color" data-color="rgba(129,177,211,0.3)"></span>
+                 الذي لا يمكن تغييره ولا يتطابق مع اي مخزن آخر
+            </small>
+        </div>
+    
+        <div class="col-md-12 mb-1">
+            <hr >
+            
+        </div>
+
+
+    
+            <section>
+                    <div class="col-md-7">
+                            <div class="form-group">
+                                    <label for="address">عنوان المخزن</label>
+                                    <input id="address" type="text" class="form-control" name="i_address"/>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                    <label for="mobile">رقم التليفون</label>
+                                    <input id="mobile" type="text" class="form-control" name="i_mobile"/>
+                            </div>
+                        </div>
+            </section>
+
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary add_new_inventory_submit" >
+                    اضافة المخزن
+                </button>
+            </div>
+
+
+
+            <script >
+                /*$(document).ready(function(){
+                    var colors = '';
+                    console.log(colors);
+                    console.log(get_first_letter('ryan'));
+                    var new_color = ''+hex2rgb(randomColor(),'0.3')+'';
+                  color_checker(new_color);
+
+                  function color_checker(color){
+                      console.log('start check');
+                      var _color ;
+                    for(var i = 0; i < response.inventories_colors.length; i++){
+                        console.log(response.inventories_colors[i].i_color);
+                       _color = color;
+                       if(color == ''+response.inventories_colors[i].i_color+''){
+                           console.log('they have the same colors');
+                           setTimeout(function(){
+                            color_checker(hex2rgb(randomColor(),'0.3'));
+                           },10);
+                           break;
+                       }
+                    }
+                    if(_color == new_color){
+                        console.log('the new color is :',_color);
+                        console.log(response.inventories_colors);
+                        response.inventories_colors = {"color" : ''+_color+''};
+                        console.log(response.inventories_colors);
+                    }
+                  }
+                });*/
+            </script>
