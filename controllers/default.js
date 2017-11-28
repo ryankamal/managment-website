@@ -29,7 +29,8 @@ exports.install = function() {
         F.route('/suppliers','suppliers');
         F.route('/treasury','treasury');
         F.route('/vacations','vacations');
-				F.route('/souq',souq);
+        F.route('/souq',souq);
+        F.route('/souq/seller','/souq/seller');
 
 	// or
 	// F.route('/');

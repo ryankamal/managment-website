@@ -1,0 +1,147 @@
+
+<div id="add_new_inventory"></div>
+
+@{if model.fetch_inventories.length == 0}
+<div class="app-content content container-fluid height-100">
+<div class="content-wrapper height-100">
+    <div class="content-body height-100">
+        <div class="row height-100">
+            <div class="col-md-12 height-100">
+                    <div class="card height-100">
+                            <div class="card-body height-100">
+                                <div class="card-block height-100 flexed-column flexed-centered flexed-vcentered" style="text-align:center;">
+                                    <img src="/images/ico/research.png" width="150" height="150" class="mb-1" />
+                                    <h3 class="mb-1" style="line-height:1.5">
+                                        قد تكون هذه هي المرة الأولى التي تستخدم فيها نظام ادارة المخازن الخاص بنا 
+                                        <br>
+                                        يمكنك البدء بإنشاء مخزنك الأول بالضغط على الزر أدناه
+                                    </h3>
+                                    <button type="button" class="btn btn-outline-secondary btn-lg mb-3 add_new_inventory">انشاء مخزني الأول الآن</button>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+@{fi}
+
+
+
+@{if model.fetch_inventories.length > 0}
+<div class="app-content content container-fluid">
+        <div class="content-wrapper">
+            <div class="content-header row">
+            <div class="content-header-left col-md-6 col-xs-12 mb-2">
+              <div class="row breadcrumbs-top">
+                <div class="breadcrumb-wrapper col-xs-12">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#">ادارة المخازن</a>
+                    </li>
+                    <li class="breadcrumb-item active">عرض المخازن
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <h3 class="content-header-title mb-0">عرض المخازن</h3>
+            </div>
+          </div>
+          <div class="content-header row">
+          </div>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12 flexed-row">
+                        @{foreach inventory in model.fetch_inventories}
+                        <a href="inventories/@{inventory.id}" class="inventory-card card">
+                                    <div class="card-body height-100">
+                                        <div class="card-block height-100">
+                                                <i class="icon-grid"></i>
+                                                <p class="no-margin">
+                                                    @{inventory.i_name}
+                                                </p>
+                                        </div>
+                                    </div>
+                                </a>
+                        @{end}
+                        <div class="inventory-card card new add_new_inventory" >
+                                <div class="card-body height-100">
+                                    <div class="card-block height-100">
+                                            <i class="icon-plus"></i>
+                                            <p class="no-margin">
+                                                مخزن جديد
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+            </div>
+            </div>
+            </div>
+@{fi}
+
+
+
+
+
+
+
+
+
+@{import('vendors.min.js')};
+
+<script >
+    $(function(){
+        $('#add_new_inventory').iziModal({
+    title: 'اضافة مخزن جديد',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/add_new_inventory',
+    success:function(data){
+      $("#add_new_inventory .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+  $(document).on('click','.add_new_inventory',function(){
+    $("#add_new_inventory").iziModal('open');
+  });
+
+
+  $(document).on('click','.add_new_inventory_submit',function(){
+      var i_name = $('input[name="i_name"]').val();
+      var i_branch = $('input[name="i_branch"]').val();
+      var i_desc = $('textarea[name="i_desc"]').val();
+      var i_mobile = $('input[name="i_mobile"]').val();
+      var i_address = $('input[name="i_address"]').val();
+      var i_color = $('span[name="i_color"]').attr('data-color');
+
+      var data = new Object();
+      data.name = i_name;
+      data.branch = i_branch;
+      data.desc = i_desc;
+      data.mobile = i_mobile;
+      data.address = i_address;
+      data.color = i_color;
+
+      console.log(data);
+
+      socket.emit('add_new_inventory',data);
+
+  });
+
+
+    });
+</script>

@@ -1,0 +1,564 @@
+<div id="recieve_permission_modal">
+  </div>
+
+<div id="export_permission_modal">
+</div>
+
+<div id="destroy_permission_modal">
+</div>
+
+
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row">
+        <div class="content-header-left col-md-6 col-xs-12 mb-2">
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-xs-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                </li>
+                <li class="breadcrumb-item"><a href="/inventories">ادارة المخازن</a>
+                </li>
+                <li class="breadcrumb-item active">@{model.inventory_data[0].i_name}
+                </li>
+              </ol>
+            </div>
+          </div>
+          <h3 class="content-header-title mb-0">@{model.inventory_data[0].i_name}</h3>
+        </div>
+        <div class="content-header-right col-md-6 col-xs-12">
+            <div class="form-group" style="text-align: left">
+                          <!-- button group -->
+                          <div class="btn-group" role="group" aria-label="Basic example">
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-outline-secondary btn-min-width dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">أذونـات</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item recieve_permission" href="#" >استلام بضاعة</a>
+                              <a class="dropdown-item export_permission" href="#">صرف بضاعة</a>
+                              <a class="dropdown-item destroy_permission" href="#">اتلاف بضاعة</a>
+                              <a class="dropdown-item return_permission" href="#">ارتجاع بضاعة</a>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+        </div>
+      </div>
+      <div class="content-header row">
+      </div>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                  <div class="card">
+                    <div class="card-header no-border-bottom">
+                      <h4 class="card-title">نظرة عامة</h4>
+                      <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                      <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                          <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                          <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body collapse in">
+                      <div class="card-block">
+                        <canvas id="inventory" class="mb-1" style="height:300px !important; width:100%;"></canvas>
+                        <div class="row my-1">
+                            <div class="col-lg-4 col-xs-12">
+                              <div class="text-xs-center">
+                                <h3>23,454 جنيه</h3>
+                                <p class="text-muted">قيمة المخزون 
+                                    <span class="success"><i class="ft-arrow-up"></i> 8.16%</span>
+                                </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-12">
+                                <div class="text-xs-center">
+                                  <h3>15050</h3>
+                                  <p class="text-muted">متوسط المخزون 
+                                    <span class="success"><i class="ft-arrow-up"></i> 1.16%</span>
+                                  </p>
+                                  </div>
+                              </div>
+                            <div class="col-lg-4 col-xs-12">
+                              <div class="text-xs-center">
+                                <h3>6,630</h3>
+                                <p class="text-muted">عدد الأصناف 
+                                  <span class="success">( +354 هذا الاسبوع )</span>
+                                </p>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">اصناف المخزن</h4>
+                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                  <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body collapse in">
+                    <div class="card-block card-dashboard" style="padding-top: 0px;">
+                    <table class="table table-striped table-bordered base-style">
+                      <thead>
+                        <tr>
+                          <th>كود</th>
+                          <th>الصنف</th>
+                          <th>الكمية</th>
+                          <th>الحجم</th>
+                          <th>الطبيعة</th>
+                          <th>المورد</th>
+                          <th>سعر الشراء</th>
+                          <th>ميعاد الدخول</th>
+                          <th>انتهاء الصلاحية</th>
+                          
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @{foreach item in model.inventory_items}
+                        <tr>
+                                    <td>
+                                        @{item.id}
+                                    </td>
+                                    <td>
+                                        @{item.name}
+                                    </td>
+                                    <td>
+                                        @{item.amount} @{item.module}
+                                    </td>
+                                    <td>
+                                        @{item.size}
+                                    </td>
+                                    <td>
+                                        @{item.kind}
+                                    </td>
+                                    <td>
+                                        @{item.seller}
+                                    </td>
+                                    <td>
+                                        @{item.amount} * @{item.price} جنيه
+                                    </td>
+                                    <td>
+                                        @{item.date}
+                                    </td>
+                                    <td>
+                                        @{item.expiry}
+                                    </td>
+                                </tr>
+                                @{end}
+
+
+
+
+                      </tbody>
+                      <tfoot>
+                          <tr>
+                              <th>كود</th>
+                              <th>الصنف</th>
+                              <th>الكمية</th>
+                              <th>الحجم</th>
+                              <th>الطبيعة</th>
+                              <th>المورد</th>
+                              <th>سعر الشراء</th>
+                              <th>ميعاد الدخول</th>
+                              <th>انتهاء الصلاحية</th>
+                              
+                              
+                            </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+
+            <div class="row">
+          <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">تهديد الصلاحيات</h4>
+                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                  <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body collapse in">
+                    <div class="card-block card-dashboard" style="padding-top: 0px;">
+                      @{if model.inventory_expires.length > 0}
+                        <div class="alert alert-icon-left alert-warning alert-dismissibl " role="alert"> رجاء الانتباه ، توشك صلاحية @{model.inventory_expires.length} من الأصناف على الانتهاء قريبا</div>
+                        @{fi}
+                    <table class="table table-striped table-bordered base-style">
+                      <thead>
+                        <tr>
+                          <th>كود</th>
+                          <th>الصنف</th>
+                          <th>الكمية</th>
+                          <th>باقي من الأيام</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @{foreach item in model.inventory_expires}
+                          <tr style="display: table-row;">
+                                    <td>
+                                        @{item.id}
+                                    </td>
+                                    <td>
+                                        @{item.name}
+                                    </td>
+                                    <td>
+                                        @{item.amount} @{item.module}
+                                    </td>
+                                    <td>
+                                        @{item.still.days} يوم و @{item.still.hours} ساعة
+                                    </td>
+                                </tr>
+                                @{end}
+                      </tbody>
+                      <tfoot>
+                          <tr>
+                              <th>كود</th>
+                              <th>الصنف</th>
+                              <th>الكمية</th>
+                              <th>باقي من الأيام</th>
+                            </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">آخر التحركات</h4>
+                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                  <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body collapse in">
+                    <div class="card-block card-dashboard" style="padding-top: 0px;">
+                    <table class="table table-striped table-bordered base-style">
+                      <thead>
+                        <tr>
+                          <th>كود</th>
+                          <th>الصنف</th>
+                          <th>الكمية</th>
+                          <th>النوع</th>
+                          <th>التاريخ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @{foreach item in model.inventory_latest}
+                          <tr style="display: table-row;">
+                                    <td>
+                                        @{item.id}
+                                    </td>
+                                    <td>
+                                        @{item.name}
+                                    </td>
+                                    <td>
+                                        @{item.amount} @{item.module}
+                                    </td>
+                                    <td>
+                                        @{if item.type == 'incoming'}
+                                        وارد
+                                        @{fi}
+
+                                        @{if item.type == 'outcoming'}
+                                        منصرف
+                                        @{fi}
+
+                                    </td>
+                                    <td>
+                                        @{item.date}
+                                    </td>
+                                </tr>
+                                @{end}
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>كود</th>
+                          <th>الصنف</th>
+                          <th>الكمية</th>
+                          <th>النوع</th>
+                          <th>التاريخ</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+@{import('vendors.min.js')};
+<script>
+
+
+$(function(){
+  
+
+
+  /**
+   * recieve_permission
+   **/
+$('#recieve_permission_modal').iziModal({
+    title: 'اذونات استلام بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/recieve_permission',
+    success:function(data){
+      $("#recieve_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#recieve_permission_modal").find('style').remove();
+      $("#recieve_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.recieve_permission',function(){
+    event.preventDefault();
+  
+  $("#recieve_permission_modal").iziModal('open');
+  });
+
+
+  /**
+   * export_permission
+   **/
+
+   $('#export_permission_modal').iziModal({
+    title: 'اذونات صرف بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/export_permission',
+    success:function(data){
+      $("#export_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#export_permission_modal").find('style').remove();
+      $("#export_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.export_permission',function(){
+    event.preventDefault();
+  
+  $("#export_permission_modal").iziModal('open');
+  });
+
+
+
+    /**
+   * destroy_permission
+   **/
+
+   $('#destroy_permission_modal').iziModal({
+    title: 'اذونات اهلاك بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/destroy_permission',
+    success:function(data){
+      $("#destroy_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#destroy_permission_modal").find('style').remove();
+      $("#destroy_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.destroy_permission',function(){
+    event.preventDefault();
+  
+  $("#destroy_permission_modal").iziModal('open');
+  });
+
+
+      /**
+   * return_permission
+   **/
+
+   $('#return_permission_modal').iziModal({
+    title: 'اذونات اهلاك بضاعة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    transitionIn: 'bounceInDown',
+    transitionOut: 'bounceOutDown',
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/return_permission',
+    success:function(data){
+      $("#return_permission_modal .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onClosed: function(){
+      $("#return_permission_modal").find('style').remove();
+      $("#return_permission_modal").find('script').remove();
+    }
+  });
+
+  $(document).on('click','.return_permission',function(){
+    event.preventDefault();
+  
+  $("#return_permission_modal").iziModal('open');
+  });
+
+
+
+
+  var ctx = document.getElementById("inventory").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+          {
+              label: 'المخزون ',
+              data: [200, 214, 113, 213, 185, 160],
+              backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
+              borderColor: '#41efb9',
+              borderWidth: 1,
+              type: 'line'
+          },
+            {
+              label: 'الواردات ',
+              data: [90, 95, 97, 96, 97, 94],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          },
+          {
+              label: 'المنصرفات ',
+              data: [10, 5, 3, 4, 3, 6],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          }
+          
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+
+
+
+});
+
+
+
+
+$(document).on('click','.tab-slider--nav li',function(){
+  var that = this;
+  $(that).parentsUntil('.tab-slider--container').find('.tab-slider--body').hide();
+  var activeTab = $(that).attr("rel");
+  $(that).parentsUntil('.tab-slider--container').find("#"+activeTab).fadeIn();
+	if($(that).index() != 0){
+		$(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs').addClass('slide');
+	}else{
+		$(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs').removeClass('slide');
+	}
+  $(that).parentsUntil('.tab-slider--container').find(".tab-slider--nav li").removeClass("active");
+  $(that).addClass("active");
+  var offset = $(that).position().left;
+  if($(that).index() != 0){
+    $(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs .after').css('left',offset);
+  }else{
+    $(that).parentsUntil('.tab-slider--container').find('.tab-slider--tabs .after').css('left',0);
+  }
+  
+});
+
+
+
+</script>
