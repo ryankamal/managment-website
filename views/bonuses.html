@@ -3,6 +3,45 @@
 
 </style>
 
+
+<div class="modal fade text-xs-left" id="add_bonus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+                          aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <h3 class="modal-title" id="myModalLabel35">إضافة مكافأة</h3>
+                                </div>
+                                <form>
+                                  <div class="modal-body">
+                                    <fieldset class="form-group floating-label-form-group">
+                                      <label for="title">اسم الموظف</label>
+                                      <input type="text" class="form-control" id="title" placeholder="اسم الموظف">
+                                    </fieldset>
+                                    <br>
+                                    <fieldset class="form-group floating-label-form-group">
+                                      <label for="title">قيمة الإضافه</label>
+                                      <input type="text" class="form-control" id="title" placeholder="الراتب الحالى">
+                                    </fieldset>
+                                    <br>
+                                      <label for="title1">سبب الإضافه</label>
+                                      <textarea class="form-control" id="title1" rows="3" placeholder="سبب الإضافه"></textarea>
+                                    </fieldset>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="submit" class="btn btn-outline-primary btn-lg" value="ارسال الإضافة">
+                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
+                                    value="اغلاق">
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
+
+
 <div class="app-content content container-fluid">
    <div class="content-wrapper">
      <div class="content-header row">
@@ -37,7 +76,7 @@
               <a class="dropdown-item" href="#">التقييمات</a>
                 </div>
              </div>
-             <button type="button" class="btn btn-secondary">اضافة مكافأة</button>
+             <button type="button" class="btn btn-secondary" data-target="#add_bonus" data-toggle="modal">اضافة مكافأة</button>
              </div>
             </div>
            </div>

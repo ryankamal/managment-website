@@ -3,6 +3,56 @@
 
 </style>
 
+<div class="modal fade text-xs-left" id="salarie_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+                          aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <h3 class="modal-title" id="myModalLabel35"> تعديل الراتب</h3>
+                                </div>
+                                <form>
+                                  <div class="modal-body">
+                                    <fieldset class="form-group floating-label-form-group">
+                                      <label for="title">اسم الموظف</label>
+                                      <input type="text" class="form-control" id="title" placeholder="اسم الموظف">
+                                    </fieldset>
+                                    <br>
+                                    <fieldset class="form-group">
+                                        <label for="type">نوع التعديل</label>
+                                        <select class="form-control" id="basicSelect">
+                                          <option>اختر نوع التعديل</option>
+                                          <option>زيادة الراتب</option>
+                                          <option>خفض الراتب</option>
+                                        </select>
+                                      </fieldset>
+                                    <br>
+                                    <fieldset class="form-group floating-label-form-group">
+                                      <label for="title">الراتب الحالى</label>
+                                      <input type="text" class="form-control" id="title" placeholder="الراتب الحالى">
+                                    </fieldset>
+                                    <br>
+                                    <fieldset class="form-group floating-label-form-group">
+                                      <label for="title">الراتب الجديد</label>
+                                      <input type="text" class="form-control" id="title" placeholder="الراتب الجديد">
+                                    </fieldset>
+                                    <br>
+                                    <fieldset class="form-group floating-label-form-group">
+                                      <label for="title1">سبب التعديل</label>
+                                      <textarea class="form-control" id="title1" rows="3" placeholder="سبب التعديل"></textarea>
+                                    </fieldset>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="submit" class="btn btn-outline-primary btn-lg" value="ارسال التعديل">
+                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
+                                    value="اغلاق">
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
 
 
 <div class="app-content content container-fluid">
@@ -41,7 +91,7 @@
                                 </div>
                               </div>
                               <button type="button" class="btn btn-secondary">ادارة المرتبات</button>
-                              <button type="button" class="btn btn-secondary">تعديل المرتبات</button>
+                              <button type="button" class="btn btn-secondary" data-target="#salarie_edit" data-toggle="modal">تعديل المرتبات</button>
                             </div>
                           </div>
                         </div>
