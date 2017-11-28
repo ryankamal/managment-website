@@ -1,5 +1,15 @@
 @{import('calendars/fullcalendar.min.css','plugins/calendars/fullcalendar.min.css')}
 
+
+<style>
+
+.modal-footer {
+  border: 0;
+}
+
+</style>
+
+
 <div class="modal fade text-xs-left" id="order_vacation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
                           aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -8,37 +18,47 @@
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
-                                  <h3 class="modal-title" id="myModalLabel35"> طلب أجازة</h3>
+                                  <h3 class="modal-title" id="myModalLabel35">إضافة أجازة</h3>
                                 </div>
                                 <form>
-                                  <div class="modal-body">
-                                    <fieldset class="form-group">
-                                        <label for="type">نوع الأجازة</label>
-                                        <select class="form-control" id="basicSelect">
-                                          <option>اختر نوع الأجازة</option>
-                                          <option>مرضية</option>
-                                          <option>سنوية</option>
-                                          <option>بدون مرتب</option>
-                                          <option>وضع</option>
-                                        </select>
+                                <div class="modal-body">
+                                    <div class="col-xl-8 col-lg-6 col-md-12 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="basicInput">اسم الموظف</label>
+                                        <input type="text" class="form-control" id="basicInput">
                                       </fieldset>
-                                    <br>
-                                    <fieldset class="form-group floating-label-form-group">
-                                      <label for="title">تاريخ الأجازة</label>
-                                      <input type="text" class="form-control" id="title" placeholder="تاريخ الأجازة">
-                                    </fieldset>
-                                    <br>
-                                    <fieldset class="form-group floating-label-form-group">
-                                      <label for="title1">سبب الأجازة</label>
-                                      <textarea class="form-control" id="title1" rows="3" placeholder="اكتب سبب طلب الأجازة"></textarea>
-                                    </fieldset>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="basicInput">تاريخ الأجازة</label>
+                                        <input type="text" class="form-control" id="basicInput">
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12">
+                                       <fieldset class="form-group">
+                                         <label for="basicSelect">نوع الأجازة</label>
+                                         <select class="form-control" id="basicSelect">
+                                           <option>اختر نوع الأجازة</option>
+                                           <option>سنوية</option>
+                                           <option>مرضية</option>
+                                           <option>بدون مرتب</option>
+                                           <option>وضع</option>
+                                         </select>
+                                       </fieldset>
+                                     </div>
+                                    <div class="col-xl-8 col-lg-6 col-md-12">
+                                      <fieldset class="form-group">
+                                        <label for="placeTextarea">سبب الاجازة</label>
+                                        <textarea class="form-control" id="placeTextarea" rows="3" placeholder="اكتب سبب الأجازة بوضوح"></textarea>
+                                      </fieldset>
+                                    </div>
                                   </div>
                                   <div class="modal-footer">
                                     <input type="submit" class="btn btn-outline-primary btn-lg" value="ارسال الطلب">
                                     <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
                                     value="اغلاق">
                                   </div>
-                                </form>
+                                  </form>
                               </div>
                             </div>
                           </div>
@@ -80,7 +100,7 @@
                             </div>
                           </div>
                               <button type="button" class="btn btn-secondary">ادارة الاجازات</button>
-                            <button type="button" class="btn btn-secondary" data-target="#order_vacation" data-toggle="modal">طلب اجازة</button>
+                            <button type="button" class="btn btn-secondary" data-target="#order_vacation" data-toggle="modal">اضافة اجازة</button>
                             </div>
                         </div>
         </div>

@@ -1,7 +1,14 @@
 @{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css')}
+
 <style>
 
+.modal-footer {
+  border: 0;
+}
+
 </style>
+
+
 
 <div class="modal fade text-xs-left" id="add_report" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
                           aria-hidden="true">
@@ -15,28 +22,34 @@
                                 </div>
                                 <form>
                                   <div class="modal-body">
-                                    <fieldset class="form-group floating-label-form-group">
-                                      <label for="title">اسم الموظف</label>
-                                      <input type="text" class="form-control" id="title" placeholder="اسم الموظف">
-                                    </fieldset>
-                                    <br>
-                                    <fieldset class="form-group">
-                                        <label for="type">نوع التقييم</label>
-                                        <select class="form-control" id="basicSelect">
-                                          <option>اختر نوع الأجازة</option>
-                                          <option>سلبى</option>
-                                          <option>إيجابى</option>
-                                        </select>
+                                    <div class="col-xl-12 col-lg-6 col-md-12 mb-1">
+                                      <fieldset class="form-group">
+                                        <label for="basicInput">اسم الموظف</label>
+                                        <input type="text" class="form-control" id="basicInput">
                                       </fieldset>
-                                    <br>
-                                    <fieldset class="form-group floating-label-form-group">
-                                      <label for="title">قيمة التقييم</label>
-                                      <input type="text" class="form-control" id="title" placeholder="قيمة التقييم">
-                                    </fieldset>
-                                    <br>
-                                      <label for="title1">سبب التقييم</label>
-                                      <textarea class="form-control" id="title1" rows="3" placeholder="سبب التقييم"></textarea>
-                                    </fieldset>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12">
+                                       <fieldset class="form-group">
+                                         <label for="basicSelect">نوع التقييم</label>
+                                         <select class="form-control" id="basicSelect">
+                                           <option>اختر نوع التقييم</option>
+                                           <option>سلبى</option>
+                                           <option>إيجابى</option>
+                                         </select>
+                                       </fieldset>
+                                     </div>
+                                     <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                       <fieldset class="form-group">
+                                         <label for="basicInput">قيمة التقييم</label>
+                                         <input type="text" class="form-control" id="basicInput">
+                                       </fieldset>
+                                     </div>
+                                     <div class="col-xl-12 col-lg-6 col-md-12">
+                                       <fieldset class="form-group">
+                                         <label for="placeTextarea">سبب التقييم</label>
+                                         <textarea class="form-control" id="placeTextarea" rows="3" placeholder="سبب التقييم"></textarea>
+                                       </fieldset>
+                                     </div>
                                   </div>
                                   <div class="modal-footer">
                                     <input type="submit" class="btn btn-outline-primary btn-lg" value="سبب التقييم">
