@@ -65,7 +65,7 @@
                         <div class="row my-1">
                             <div class="col-lg-4 col-xs-12">
                               <div class="text-xs-center">
-                                <h3>23,454 جنيه</h3>
+                                <h3>@{model.inventory_data[0].i_total_value} جنيه</h3>
                                 <p class="text-muted">قيمة المخزون 
                                     <span class="success"><i class="ft-arrow-up"></i> 8.16%</span>
                                 </p>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-lg-4 col-xs-12">
                                 <div class="text-xs-center">
-                                  <h3>15050</h3>
+                                  <h3>@{model.inventory_data[0].i_avg_value} جنيه</h3>
                                   <p class="text-muted">متوسط المخزون 
                                     <span class="success"><i class="ft-arrow-up"></i> 1.16%</span>
                                   </p>
@@ -81,7 +81,7 @@
                               </div>
                             <div class="col-lg-4 col-xs-12">
                               <div class="text-xs-center">
-                                <h3>6,630</h3>
+                                <h3>@{model.inventory_data[0].i_total_items}</h3>
                                 <p class="text-muted">عدد الأصناف 
                                   <span class="success">( +354 هذا الاسبوع )</span>
                                 </p>
@@ -290,6 +290,14 @@
 
                                         @{if item.type == 'outcoming'}
                                         منصرف
+                                        @{fi}
+
+                                        @{if item.type == 'destroied'}
+                                        هالك
+                                        @{fi}
+
+                                        @{if item.type == 'returned'}
+                                        مرتجع
                                         @{fi}
 
                                     </td>
