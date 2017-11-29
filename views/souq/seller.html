@@ -1,470 +1,70 @@
 <style>
 
-.oo {
-  float: left;
-}
-
-.co {
-  float: left;
-}
-
-.product-specs-section .specs-block{
-  width: 50%;
-}
-.product-specs-section .specs-block p{
-  padding: 5px;
-}
-.product-specs-section .specs-block p.specs-data{
-background-color: #f5f7fa
-}
-.list-group-flush .list-group-item{
-  padding: 0.5rem;
-}
-.card-img-top{
-  height: 200px !important;
-  width: 100%;
-  transition: 0.3s;
-}
-.product-img{
-  overflow: hidden;
-}
-
 </style>
-
-<!-- opened orders modal -->
-<div class="modal fade text-xs-left" id="opened_orders" tabindex="-1" role="dialog"
-                          aria-labelledby="myModalLabel18" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                  <h4 class="modal-title" id="myModalLabel18">الطلبات المفتوحة</h4>
-                                </div>
-
-                                <div class="modal-body">
-
-                                  <div class="col-lg-12">
-                                    <h2>الطلبات الجديدة <span class="tag tag-pill tag-success">3</span></h2>
-                                  </div>
-                                  	<div class="tab-slider--container">
-                                  		<div id="tab2" class="tab-slider--body">
-                                  				<div class="form-group float-xs-right" style="margin-top:-10px;">
-                                  						<label>الفترة الزمنية للعرض</label>
-                                  						<div class="input-group">
-                                  						  <input type="text" class="form-control showdropdowns">
-                                  						  <span class="input-group-addon">
-                                  							<span class="fa fa-calendar"></span>
-                                  						  </span>
-                                  						</div>
-                                  						<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
-                                  					  </div>
-                                  				<div class="permission-cards">
-                                  						<div class="permission-card">
-                                  								<div class="permission-part id"><p>2</p></div>
-                                  								<div class="permission-part data">
-                                  									<p>
-                                  										ريان كمال فهمي
-                                  									</p>
-                                  									<p>
-                                  										25 مارس 2017
-                                  									</p>
-                                  								</div>
-                                  						</div>
-                                  						<div class="permission-card">
-                                  								<div class="permission-part id"><p>2</p></div>
-                                  								<div class="permission-part data">
-                                  									<p>
-                                  										ريان كمال فهمي
-                                  									</p>
-                                  									<p>
-                                  										25 مارس 2017
-                                  									</p>
-                                  								</div>
-                                  						</div>
-                                  						<div class="permission-card">
-                                  								<div class="permission-part id"><p>2</p></div>
-                                  								<div class="permission-part data">
-                                  									<p>
-                                  										ريان كمال فهمي
-                                  									</p>
-                                  									<p>
-                                  										25 مارس 2017
-                                  									</p>
-                                  								</div>
-                                  						</div>
-                                  				</div>
-                                  		</div>
-                                          <div id="tab3" class="tab-slider--body" style="display:block">
-                                  				<div class="alert alert-icon-left alert-warning alert-dismissibl mt-3" role="alert">
-                                  						يوجد 3 أذونات استلام بضاعة جديدة لم يتم التعامل معها بعد
-
-                                  					  </div>
-                                  					  <div class="form-group float-xs-right" style="margin-top:-10px;">
-                                  							<label>الفترة الزمنية للعرض</label>
-                                  							<div class="input-group">
-                                  							  <input type="text" class="form-control showdropdowns">
-                                  							  <span class="input-group-addon">
-                                  								<span class="fa fa-calendar"></span>
-                                  							  </span>
-                                  							</div>
-                                  							<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
-                                  						  </div>
-                                  			<div class="permission-cards">
-                                  					<div class="permission-card">
-                                  							<div class="permission-part id"><p>1</p></div>
-                                  							<div class="permission-part data">
-                                  								<p>
-                                  									ريان كمال فهمي
-                                  								</p>
-                                  								<p>
-                                  									25 مارس 2017
-                                  								</p>
-                                  							</div>
-                                  					</div>
-                                  					<div class="permission-card">
-                                  							<div class="permission-part id"><p>1</p></div>
-                                  							<div class="permission-part data">
-                                  								<p>
-                                  									ريان كمال فهمي
-                                  								</p>
-                                  								<p>
-                                  									25 مارس 2017
-                                  								</p>
-                                  							</div>
-                                  					</div>
-                                  					<div class="permission-card">
-                                  							<div class="permission-part id"><p>1</p></div>
-                                  							<div class="permission-part data">
-                                  								<p>
-                                  									ريان كمال فهمي
-                                  								</p>
-                                  								<p>
-                                  									25 مارس 2017
-                                  								</p>
-                                  							</div>
-                                  					</div>
-                                  			</div>
-                                  		</div>
-                                  	</div>
-
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">اغلاق</button>
-                                  <button type="button" class="btn btn-outline-primary">حفظ التغييرات</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-<!-- closed orders -->
-                          <div class="modal fade text-xs-left" id="closed_orders" tabindex="-1" role="dialog"
-                                                    aria-labelledby="myModalLabel18" aria-hidden="true">
-                                                      <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                          <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                              <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                            <h4 class="modal-title" id="myModalLabel18">الطلبات المغلقة</h4>
-                                                          </div>
-
-                                                          <div class="modal-body">
-
-                                                            	<div class="tab-slider--container">
-                                                            		<div id="tab2" class="tab-slider--body">
-                                                            				<div class="form-group float-xs-right" style="margin-top:-10px;">
-                                                            						<label>الفترة الزمنية للعرض</label>
-                                                            						<div class="input-group">
-                                                            						  <input type="text" class="form-control showdropdowns">
-                                                            						  <span class="input-group-addon">
-                                                            							<span class="fa fa-calendar"></span>
-                                                            						  </span>
-                                                            						</div>
-                                                            						<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
-                                                            					  </div>
-                                                            				<div class="permission-cards">
-                                                            						<div class="permission-card">
-                                                            								<div class="permission-part id"><p>2</p></div>
-                                                            								<div class="permission-part data">
-                                                            									<p>
-                                                            										ريان كمال فهمي
-                                                            									</p>
-                                                            									<p>
-                                                            										25 مارس 2017
-                                                            									</p>
-                                                            								</div>
-                                                            						</div>
-                                                            						<div class="permission-card">
-                                                            								<div class="permission-part id"><p>2</p></div>
-                                                            								<div class="permission-part data">
-                                                            									<p>
-                                                            										ريان كمال فهمي
-                                                            									</p>
-                                                            									<p>
-                                                            										25 مارس 2017
-                                                            									</p>
-                                                            								</div>
-                                                            						</div>
-                                                            						<div class="permission-card">
-                                                            								<div class="permission-part id"><p>2</p></div>
-                                                            								<div class="permission-part data">
-                                                            									<p>
-                                                            										ريان كمال فهمي
-                                                            									</p>
-                                                            									<p>
-                                                            										25 مارس 2017
-                                                            									</p>
-                                                            								</div>
-                                                            						</div>
-                                                            				</div>
-                                                            		</div>
-                                                                    <div id="tab3" class="tab-slider--body" style="display:block">
-                                                            					  <div class="form-group float-xs-right" style="margin-top:-10px;">
-                                                            							<label>الفترة الزمنية للعرض</label>
-                                                            							<div class="input-group">
-                                                            							  <input type="text" class="form-control showdropdowns">
-                                                            							  <span class="input-group-addon">
-                                                            								<span class="fa fa-calendar"></span>
-                                                            							  </span>
-                                                            							</div>
-                                                            							<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
-                                                            						  </div>
-                                                            			<div class="permission-cards">
-                                                            					<div class="permission-card">
-                                                            							<div class="permission-part id"><p>1</p></div>
-                                                            							<div class="permission-part data">
-                                                            								<p>
-                                                            									ريان كمال فهمي
-                                                            								</p>
-                                                            								<p>
-                                                            									25 مارس 2017
-                                                            								</p>
-                                                            							</div>
-                                                            					</div>
-                                                            					<div class="permission-card">
-                                                            							<div class="permission-part id"><p>1</p></div>
-                                                            							<div class="permission-part data">
-                                                            								<p>
-                                                            									ريان كمال فهمي
-                                                            								</p>
-                                                            								<p>
-                                                            									25 مارس 2017
-                                                            								</p>
-                                                            							</div>
-                                                            					</div>
-                                                            					<div class="permission-card">
-                                                            							<div class="permission-part id"><p>1</p></div>
-                                                            							<div class="permission-part data">
-                                                            								<p>
-                                                            									ريان كمال فهمي
-                                                            								</p>
-                                                            								<p>
-                                                            									25 مارس 2017
-                                                            								</p>
-                                                            							</div>
-                                                            					</div>
-                                                            			</div>
-                                                            		</div>
-                                                            	</div>
-
-                                                          </div>
-                                                          <div class="modal-footer">
-                                                            <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">اغلاق</button>
-                                                            <button type="button" class="btn btn-outline-primary">حفظ التغييرات</button>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-
 
 
 <div class="app-content content container-fluid">
   <div class="content-wrapper">
     <div class="content-header row">
-
-      <!-- header l\right links -->
-      <div class="content-header-right col-lg-12 col-md-6 col-xs-12">
-          <div class="form-group" style="text-align: left">
-            <!-- button group -->
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary">تعديل الملف الشخصى</button>
-                <button type="button" class="btn btn-secondary" data-target="#order_vacation" data-toggle="modal">اضافة منتج</button>
-            </div>
-          </div>
-      </div>
-
-      <div class="content-header row">
-      </div>
+    </div>
+    <div class="content-header row">
+    </div>
 
       <div class="content-body">
 
-        <!-- statistics -->
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-block">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
-                      <div class="float-xs-left pl-2">
-                        <span class="font-large-3 text-bold-300">265</span>
-                      </div>
-                      <div class="float-xs-left ml-1">
-                        <span class="blue-grey darken-1 block">اجمالي</span>
-                        <span class="blue-grey darken-1 block">المبيعات</span>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
-                      <div class="float-xs-left pl-2">
-                        <span class="font-large-3 text-bold-300">477</span>
-                      </div>
-                      <div class="float-xs-left ml-1">
-                        <span class="blue-grey darken-1 block">اجمالى</span>
-                        <span class="blue-grey darken-1 block">الأرباح</span>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12 flexed-row flexed-centered flexed-vcentered">
-                      <div class="float-xs-left pl-2">
-                        <span class="font-large-3 text-bold-300">9.3</span>
-                      </div>
-                      <div class="float-xs-left  ml-1">
-                        <span class="blue-grey darken-1 block">متوسط</span>
-                        <span class="blue-grey darken-1 block">التقييمات</span>
-                      </div>
+        <div id="user-profile">
+          <div class="row">
+            <div class="col-xs-12">
+            <div class="card profile-with-cover">
+              <div class="card-img-top img-fluid bg-cover height-300" style="background: url('/images/souq/22.jpg') 50%;"></div>
+              <div class="media profil-cover-details">
+                <div class="media-left pl-2 pt-2">
+                  <a href="#" class="profile-image">
+                    <img src="/images/souq/avatar-s-8.png" class="rounded-circle img-border height-100"
+                    alt="Card image">
+                  </a>
+                </div>
+                <div class="media-body media-middle row">
+                  <div class="col-xs-6">
+                    <h3 class="card-title">شركة سما للتجارة</h3>
+                  </div>
+                  <div class="col-xs-6 text-xs-right">
+                    <button type="button" class="btn btn-primary hidden-xs-down"><i class="fa fa-plus"></i> متابعة</button>
+                    <div class="btn-group hidden-md-down" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-success"><i class="fa fa-dashcube"></i> رسالة</button>
+                      <button type="button" class="btn btn-success"><i class="fa fa-cog"></i></button>
                     </div>
                   </div>
                 </div>
               </div>
+              <nav class="navbar navbar-light navbar-profile">
+                <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse"
+                data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2"
+                aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+                  <ul class="nav navbar-nav float-xs-right">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#"><i class=""></i> الرئيسية <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><i class=""></i> الطلبات</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><i class=""></i> الماليات</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><i class=""></i> الاعدادات</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
           </div>
-        </div>
 
 
-        <!-- orders -->
-        <div class="row">
 
-          <!-- Orders -->
-
-          <!-- opened orders -->
-          <div class="col-lg-6 col-md-12 oo">
-            <div class="col-lg-10 col-md-12">
-              <div class="form-group">
-                <button type="button" class="btn mb-1 btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#opened_orders">الطلبات المفتوحة</button>
-              </div>
             </div>
          </div>
-
-         <!-- closed orders -->
-         <div class="col-lg-5 col-md-12 co">
-            <div class="col-lg-10 col-md-12">
-              <div class="form-group">
-                <button type="button" class="btn mb-1 btn-danger btn-lg btn-block" data-toggle="modal" data-target="#closed_orders">الطلبات المغلقة</button>
-              </div>
-            </div>
-        </div>
-
-
-        </div>
-
-        <!-- My Products -->
-        <div class="row">
-
-          <!-- header -->
-          <div class="col-lg-12 ">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-block height-15 flexed-row flexed-vcentered flexed-centered">
-                  <h2>منتجاتى</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tomato -->
-          <div class="col-lg-3 col-md-12 ">
-            <div class="card">
-              <div class="card-body" data-toggle="modal" data-target="#preview_product">
-                <div class="product-img flexed-row flexed-centered">
-                  <img class="card-img-top img-fluid" src="/images/souq/tomato.jpg" alt="Card image cap"></div>
-                <div class="card-block">
-                  <h4 class="card-title">طماطم طازجة</h4>
-                  <p class="card-text">أجود أنواع الطماطم من خير مزارعنا مباشرة اليكم</p>
-                </div>
-              </div>
-              <div class="card-footer text-muted">
-                <span class="float-xs-left">4 جم</span>
-                <span class="float-xs-right">Add To Cart <i class="fa fa-cart-plus"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- spaghetti -->
-          <div class="col-lg-3 col-md-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="product-img flexed-row flexed-centered">
-                  <img class="card-img-top img-fluid" src="/images/souq/pasta.jpg"
-                  alt="Card image cap"></div>
-
-                <div class="card-block">
-                  <h4 class="card-title">مكرونة سباجيتى هاينز</h4>
-                  <p class="card-text">نقدم لكم أفخر انواع السباجيتى ذات الجودة العالية </p>
-                </div>
-              </div>
-              <div class="card-footer text-muted">
-                <span class="float-xs-left">3.75 جم</span>
-                <span class="float-xs-right">Add To Cart <i class="fa fa-cart-plus"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- pineapple -->
-          <div class="col-lg-3 col-md-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="product-img flexed-row flexed-centered">
-                  <img class="card-img-top img-fluid" src="/images/souq/pineapple.jpg"
-                  alt="Card image cap"></div>
-                <div class="card-block">
-                  <h4 class="card-title">أناناس طازج</h4>
-                  <p class="card-text">أجود وأفخر أنواع الأناناس المقدمة لكم من اجود المزارع وأنقاها</p>
-                </div>
-              </div>
-              <div class="card-footer text-muted">
-                <span class="float-xs-left">30 جم</span>
-                <span class="float-xs-right">Add To Cart <i class="fa fa-cart-plus"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- pagination -->
-          <div class="col-lg-12 col-md-12">
-             <div class="text-xs-center mb-3">
-               <nav aria-label="Page navigation">
-                  <ul class="pagination">
-                      <li class="page-item"><a class="page-link" href="#" aria-label="Previous">«</a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#">5</a></li>
-                      <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">»</a>
-                      </li>
-                  </ul>
-                 </nav>
-              </div>
-            </div>
-            <!-- end of my products -->
-
-
-        </div>
-
       </div>
     </div>
-  </div
-</div>
-@{import('vendors.min.js')};
+  </div>
