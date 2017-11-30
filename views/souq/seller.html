@@ -1,5 +1,13 @@
 @{import('pages/users.min.css')}
 
+<style>
+
+.profile-tab{
+  display: none;
+}
+
+
+</style>
 
 <div class="app-content content container-fluid">
   <div class="content-wrapper">
@@ -40,14 +48,17 @@
                 data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-                  <ul class="nav navbar-nav float-xs-right">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#"><i class=""></i> الرئيسية <span class="sr-only">(current)</span></a>
+                  <ul class="nav navbar-nav float-xs-right profile-tabs">
+                    <li class="nav-item action" data-tab="personal-tab">
+                      <a class="nav-link" href="#" ><i class=""></i> الرئيسية </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-tab="tybes-tab">
+                      <a class="nav-link" href="#" ><i class=""></i> الأصناف </a>
+                    </li>
+                    <li class="nav-item" data-tab="orders-tab">
                       <a class="nav-link" href="#"><i class=""></i> الطلبات</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-tab="finances-tab">
                       <a class="nav-link" href="#"><i class=""></i> الماليات</a>
                     </li>
                     <li class="nav-item">
@@ -58,14 +69,643 @@
               </nav>
             </div>
           </div>
-
+        </div>
 
 
             </div>
          </div>
-      </div>
+
+     <!-- main tab -->
+     <div class="col-lg-12 profile-tab" data-tab="personal-tab">
+       <div class="row">
+
+         <div class="col-xl-3 col-lg-6 col-xs-12">
+              <div class="card bg-primary">
+                <div class="card-body">
+                  <div class="card-block">
+                    <div class="media">
+                      <div class="media-left media-middle">
+                        <i class="icon-pencil white font-large-2 float-xs-left"></i>
+                      </div>
+                      <div class="media-body white text-xs-right">
+                        <h3>278</h3>
+                        <span>اجمالى المبيعات</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-xs-12">
+                 <div class="card bg-danger">
+                   <div class="card-body">
+                     <div class="card-block">
+                       <div class="media">
+                         <div class="media-left media-middle">
+                           <i class="icon-list white font-large-2 float-xs-left"></i>
+                         </div>
+                         <div class="media-body white text-xs-right">
+                           <h3>5</h3>
+                           <span>اجمالى الأصناف</span>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+               <div class="col-xl-3 col-lg-6 col-xs-12">
+                    <div class="card bg-warning">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <div class="media">
+                            <div class="media-left media-middle">
+                              <i class="icon-layers white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body white text-xs-right">
+                              <h3>23</h3>
+                              <span>اجمالى الطلبات</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-6 col-xs-12">
+                       <div class="card bg-success">
+                         <div class="card-body">
+                           <div class="card-block">
+                             <div class="media">
+                               <div class="media-left media-middle">
+                                 <i class="icon-credit-card white font-large-2 float-xs-left"></i>
+                               </div>
+                               <div class="media-body white text-xs-right">
+                                 <h3>675</h3>
+                                 <span>اجمالى الارباح</span>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+
+       </div>
+
+       <!-- Column Chart -->
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title"></h4>
+                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                  <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                      <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body collapse in">
+                  <div class="card-block">
+                    <canvas id="myChart" class="mb-1" style="height:300px !important; width:100%;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- transcations -->
+          <div class="row">
+              <div class="col-xs-12 col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">سجل حركة الحساب</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body collapse in">
+                  <div class="card-block card-dashboard" style="padding-top: 0px;">
+                  <table class="table table-striped table-bordered base-style right">
+                    <thead>
+                      <tr>
+                        <th>كود</th>
+                        <th>اسم المشترى</th>
+                        <th>تاريخ الشراء</th>
+                        <th>توقيت الشراء</th>
+                        <th>الكمية</th>
+                        <th>اجمالى المبيعات</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td>101</td>
+                          <td>ريان كمال فهمي</td>
+                          <th>11/8/2017</th>
+                          <td>13:26</td>
+                          <td>15</td>
+                          <td>750</td>
+                      </tr>
+                      <tr>
+                          <td>101</td>
+                          <td>ريان كمال فهمي</td>
+                          <th>11/8/2017</th>
+                          <td>13:26</td>
+                          <td>15</td>
+                          <td>750</td>
+                      </tr>
+                      <tr>
+                          <td>101</td>
+                          <td>ريان كمال فهمي</td>
+                          <th>11/8/2017</th>
+                          <td>13:26</td>
+                          <td>15</td>
+                          <td>750</td>
+                      </tr>
+                      <tr>
+                          <td>101</td>
+                          <td>ريان كمال فهمي</td>
+                          <th>11/8/2017</th>
+                          <td>13:26</td>
+                          <td>15</td>
+                          <td>750</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>كود</th>
+                        <th>اسم المشترى</th>
+                        <th>تاريخ الشراء</th>
+                        <th>توقيت الشراء</th>
+                        <th>الكمية</th>
+                        <th>اجمالى المبيعات</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+
+
+     </div>
+
+
+     <!-- tybes tab -->
+     <div class="col-lg-12 profile-tab" data-tab="tybes-tab" id="tybes-tab">
+
+       <div class="row">
+
+         <div class="col-xl-4 col-lg-6 col-xs-12">
+              <div class="card bg-danger">
+                <div class="card-body">
+                  <div class="card-block">
+                    <div class="media">
+                      <div class="media-left media-middle">
+                        <i class="icon-list white font-large-2 float-xs-left"></i>
+                      </div>
+                      <div class="media-body white text-xs-right">
+                        <h3>5</h3>
+                        <span>اجمالى الأصناف</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-xs-12">
+                 <div class="card bg-primary">
+                   <div class="card-body">
+                     <div class="card-block">
+                       <div class="media">
+                         <div class="media-left media-middle">
+                           <i class="icon-pencil white font-large-2 float-xs-left"></i>
+                         </div>
+                         <div class="media-body white text-xs-right">
+                           <h3>278</h3>
+                           <span>اجمالى المبيعات</span>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+               <div class="col-xl-4 col-lg-6 col-xs-12">
+                    <div class="card bg-primary">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <div class="media">
+                            <div class="media-left media-middle">
+                              <i class="icon-pencil white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body white text-xs-right">
+                              <h3>3</h3>
+                              <span>اجمالى المجموعات</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+       </div>
+
+       <!-- tybes table -->
+       <div class="row">
+           <div class="col-xs-12 col-lg-12">
+         <div class="card">
+           <div class="card-header">
+             <h4 class="card-title">سجل حركة الحساب</h4>
+             <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+             <div class="heading-elements">
+               <ul class="list-inline mb-0">
+                 <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                 <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                 <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+               </ul>
+             </div>
+           </div>
+           <div class="card-body collapse in">
+               <div class="card-block card-dashboard" style="padding-top: 0px;">
+               <table class="table table-striped table-bordered base-style right">
+                 <thead>
+                   <tr>
+                     <th>كود</th>
+                     <th>اسم المنتج</th>
+                     <th>تاريخ الإضافة</th>
+                     <th>اجمالى الطلبات</th>
+                     <th>اجمالى المبيعات</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                       <td>101</td>
+                       <td>طماطم طازجة</td>
+                       <th>11/8/2017</th>
+                       <td>8</td>
+                       <td>32</td>
+                   </tr>
+                   <tr>
+                       <td>101</td>
+                       <td>طماطم طازجة</td>
+                       <th>11/8/2017</th>
+                       <td>8</td>
+                       <td>32</td>
+                   </tr>
+                   <tr>
+                       <td>101</td>
+                       <td>طماطم طازجة</td>
+                       <th>11/8/2017</th>
+                       <td>8</td>
+                       <td>32</td>
+                   </tr>
+                   <tr>
+                       <td>101</td>
+                       <td>طماطم طازجة</td>
+                       <th>11/8/2017</th>
+                       <td>8</td>
+                       <td>32</td>
+                   </tr>
+                 </tbody>
+                 <tfoot>
+                   <tr>
+                     <th>كود</th>
+                     <th>اسم المنتج</th>
+                     <th>تاريخ الإضافة</th>
+                     <th>اجمالى الطلبات</th>
+                     <th>اجمالى المبيعات</th>
+                   </tr>
+                 </tfoot>
+               </table>
+             </div>
+           </div>
+         </div>
+         </div>
+         </div>
+
+
+     </div>
+
+
+     <!-- orders tab -->
+     <div class="col-lg-12 profile-tab" data-tab="odrers-tab" id="orders-tab">
+
+     </div>
+
+     <!-- finances-tab -->
+     <div class="col-lg-12 profile-tab" data-tab="finances-tab">
+
+       <!-- Simple Bar Chart -->
+       <!-- Simple Bar Chart -->
+       <div class="row">
+         <div class="col-xs-12">
+           <div class="card">
+             <div class="card-header">
+               <h4 class="card-title">سجل المبيعات</h4>
+               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+               <div class="heading-elements">
+                 <ul class="list-inline mb-0">
+                   <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                   <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                   <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                   <li><a data-action="close"><i class="ft-x"></i></a></li>
+                 </ul>
+               </div>
+             </div>
+             <div class="card-body collapse in">
+               <div class="card-block">
+                 <canvas id="myChar" class="mb-1" style="height:300px !important, width:100%;"></canvas>
+                   <div class="row">
+                       <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
+                         <div class="float-xs-left pl-2">
+                           <span class="font-large-2 text-bold-300 primary">120</span>
+                         </div>
+                         <div class="float-xs-left ml-1">
+                           <span class="blue-grey darken-1 block">اجمالي</span>
+                           <span class="blue-grey darken-1 block">المبيعات</span>
+                         </div>
+                       </div>
+                       <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
+                         <div class="float-xs-left pl-2">
+                           <span class="font-large-2 text-bold-300 danger">8</span>
+                         </div>
+                         <div class="float-xs-left ml-1">
+                           <span class="blue-grey darken-1 block">اجمالي</span>
+                           <span class="blue-grey darken-1 block">الطلبات</span>
+                         </div>
+                       </div>
+                       <div class="col-lg-4 col-md-6 col-xs-12 flexed-row flexed-centered flexed-vcentered">
+                         <div class="float-xs-left pl-2">
+                           <span class="font-large-2 text-bold-300 success">3</span>
+                         </div>
+                         <div class="float-xs-left ml-1">
+                           <span class="blue-grey darken-1 block">اجمالى</span>
+                           <span class="blue-grey darken-1 block">الأصناف</span>
+                         </div>
+                       </div>
+                     </div>
+                 <div id="bar-chart" class="">
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="row">
+           <div class="col-xs-12 col-lg-12">
+         <div class="card">
+           <div class="card-header">
+             <h4 class="card-title">سجل حركة المبيعات</h4>
+             <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+             <div class="heading-elements">
+               <ul class="list-inline mb-0">
+                 <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                 <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                 <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+               </ul>
+             </div>
+           </div>
+           <div class="card-body collapse in">
+               <div class="card-block card-dashboard" style="padding-top: 0px;">
+               <table class="table table-striped table-bordered base-style right">
+                 <thead>
+                   <tr>
+                     <th>كود</th>
+                     <th>اسم المشترى</th>
+                     <th>تاريخ الشراء</th>
+                     <th>توقيت الشراء</th>
+                     <th>الكمية</th>
+                     <th>اجمالى المبيعات</th>
+                     <th>حالة الطلب</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                       <td>101</td>
+                       <td>ريان كمال فهمي</td>
+                       <th>11/8/2017</th>
+                       <td>13:26</td>
+                       <td>15</td>
+                       <td>750</td>
+                       <td>تم</td>
+                   </tr>
+                   <tr>
+                       <td>101</td>
+                       <td>ريان كمال فهمي</td>
+                       <th>11/8/2017</th>
+                       <td>13:26</td>
+                       <td>15</td>
+                       <td>750</td>
+                       <td>تم</td>
+                   </tr>
+                   <tr>
+                       <td>101</td>
+                       <td>ريان كمال فهمي</td>
+                       <th>11/8/2017</th>
+                       <td>13:26</td>
+                       <td>15</td>
+                       <td>750</td>
+                       <td>تم</td>
+                   </tr>
+                   <tr>
+                       <td>101</td>
+                       <td>ريان كمال فهمي</td>
+                       <th>11/8/2017</th>
+                       <td>13:26</td>
+                       <td>15</td>
+                       <td>750</td>
+                       <td>تم</td>
+                   </tr>
+                 </tbody>
+                 <tfoot>
+                   <tr>
+                     <th>كود</th>
+                     <th>اسم المشترى</th>
+                     <th>تاريخ الشراء</th>
+                     <th>توقيت الشراء</th>
+                     <th>الكمية</th>
+                     <th>اجمالى المبيعات</th>
+                     <th>حالة الطلب</th>
+                   </tr>
+                 </tfoot>
+               </table>
+             </div>
+           </div>
+         </div>
+         </div>
+         </div>
+
+     </div>
+
+
+   </div>
     </div>
   </div>
+
+@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js')};
+
+
+
+<script>
+
+// 2222222222
+$(document).ready(function(){
+  var ctx = document.getElementById("myChar").getContext('2d');
+  var myChar = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+                label: 'الصافي',
+                data: [12, 1200, 1500, 1600, 1000, 1200],
+                backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
+                borderColor: '#41efb9',
+                borderWidth: 1,
+                type: 'line'
+
+            },
+            {
+              label: 'الأساسي',
+              data: [12, 1200, 1500, 1600, 1000, 1200],
+              backgroundColor: '#ffebd7',
+              borderColor: '#feb66f',
+              borderWidth: 1
+          },
+          {
+              label: 'الخصومات',
+              data: [25, 34, 14, 12, 14, 25],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          },
+          {
+              label: 'المكافآت',
+              data: [0, 360, 25, 361, 210, 14],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+
+  $('.profile-tabs li').on('click touch',function(){
+    var tab = $(this).attr('data-tab');
+    $('.profile-tab').hide();
+    $(document).find('.profile-tab[data-tab="'+tab+'"]').show();
+  });
+
+});
+
+
+
+$(document).ready(function(){
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيه"],
+          datasets: [
+            {
+                label: 'الصافي',
+                data: [12, 1200, 1500, 1600, 1000, 1200],
+                backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
+                borderColor: '#41efb9',
+                borderWidth: 1,
+                type: 'line'
+
+            },
+            {
+              label: 'الأساسي',
+              data: [12, 1200, 1500, 1600, 1000, 1200],
+              backgroundColor: '#ffebd7',
+              borderColor: '#feb66f',
+              borderWidth: 1
+          },
+          {
+              label: 'الخصومات',
+              data: [25, 34, 14, 12, 14, 25],
+              backgroundColor: '#ffdfe5',
+              borderColor: '#fe6c8b',
+              borderWidth: 1
+          },
+          {
+              label: 'المكافآت',
+              data: [0, 360, 25, 361, 210, 14],
+              backgroundColor: '#daf2f2',
+              borderColor: '#76d0d0',
+              borderWidth: 1
+          }
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          },
+          legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: '#404E67',
+                fontFamily: 'dubai'
+            }
+        },
+        tooltips: {
+          bodyFontFamily: 'dubai',
+          titleFontFamily: 'dubai'
+        }
+      }
+  });
+
+
+
+});
+
+
+
+
+</script>
+
+
+
 
 
   @{import('vendors.min.js')};
