@@ -1,11 +1,115 @@
-@{import('pages/users.min.css')}
+@{import('pages/users.min.css')};
+@{import('custom_plugins/image_upload.css')};
+
+
+
 
 <style>
+
+.opened {
+  height: 110px;
+  text-align: center;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.07), 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.code p {
+  line-height: 100px;
+  margin-top: 3px;
+  font-size: 40px;
+  width: 50%;
+}
+
+.tag {
+  padding: 0 !important;
+}
+
+.details p:first-child {
+  font-size: 30px
+}
+
+.details div:last-child {
+  font-size: 20px;
+}
+
+.details {
+  border-left: 2px solid rgba(0, 0, 0, 0.06);
+  border-right: 2px solid rgba(0, 0, 0, 0.06);
+  line-height: 40px;
+}
+
+.quantity p:first-child {
+  font-size: 30px;
+}
+
+.quantity p:last-child {
+  font-size: 28px;
+  width: 20%;
+  line-height: 40px;
+}
+
+.quantity {
+  line-height: 40px;
+}
+
+.permission-cards .permission-card .permission-part.id {
+    width: 25%;
+}
+
+.permission-cards .permission-card .permission-part.data {
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-right: 1px solid #ddd;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.permission-cards .permission-card .permission-part.id p {
+    margin: 0px;
+    background: #11d195;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}
+
+.permission-card,
+.permission-cards {
+  width: 100%;
+height: 70px;
+padding: 10px 0px;
+background-color: #fff;
+box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.07), 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+border-radius: 3px;
+border: none;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+cursor: pointer;
+transition: 0.3s;
+
+}
+
+
+
 
 .profile-tab{
   display: none;
 }
 
+.card-title h2 {
+  margin-bottom: px;
+}
 
 </style>
 
@@ -35,7 +139,7 @@
                     <h3 class="card-title">شركة سما للتجارة</h3>
                   </div>
                   <div class="col-xs-6 text-xs-right">
-                    <button type="button" class="btn btn-primary hidden-xs-down"><i class="fa fa-plus"></i> متابعة</button>
+                    <button type="button" class="btn btn-primary hidden-xs-down"><i class="fa fa-plus"></i> أضف صنف</button>
                     <div class="btn-group hidden-md-down" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-success"><i class="fa fa-dashcube"></i> رسالة</button>
                       <button type="button" class="btn btn-success"><i class="fa fa-cog"></i></button>
@@ -61,7 +165,7 @@
                     <li class="nav-item" data-tab="finances-tab">
                       <a class="nav-link" href="#"><i class=""></i> الماليات</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" data-tab="settings">
                       <a class="nav-link" href="#"><i class=""></i> الاعدادات</a>
                     </li>
                   </ul>
@@ -400,9 +504,267 @@
 
 
      <!-- orders tab -->
-     <div class="col-lg-12 profile-tab" data-tab="odrers-tab" id="orders-tab">
+     <div class="col-lg-12 profile-tab" data-tab="orders-tab" id="orders-tab">
+
+       <div class="row">
+
+         <div class="col-xl-4 col-lg-6 col-xs-12">
+              <div class="card bg-danger">
+                <div class="card-body">
+                  <div class="card-block">
+                    <div class="media">
+                      <div class="media-left media-middle">
+                        <i class="icon-list white font-large-2 float-xs-left"></i>
+                      </div>
+                      <div class="media-body white text-xs-right">
+                        <h3>17</h3>
+                        <span>اجمالى الطلبات</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-xs-12">
+                 <div class="card bg-primary">
+                   <div class="card-body">
+                     <div class="card-block">
+                       <div class="media">
+                         <div class="media-left media-middle">
+                           <i class="icon-pencil white font-large-2 float-xs-left"></i>
+                         </div>
+                         <div class="media-body white text-xs-right">
+                           <h3>6</h3>
+                           <span>الطلبات المفتوحة</span>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+
+               <div class="col-xl-4 col-lg-6 col-xs-12">
+                    <div class="card bg-success">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <div class="media">
+                            <div class="media-left media-middle">
+                              <i class="icon-pencil white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="media-body white text-xs-right">
+                              <h3>11</h3>
+                              <span>الطلبات المغلقة</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+       </div>
+
+       <div class="card">
+         <div class="card-body">
+           <div class="card-block">
+
+             <div class="card-title">
+               <h2>الطلبات المفتوحة</h2>
+             </div>
+
+             <div class="col-md-12">
+               <div class="form-group float-xs-right" style="margin-top:-10px;">
+       						<label>الفترة الزمنية للعرض</label>
+       						<div class="input-group">
+       						  <input type="text" class="form-control showdropdowns">
+       						  <span class="input-group-addon">
+       							<span class="fa fa-calendar"></span>
+       						  </span>
+       						</div>
+       						<small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
+       					  </div>
+               </div
+           </div>
+
+           <div class="opened col-lg-12">
+
+             <div class="code col-lg-3">
+               <p class="tag tag-pill tag-success">17</p>
+             </div>
+
+             <div class="details col-lg-6">
+               <p>ريان كمال فهمى</p>
+               <p> 25 مارس 2017 </p>
+             </div>
+
+             <div class="quantity col-lg-3">
+               <p> الكمية </p>
+               <p class="tag tag-pill tag-success"> 36 </p>
+             </div>
+
+           </div>
+
+           <div class="opened col-lg-12">
+
+             <div class="code col-lg-3">
+               <p class="tag tag-pill tag-success">17</p>
+             </div>
+
+             <div class="details col-lg-6">
+               <p>ريان كمال فهمى</p>
+               <p> 25 مارس 2017 </p>
+             </div>
+
+             <div class="quantity col-lg-3">
+               <p> الكمية </p>
+               <p class="tag tag-pill tag-success"> 36 </p>
+             </div>
+
+           </div>
+
+           <div class="opened col-lg-12">
+
+             <div class="code col-lg-3">
+               <p class="tag tag-pill tag-success">17</p>
+             </div>
+
+             <div class="details col-lg-6">
+               <p>ريان كمال فهمى</p>
+               <p> 25 مارس 2017 </p>
+             </div>
+
+             <div class="quantity col-lg-3">
+               <p> الكمية </p>
+               <p class="tag tag-pill tag-success"> 36 </p>
+             </div>
+
+           </div>
+
+
+         </div>
+         <div class="col-lg-12 col-md-12">
+                     <div class="text-xs-center mb-3">
+                       <nav aria-label="Page navigation">
+                         <ul class="pagination">
+                           <li class="page-item"><a class="page-link" href="#" aria-label="Previous">«</a>
+                           </li>
+                           <li class="page-item"><a class="page-link" href="#">1</a></li>
+                           <li class="page-item"><a class="page-link" href="#">2</a></li>
+                           <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                           <li class="page-item"><a class="page-link" href="#">4</a></li>
+                           <li class="page-item"><a class="page-link" href="#">5</a></li>
+                           <li class="page-item">
+                             <a class="page-link" href="#" aria-label="Next">»</a>
+                           </li>
+                         </ul>
+                       </nav>
+                     </div>
+                   </div>
+       </div>
 
      </div>
+   </div>
+
+     <div class="card">
+       <div class="card-body">
+         <div class="card-block">
+
+           <div class="card-title">
+             <h2>الطلبات المغلقة</h2>
+           </div>
+
+           <div class="col-md-12">
+             <div class="form-group float-xs-right" style="margin-top:-10px;">
+                <label>الفترة الزمنية للعرض</label>
+                <div class="input-group">
+                  <input type="text" class="form-control showdropdowns">
+                  <span class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+                  </span>
+                </div>
+                <small class="text-muted">يُمكنك تحديد فترة زمنية معينة لعرض الاذونات طبقا لها</small>
+                </div>
+             </div
+         </div>
+
+         <div class="opened col-lg-12">
+
+           <div class="code col-lg-3">
+             <p class="tag tag-pill tag-success">6</p>
+           </div>
+
+           <div class="details col-lg-6">
+             <p>ريان كمال فهمى</p>
+             <p> 25 مارس 2017 </p>
+           </div>
+
+           <div class="quantity col-lg-3">
+             <p> الكمية </p>
+             <p class="tag tag-pill tag-success"> 36 </p>
+           </div>
+
+         </div>
+
+         <div class="opened col-lg-12">
+
+           <div class="code col-lg-3">
+             <p class="tag tag-pill tag-success">4</p>
+           </div>
+
+           <div class="details col-lg-6">
+             <p>ريان كمال فهمى</p>
+             <p> 25 مارس 2017 </p>
+           </div>
+
+           <div class="quantity col-lg-3">
+             <p> الكمية </p>
+             <p class="tag tag-pill tag-success"> 46 </p>
+           </div>
+
+         </div>
+
+         <div class="opened col-lg-12">
+
+           <div class="code col-lg-3">
+             <p class="tag tag-pill tag-success">11</p>
+           </div>
+
+           <div class="details col-lg-6">
+             <p>ريان كمال فهمى</p>
+             <p> 25 مارس 2017 </p>
+           </div>
+
+           <div class="quantity col-lg-3">
+             <p> الكمية </p>
+             <p class="tag tag-pill tag-success"> 14 </p>
+           </div>
+
+         </div>
+
+
+       </div>
+       <div class="col-lg-12 col-md-12">
+                   <div class="text-xs-center mb-3">
+                     <nav aria-label="Page navigation">
+                       <ul class="pagination">
+                         <li class="page-item"><a class="page-link" href="#" aria-label="Previous">«</a>
+                         </li>
+                         <li class="page-item"><a class="page-link" href="#">1</a></li>
+                         <li class="page-item"><a class="page-link" href="#">2</a></li>
+                         <li class="page-item active"><a class="page-link" href="#">3</a></li>
+                         <li class="page-item"><a class="page-link" href="#">4</a></li>
+                         <li class="page-item"><a class="page-link" href="#">5</a></li>
+                         <li class="page-item">
+                           <a class="page-link" href="#" aria-label="Next">»</a>
+                         </li>
+                       </ul>
+                     </nav>
+                   </div>
+                 </div>
+     </div>
+
+   </div>
+ </div>
 
      <!-- finances-tab -->
      <div class="col-lg-12 profile-tab" data-tab="finances-tab">
@@ -550,12 +912,97 @@
 
      </div>
 
+     <!-- settings tab -->
+     <div class="col-lg-12 profile-tab" data-tab="settings">
+
+       <!-- image -->
+       <div class="col-md-4 mb-1">
+           <div class="col-md-12 mb-2 image_element"></div>
+       </div>
+
+       <!-- info -->
+       <div class="col-md-8">
+
+
+         <div class="card">
+       <div class="card-body">
+       <div class="card-block">
+               <div class="row">
+               <div class="col-md-9">
+                 <div class="form-group ">
+                 <label for="eventRegInput1">اسم التاجر</label>
+                 <input type="text" id="eventRegInput1" class="form-control" placeholder="اسم التاجر" name="">
+                 </div>
+               </div>
+                 <div class="col-md-3">
+                 <div class="form-group ">
+                 <label for="eventRegInput1">رقم الموبايل</label>
+                 <input type="text" id="eventRegInput1" class="form-control" placeholder="رقم الموبايل" name="">
+                 </div>
+               </div>
+             </div>
+                 <div class="row">
+               <div class="col-md-3">
+                 <div class="form-group">
+                   <label for="phoneNumber1">محل الاقامة</label>
+                   <select class="form-control">
+                         <option></option>
+                         <option>
+                             القاهرة
+                         </option>
+                         <option>
+                             الجيزة
+                         </option>
+                         <option>
+                             المعادي
+                         </option>
+
+                     </select>
+                 </div>
+               </div>
+               <div class="col-md-9">
+                 <div class="form-group">
+                   <label for="date1">العنوان كاملا</label>
+                   <input type="text" id="eventRegInput1" class="form-control" placeholder="العنوان كاملا" name="">
+                 </div>
+               </div>
+             </div>
+
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-body">
+           <div class="card-block">
+             <div class="row">
+               <div class="col-md-12">
+                 <label for="descTextarea">وصف التاجر</label>
+                  <textarea class="form-control" id="descTextarea" rows="3" placeholder="ضع وصف لك او لشركتك"></textarea>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="form-group">
+         <button type="button" class="btn btn-primary" >حفظ التغييرات</button>
+       </div>
+
+
+
+       </div>
+
+       </div>
+
+     </div
+
 
    </div>
     </div>
   </div>
 
-@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js')};
+@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js','custom_plugins/image_upload.js')};
 
 
 
@@ -699,7 +1146,12 @@ $(document).ready(function(){
 
 });
 
-
+$('.image_element').image_upload({
+  name: 'item_image',
+  background: '#FFF',
+  height:'170px',
+  width:'60%'
+});
 
 
 </script>
