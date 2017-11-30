@@ -42,7 +42,7 @@
                         <div class="row my-1">
                             <div class="col-lg-4 col-xs-12">
                               <div class="text-xs-center">
-                                <h3>3</h3>
+                                <h3>@{model.inventories_data.length}</h3>
                                 <p class="text-muted">اجمالي المخازن 
                                 </p>
                                 </div>
@@ -95,53 +95,50 @@
                             <th>اجمالي الأصناف</th>
                             <th>اجمالي الواردات</th>
                             <th>اجمالي الصادرات</th>
-                            <th>الصنف الأكثر طلبا</th>
-                            <th>الصنف الأقل طلبا</th>
+                            <th>اجمالي الهوالك</th>
+                            <th>اجمالي المرتجعات</th>
                           </tr>
                         </thead>
                         <tbody>
+                            @{foreach inventory in model.inventories_data}
                             <tr>
-                                <td>110</td>
-                                <td>المخزن الرئيسي</td>
-                                <td>125204 جنيه</td>
-                                <td>6210</td>
-                                <td>32101 جنيه</td>
-                                <td>21412 جنيه</td>
-                                <td>صلصة الطماطم</td>
-                                <td>الفلفل الأسود</td>
+                                <td>@{inventory.id}</td>
+                                <td>@{inventory.i_name}</td>
+                                <td>
+                                    @{if inventory.total_values > 0}@{inventory.total_values} جنيه @{fi}
+                                    @{if !inventory.total_values > 0}--- @{fi}
+                                </td>
+                                <td>@{inventory.total_items}</td>
+                                <td>
+                                        @{if inventory.total_incoming > 0}@{inventory.total_incoming} جنيه @{fi}
+                                        @{if !inventory.total_incoming > 0}--- @{fi}
+                               </td>
+                               <td>
+                                    @{if inventory.total_outcoming > 0}@{inventory.total_outcoming} جنيه @{fi}
+                                    @{if !inventory.total_outcoming > 0}--- @{fi}
+                           </td>
+                               <td>
+                                    @{if inventory.total_destroied > 0}@{inventory.total_destroied} جنيه @{fi}
+                                    @{if !inventory.total_destroied > 0}--- @{fi}
+                           </td>
+                                <td>
+                                    @{if inventory.total_returned > 0}@{inventory.total_returned} جنيه @{fi}
+                                    @{if !inventory.total_returned > 0}--- @{fi}
+                           </td>
                             </tr>
-                            <tr>
-                                <td>110</td>
-                                <td>المخزن الرئيسي</td>
-                                <td>125204 جنيه</td>
-                                <td>6210</td>
-                                <td>32101 جنيه</td>
-                                <td>21412 جنيه</td>
-                                <td>صلصة الطماطم</td>
-                                <td>الفلفل الأسود</td>
-                            </tr>
-                            <tr>
-                                <td>110</td>
-                                <td>المخزن الرئيسي</td>
-                                <td>125204 جنيه</td>
-                                <td>6210</td>
-                                <td>32101 جنيه</td>
-                                <td>21412 جنيه</td>
-                                <td>صلصة الطماطم</td>
-                                <td>الفلفل الأسود</td>
-                            </tr>
+                            @{end}
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>كود</th>
-                                <th>اسم المخزن</th>
-                                <th>اجمالي المخزون</th>
-                                <th>اجمالي الأصناف</th>
-                                <th>اجمالي الواردات</th>
-                                <th>اجمالي الصادرات</th>
-                                <th>الصنف الأكثر طلبا</th>
-                                <th>الصنف الأقل طلبا</th>
-                              </tr>
+                            <th>كود</th>
+                            <th>اسم المخزن</th>
+                            <th>اجمالي المخزون</th>
+                            <th>اجمالي الأصناف</th>
+                            <th>اجمالي الواردات</th>
+                            <th>اجمالي الصادرات</th>
+                            <th>اجمالي الهوالك</th>
+                            <th>اجمالي المرتجعات</th>
+                          </tr>
                         </tfoot>
                       </table>
                     </div>
@@ -171,7 +168,32 @@
                       <div class="card-block card-dashboard" style="padding-top: 0px;">
                         <div class="row">
                             <div class="col-md-5">
-                                <canvas id="expires" class="mb-1" style="height:300px !important; width:100%;"></canvas>
+                                <canvas id="expires" class="mb-3" style="height:300px !important; width:100%;"></canvas>
+                                <table class="table table-striped table-bordered ">
+                                        <thead>
+                                          <tr>
+                                            <th>اسم المخزن</th>
+                                            <th>الأصناف المهددة</th>
+                                            <th>النسبة</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{foreach row in model.inventories_expiry2}
+                                            <tr style="display: table-row;">
+                                                <td>@{row.i_name}</td>
+                                                <td>@{row.count}</td>
+                                                <td>@{row.percent} %</td>
+                                            </tr>
+                                            @{end}
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>اسم المخزن</th>
+                                                <th>قيمة المنصرفات</th>
+                                                <th>النسبة</th>
+                                              </tr>
+                                        </tfoot>
+                                      </table>
                               </div>
                               <div class="col-md-7">
                                   <table class="table table-striped table-bordered base-style">
@@ -180,71 +202,39 @@
                                           <th>كود</th>
                                           <th>الصنف</th>
                                           <th>الكمية</th>
-                                          <th>تاريخ الانتهاء</th>
+                                          <th>المخزن</th>
                                           <th>باقي من الأيام</th>
                                         </tr>
                                       </thead>
                                       <tbody>
+                                          @{foreach row in model.inventories_expiry}
                                           <tr style="display: table-row;">
                                               <td>
-                                                  152
+                                                  @{row.id}
                                               </td>
                                               <td>
-                                                  غجينة بيتزا
+                                                    @{row.name}
                                               </td>
                                               <td>
-                                                  5 قطعة
+                                                    @{row.amount} @{row.module}
                                               </td>
                                               <td>
-                                                  15/7/2017
+                                                    @{row.i_name}
                                               </td>
                                               <td>
-                                                2 يوم
+                                                    @{row.still.days} يوم و @{row.still.hours} ساعة
                                               </td>
                                           </tr>
-                                          <tr style="display: table-row;">
-                                              <td>
-                                                  152
-                                              </td>
-                                              <td>
-                                                  غجينة بيتزا
-                                              </td>
-                                              <td>
-                                                  5 قطعة
-                                              </td>
-                                              <td>
-                                                  15/7/2017
-                                              </td>
-                                              <td>
-                                                2 يوم
-                                              </td>
-                                          </tr>
-                                          <tr style="display: table-row;">
-                                              <td>
-                                                  152
-                                              </td>
-                                              <td>
-                                                  غجينة بيتزا
-                                              </td>
-                                              <td>
-                                                  5 قطعة
-                                              </td>
-                                              <td>
-                                                  15/7/2017
-                                              </td>
-                                              <td>
-                                                2 يوم
-                                              </td>
-                                          </tr>
+                                          @{end}
                                       </tbody>
                                       <tfoot>
-                                          <tr>
-                                              <th>كود</th>
-                                              <th>الصنف</th>
-                                              <th>الكمية</th>
-                                              <th>تاريخ الانتهاء</th>
-                                              <th>باقي بالأيام</th>
-                                            </tr>
+                                            <tr>
+                                          <th>كود</th>
+                                          <th>الصنف</th>
+                                          <th>الكمية</th>
+                                          <th>المخزن</th>
+                                          <th>باقي من الأيام</th>
+                                        </tr>
                                       </tfoot>
                                     </table>
                               </div>
@@ -290,24 +280,14 @@
                                         </tr>
                                       </thead>
                                       <tbody>
+                                          @{foreach row in model.inventories_values}
                                           <tr style="display: table-row;">
-                                              <td>المخزن الرئيسي</td>
-                                              <td>12025 جنيه</td>
-                                              <td>1100</td>
-                                              <td>70</td>
+                                              <td>@{row.i_name}</td>
+                                              <td>@{row.total_values} جنيه</td>
+                                              <td>@{row.total_items}</td>
+                                              <td>@{row.percent} %</td>
                                           </tr>
-                                          <tr style="display: table-row;">
-                                              <td>المخزن الرئيسي</td>
-                                              <td>12025 جنيه</td>
-                                              <td>1100</td>
-                                              <td>70</td>
-                                          </tr>
-                                          <tr style="display: table-row;">
-                                              <td>المخزن الرئيسي</td>
-                                              <td>12025 جنيه</td>
-                                              <td>1100</td>
-                                              <td>70</td>
-                                          </tr>
+                                          @{end}
                                       </tbody>
                                       <tfoot>
                                           <tr>
@@ -355,21 +335,13 @@
                           </tr>
                         </thead>
                         <tbody>
-                            <tr style="display: table-row;">
-                                <td>المخزن الرئيسي</td>
-                                <td>12025 جنيه</td>
-                                <td>70</td>
-                            </tr>
-                            <tr style="display: table-row;">
-                                <td>المخزن الرئيسي</td>
-                                <td>12025 جنيه</td>
-                                <td>70</td>
-                            </tr>
-                            <tr style="display: table-row;">
-                                <td>المخزن الرئيسي</td>
-                                <td>12025 جنيه</td>
-                                <td>70</td>
-                            </tr>
+                                @{foreach row in model.inventories_incoming}
+                                <tr style="display: table-row;">
+                                    <td>@{row.i_name}</td>
+                                    <td>@{row.total} جنيه</td>
+                                    <td>@{row.percent} %</td>
+                                </tr>
+                                @{end}
                         </tbody>
                         <tfoot>
                             <tr>
@@ -412,21 +384,13 @@
                           </tr>
                         </thead>
                         <tbody>
+                            @{foreach row in model.inventories_outcoming}
                             <tr style="display: table-row;">
-                                <td>المخزن الرئيسي</td>
-                                <td>12025 جنيه</td>
-                                <td>70</td>
+                                <td>@{row.i_name}</td>
+                                <td>@{row.total} جنيه</td>
+                                <td>@{row.percent} %</td>
                             </tr>
-                            <tr style="display: table-row;">
-                                <td>المخزن الرئيسي</td>
-                                <td>12025 جنيه</td>
-                                <td>70</td>
-                            </tr>
-                            <tr style="display: table-row;">
-                                <td>المخزن الرئيسي</td>
-                                <td>12025 جنيه</td>
-                                <td>70</td>
-                            </tr>
+                            @{end}
                         </tbody>
                         <tfoot>
                             <tr>
@@ -446,7 +410,12 @@
         </div>
     </div>
 </div>
-@{import('vendors.min.js')};
+@{import('vendors.min.js')}
+@{json(model.inventories_expiry2, 'expires_chart')}
+@{json(model.inventories_values, 'amounts_chart')}
+@{json(model.inventories_incoming, 'incoming_chart')}
+@{json(model.inventories_outcoming, 'outcoming_chart')}
+
 <script>
 
 
@@ -507,14 +476,21 @@ $(function(){
    * expires
    * */
    var ctx = document.getElementById("expires").getContext('2d');
+   var expires_data = JSON.parse($('#expires_chart').text());
+   var expires_labels = [];
+   var expires_values = [];
+   for(var i = 0; i < expires_data.length; i ++){
+    expires_labels.push(expires_data[i].i_name);
+    expires_values.push(expires_data[i].percent);
+   }
    var myChart = new Chart(ctx, {
        type: 'pie',
        data: {
-           labels: ['المخزن الرئيسي','فرع السلام','فرع الهرم'],
+           labels: expires_labels,
            datasets: [
            {
                label: 'نسبة التهديدات',
-               data: [25,30,45],
+               data: expires_values,
                backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
                borderWidth: 1
            }
@@ -537,19 +513,25 @@ $(function(){
 
 
 
-
    /**
    * amounts
    * */
    var ctx = document.getElementById("amounts").getContext('2d');
+   var amounts_data = JSON.parse($('#amounts_chart').text());
+   var amounts_labels = [];
+   var amounts_values = [];
+   for(var i = 0; i < amounts_data.length; i ++){
+    amounts_labels.push(amounts_data[i].i_name);
+    amounts_values.push(amounts_data[i].percent);
+   }
    var myChart = new Chart(ctx, {
        type: 'pie',
        data: {
-           labels: ['المخزن الرئيسي','فرع السلام','فرع الهرم'],
+           labels: amounts_labels,
            datasets: [
            {
                label: 'نسبة التهديدات',
-               data: [70,10,20],
+               data: amounts_values,
                backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
                borderWidth: 1
            }
@@ -577,14 +559,21 @@ $(function(){
    * incoming
    * */
    var ctx = document.getElementById("incoming").getContext('2d');
+   var incoming_data = JSON.parse($('#incoming_chart').text());
+   var incoming_labels = [];
+   var incoming_values = [];
+   for(var i = 0; i < incoming_data.length; i ++){
+    incoming_labels.push(incoming_data[i].i_name);
+    incoming_values.push(incoming_data[i].percent);
+   }
    var myChart = new Chart(ctx, {
        type: 'pie',
        data: {
-           labels: ['المخزن الرئيسي','فرع السلام','فرع الهرم'],
+           labels: incoming_labels,
            datasets: [
            {
                label: 'نسبة التهديدات',
-               data: [70,10,20],
+               data: incoming_values,
                backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
                borderWidth: 1
            }
@@ -611,14 +600,21 @@ $(function(){
    * outcoming
    * */
    var ctx = document.getElementById("outcoming").getContext('2d');
+   var outcoming_data = JSON.parse($('#outcoming_chart').text());
+   var outcoming_labels = [];
+   var outcoming_values = [];
+   for(var i = 0; i < outcoming_data.length; i ++){
+    outcoming_labels.push(outcoming_data[i].i_name);
+    outcoming_values.push(outcoming_data[i].percent);
+   }
   var myChart = new Chart(ctx, {
       type: 'pie',
       data: {
-          labels: ['المخزن الرئيسي','فرع السلام','فرع الهرم'],
+          labels: outcoming_labels,
           datasets: [
           {
               label: 'نسبة التهديدات',
-              data: [70,10,20],
+              data: outcoming_values,
               backgroundColor: ['#00A5A8', '#626E82', '#FF7D4D'],
               borderWidth: 1
           }

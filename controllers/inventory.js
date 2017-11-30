@@ -4,7 +4,7 @@ exports.install = function() {
     F.route('/export_permission', export_permission);
     F.route('/destroy_permission', destroy_permission);
     F.route('/return_permission', return_permission);
-    F.route('/inventories_reports', '/inventory/inventories_reports');
+    F.route('/inventories_reports', inventories_reports, ['*Inventories_reports']);
     F.route('/inventories', fetch_inventories, ['*Inventories']);
     F.route('/add_new_inventory',add_new_inventory,['*Inventories']);
 };
@@ -58,5 +58,13 @@ function preview_inventory(inventory_id){
     options.id = decodeURIComponent(inventory_id);
     self.$get(options, function(err,response) {
         self.view('/inventory/inventory_view', response);
+    });
+}
+
+function inventories_reports(){
+    var self = this;
+    var options = {};
+    self.$get(options, function(err,response){
+        self.view('/inventory/inventories_reports', response );
     });
 }

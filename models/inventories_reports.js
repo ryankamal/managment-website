@@ -1,0 +1,30 @@
+NEWSCHEMA('Inventories_reports').make(function(schema) {
+    
+            schema.setGet(function(error, model, options, callback) {
+                var sql = DB(error);
+                sql.query('inventories_data',"with a AS( select inventory_permissions_items.i_id, sum(cast(inventory_permissions_items.price as numeric) * cast(inventory_permissions_items.amount as numeric)) as total_outcoming from inventory_permissions_items,inventory_permissions where inventory_permissions_items.p_id = inventory_permissions.id and inventory_permissions.type = 'outcoming' group by inventory_permissions_items.i_id), b AS( select inventory_permissions_items.i_id, sum(cast(inventory_permissions_items.price as numeric) * cast(inventory_permissions_items.amount as numeric)) as total_destroied from inventory_permissions_items,inventory_permissions where inventory_permissions_items.p_id = inventory_permissions.id and inventory_permissions.type = 'destroied' group by inventory_permissions_items.i_id ), c AS( select inventory_permissions_items.i_id, sum(cast(inventory_permissions_items.price as numeric) * cast(inventory_permissions_items.amount as numeric)) as total_returned from inventory_permissions_items,inventory_permissions where inventory_permissions_items.p_id = inventory_permissions.id and inventory_permissions.type = 'returned' group by inventory_permissions_items.i_id ) select inventories.i_name , inventories.id , sum(cast(inventories_items.price as numeric) * cast(inventories_items.amount as numeric)) as total_values, sum(cast(inventories_items.price as numeric) * cast(inventories_items.amount as numeric)) as total_incoming, a.total_outcoming, b.total_destroied, c.total_returned, count(inventories_items.*) as total_items from inventories left outer join a on(inventories.id = a.i_id) left outer join b on (inventories.id = b.i_id) left outer join c on (inventories.id = c.i_id) ,inventories_items where inventories.id = inventories_items.i_id group by inventories.i_name , inventories.id ,a.total_outcoming ,b.total_destroied,c.total_returned ");
+                sql.query('inventories_expiry',"select inventories_items.id,inventories_items.name,inventories_items.amount,inventories_items.module, inventories_items.expiry - NOW() as still , inventories.i_name from inventories_items left outer join inventories on(inventories_items.i_id = inventories.id) where expiry <= NOW() + '5 DAYS'::INTERVAL ");
+                sql.query('inventories_expiry2',"with a as( select count(inventories_items.*) as total from inventories_items where inventories_items.expiry <= NOW() + '5 DAYS'::INTERVAL) select inventories.i_name , count(inventories_items.*), round((cast((count(inventories_items.*) ) as numeric) / a.total) * 100,1) as percent from inventories,inventories_items,a where inventories_items.expiry <= NOW() + '5 DAYS'::INTERVAL and inventories.id = inventories_items.i_id group by inventories.i_name , inventories.id,a.total order by i_name asc");
+                sql.query('inventories_values',"with a as( select count(inventories_items.*) as total from inventories_items) select inventories.i_name, sum(cast(inventories_items.price as numeric) * cast(inventories_items.amount as numeric) )as total_values , count(inventories_items.*) as total_items , round(cast(count(inventories_items.*) as numeric) / a.total * 100 ,1)as percent from inventories_items left outer join inventories on(inventories.id = inventories_items.i_id) ,a group by inventories_items.i_id,inventories.i_name,a.total");
+                sql.query('inventories_outcoming',"with a as( select count(inventory_permissions_items.*) as total from inventory_permissions_items,inventory_permissions where inventory_permissions_items.p_id = inventory_permissions.id and inventory_permissions.type = 'outcoming') select inventories.i_name, sum(cast(inventory_permissions_items.price as numeric) * cast(inventory_permissions_items.amount as numeric)) as total , round((cast(count(inventory_permissions_items.*) as numeric) / a.total) * 100,1) as percent from inventory_permissions_items,inventory_permissions,inventories,a where inventory_permissions_items.p_id = inventory_permissions.id and inventories.id = inventory_permissions_items.i_id and inventory_permissions.type = 'outcoming' group by inventories.i_name,a.total");
+                sql.query('inventories_incoming',"with a as( select count(inventory_permissions_items.*) as total from inventory_permissions_items,inventory_permissions where inventory_permissions_items.p_id = inventory_permissions.id and inventory_permissions.type = 'outcoming') select inventories.i_name, sum(cast(inventory_permissions_items.price as numeric) * cast(inventory_permissions_items.amount as numeric)) as total , round((cast(count(inventory_permissions_items.*) as numeric) / a.total) * 100,1) as percent from inventory_permissions_items,inventory_permissions,inventories,a where inventory_permissions_items.p_id = inventory_permissions.id and inventories.id = inventory_permissions_items.i_id and inventory_permissions.type = 'incoming' group by inventories.i_name,a.total");
+                /** charts data */
+                
+                
+                
+                sql.exec(function(err,response){
+                    if(err){
+                        console.log(err);
+                    }else{
+                        console.log('inventories_data',response.inventories_data);
+                        console.log('inventories_expiry',response.inventories_expiry);
+                        console.log('inventories_values',response.inventories_values);
+                        console.log('inventories_outcoming',response.inventories_outcoming);
+                        console.log('inventories_incoming',response.inventories_incoming);
+                    }
+                });
+                sql.on('end',callback);
+                
+                
+            });
+        });

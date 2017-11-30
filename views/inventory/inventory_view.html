@@ -66,16 +66,31 @@
                             <div class="col-lg-4 col-xs-12">
                               <div class="text-xs-center">
                                 <h3>@{model.inventory_data[0].i_total_value} جنيه</h3>
-                                <p class="text-muted">قيمة المخزون 
-                                    <span class="success"><i class="ft-arrow-up"></i> 8.16%</span>
+                                <p class="text-muted">قيمة المخزون  
+                                    @{if  model.inventory_valueChange.length > 1 }
+                                  @{if  model.inventory_valueChange[0].i_totalvalue_change > model.inventory_valueChange[1].i_totalvalue_change} 
+                                    <span class="success"> @{model.inventory_valueChange[0].i_totalvalue_change} % <i class="ft-arrow-up"></i></span>
+                                    @{fi}
+                                    @{if  model.inventory_valueChange[0].i_totalvalue_change < model.inventory_valueChange[1].i_totalvalue_change} 
+                                    <span class="danger"> @{model.inventory_valueChange[0].i_totalvalue_change} % <i class="ft-arrow-down"></i></span>
+                                    @{fi}
+                                    @{fi}
                                 </p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xs-12">
                                 <div class="text-xs-center">
+                                    
                                   <h3>@{model.inventory_data[0].i_avg_value} جنيه</h3>
                                   <p class="text-muted">متوسط المخزون 
-                                    <span class="success"><i class="ft-arrow-up"></i> 1.16%</span>
+                                      @{if  model.inventory_avgChange.length > 1 }
+                                    @{if  model.inventory_avgChange[0].i_totalavg_change > model.inventory_avgChange[1].i_totalavg_change} 
+                                    <span class="success"> @{model.inventory_avgChange[0].i_totalavg_change} % <i class="ft-arrow-up"></i></span>
+                                    @{fi}
+                                    @{if  model.inventory_avgChange[0].i_totalavg_change < model.inventory_avgChange[1].i_totalavg_change} 
+                                    <span class="danger"> @{model.inventory_avgChange[0].i_totalavg_change} % <i class="ft-arrow-down"></i></span>
+                                    @{fi}
+                                    @{fi}
                                   </p>
                                   </div>
                               </div>
@@ -83,7 +98,10 @@
                               <div class="text-xs-center">
                                 <h3>@{model.inventory_data[0].i_total_items}</h3>
                                 <p class="text-muted">عدد الأصناف 
-                                  <span class="success">( +354 هذا الاسبوع )</span>
+                                    
+                                  @{if model.inventory_itemsChange.i_totalitems_change > 0} 
+                                  <span class="success">+ @{model.inventory_itemsChange.i_totalitems_change} هذا الشهر</span>
+                                  @{fi}
                                 </p>
                                 </div>
                             </div>
@@ -203,8 +221,12 @@
                 </div>
                 <div class="card-body collapse in">
                     <div class="card-block card-dashboard" style="padding-top: 0px;">
-                      @{if model.inventory_expires.length > 0}
+                        @{if model.inventory_expires.length > 0 && model.inventory_expires.length != model.inventory_data[0].i_total_items}
                         <div class="alert alert-icon-left alert-warning alert-dismissibl " role="alert"> رجاء الانتباه ، توشك صلاحية @{model.inventory_expires.length} من الأصناف على الانتهاء قريبا</div>
+                        @{fi}
+
+                        @{if model.inventory_expires.length == model.inventory_data[0].i_total_items}
+                        <div class="alert alert-icon-left alert-warning alert-dismissibl " role="alert"> رجاء الانتباه ، توشك صلاحية جميع الأصناف على الانتهاء قريبا</div>
                         @{fi}
                     <table class="table table-striped table-bordered base-style">
                       <thead>
