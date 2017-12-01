@@ -350,6 +350,9 @@
     </div>
 </div>
 @{import('vendors.min.js')};
+@{json(model.values_chart, 'values_chart')}
+@{json(model.outcoming_chart, 'outcoming_chart')}
+@{json(model.outcoming_chart, 'incoming_chart')}
 <script>
 
 
@@ -508,6 +511,28 @@ $('#recieve_permission_modal').iziModal({
 
 
   var ctx = document.getElementById("inventory").getContext('2d');
+  var values_data = JSON.parse($('#values_chart').text());
+   var values_values = [];
+   
+   for(var i = 0; i < values_data.length; i ++){
+    values_values.push(values_data[i].total);
+   }
+
+   var outcoming_data = JSON.parse($('#outcoming_chart').text());
+   var outcoming_values = [];
+   for(var i = 0; i < outcoming_data.length; i ++){
+    outcoming_values.push(outcoming_data[i].total);
+   }
+
+   var incoming_data = JSON.parse($('#incoming_chart').text());
+   var incoming_values = [];
+   for(var i = 0; i < incoming_data.length; i ++){
+    incoming_values.push(incoming_data[i].total);
+   }
+
+
+
+console.log(outcoming_values);
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -515,7 +540,7 @@ $('#recieve_permission_modal').iziModal({
           datasets: [
           {
               label: 'المخزون ',
-              data: [200, 214, 113, 213, 185, 160],
+              data: values_values,
               backgroundColor: 'rgba(17, 209, 149, 0.3215686274509804)',
               borderColor: '#41efb9',
               borderWidth: 1,
@@ -523,14 +548,14 @@ $('#recieve_permission_modal').iziModal({
           },
             {
               label: 'الواردات ',
-              data: [90, 95, 97, 96, 97, 94],
+              data: incoming_values,
               backgroundColor: '#daf2f2',
               borderColor: '#76d0d0',
               borderWidth: 1
           },
           {
               label: 'المنصرفات ',
-              data: [10, 5, 3, 4, 3, 6],
+              data: outcoming_values,
               backgroundColor: '#ffdfe5',
               borderColor: '#fe6c8b',
               borderWidth: 1

@@ -1,0 +1,41 @@
+<form class="form ">
+        <div class="form-body p-1">
+          <div class="form-group">
+              <label for="eventRegInput1">المُسمى الوظيفي</label>
+              <input type="text" id="eventRegInput1" class="form-control" placeholder="المُسمى الوظيفي" name="job-name">
+              </div>
+          <div class="form-group">
+              <label  for="eventRegInput2">التعريف الوظيفي</label>
+                <textarea id="eventRegInput2" rows="2" class="form-control" name="job-desc" placeholder="التعريف الوظيفي" style="margin-top: 0px; margin-bottom: 0px;"></textarea>
+               
+          </div>
+          <div class="form-group ">
+              <label for="eventRegInput3">المهام الوظيفية</label>
+              
+                  <input type="text" class="form-control" placeholder="اكتب كل مهمة واضغط ادخال" name="job-duties">
+                  <div class="job-duties"></div>
+              
+          </div>
+          <div class="form-group">
+              <label  for="eventRegInput4">الملفات المطلوبة</label>
+              
+                <input type="text" id="eventRegInput4" class="form-control" placeholder="اكتب اسم كل ملف واضغط ادخال" name="job-documents">
+                <div class="job-documents"></div>
+              </div>
+          <div class=" row">
+              <div class="form-group col-md-6">
+                  <label  for="eventRegInput4">ساعات العمل اليومية</label>
+                  <input type="text" data-bts-min="0" id="eventRegInput4" class="form-control touchspin" placeholder="8" name="job-hours">
+              </div>
+              <div class="form-group col-md-6">
+                  <label  for="eventRegInput4">الراتب الشهري</label>
+                  <input type="text" data-bts-min="0" data-bts-max="10000000" data-bts-step="5" id="eventRegInput4" class="form-control touchspin" placeholder="1200" name="job-salary">
+              </div>
+              <div class="form-group col-md-6">
+              <button type="button" class="btn btn-primary submit_new_job">
+                  ادراج الوظيفة
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>

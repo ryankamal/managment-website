@@ -11,14 +11,6 @@ exports.install = function() {
         F.route('/bills','bills');
         F.route('/capital_management','capital_management');
         F.route('/customers','customers');
-        F.route('/employee_profile','employee_profile');
-        F.route('/employees','employees');
-				F.route('/employees2','employees2');
-        F.route('/employees_times','employees_times');
-				F.route('/salaries','salaries');
-				F.route('/bonuses','bonuses');
-				F.route('/reports','reports');
-        F.route('/expenses','expenses');
         F.route('/income_list','income_list');
         F.route('/licences','licences');
         F.route('/loans','loans');
@@ -28,7 +20,6 @@ exports.install = function() {
         F.route('/sales','sales');
         F.route('/suppliers','suppliers');
         F.route('/treasury','treasury');
-        F.route('/vacations','vacations');
         F.route('/souq',souq);
         F.route('/souq/seller','/souq/seller');
 

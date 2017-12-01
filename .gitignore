@@ -3,3 +3,5 @@
 .gitattributes
 *.pid
 debug.pid
+tmp/js-scripts-list_newItem.js
+tmp/js-jvector-visitor-data.js

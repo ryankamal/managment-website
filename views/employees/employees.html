@@ -1,6 +1,6 @@
 
 
-@{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css')}
+@{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css','custom_plugins/optionAppender.css')}
 <style>
 
 .user-profile-header{
@@ -15,6 +15,10 @@ margin-right: -1px;
   display: none;
 }
 </style>
+
+<div id="new-job"></div>
+
+
 <!-- new vacancy -->
 <div class="modal fade text-xs-left in" id="employee_profile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
                             <div class="modal-dialog modal-lg" role="document">
@@ -543,60 +547,7 @@ margin-right: -1px;
 
 
 
-<!-- new vacancy -->
-<div class="modal fade text-xs-left in" id="new_vacancy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                  </button>
-                                  <h4 class="modal-title" id="myModalLabel1">ادراج مُسمى وظيفي جديد</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form ">
-                      <div class="form-body">
-                        <div class="form-group row">
-                            <div class="col-md-3"><label for="eventRegInput1">المُسمى الوظيفي</label></div>
-                            <div class="col-md-9"><input type="text" id="eventRegInput1" class="form-control" placeholder="المُسمى الوظيفي" name="">
-                            </div>
-                            </div>
-                        <div class="form-group row">
-                            <div class="col-md-3"><label  for="eventRegInput2">التعريف الوظيفي</label></div>
-                              <div class="col-md-9"><textarea id="eventRegInput2" rows="2" class="form-control" name="" placeholder="التعريف الوظيفي" style="margin-top: 0px; margin-bottom: 0px;"></textarea>
-                              </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3"><label for="eventRegInput3">المهام الوظيفية</label></div>
-                            <div class="col-md-9 job-duties">
-                                <input type="text" id="eventRegInput3" class="form-control" placeholder="اكتب كل مهمة واضغط ادخال" name="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3"><label  for="eventRegInput4">الملفات المطلوبة</label></div>
-                            <div class="col-md-9 job-documents"><input type="text" id="eventRegInput4" class="form-control" placeholder="اكتب اسم كل ملف واضغط ادخال" name="">
-                            </div>
-                            </div>
-                        <div class=" row offset-md-3">
-                            <div class="form-group col-md-6">
-                                <label  for="eventRegInput4">ساعات العمل اليومية</label>
-                                <input type="text" data-bts-min="0" id="eventRegInput4" class="form-control touchspin" placeholder="8" name="">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label  for="eventRegInput4">الراتب الشهري</label>
-                                <input type="text" data-bts-min="0" data-bts-max="10000000" data-bts-step="5" id="eventRegInput4" class="form-control touchspin" placeholder="1200" name="">
-                            </div>
-                        </div>
-                      </div>
-                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn grey btn-outline-secondary " data-dismiss="modal">اغلاق</button>
-                                  <button type="button" class="btn btn-primary btn-min-width">تثبيت</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+
 
 
 
@@ -635,8 +586,8 @@ margin-right: -1px;
                               <a class="dropdown-item" href="reports">التقييمات</a>
                             </div>
                           </div>
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#new_vacancy">ادراج مُسمى وظيفي</button>
-                            <a href="employee_profile"  class="btn btn-secondary">ادراج موظف جديد</a>
+                            <button type="button" class="btn btn-secondary new-job-button" >ادراج مُسمى وظيفي</button>
+                            <a href="new-employee"  class="btn btn-secondary new-employee-button">ادراج موظف جديد</a>
                           </div>
                         </div>
         </div>
@@ -645,6 +596,7 @@ margin-right: -1px;
       </div>
         <div class="content-body">
             <div class="row employees-cards">
+              @{foreach employee in model.employees}
           <div class="col-xl-3 col-md-6 col-xs-12" data-toggle="modal" data-target="#employee_profile">
             <div class="card cursor-pointer">
               <div class="text-xs-center">
@@ -652,107 +604,72 @@ margin-right: -1px;
                   <img src="images/portrait/medium/avatar-m-4.png" class="rounded-circle  height-150" alt="Card image">
                 </div>
                 <div class="card-block">
-                  <h4 class="card-title">Michelle Howard</h4>
-                  <h6 class="card-subtitle text-muted">Managing Director</h6>
+                  <h4 class="card-title">@{employee.name}</h4>
+                  <h6 class="card-subtitle text-muted">@{employee.job}</h6>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-md-6 col-xs-12">
-            <div class="card cursor-pointer">
-              <div class="text-xs-center">
-                <div class="card-block">
-                  <img src="images/portrait/medium/avatar-m-1.png" class="rounded-circle  height-150" alt="Card image">
-                </div>
-                <div class="card-block">
-                  <h4 class="card-title">Joseph Ryan</h4>
-                  <h6 class="card-subtitle text-muted">Marketing Head</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 col-xs-12">
-            <div class="card cursor-pointer">
-              <div class="text-xs-center">
-                <div class="card-block">
-                  <img src="images/portrait/medium/avatar-m-6.png" class="rounded-circle  height-150" alt="Card image">
-                </div>
-                <div class="card-block">
-                  <h4 class="card-title">Frances Butler</h4>
-                  <h6 class="card-subtitle text-muted">Technical Lead</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 col-xs-12">
-            <div class="card cursor-pointer">
-              <div class="text-xs-center">
-                <div class="card-block">
-                  <img src="images/portrait/medium/avatar-m-5.png" class="rounded-circle  height-150" alt="Card image">
-                </div>
-                <div class="card-block">
-                  <h4 class="card-title">Andrew Davis</h4>
-                  <h6 class="card-subtitle text-muted">UI/UX Designer</h6>
-                </div>
-              </div>
-            </div>
-          </div>
+          @{end}
+
             </div>
         </div>
     </div>
 </div>
-@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js')};
+@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js','custom_plugins/optionAppender.js')};
 <script>
 
-$(document).on('keyup','.job-duties input',function(e){
-var code = (e.keyCode ? e.keyCode : e.which );
-var value = $(this).val();
-var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
-var form = '<ul class="duties-options"><p class="title">قائمة المهام الوظيفية :</p>'+option+'</ul>';
-var form_length = $('.job-duties ul.duties-options').length;
-if (code == 13) { //Enter keycode
-    if(form_length < 1 && $.trim(value) !== ''){
-        $(form).insertAfter('.job-duties input');
-    }else if(form_length >= 1 && $.trim(value) !== ''){
-        $('.job-duties ul.duties-options').append(option);
+$(document).ready(function(){
+  $('#new-job').iziModal({
+    title: 'اضافة وظيفة جديدة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new-job',
+    success:function(data){
+      $("#new-job .iziModal-content").html(data);
+      modal.stopLoading();
     }
-    $('.job-duties input').val('');
-}
+  });
+    },
+    onOpened : function(){
+      $('input[name="job-duties"]').optionAppender({
+  appendTo : '.job-duties'
+});
+$('input[name="job-documents"]').optionAppender({
+  appendTo : '.job-documents'
 });
 
-
-$(document).on('click','.job-duties ul.duties-options li button',function(){
-$(this).parents('li').remove();
-var options = $('.job-duties ul.duties-options li').length;
-if(options < 1){
-    $('ul.duties-options').remove();
-}
-});
-
-
-$(document).on('keyup','.job-documents input',function(e){
-var code = (e.keyCode ? e.keyCode : e.which );
-var value = $(this).val();
-var option = '<li class="row"><div class="col-md-10 pl-0 pr-0">'+value+'</div><div class="col-md-2 pl-0 pr-0"> <button type="button" class="btn btn-icon btn-pure danger btn-sm mr-1 option_remove"><i class="fa fa-trash-o"></i></button></div> </li>';
-var form = '<ul class="documents-options"><p class="title">قائمة المستندات المطلوبة :</p>'+option+'</ul>';
-var form_length = $('.job-documents ul.documents-options').length;
-if (code == 13) { //Enter keycode
-    if(form_length < 1 && $.trim(value) !== ''){
-        $(form).insertAfter('.job-documents input');
-    }else if(form_length >= 1 && $.trim(value) !== ''){
-        $('.job-documents ul.documents-options').append(option);
     }
-    $('.job-documents input').val('');
-}
+  });
+
+  $(document).on('click','.new-job-button',function(){
+    $("#new-job").iziModal('open');
+  });
+
+
+
 });
 
-$(document).on('click','.job-documents ul.documents-options li button',function(){
-$(this).parents('li').remove();
-var options = $('.job-documents ul.documents-options li').length;
-if(options < 1){
-    $('ul.documents-options').remove();
-}
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $('.profile-tabs li').on('click touch',function(){
@@ -882,6 +799,39 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('.finances').cardToggler();
   $('.attendence').cardToggler();
+});
+
+
+$(document).ready(function(){
+  $(document).on('click','.submit_new_job',function(){
+    var name = $('input[name="job-name"]').val();
+    var desc = $('textarea[name="job-desc"]').val();
+    var salary = $('input[name="job-salary"]').val();
+    var hours = $('input[name="job-hours"]').val();
+    var missions = [];
+    $('.job-duties span').each(function(){
+      missions.push( $(this).text());
+    });
+    var files = [];
+    $('.job-documents span').each(function(){
+      files.push( $(this).text());
+    });
+
+    var data = new Object();
+    data.name = name;
+    data.desc = desc;
+    data.salary = salary;
+    data.hours = hours;
+    data.missions = missions;
+    data.files = files;
+    data.date = Date();
+    console.log('data :',data);
+    socket.emit('submit_new_job',data);
+
+
+
+
+  });
 });
 
 

@@ -30,6 +30,9 @@ body, .navigation, .navigation .navigation-header, .h1, .h2, .h3, .h4, .h5, .h6,
 .height-100{
     height: 100% !important;
 }
+.custom-file-control, .custom-file-control::before{
+    height: 3rem;
+}
 .table td, .table th{
         white-space: nowrap;
     overflow: hidden !important;

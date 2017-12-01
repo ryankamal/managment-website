@@ -1,15 +1,15 @@
 $(function(){
   $.fn.optionAppender = function(options){
     var settings = $.extend({
-      var display : '',
-      var appendTo : '.job-mission-div'
+      appendTo : '.job-mission-div',
+      _display : ''
     },options);
     var that = this;
     $(that).on('keyup',function(e){
       var code = (e.keyCode ? e.keyCode : e.which);
       var value = $(that).val();
       var appendTo = settings.appendTo;
-      var option = '<span>'+value+' <i class="fa fa-times remove"></i></span>';
+      var option = '<span class="option">'+value+' <i class="fa fa-times remove"></i></span>';
       if(!$(''+appendTo+'').hasClass('option-appender-list')){
         $(''+appendTo+'').addClass('option-appender-list');
       }
@@ -19,7 +19,11 @@ $(function(){
       }
 
       $('.option-appender-list span i.remove').on('click',function(){
-        $(that).parents('span').remove();
+        $(this).parents('span').remove();
       });
     });
+  }
+  
+
+
 }( jQuery ));

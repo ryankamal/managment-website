@@ -1,0 +1,551 @@
+@{import('custom_plugins/image_upload.css')}
+
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row">
+        <div class="content-header-left col-md-6 col-xs-12 mb-2">
+          <div class="row breadcrumbs-top">
+            <div class="breadcrumb-wrapper col-xs-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">الرئيسية</a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
+                </li>
+                <li class="breadcrumb-item"><a href="employees">الموظفين</a>
+                </li>
+                <li class="breadcrumb-item active">ادراج موظف جديد
+                </li>
+              </ol>
+            </div>
+          </div>
+          <h3 class="content-header-title mb-0">ادراج موظف جديد</h3>
+        </div>
+      </div>
+      <div class="content-header row">
+      </div>
+        <div class="content-body">
+            
+                @{if model.job_data == undefined}
+                <div class="row flexed-column flexed-vcentered">
+                <div class="col-md-8 flexed-row flexed-centered new_employee_step1" style="display:flex">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-block">
+                                <img src="" width="" height="" />
+                                <h4 class="mb-2">
+                                    من فضلك قم بتحديد الوظيفة المراد تعيين الموظف فيها 
+                                </h4>
+                                <div class="form-group">
+                                        <select class="custom-select form-control" name="job-name">
+                                            @{foreach job in model.jobs}
+                                            <option value="@{job.id}">
+                                                @{job.name}
+                                            </option>
+                                            @{end}
+                                            </select>
+                                            <small class="text-muted">
+                                                سنقوم باستخدام هذا الخيار في تخصيص بعض البيانات
+                                            </small>
+                                        <div class="icheck_minimal skin">
+                                    <fieldset class="mt-2">
+                                      <input type="checkbox" id="input-5">
+                                      <label for="input-5">تشغيل وضع تحت التدريب</label>
+                                    </fieldset>
+                                  </div>
+                                  </div>
+                                  <button type="button" class="btn btn-primary new_employee_continue">
+                                      المتابعة
+                                  </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    @{fi}
+
+                    @{if model.job_data != undefined}
+                    <div class="row flexed-row flexed-centered">
+                    
+                <div class="col-md-8 col-xs-12"  >
+                    <div class="image_element mb-1"></div>
+                  <div class="card">
+              <div class="card-body">
+                <div class="card-block">
+                        <div class="row">
+                        <div class="col-md-9">
+                          <div class="form-group ">
+                          <label for="eventRegInput1">اسم الموظف</label>
+                          <input type="text" id="eventRegInput1" class="form-control" placeholder="اسم الموظف" name="e_name">
+                          </div>
+                        </div>
+                          <div class="col-md-3">
+                          <div class="form-group ">
+                          <label for="eventRegInput1">رقم الموبايل</label>
+                          <input type="text" id="eventRegInput1" class="form-control" placeholder="رقم الموبايل" name="e_mobile">
+                          </div>
+                        </div>
+                      </div>
+                          <div class=" row">
+                          <div class="form-group col-md-6">
+                              <label  for="eventRegInput4">الجنس</label>
+                              <select class="form-control" name="e_gender">
+                                  <option></option>
+                                  <option value="male">
+                                      ذكر
+                                  </option>
+                                  <option value="female">
+                                      أنثى
+                                  </option>
+                                  <option value="other">
+                                      غير ذلك
+                                  </option>
+
+                              </select>
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label  for="eventRegInput4">الديانة</label>
+                              <select class="form-control " name="e_religion">
+                                  <option></option>
+                                  <option value="muslim">
+                                      مسلم
+                                  </option>
+                                  <option value="chris">
+                                      مسيحي
+                                  </option>
+                                  <option value="other">
+                                      غير ذلك
+                                  </option>
+
+                              </select>
+                          </div>
+                      </div>
+                          <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="phoneNumber1">محل الاقامة</label>
+                            <select class="form-control" name="e_city">
+                                  <option></option>
+                                  <option value="cairo">
+                                      القاهرة
+                                  </option>
+                                  <option value="giza">
+                                      الجيزة
+                                  </option>
+                                  <option value="maadi">
+                                      المعادي
+                                  </option>
+
+                              </select>
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="form-group">
+                            <label for="date1">العنوان كاملا</label>
+                            <input type="text" id="eventRegInput1" class="form-control" placeholder="العنوان كاملا" name="e_address">
+                          </div>
+                        </div>
+                      </div>
+                          <div class="row">
+                          <div class="form-group col-md-6">
+                              <label  for="eventRegInput4">الرقم القومي</label>
+                              <input type="text" id="eventRegInput1" class="form-control" placeholder="الرقم القومي" name="e_nationalid">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label  for="eventRegInput4">تاريخ الميلاد</label>
+                              <input type="text" id="eventRegInput1" class="form-control singledate" placeholder="تاريخ الميلاد" name="e_birth">
+
+                          </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="card">
+                <div class="card-body">
+                <div class="card-block">
+                        <div class=" row">
+                        <div class="form-group col-md-3">
+                            <label  for="eventRegInput4">الدرجة العلمية</label>
+                            <select class="form-control" name="e_degree">
+                                <option></option>
+                                <option value="1">
+                                    دبلوم
+                                </option>
+                                <option value="2">
+                                    ثانوية عامة
+                                </option>
+                                <option value="3">
+                                    بكالوريوس
+                                </option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label  for="eventRegInput4">المؤهل الدراسي</label>
+                            <input type="text" id="eventRegInput1" class="form-control" placeholder="المؤهل الدراسي" name="e_education">
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="card">
+        <div class="card-body">
+        <div class="card-block">
+                <div class="row">
+              <div class="col-md-12">
+          <div class="float-xs-right">
+            <input type="checkbox" name="" id="experience_field" data-target="experience" class="switchery"/>
+          </div>
+          <label for="experience_field" class="font-medium-2">الخبرات السابقة</label>
+                  <div class="experience" >
+                  <div class=" row mt-1">
+                <div class="form-group col-md-8">
+                    <label for="eventRegInput4">مقر العمل السابق</label>
+                    <input type="text" id="eventRegInput1" class="form-control" placeholder="مقر العمل السابق" name="e_place">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="eventRegInput4">سنوات الخبرة</label>
+                    <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name="e_years">
+
+                </div>
+                <div class="form-group col-md-8">
+                        <label >شهادة الخبرة</label>
+                        <label for="file" class="custom-file center-block block">
+                                <input type="file" id="file"  class="custom-file-input" name="e_file">
+                                <span class="custom-file-control"></span>
+                              </label>
+                    </div>
+            </div>
+                  <div class="form-group experience_tools" style="text-align: left">
+                      <button type="button" class="btn btn-secondary btn-sm new_experience ">خبرة جديدة</button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+          <div class="card-body">
+          <div class="card-block">
+                  <div class="row">
+                <div class="col-md-12">
+            <div class="float-xs-right">
+              <input type="checkbox" name="salary_edit" id="salary_field" data-target="salary" class="switchery"/>
+            </div>
+            <label for="salary_field" class="font-medium-2 ">تعديل المرتب</label>
+                <div class="salary">
+                    <div class="skin skin-flat mb-1 mt-1" style="text-align: left">
+              <fieldset class="display-inline-block" >
+                  <input type="radio" name="salary_edit" value="increase"  id="salary_increase">
+                <label for="salary_increase">رفع المرتب</label>
+              </fieldset>
+              <fieldset class="display-inline-block" >
+                  <input  type="radio" name="salary_edit" value="decrease" id="salary_decrease">
+                <label for="salary_decrease">خفض المرتب</label>
+              </fieldset>
+          </div>
+                    <div class="salary_form">
+
+                    </div>
+
+
+
+
+                  </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+                    <div class="card">
+                <div class="card-body">
+                  <div class="card-block">
+                            <div class="row e_files">
+
+                                @{foreach file in model.job_files}
+                          <div class="col-md-12 mb-1 pl-0 pr-0" >
+                              <div class="col-md-4">
+                                  @{file.name}
+                              </div>
+                              <div class="col-md-8">
+                          <label for="file_@{file.id}" class="custom-file center-block block">
+                            <input type="file" id="file_@{file.id}"  class="custom-file-input" data-name="@{file.name}" name="e_file">
+                            <span class="custom-file-control"></span>
+                          </label>
+                              </div>
+                          </div>
+                          @{end}
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-primary new_employee_submit" >ادراج الموظف</button>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+
+
+<div class="" >
+                <div class="card" style="margin-top:185px">
+                        <div class="card-body">
+                                <div class="card-block text-xs-center">
+                                        <h3 class="display-4 blue-grey darken-1">
+                                            @{model.job_data[0].name}
+                                            </h3>
+                                          </div>
+                                          <hr>
+                            <div class="card-block text-xs-center">
+                                      <span class="primary darken-2">الراتب الأساسي</span>
+                                      <h3 class="display-4 blue-grey darken-1">@{model.job_data[0].salary}
+                                            <span>
+                                                    <small class="text-muted" style="font-size: 50%;">
+                                                        جنيه
+                                                    </small>
+                                                </span>
+                                      </h3>
+                                  </div>
+                                  
+                    </div>
+                    </div>
+                    
+                    <div class="card">
+                            <div class="card-body">
+                                    <div class="card-block text-xs-center">
+                                        <span class="primary darken-2">
+                                            ساعات العمل
+                                        </span>
+                                            <h3 class="display-4 blue-grey darken-1">@{model.job_data[0].hours}
+                                                  <span>
+                                                          <small class="text-muted" style="font-size: 50%;">
+                                                              ساعات
+                                                          </small>
+                                                      </span>
+                                                </h3>
+                                                <span class="text-muted">بمعدل @{(model.job_data[0].salary/30) / model.job_data[0].hours } جنيه / ساعة</span>
+                                              </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <div class="card-body">
+                                <div class="card-block text-xs-center">
+                                    <span class="primary darken-2">
+                                        الأجازات السنوية
+                                    </span>
+                                        <h3 class="display-4 blue-grey darken-1">21
+                                              <span>
+                                                      <small class="text-muted" style="font-size: 50%;">
+                                                          يوم
+                                                      </small>
+                                                  </span>
+                                            </h3>
+                                            <span class="text-muted">بمعدل 1.75 يوم / شهر</span>
+                                            
+                                          </div>
+                                          <hr>
+                                          <div class="card-block ">
+                                            <small class="text-muted">
+                                                <i class="icon-info" style="margin-left:10px"></i> 
+                                                الأجازة الرسمية يوم الجمعة من كل أسبوع  
+                                            </small>
+                                            <br>
+                                            <small class="text-muted">
+                                                <i class="icon-info" style="margin-left:10px"></i> 
+                                                مسموح لهذه الوظيفة بالعمل لساعات اضافية مقابل 25 جنيه / ساعة
+                                            </small>
+                                            
+                                          </div>
+                </div>
+            </div>
+            </div>
+
+            </div>
+
+
+
+    </div>
+        @{fi}
+    </div>
+
+</div>
+        </div>
+    </div>
+</div>
+@{import('vendors.min.js','custom_plugins/image_upload.js')}
+<script>
+
+$(document).on('change','.switchery',function(){
+    var target = $(this).data('target');
+        if($(this).is(':checked')){
+            $('.'+target).fadeIn(500);
+        }else{
+            $('.'+target).fadeOut(500);
+        }
+});
+var x = 0;
+$(document).on('click','.new_experience',function(){
+    x++;
+    var form = '<div class=" row " ><hr><div class="form-group col-md-8"><label for="eventRegInput4">مقر العمل السابق</label><input type="text" id="eventRegInput1" class="form-control" placeholder="مقر العمل السابق" name="e_place"></div><div class="form-group col-md-4"><label for="eventRegInput4">سنوات الخبرة</label><input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name="e_years"></div><div class="form-group col-md-8"><label >شهادة الخبرة</label><label for="file_'+x+'" class="custom-file center-block block"><input type="file" id="file_'+x+'" class="custom-file-input" name="e_file"><span class="custom-file-control"></span></label></div></div>';
+    $(''+form+'').insertBefore('.experience_tools');
+    $('.touchspin').TouchSpin();
+    if($('.experience_tools').find('.remove_last').length < 1){
+        var remove_last = '<button type="button" class="btn btn-danger btn-sm remove_last ">حذف الأخيرة</button>';
+        $('.experience_tools').prepend(remove_last);
+    }
+});
+
+$(document).on('click','.remove_last',function(){
+    if($('.experience .row').length > 1){
+       $('.experience').find('.row:last').remove();
+       if($('.experience .row').length == 1){
+           $('.remove_last').remove();
+       }
+    }
+});
+
+$(document).on('click','.remove_last',function(){
+    if($('.medical .row').length > 1){
+       $('.medical').find('.row:last').remove();
+       if($('.medical .row').length == 1){
+           $('.remove_last').remove();
+       }
+    }
+});
+
+$(document).on('mouseup','.salary .skin fieldset',function(){
+    var _action = $(this).find('input[name="salary_edit"]').val();
+    var form_length = $('.salary-form').length;
+    $(this).find('label').click();
+    if( _action == 'increase'){
+        var form = '<div class="row salary-form increase"> <div class="form-group col-md-8"> <label for="eventRegInput4">سبب رفع المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الرفع " name=""> </div><div class="form-group col-md-4"> <label for="eventRegInput4">قيمة الرفع</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+        var form_type = $('.increase').length;
+    if(form_length < 1){
+           $('.salary_form').append(form);
+       }else if (form_length >= 1 && form_type !== 1){
+           $('.salary_form').empty();
+           $('.salary_form').append(form);
+       }
+       $('.touchspin').TouchSpin();
+    }else if(_action == 'decrease'){
+        var form = '<div class="row salary-form decrease"> <div class="form-group col-md-8"> <label for="eventRegInput4">سبب خفض المرتب</label> <input type="text" id="eventRegInput1" class="form-control" placeholder="سبب الخفض " name=""> </div><div class="form-group col-md-4"> <label for="eventRegInput4">قيمة الخفض</label> <input type="text" id="eventRegInput1" class="form-control touchspin" placeholder="0" name=""> </div></div>';
+        var form_type = $('.decrease').length;
+    if(form_length < 1){
+           $('.salary_form').append(form);
+       }else if (form_length >= 1 && form_type !== 1){
+           $('.salary_form').empty();
+           $('.salary_form').append(form);
+       }
+       $('.touchspin').TouchSpin();
+    }
+});
+
+
+  $('.image_element').image_upload({
+    name: 'item_image',
+    background: '#FFF',
+    height:'170px',
+    width:'170px'
+  });
+
+
+  $(document).ready(function(){
+      $(document).on('click','.new_employee_continue',function(){
+          var job = $('select[name="job-name"]').val();
+          $('.new_employee_step1').fadeOut( 500, function(){
+              window.location = '/new-employee/'+job+'';
+            //$('.new_employee_step2').fadeIn( 500);
+          });
+          
+
+      });
+
+
+
+      $(document).on('click','.new_employee_submit',function(){
+          var j_id = '@{if model.job_data != undefined}@{model.job_data[0].id}@{fi}';
+          var name = $('input[name="e_name"]').val();
+          var mobile = $('input[name="e_mobile"]').val();
+          var gender = $('select[name="e_gender"]').val();
+          var religion = $('select[name="e_religion"]').val();
+          var city = $('select[name="e_city"]').val();
+          var address = $('input[name="e_address"]').val();
+          var national_id = $('input[name="e_nationalid"]').val();
+          var birth = $('input[name="e_birth"]').val();
+          var degree = $('select[name="e_degree"]').val();
+          var education = $('input[name="e_education"]').val();
+          /**
+           * collect experiences data
+           * */
+          var experiences = [];
+          $('.experience .row').each(function(){
+              var exp = new Object();
+              exp.name = $(this).find('input[name="e_place"]').val();
+              exp.years = $(this).find('input[name="e_years"]').val();
+              exp.file = $(this).find('input[name="e_file"]').val();
+              console.log(exp);
+              experiences.push(exp);
+          });
+
+          /**
+           * collect e_files data
+           * */
+          var files = [];
+          $('.e_files .col-md-12').each(function(){
+              var file = new Object();
+              file.name = $(this).find('input[name="e_file"]').attr('data-name');
+              file.path = $(this).find('input[name="e_file"]').val();
+              files.push(file);
+          });
+          var data = new Object();
+          data.j_id = j_id;
+          data.name = name;
+          data.mobile = mobile;
+          data.gender = gender;
+          data.religion = religion;
+          data.city = city;
+          data.address = address;
+          data.national_id = national_id;
+          data.birth = birth;
+          data.degree = degree;
+          data.education = education;
+          data.exps = experiences;
+          data.files = files;
+
+          console.log('data',data);
+
+          socket.emit('submit_new_employee',data);
+
+      });
+  });
+
+
+</script>

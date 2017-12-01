@@ -99,6 +99,18 @@ F.on('load',function(){
 
 
 
+
+      /*
+      *for employees page
+      */
+      _socket.on('submit_new_job',function(data){
+        submit_new_job(data);
+      }).on('submit_new_employee',function(data){
+        submit_new_employee(data);
+      });
+
+
+
      });
 });
 
@@ -295,6 +307,96 @@ function install_product(p_id){
             console.log(err);
           }else{
             console.log('added new inventory');
+          }
+        });
+      }
+
+
+
+
+
+
+
+      /********************************************************************
+      * for employees page
+      ********************************************************************/
+
+      function submit_new_job(data){
+        console.log(data.desc);
+        sql.query('submit_new_job',"insert into jobs (name,\"desc\",hours,salary) values ('"+data.name+"','"+data.desc+"','"+data.hours+"','"+data.salary+"') returning id");
+        sql.exec(function(err,response){
+          if(err){
+            console.log(err);
+          }
+          else 
+          {
+            console.log('submmitted new job',response.submit_new_job[0].id);
+            //submit job files
+            for(var i = 0; i < data.files.length; i++){
+              sql.query('submit_job_documents',"insert into job_files (j_id,name) values ("+response.submit_new_job[0].id+",'"+data.files[i]+"')");
+              sql.exec(function(err,response){
+               if(err){
+                 console.log(err);
+               }
+               else
+               {
+                 console.log('submmited new job documents');
+               }
+              });
+            }
+            //submit job missions
+            for(var i = 0; i < data.missions.length; i++){
+              sql.query('submit_job_missions',"insert into job_missions (j_id,mission) values ("+response.submit_new_job[0].id+",'"+data.missions[i]+"')");
+              sql.exec(function(err,response){
+               if(err){
+                 console.log(err);
+               }
+               else
+               {
+                 console.log('submmited new job missions');
+               }
+              });
+            }
+          }
+        });
+      }
+
+
+      function submit_new_employee(data){
+        sql.query('submit_employee_data',"insert into employees (j_id,name,mobile,gender,religion,city,address,national_id,birth,degree,education) values ('"+data.j_id+"','"+data.name+"','"+data.mobile+"','"+data.gender+"','"+data.religion+"','"+data.city+"','"+data.address+"','"+data.national_id+"','"+data.birth+"','"+data.degree+"','"+data.education+"') returning id");
+        sql.exec(function(err,response){
+          if(err){
+            console.log(err);
+          }else{
+            console.log('submmitted new employee data',response.submit_employee_data[0].id);
+            /**
+             * insert employee experiences data
+             */
+            for(var i = 0; i < data.exps.length; i ++){
+              sql.query('submit_employee_exps',"insert into employee_exp (e_id,name,file) values ('"+response.submit_employee_data[0].id+"','"+data.exps[i].name+"','"+data.exps[i].file+"') ");
+              sql.exec(function(err,response){
+                if(err){
+                  console.log(err);
+                }else{
+                  console.log('submmitted employee experiences');
+                }
+              });
+            }
+
+            /**
+             * insert employee files data
+             */
+            for(var i = 0; i < data.files.length; i ++){
+              sql.query('submit_employee_exps',"insert into employee_files (e_id,name,file) values ('"+response.submit_employee_data[0].id+"','"+data.files[i].name+"','"+data.files[i].path+"') ");
+              sql.exec(function(err,response){
+                if(err){
+                  console.log(err);
+                }else{
+                  console.log('submmitted employee files');
+                }
+              });
+            }
+            
           }
         });
       }
