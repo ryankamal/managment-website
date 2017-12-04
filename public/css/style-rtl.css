@@ -30,6 +30,15 @@ body, .navigation, .navigation .navigation-header, .h1, .h2, .h3, .h4, .h5, .h6,
 .height-100{
     height: 100% !important;
 }
+.nav.nav-pills.nav-pill-toolbar.nav-stacked .nav-item~.nav-item a.nav-link{
+    border-right: 1px solid #edeff2;
+}
+.nav.nav-pills.nav-pill-toolbar .nav-item a.nav-link{
+    border: 1px solid #edeff2;
+}
+
+
+
 .custom-file-control, .custom-file-control::before{
     height: 3rem;
 }
@@ -422,13 +431,15 @@ margin-right: -10px;
   padding: 10px 0px;
 }
 .preview_item_list span{
-  padding: 0px 10px;
-  background-color: #09979a24;
-  color: #0cb1b4;
-  margin-left: 5px;
-  font-size: 15px;
-  border-radius: 3px;
-  cursor: default;
+    display: inline-block;
+    padding: 0px 10px;
+    background-color: #09979a24;
+    color: #0cb1b4;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: default;
 }
 
 
@@ -715,3 +726,150 @@ span.color-platte{
     border-radius: 50%;
     margin: 5px;
 }
+
+
+/**/
+.button-wrap {
+    position: relative;
+  }
+  @media (max-width: 40em) {
+    .button-wrap {
+      margin-top: -1.5em;
+    }
+  }
+  
+  .button-label {
+    display: inline-block;
+    padding: 1em 2em;
+    margin: 0.5em;
+    cursor: pointer;
+    color: #292929;
+    border-radius: 0.25em;
+    background: #efefef;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  .button-label h1 {
+    font-size: 1em;
+    font-family: "Lato", sans-serif;
+  }
+  .button-label:hover {
+    background: #d6d6d6;
+    color: #101010;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+  }
+  .button-label:active {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+  }
+  @media (max-width: 40em) {
+    .button-label {
+      padding: 0em 1em 3px;
+      margin: 0.25em;
+    }
+  }
+  
+  .button-flat input:checked + .button-label {
+    background: #0aa0a3;
+    color: #efefef;
+  }
+.button-flat input:checked + .button-label:hover {
+    background: #0aa0a3;
+    color: #e2e2e2;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+
+  /** button */
+  .cf label{
+    position: relative;
+    color: #535f76;
+    background-color: #eee;
+    text-align: center;
+    /* height: 150px; */
+    /* line-height: 150px; */
+    display: inline-block;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    transition: 0.3s ;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.cf label:active {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+  }
+.cf input{
+    display: none;
+}
+
+.cf .plan input:checked + label{
+    background-color: #0aa0a3;
+    color: #FFF;
+}
+
+.cf .plan input:checked + label:after{
+	content: "\2713";
+	width: 40px;
+	height: 40px;
+    line-height: 40px;
+    color: #FFF;
+    border:3px solid #fff;
+	border-radius: 100%;
+	background-color: #0aa0a3;
+	z-index: 999;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+}
+
+
+/**
+button
+*/
+.radio-group input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+  }
+  
+  .radio-group label {
+    color: #0cb1b4;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0px;
+  }
+  
+  .radio-group input[type=radio]:checked + label {
+    color: #ffffff;
+    background: #0cb1b4;
+  }
+  
+ 
+  
+  .radio-group {
+    border: solid 1px #ebeef0;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  

@@ -11,6 +11,8 @@ exports.install = function() {
         F.route('/new-employee',new_employee,['*employees']);
         F.route('/new-employee/{job_id}',new_employee,['*employees']);
         F.route('/employees',employees,['*employees']);
+        F.route('new_law',new_law);
+
 };
 
 
@@ -36,4 +38,11 @@ function employees(){
     self.$get(options,function(err,response){
         self.view('/employees/employees',response);
     })
+}
+
+
+function new_law(){
+    var self = this;
+    self.layout('');
+    self.view('/employees/new_law');
 }
