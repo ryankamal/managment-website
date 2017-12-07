@@ -760,13 +760,13 @@ $(function(){
         if(roles_length > 0){
           come_role = come_role + '<hr>';
         }
-      come_role = come_role + '<div id="role-'+parseInt(roles_length+1)+'" class=" border-left-primary border-left-3 pl-1"><div class="flexed-row flexed-vcentered"><span> حال تأخر الموظف عن مدة</span><div class="input-group ml-1 mr-1" style="width:120px;"> <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2"><span class="input-group-addon" id="basic-addon2">دقيقة</span></div><span> يتم تطبيق</span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "><span> مع خصم</span><div class="radio-group"> <input type="radio"  class="fee_type" id="option-a'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="value"> <label for="option-a'+parseInt(roles_length+1)+'">قيمة</label> <input type="radio" class="fee_type" id="option-b'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="percent"> <label for="option-b'+parseInt(roles_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div><div class="flexed-row" style="justify-content: flex-end;"><a class="danger remove_low_role"><i class="ft-trash-2"></i> حذف الحالة</a></div></div></div>';
+      come_role = come_role + '<div id="role-'+parseInt(roles_length+1)+'" class=" border-left-primary border-left-3 pl-1"><div class="flexed-row flexed-vcentered"><span> حال تأخر الموظف عن مدة</span><div class="input-group ml-1 mr-1" style="width:120px;"> <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2"><span class="input-group-addon" id="basic-addon2">دقيقة</span></div><span> يتم تطبيق</span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "><span> مع خصم</span><div class="radio-group"> <input type="radio"  class="fee_type" id="option-a'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="value"> <label for="option-a'+parseInt(roles_length+1)+'">قيمة</label> <input type="radio" class="fee_type" id="option-b'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="percent"> <label for="option-b'+parseInt(roles_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div><div class="flexed-row" style="justify-content: flex-end;"><a class="primary mr-1 agregate_role "><i class="ft-refresh-cw"></i> تدريج الحالة</a><a class="danger remove_low_role"><i class="ft-trash-2"></i> حذف الحالة</a></div><div class="gradation-container"></div></div></div>';
       
        leave_role = '<div class="role">';
           if(roles_length > 0){
           leave_role = leave_role + '<hr>';
         }
-        leave_role = leave_role + '<div id="role-'+parseInt(roles_length+1)+'" class=" border-left-primary border-left-3 pl-1"><div class="flexed-row flexed-vcentered"> <span> حال انصراف الموظف بمدة </span><div class="input-group ml-1 mr-1" style="width:120px;"> <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2"> <span class="input-group-addon" id="basic-addon2">دقيقة</span></div> <span> يتم تطبيق </span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "> <span> مع خصم </span><div class="radio-group"> <input type="radio"  class="fee_type" id="option-a'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="value"> <label for="option-a'+parseInt(roles_length+1)+'">قيمة</label> <input type="radio"  class="fee_type" id="option-b'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="percent"> <label for="option-b'+parseInt(roles_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div><div class="flexed-row" style="justify-content: flex-end;"> <a class="danger remove_low_role"> <i class="ft-trash-2"></i> حذف الحالة</a></div></div></div>';
+        leave_role = leave_role + '<div id="role-'+parseInt(roles_length+1)+'" class=" border-left-primary border-left-3 pl-1"><div class="flexed-row flexed-vcentered"> <span> حال انصراف الموظف بمدة </span><div class="input-group ml-1 mr-1" style="width:120px;"> <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2"> <span class="input-group-addon" id="basic-addon2">دقيقة</span></div> <span> يتم تطبيق </span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "> <span> مع خصم </span><div class="radio-group"> <input type="radio"  class="fee_type" id="option-a'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="value"> <label for="option-a'+parseInt(roles_length+1)+'">قيمة</label> <input type="radio"  class="fee_type" id="option-b'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="percent"> <label for="option-b'+parseInt(roles_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div><div class="flexed-row" style="justify-content: flex-end;"> <a class="primary mr-1 agregate_role "><i class="ft-refresh-cw"></i> تدريج الحالة</a><a class="danger remove_low_role"> <i class="ft-trash-2"></i> حذف الحالة</a></div><div class="gradation-container"></div></div></div>';
       
       if(law_type == 'come'){
         $('.roles-container').append(come_role);
@@ -804,12 +804,53 @@ $(function(){
 
    $(document).on('change','.fee_type',function(){
      var form_1= '<input class="form-control" style="width:75px" placeholder="قيمة" /> &nbsp; جنيه';
-     var form_2= '<div  class="radio-group"> <input type="radio" id="q" name="s2"> <label for="q">25%</label> <input type="radio" id="qq" name="s2"> <label for="qq">50%</label> <input type="radio" id="qqq" name="s2"> <label for="qqq">100%</label></div>أو &nbsp;<div> <input class="form-control" style="width:75px" placeholder="نسبة %" /></div></div>';
-     if($(this).val() == 'value'){
-       $(this).parents().find('.value_container').html(form_1);
-     }else if($(this).val() == 'percent'){
-      $(this).parents().find('.value_container').html(form_2);
+     var roles_length = parseInt($('.roles-container .role').length);
+     var gradation_length = $(this).parents('.role').find('.gradation-container .gradation').length;
+     if($(this).hasClass('gradation_fee')){
+      var form_2= '<div  class="radio-group"> <input type="radio" id="g-'+gradation_length+'" name="gradation-'+gradation_length+'"> <label for="g-'+gradation_length+'">25%</label> <input type="radio" id="g2-'+gradation_length+'" name="gradation-'+gradation_length+'"> <label for="g2-'+gradation_length+'">50%</label> <input type="radio" id="g3-'+gradation_length+'" name="gradation-'+gradation_length+'"> <label for="g3-'+gradation_length+'">100%</label></div>أو &nbsp;<div> <input class="form-control" style="width:75px" placeholder="نسبة %" /></div></div>';
+     }else{
+      var form_2= '<div  class="radio-group"> <input type="radio" id="r-'+roles_length+'" name="role-'+roles_length+'"> <label for="r-'+roles_length+'">25%</label> <input type="radio" id="r2-'+roles_length+'" name="role-'+roles_length+'"> <label for="r2-'+roles_length+'">50%</label> <input type="radio" id="r3-'+roles_length+'" name="role-'+roles_length+'"> <label for="r3-'+roles_length+'">100%</label></div>أو &nbsp;<div> <input class="form-control" style="width:75px" placeholder="نسبة %" /></div></div>';
      }
+  
+     if($(this).val() == 'value'){
+       if($(this).hasClass('gradation_fee')){
+        $(this).parents('.gradation').find('.value_container').html(form_1);
+       }else{
+        $(this).parents('.role').find('.value_container').eq(0).html(form_1);
+       }
+     }else if($(this).val() == 'percent'){
+      if($(this).hasClass('gradation_fee')){
+        $(this).parents('.gradation').find('.value_container').html(form_2);
+       }else{
+        $(this).parents('.role').find('.value_container').eq(0).html(form_2);
+       }
+     }
+   });
+
+
+   $(document).on('click','.agregate_role',function(){
+     var border;
+     var word;
+     var gradation_length = $(this).parents('.role').find('.gradation-container .gradation').length;
+     if(gradation_length < 3){
+     switch(gradation_length){
+       case gradation_length = 0:
+       border = 'danger';
+       word = 'الثانية';
+       break;
+       case gradation_length = 1:
+       border = 'blue';
+       word = 'الثالثة';
+       break;
+       case gradation_length = 2:
+       border = 'warning';
+       word = 'الرابعة';
+       break;
+     }
+     var form = '<div class="gradation"><div id="gradation-'+parseInt(gradation_length+1)+'" class=" border-left-'+border+' border-left-3 pl-1"><div class="flexed-row flexed-vcentered"><span>  في المرة '+word+' يتم تطبيق </span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "><span> مع خصم</span><div class="radio-group"> <input type="radio" class="fee_type gradation_fee" id="option-g'+parseInt(gradation_length+1)+'" name="selector-g'+parseInt(gradation_length+1)+'" value="value"> <label for="option-g'+parseInt(gradation_length+1)+'">قيمة</label> <input type="radio" class="fee_type gradation_fee" id="option-gf'+parseInt(gradation_length+1)+'" name="selector-g'+parseInt(gradation_length+1)+'" value="percent"> <label for="option-gf'+parseInt(gradation_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div></div> </div>   ';
+     $(this).parents('.role').find('.gradation-container').append(form);
+    }
+
    });
 
 
