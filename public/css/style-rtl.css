@@ -810,6 +810,7 @@ span.color-platte{
     margin-left: 10px;
     margin-bottom: 10px;
 }
+
 .cf label:active {
     -webkit-transform: translateY(2px);
             transform: translateY(2px);
@@ -817,6 +818,12 @@ span.color-platte{
   }
 .cf input{
     display: none;
+}
+
+.cf .plan input:disabled + label{
+    color: #535f7633;
+    cursor: not-allowed;
+    box-shadow: 0 0px 0px;
 }
 
 .cf .plan input:checked + label{
@@ -854,7 +861,7 @@ button
     display: inline-block;
     cursor: pointer;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px 15px;
     margin: 0px;
   }
   

@@ -639,7 +639,7 @@
                   <p class="no-margin">
                     القوانين المدرجة ( صفر ) 
                   </p>
-                  <a href="#" class="primary new_law_btn">
+                  <a class="primary new_law_btn">
                     <i class="fa fa-plus-circle"></i>
                     قانون جديد
                   </a>
@@ -741,6 +741,76 @@ $(function(){
   });
 
 
+
+
+
+  /**
+   * new law controller
+   * */
+
+   $(document).on('click','.add_new_law_role',function(){
+     var law_type = $('input[name="law_type"]:checked').val();
+     if(!law_type){
+       alert('you should choose law type');
+     }else{
+      var roles_length = parseInt($('.roles-container .role').length);
+      var come_role ;
+      var leave_role;
+       come_role = '<div class="role">';
+        if(roles_length > 0){
+          come_role = come_role + '<hr>';
+        }
+      come_role = come_role + '<div id="role-'+parseInt(roles_length+1)+'" class=" border-left-primary border-left-3 pl-1"><div class="flexed-row flexed-vcentered"><span> حال تأخر الموظف عن مدة</span><div class="input-group ml-1 mr-1" style="width:120px;"> <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2"><span class="input-group-addon" id="basic-addon2">دقيقة</span></div><span> يتم تطبيق</span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "><span> مع خصم</span><div class="radio-group"> <input type="radio"  class="fee_type" id="option-a'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="value"> <label for="option-a'+parseInt(roles_length+1)+'">قيمة</label> <input type="radio" class="fee_type" id="option-b'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="percent"> <label for="option-b'+parseInt(roles_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div><div class="flexed-row" style="justify-content: flex-end;"><a class="danger remove_low_role"><i class="ft-trash-2"></i> حذف الحالة</a></div></div></div>';
+      
+       leave_role = '<div class="role">';
+          if(roles_length > 0){
+          leave_role = leave_role + '<hr>';
+        }
+        leave_role = leave_role + '<div id="role-'+parseInt(roles_length+1)+'" class=" border-left-primary border-left-3 pl-1"><div class="flexed-row flexed-vcentered"> <span> حال انصراف الموظف بمدة </span><div class="input-group ml-1 mr-1" style="width:120px;"> <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2"> <span class="input-group-addon" id="basic-addon2">دقيقة</span></div> <span> يتم تطبيق </span> <select class="form-control ml-1 mr-1" style="width:120px;"><option>اختر</option><option>ادراج في التقارير فقط</option> </select></div><div class="flexed-row flexed-vcentered "> <span> مع خصم </span><div class="radio-group"> <input type="radio"  class="fee_type" id="option-a'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="value"> <label for="option-a'+parseInt(roles_length+1)+'">قيمة</label> <input type="radio"  class="fee_type" id="option-b'+parseInt(roles_length+1)+'" name="selector-'+parseInt(roles_length+1)+'" value="percent"> <label for="option-b'+parseInt(roles_length+1)+'">نسبة</label></div><div class="value_container flexed-row flexed-vcentered"></div></div><div class="flexed-row" style="justify-content: flex-end;"> <a class="danger remove_low_role"> <i class="ft-trash-2"></i> حذف الحالة</a></div></div></div>';
+      
+      if(law_type == 'come'){
+        $('.roles-container').append(come_role);
+      }else if(law_type == 'leave'){
+        $('.roles-container').append(leave_role);
+      }
+      check_roles();
+     }
+     
+   });
+
+   $(document).on('click','.remove_low_role',function(){
+     var that = this;
+     $(this).parents('.role div:first-of-type').css('border-color','#fe6e82');
+      setTimeout(function(){
+        $(that).parents('.role').remove();
+        check_roles();
+      },300);
+       
+   });
+
+   function check_roles(){
+    var roles_length = parseInt($('.roles-container .role').length);
+    if(roles_length > 0){
+      $('.roles_empty').remove();
+      $('.roles-container .role:first-of-type hr').remove();
+      $('input[name="law_type"]:not(:checked)').attr('disabled','disabled');
+    }else{
+      var roles_empty = '<div class=" roles_empty flexed-column flexed-vcentered flexed-centered mb-1 p-1 pt-3 pb-3" style="background-color:#ECEFF1"><p>قم بإضافة الحالة الأولى لهذا القانون الجديد الآن</p><button type="button" class="btn btn-primary add_new_law_role">اضافة الحالة الأولى</button></div>';
+      $('#roles_container').append(roles_empty);
+      $('input[name="law_type"]').removeAttr('disabled');
+    }
+    $('.roles_length').text(roles_length);
+   }
+
+   $(document).on('change','.fee_type',function(){
+     var form_1= '<input class="form-control" style="width:75px" placeholder="قيمة" /> &nbsp; جنيه';
+     var form_2= '<div  class="radio-group"> <input type="radio" id="q" name="s2"> <label for="q">25%</label> <input type="radio" id="qq" name="s2"> <label for="qq">50%</label> <input type="radio" id="qqq" name="s2"> <label for="qqq">100%</label></div>أو &nbsp;<div> <input class="form-control" style="width:75px" placeholder="نسبة %" /></div></div>';
+     if($(this).val() == 'value'){
+       $(this).parents().find('.value_container').html(form_1);
+     }else if($(this).val() == 'percent'){
+      $(this).parents().find('.value_container').html(form_2);
+     }
+   });
 
 
 

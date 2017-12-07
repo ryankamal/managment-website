@@ -1,6 +1,6 @@
 exports.install = function() {
         F.route('/employee_profile','/employees/employee_profile');
-        F.route('/employees','/employees/employees');
+        //F.route('/employees','/employees/employees');
         F.route('/employees_times','/employees/employees_times');
 		F.route('/salaries','/employees/salaries');
 		F.route('/bonuses','/employees/bonuses');
