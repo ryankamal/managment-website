@@ -1,91 +1,38 @@
-<div class="m-1" >
-    <p>
-        نوع القانون :
-    </p>
-    <div class="cf mb-1">
+<div class="m-1">
+        <p>نوع القانون :</p>
+        <div class="cf mb-1">
             <section class="plan">
-              <input type="radio" name="radio3" id="7" value="4">
-              <label class="free-label four col" for="7">
-                <p class="no-margin">
-                  حضور متأخر
-                </p>
-              </label>
+                <input type="radio" name="law_type" id="7" value="come">
+                <label class="free-label four col" for="7">
+                    <p class="no-margin">حضور متأخر</p>
+                </label>
+                <input type="radio" name="law_type" id="8" value="leave">
+                <label class="free-label four col" for="8">
+                    <p class="no-margin">انصراف مبكر</p>
+                </label>
+            </section>
+        </div>
+        <hr>
+        <section id="roles_container">
+            <div class="flexed-row flexed-between">
+                <p>حالات القانون</p> <b>
+                          <span class="roles_length">0</span> حالة
+                      </b>
+            </div>
+            <div class=" roles_empty flexed-column flexed-vcentered flexed-centered mb-1 p-1 pt-3 pb-3" style="background-color:#ECEFF1">
+                <p>قم بإضافة الحالة الأولى لهذا القانون الجديد الآن</p>
+                <button type="button" class="btn btn-primary add_new_law_role">اضافة الحالة الأولى</button>
+            </div>
 
-              <input type="radio" name="radio3" id="8" value="5">
-              <label class="free-label four col" for="8">
-                <p class="no-margin">
-                  انصراف مبكر
-                </p>
-              </label>
+            <div class="roles-container">
 
-              <input type="radio" name="radio3" id="9" value="6">
-              <label class="free-label four col" for="9">
-                <p class="no-margin">
-                  ساعات اضافية
-                </p>
-              </label>
-              </section>
-            
-          </div>
-          <hr>
-
-          <section>
-              <div class="flexed-row flexed-between">
-                  <p>
-                      حالات القانون
-                  </p>
-                  <b>
-                      2 حالة
-                  </b>
-              </div>
-              <div class="border-left-primary border-left-3 pl-1">
-                  <div class="flexed-row flexed-vcentered">
-                  <span>
-                      حال تأخر الموظف عن مدة 
-                  </span>
-                  <div class="input-group ml-1 mr-1" style="width:120px;">
-                        <input type="text" class="form-control" placeholder="xxx" aria-describedby="basic-addon2">
-                        <span class="input-group-addon" id="basic-addon2">دقيقة</span>
-                      </div>
-                      <span>
-                          يتم تطبيق
-                      </span>
-                      <select class="form-control ml-1 mr-1" style="width:120px;">
-                          <option>
-                              اختر
-                          </option>
-                          <option>
-                              ادراج في التقارير فقط
-                          </option>
-                      </select>
-              </div>
-              <div class="flexed-row flexed-vcentered ">
-                  <span>
-                      مع خصم 
-                  </span>
-                  <div class="radio-group">
-                        <input type="radio" id="option-one" name="selector"><label for="option-one">قيمة</label>
-                        <input type="radio" id="option-two" name="selector"><label for="option-two">نسبة</label>
-                           
-                          </div>
-                          <div class="radio-group">
-                        <input type="radio" id="q" name="s2"><label for="q">25%</label>
-                        <input type="radio" id="qq" name="s2"><label for="qq">50%</label>
-                        <input type="radio" id="qqq" name="s2"><label for="qqq">100%</label>
-                          </div>
-                          أو &nbsp;
-                          <div >
-                              <input class="form-control" style="width:75px" placeholder="نسبة %" />
-                          </div>
-              </div>
-              </div>
-              <div class="flexed-row  mt-1 ">
-                  <a href="#" class="primary float-xs-right" >
-                      <i class="fa fa-plus-circle"></i>
-                      حالة جديدة
-                  </a>
-              </div>
-          </section>
-
-          <div class=" mt-1"><button type="button" class="btn btn-primary float-xs-right"> ادراج القانون</button></div>
-</div>
+            </div>
+        </section>
+        <div class="flexed-row  mt-1 ">
+                <a class="primary float-xs-right add_new_law_role"> <i class="ft-plus-circle"></i>
+                    حالة جديدة</a>
+            </div>
+        <div class=" mt-1">
+            <button type="button" class="btn btn-primary float-xs-right">ادراج القانون</button>
+        </div>
+    </div>
