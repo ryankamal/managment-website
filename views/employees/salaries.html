@@ -72,11 +72,11 @@
           <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                <li class="breadcrumb-item"><a href="index">الرئيسية</a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
                 </li>
-                <li class="breadcrumb-item"><a href="employees.php">الموظفين</a>
+                <li class="breadcrumb-item"><a href="employees">الموظفين</a>
                 </li>
                 <li class="breadcrumb-item active">المرتبات
                 </li>
@@ -91,15 +91,15 @@
 
                           <div class="btn-group" role="group" aria-label="Basic example">
                               <div class="btn-group">
-                                <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
-                                  <a class="dropdown-item" href="vacations">الأجازات</a>
-                                  <a class="dropdown-item" href="salaries">المرتبات</a>
-                                  <a class="dropdown-item" href="bonuses">المكافئات</a>
-                                  <a class="dropdown-item" href="reports">التقييمات</a>
+                                  <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
+                                    <a class="dropdown-item" href="vacations">الأجازات</a>
+                                    <a class="dropdown-item" href="salaries">المرتبات</a>
+                                    <a class="dropdown-item" href="bonuses">المكافئات</a>
+                                    <a class="dropdown-item" href="reports">التقييمات</a>
+                                  </div>
                                 </div>
-                              </div>
                               <button type="button" class="btn btn-secondary">ادارة المرتبات</button>
                               <button type="button" class="btn btn-secondary" data-target="#salarie_edit" data-toggle="modal">تعديل المرتبات</button>
                             </div>
@@ -109,7 +109,38 @@
                       <div class="content-header row">
                       </div>
           <div class="content-body">
-            <!-- Simple Bar Chart -->
+
+              <div class="row">
+                  <div class="col-xs-12">
+                    <div class="card bg-gradient-x-primary">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-4 col-sm-12 border-right-primary border-right-lighten-3">
+                            <div class="card-block text-xs-center">
+                              <h1 class="display-4 white"><i class="icon-users font-large-2"></i> 1579</h1>
+                              <span class="white">اجمالي الموظفين</span>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-sm-12 border-right-primary border-right-lighten-3">
+                            <div class="card-block text-xs-center">
+                              <h1 class="display-4 white"> 12541.57</h1>
+                              <span class="white">اجمالي المرتبات</span>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-sm-12">
+                            <div class="card-block text-xs-center">
+                              <h1 class="display-4 white">1250.45</h1>
+                              <span class="white">متوسط المرتبات</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
             <div class="row">
               <div class="col-xs-12">
                 <div class="card">
@@ -128,37 +159,7 @@
                   <div class="card-body collapse in">
                     <div class="card-block">
                       <canvas id="salaries" class="mb-1" style="height:300px !important, width:100%;"></canvas>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
-                              <div class="float-xs-left pl-2">
-                                <span class="font-large-2 text-bold-300 primary">120</span>
-                              </div>
-                              <div class="float-xs-left ml-1">
-                                <span class="blue-grey darken-1 block">اجمالي</span>
-                                <span class="blue-grey darken-1 block">الموظفين</span>
-                              </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3  flexed-row flexed-centered flexed-vcentered">
-                              <div class="float-xs-left pl-2">
-                                <span class="font-large-2 text-bold-300 danger">18.752</span>
-                              </div>
-                              <div class="float-xs-left ml-1">
-                                <span class="blue-grey darken-1 block">اجمالي</span>
-                                <span class="blue-grey darken-1 block">المرتبات</span>
-                              </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-xs-12 flexed-row flexed-centered flexed-vcentered">
-                              <div class="float-xs-left pl-2">
-                                <span class="font-large-2 text-bold-300 success">1514.6</span>
-                              </div>
-                              <div class="float-xs-left ml-1">
-                                <span class="blue-grey darken-1 block">متوسط</span>
-                                <span class="blue-grey darken-1 block">المرتبات</span>
-                              </div>
-                            </div>
-                          </div>
-                      <div id="bar-chart" class="">
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
