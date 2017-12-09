@@ -12,6 +12,7 @@ exports.install = function() {
         F.route('/new-employee/{job_id}',new_employee,['*employees']);
         F.route('/employees',employees,['*employees']);
         F.route('new_law',new_law);
+        F.route('/new_vacation',new_vacation);
 
 };
 
@@ -45,4 +46,11 @@ function new_law(){
     var self = this;
     self.layout('');
     self.view('/employees/new_law');
+}
+
+
+function new_vacation(){
+    var self = this;
+    self.layout('');
+    self.view('/employees/new_vacation');
 }

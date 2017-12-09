@@ -1,6 +1,5 @@
 @{import('calendars/fullcalendar.min.css','plugins/calendars/fullcalendar.min.css')}
 
-
 <style>
 
 .modal-footer {
@@ -63,7 +62,7 @@
                             </div>
                           </div>
 
-
+<div id="new_vacation"></div>
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
@@ -71,11 +70,11 @@
           <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+                <li class="breadcrumb-item"><a href="index">الرئيسية</a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
                 </li>
-                <li class="breadcrumb-item"><a href="employees.php">الموظفين</a>
+                <li class="breadcrumb-item"><a href="employees">الموظفين</a>
                 </li>
                 <li class="breadcrumb-item active">الأجازات
                 </li>
@@ -90,17 +89,24 @@
 
                           <div class="btn-group" role="group" aria-label="Basic example">
                               <div class="btn-group">
-                            <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
-                              <a class="dropdown-item" href="vacations">الأجازات</a>
-                              <a class="dropdown-item" href="salaries">المرتبات</a>
-                              <a class="dropdown-item" href="bonuses">المكافئات</a>
-                              <a class="dropdown-item" href="reports">التقييمات</a>
-                            </div>
-                          </div>
-                              <button type="button" class="btn btn-secondary">ادارة الاجازات</button>
-                            <button type="button" class="btn btn-secondary" data-target="#order_vacation" data-toggle="modal">اضافة اجازة</button>
+                                  <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                                  <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
+                                    <a class="dropdown-item" href="vacations">الأجازات</a>
+                                    <a class="dropdown-item" href="salaries">المرتبات</a>
+                                    <a class="dropdown-item" href="bonuses">المكافئات</a>
+                                    <a class="dropdown-item" href="reports">التقييمات</a>
+                                  </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary">الاعدادات
+                                    <i class="ft-cog icon-right"></i>
+                                </button>
+                              <button type="button" class="btn btn-secondary">ادارة الاجازات
+                                  <i class="icon-calendar icon-right"></i>
+                              </button>
+                            <button type="button" class="btn btn-secondary new_vacation_request">اضافة اجازة
+                                <i class="ft-plus icon-right"></i>
+                            </button>
                             </div>
                         </div>
         </div>
@@ -108,45 +114,72 @@
       <div class="content-header row">
       </div>
         <div class="content-body">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="card">
-                <div class="card-body">
-                  <div class="card-block">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
-                        <div class="float-xs-left pl-2">
-                          <span class="font-large-3 text-bold-300">120</span>
-                        </div>
-                        <div class="float-xs-left ml-1">
-                          <span class="blue-grey darken-1 block">اجمالي</span>
-                          <span class="blue-grey darken-1 block">الموظفين</span>
-                        </div>
+
+            <section id="settings-panel" style="display:block">
+                <div class="row flexed-column flexed-vcentered">
+                  <div class="col-md-9">
+                    <p>
+                      * 
+                      يمكنك اضافة أنواع مختلفة من الأجازات
+                    </p>
+                    <div class="flexed-row flexed-between mb-1">
+                      <p class="no-margin"> أنواع الأجازات ( 0 أجازة ) </p>
+                      <a class="primary new_law_btn">
+                        <i class="ft-plus"></i> أجازة جديدة
+                      </a>
+                    </div>
+                    <div class="card border-left-primary border-left-3">
+                      <div class="card-body">
+                          <div class="card-block">
+                            <small>
+                              اضغط على اي أجازة لعرض كامل تفاصيلها
+                            </small>
+                            <div class="item-groups">
+                            <div class="item-group bg-primary">
+                              <p>اعتيادية</p><i class="ft-x-square"></i>
+                            </div>
+                               <div class="item-group bg-primary"><p>عارضة</p><i class="ft-x-square"></i></div>
+                               <div class="item-group bg-primary"><p>مرضية</p><i class="ft-x-square"></i></div> 
+                            </div>
+                            
+                            </div>
                       </div>
-                      <div class="col-lg-4 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
-                        <div class="float-xs-left pl-2">
-                          <span class="font-large-3 text-bold-300">12</span>
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+
+            <section id="view-panel" style="display:none">
+            <div class="row">
+                <div class="col-xs-12">
+                  <div class="card bg-gradient-x-primary">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-4 col-sm-12 border-right-primary border-right-lighten-3">
+                          <div class="card-block text-xs-center">
+                            <h1 class="display-4 white"><i class="icon-users font-large-2"></i> 1579</h1>
+                            <span class="white">اجمالي الموظفين</span>
+                          </div>
                         </div>
-                        <div class="float-xs-left ml-1">
-                          <span class="blue-grey darken-1 block">الاجازات</span>
-                          <span class="blue-grey darken-1 block">الجارية</span>
+                        <div class="col-lg-4 col-sm-12 border-right-primary border-right-lighten-3">
+                          <div class="card-block text-xs-center">
+                            <h1 class="display-4 white"><i class="icon-umbrella font-large-2"></i> 17</h1>
+                            <span class="white">الأجازات الجارية</span>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-xs-12 flexed-row flexed-centered flexed-vcentered">
-                        <div class="float-xs-left pl-2">
-                          <span class="font-large-3 text-bold-300">5</span>
-                        </div>
-                        <div class="float-xs-left  ml-1">
-                          <span class="blue-grey darken-1 block">طلبات</span>
-                          <span class="blue-grey darken-1 block">جديدة</span>
+                        <div class="col-lg-4 col-sm-12">
+                          <div class="card-block text-xs-center">
+                            <h1 class="display-4 white"><i class="ft-star font-large-2"></i> 6</h1>
+                            <span class="white">الأجازات الجديدة</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <ul class="nav nav-tabs nav-top-border no-hover-bg">
@@ -154,7 +187,7 @@
                         <a class="nav-link active" id="base-tab11" data-toggle="tab" aria-controls="tab11" href="#tab11" aria-expanded="false">أجندة الأجازات</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" id="base-tab12" data-toggle="tab" aria-controls="tab12" href="#tab12" aria-expanded="true">كشف الأجازات</a>
+                        <a class="nav-link" id="base-tab12" data-toggle="tab" aria-controls="tab12" href="#tab12" aria-expanded="true">رصيد الأجازات</a>
                       </li>
                     </ul>
                     <div class="tab-content pt-1">
@@ -189,26 +222,24 @@
               <div class="col-xs-12 col-lg-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">كشف أجازات الموظفين</h4>
+                <h4 class="card-title">رصيد أجازات الموظفين</h4>
                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                   <ul class="list-inline mb-0">
-                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
                     <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
                   </ul>
                 </div>
               </div>
               <div class="card-body collapse in">
                   <div class="card-block card-dashboard" style="padding-top: 0px;">
-                  <table class="table table-striped table-bordered base-style right">
+                  <table class="table table-striped table-bordered base-style center">
                     <thead>
                       <tr>
                         <th>كود</th>
                         <th>اسم الموظف</th>
                         <th>أيام العمل</th>
-                        <th>أجازة مستحقة</th>
-                        <th>أجازة مستهلكة</th>
+                        <th>الاجازات المستحقة</th>
+                        <th>الاجازات المستهلكة</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -251,8 +282,8 @@
                         <th>كود</th>
                         <th>اسم الموظف</th>
                         <th>أيام العمل</th>
-                        <th>أجازة مستحقة</th>
-                        <th>أجازة مستهلكة</th>
+                        <th>الاجازات المستحقة</th>
+                        <th>الاجازات المستهلكة</th>
                       </tr>
                     </tfoot>
                   </table>
@@ -266,6 +297,7 @@
             </div>
             </div>
 
+          </section>
         </div>
     </div>
 </div>
@@ -275,5 +307,33 @@
 <script>
 $(function(){
   $('.fullcalendar').fullCalendar();
+
+
+
+  $('#new_vacation').iziModal({
+    title: 'اضافة اجازة جديدة',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new_vacation',
+    success:function(data){
+      $("#new_vacation .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+
+
+  $(document).on('click','.new_vacation_request',function(){
+    $("#new_vacation").iziModal('open');
+  });
 });
 </script>

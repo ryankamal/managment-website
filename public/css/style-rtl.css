@@ -345,12 +345,12 @@ custom-options
 
 
 
-.product-groups{
+.item-groups{
     display: flex;
         flex-flow: wrap;
         justify-content: flex-start;
 }
-.product-groups .product-group{
+.item-groups .item-group{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -360,13 +360,13 @@ custom-options
     border-radius: 3px;
     margin: 5px;
 }
-.product-groups .product-group:first-of-type{
+.item-groups .item-group:first-of-type{
   margin-right: 0px;
 }
-.product-groups .product-group p{
+.item-groups .item-group p{
     margin: 0px 5px;
 }
-.product-groups .product-group i{
+.item-groups .item-group i{
         /* display: none; */
     background-color: #0000001f;
     /* height: 137%; */
@@ -374,7 +374,7 @@ custom-options
     cursor: pointer;
     transition: 0.3s;
 }
-.product-groups .product-group i:hover{
+.item-groups .item-group i:hover{
     background-color: #00000059;
 }
 
