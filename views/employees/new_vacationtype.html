@@ -1,0 +1,145 @@
+<div class="form">
+    <div class="form-body p-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>مسمى الأجازة</label>
+                    <input type="text" class="form-control" placeholder="مسمى الأجازة" />
+                </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                    <label>نوع الأجازة</label>
+                    <select class="form-control vacation_type">
+                        <option value="partly">
+                            دورية
+                        </option>
+                        <option value="annual">
+                            سنوية
+                        </option>
+                        <option value="other">
+                            أخرى
+                        </option>
+                    </select>
+                </div>
+                </div>
+                </div>
+                <div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <label>الرصيد بالأيام</label>
+                    <input type="number" class="form-control" placeholder="الرصيد بالأيام" />
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label>نسبة الأجر %</label>
+                    <input type="number" class="form-control" placeholder="نسبة الأجر %" />
+                </div>
+                </div>
+                </div>
+
+
+                <div class="form_components">
+
+
+                <div class="component" id="partly_vacation" style="display:none">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                فترة ما قبل الاستحقاق
+                            </label>
+                            <input type="number" class="form-control" min="0" placeholder="فترة الاستحقاق" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label>
+                                        مرات الاستحقاق
+                                    </label>
+                                    <input type="number" class="form-control" min="0" placeholder="مرات الاستحقاق" />
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="component" id="annual_vacation" style="display:none">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    يُمنح الرصيد السنوي الجديد بدءا من شهر
+                                </label>
+                                <input class="form-control" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    يُمنح جزء من الرصيد السنوي كل
+                                </label>
+                                <input class="form-control" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>
+                                        فترة ما قبل الاستحقاق 
+                                    </label>
+                                    <input class="form-control" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>
+                                            الحد الأقصى المسموح به لعدد الأيام المتتالية
+                                        </label>
+                                        <input class="form-control" type="text" />
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>
+                                                    التعامل مع الرصيد المتبقي بعد استنفاذ فترة الترحيل
+                                                </label>
+                                                <select class="form-control" name="doafterend">
+                                                        <option>يرحل الرصيد السنوي بالكامل دائما</option> 
+                                                        <option value="3">يرحل الرصيد السنوي بحد أقصى لعدد الايام المرحلة</option>
+                                                        <option>لا يرحل الرصيد السنوي</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                </div>
+                <div class="row max_days" style="display:none">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>
+                                        الحد الأقصى لعدد أيام الرصيد السنوي المرحل
+                                </label>
+                                 <input type="number" class="form-control" placeholder="عدد الأيام" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>

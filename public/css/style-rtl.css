@@ -37,6 +37,14 @@ body, .navigation, .navigation .navigation-header, .h1, .h2, .h3, .h4, .h5, .h6,
     border: 1px solid #edeff2;
 }
 
+.btn-group .btn{
+    transition: 0.5s;
+}
+
+.btn-group .btn.active{
+    background: #36445e;
+    color: #fff;
+}
 
 
 .custom-file-control, .custom-file-control::before{
@@ -77,6 +85,9 @@ table.center tbody tr td, tr th , thead tr th{
 .table-outer{
     padding: 15px;
     padding-top: 0px;
+}
+.table td, .table th{
+    vertical-align: middle;
 }
 
 .footer-static{
@@ -359,6 +370,7 @@ custom-options
     font-size: initial;
     border-radius: 3px;
     margin: 5px;
+    cursor: pointer;
 }
 .item-groups .item-group:first-of-type{
   margin-right: 0px;

@@ -1,68 +1,7 @@
 @{import('calendars/fullcalendar.min.css','plugins/calendars/fullcalendar.min.css')}
 
-<style>
-
-.modal-footer {
-  border: 0;
-}
-
-</style>
-
-
-<div class="modal fade text-xs-left" id="order_vacation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
-                          aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                  <h3 class="modal-title" id="myModalLabel35">إضافة أجازة</h3>
-                                </div>
-                                <form>
-                                <div class="modal-body">
-                                    <div class="col-xl-8 col-lg-6 col-md-12 mb-1">
-                                      <fieldset class="form-group">
-                                        <label for="basicInput">اسم الموظف</label>
-                                        <input type="text" class="form-control" id="basicInput">
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
-                                      <fieldset class="form-group">
-                                        <label for="basicInput">تاريخ الأجازة</label>
-                                        <input type="text" class="form-control" id="basicInput">
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-12">
-                                       <fieldset class="form-group">
-                                         <label for="basicSelect">نوع الأجازة</label>
-                                         <select class="form-control" id="basicSelect">
-                                           <option>اختر نوع الأجازة</option>
-                                           <option>سنوية</option>
-                                           <option>مرضية</option>
-                                           <option>بدون مرتب</option>
-                                           <option>وضع</option>
-                                         </select>
-                                       </fieldset>
-                                     </div>
-                                    <div class="col-xl-8 col-lg-6 col-md-12">
-                                      <fieldset class="form-group">
-                                        <label for="placeTextarea">سبب الاجازة</label>
-                                        <textarea class="form-control" id="placeTextarea" rows="3" placeholder="اكتب سبب الأجازة بوضوح"></textarea>
-                                      </fieldset>
-                                    </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <input type="submit" class="btn btn-outline-primary btn-lg" value="ارسال الطلب">
-                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
-                                    value="اغلاق">
-                                  </div>
-                                  </form>
-                              </div>
-                            </div>
-                          </div>
-
 <div id="new_vacation"></div>
+<div id="new_vacationtype"></div>
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
         <div class="content-header row">
@@ -98,13 +37,13 @@
                                     <a class="dropdown-item" href="reports">التقييمات</a>
                                   </div>
                                 </div>
-                                <button type="button" class="btn btn-secondary">الاعدادات
+                                <button type="button" class="btn btn-secondary tab-btn" data-tabname="settings-tab">الاعدادات
                                     <i class="ft-cog icon-right"></i>
                                 </button>
-                              <button type="button" class="btn btn-secondary">ادارة الاجازات
+                              <button type="button" class="btn btn-secondary tab-btn" data-tabname="manage-tab">ادارة الاجازات
                                   <i class="icon-calendar icon-right"></i>
                               </button>
-                            <button type="button" class="btn btn-secondary new_vacation_request">اضافة اجازة
+                            <button type="button" class="btn btn-secondary new_vacation_request">اضافة اجازة موظف
                                 <i class="ft-plus icon-right"></i>
                             </button>
                             </div>
@@ -115,20 +54,16 @@
       </div>
         <div class="content-body">
 
-            <section id="settings-panel" style="display:block">
+            <section class="tab-body" id="settings-tab" style="display:none">
                 <div class="row flexed-column flexed-vcentered">
                   <div class="col-md-9">
-                    <p>
-                      * 
-                      يمكنك اضافة أنواع مختلفة من الأجازات
-                    </p>
                     <div class="flexed-row flexed-between mb-1">
                       <p class="no-margin"> أنواع الأجازات ( 0 أجازة ) </p>
-                      <a class="primary new_law_btn">
+                      <a class="primary new_vacationtype_request">
                         <i class="ft-plus"></i> أجازة جديدة
                       </a>
                     </div>
-                    <div class="card border-left-primary border-left-3">
+                    <div class="card border-top-primary border-top-3">
                       <div class="card-body">
                           <div class="card-block">
                             <small>
@@ -141,8 +76,86 @@
                                <div class="item-group bg-primary"><p>عارضة</p><i class="ft-x-square"></i></div>
                                <div class="item-group bg-primary"><p>مرضية</p><i class="ft-x-square"></i></div> 
                             </div>
-                            
                             </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-9">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <table class="table table-striped table-bordered  mb-0">
+                              <thead>
+                                  <tr>
+                                      <th>
+                                          المسمى
+                                      </th>
+                                      <th>الرصيد بالأيام</th>
+                                      <th>نسبة الأجر أثناء الإجازة</th>
+                                      <th>نوع</th>
+                                      <th>اجراءات</th>
+                                      <th>تفعيل</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    أجازة عارضة
+                                  </td>
+                                  <td>
+                                    6 يوم
+                                  </td>
+                                  <td>
+                                    100 %
+                                  </td>
+                                  <td>
+                                    سنوي
+                                  </td>
+                                  <td>
+                                      <div class="btn-toolbar flexed-row flexed-centered" role="toolbar" aria-label="Toolbar with button groups">
+                                          
+                                          <div class="btn-group" role="group" aria-label="Second Group" >
+                                              <button type="button" class="btn btn-icon btn-success"><i class="ft-eye"></i></button>
+                                            <button type="button" class="btn btn-icon btn-info"><i class="ft-edit"></i></button>
+                                            <button type="button" class="btn btn-icon btn-danger"><i class="ft-trash-2"></i></button>
+                                          </div>
+                                        </div>
+                                  </td>
+                                  <td>
+                                      <input type="checkbox" id="switcherySize2" class="switchery-sm" checked/>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      أجازة عارضة
+                                    </td>
+                                    <td>
+                                      6 يوم
+                                    </td>
+                                    <td>
+                                      100 %
+                                    </td>
+                                    <td>
+                                      سنوي
+                                    </td>
+                                    <td>
+                                        <div class="btn-toolbar flexed-row flexed-centered" role="toolbar" aria-label="Toolbar with button groups">
+                                            
+                                            <div class="btn-group" role="group" aria-label="Second Group" >
+                                                <button type="button" class="btn btn-icon btn-success"><i class="ft-eye"></i></button>
+                                              <button type="button" class="btn btn-icon btn-info"><i class="ft-edit"></i></button>
+                                              <button type="button" class="btn btn-icon btn-danger"><i class="ft-trash-2"></i></button>
+                                            </div>
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" id="switcherySize2" class="switchery-sm" />
+                                    </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -150,7 +163,7 @@
             </section>
 
 
-            <section id="view-panel" style="display:none">
+            <section class="tab-body" style="display:block">
             <div class="row">
                 <div class="col-xs-12">
                   <div class="card bg-gradient-x-primary">
@@ -298,6 +311,92 @@
             </div>
 
           </section>
+
+
+          <section class="tab-body" id="manage-tab" style="display:none">
+              <div class="row flexed-column flexed-vcentered">
+                  <div class="col-md-9">
+                    <div class="flexed-row flexed-between mb-1">
+                      <p class="no-margin"> الأجازات الرسمية</p>
+                      <p class="no-margin"> 7 أجازات</p>
+                    </div>
+                    <div class="alert bg-primary alert-dismissible fade in mb-2" role="alert">
+                      <strong>
+                      يحتوي النظام مُسبقا على 7 أجازات رسمية مقررة من قبل الحكومة المصرية
+                      </strong>
+                    </div>
+                    </div>
+
+                    <div class="col-md-9">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-block">
+                              <table class="table table-striped table-bordered  mb-0">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                      اليوم
+                                    </th>
+                                    <th>
+                                      التاريخ
+                                    </th>
+                                    <th>
+                                      الأجازة
+                                    </th>
+                                    <th>تفعيل</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      الأحد
+                                    </td>
+                                    <td>
+                                        7/1/2018
+                                    </td>
+                                    <td>
+                                        عيد الميلاد المجيد                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" id="switcherySize2" class="switchery-sm" checked/>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                        الثلاثاء
+                                      </td>
+                                      <td>
+                                          25/1/2018	
+                                      </td>
+                                      <td>
+                                          عيد الثورة والشرطة                                          
+                                      </td>
+                                      <td>
+                                          <input type="checkbox" id="switcherySize2" class="switchery-sm" checked/>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            الأحد
+                                        </td>
+                                        <td>
+                                            8/4/2018	
+                                        </td>
+                                        <td>
+                                            عيد القيامة المجيد                                            
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="switcherySize2" class="switchery-sm" checked/>
+                                        </td>
+                                      </tr>
+                                </tbody>
+                              </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+          </section>
         </div>
     </div>
 </div>
@@ -332,8 +431,111 @@ $(function(){
 
 
 
+  $('#new_vacationtype').iziModal({
+    title: 'اضافة نوع أجازة جديد',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new_vacationtype',
+    success:function(data){
+      $("#new_vacationtype .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+
+
   $(document).on('click','.new_vacation_request',function(){
     $("#new_vacation").iziModal('open');
   });
+
+  $(document).on('click','.new_vacationtype_request',function(){
+    $("#new_vacationtype").iziModal('open');
+  });
+
+
+
+  $(document).on('change','select.vacation_type',function(){
+    var val = $(this).val();
+    if(val == 'partly' || val == 'other'){
+      $('.form_components .component').hide();
+      $('.form_components #partly_vacation').show();
+    }else if(val == 'annual'){
+      $('.form_components .component').hide();
+      $('.form_components #annual_vacation').show();
+    }
+  });
+
+
+  $(document).on('change','select[name="doafterend"]',function(){
+    var val = $(this).val();
+    if(val == '3'){
+      $('.form_components .max_days').show();
+    }else{
+      $('.form_components .max_days').hide();
+    }
+  });
+
+
+
+
+  var i = 0;
+    if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+
+        elems.forEach(function (html) {
+            var switchery = new Switchery(html);
+        });
+    } else {
+        var elems1 = document.querySelectorAll('.switchery');
+
+        for (i = 0; i < elems1.length; i++) {
+            var switchery = new Switchery(elems1[i]);
+        }
+    }
+
+    var elemSmall = document.querySelectorAll('.switchery-sm');
+    for (i = 0; i < elemSmall.length; i++) {
+        new Switchery(elemSmall[i], {className:"switchery switchery-small"});
+    }
+
+    var danger = document.querySelectorAll('.switchery-danger');
+    for (i = 0; i < danger.length; i++) {
+      new Switchery(danger[i], { color: '#DA4453' });
+    }
+
+
+
+    /*$(document).on('click','.settings-btn',function(){
+      $('#view-panel').fadeOut(500,function(){
+        $('#settings-panel').fadeIn();
+      });
+    });*/
+
+    $(document).on('click','.tab-btn',function(){
+      var tab_name = $(this).attr('data-tabname');
+      
+      if($('#'+tab_name).is(':not(:visible)')){
+        $('.tab-body:visible').fadeOut(500,function(){
+        $('#'+tab_name).fadeIn();
+        $('.tab-body:visible:not(#'+tab_name+')').hide();
+      });
+
+      }
+      $('.tab-btn').removeClass('active');
+      $(this).addClass('active');
+      
+      
+    });
+
+
 });
 </script>
