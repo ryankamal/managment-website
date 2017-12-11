@@ -1,0 +1,149 @@
+<div class="form">
+    <div class="form-body p-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>
+                    مُسمى البدل
+                </label>
+                <input type="text" class="form-control" placeholder="مُسمى البدل">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>
+                    القيمة
+                </label>
+                <fieldset>
+                        <label class="display-inline-block custom-control custom-radio">
+                          <input type="radio" name="value-trigger" value="fixed" class="custom-control-input">
+                          <span class="bg-primary custom-control-indicator"></span>
+                          <span class="custom-control-description">ثابتة</span>
+                        </label>
+                        <label class="display-inline-block custom-control custom-radio">
+                                <input type="radio" name="value-trigger" value="changed" class="custom-control-input" checked>
+                                <span class="bg-primary custom-control-indicator"></span>
+                                <span class="custom-control-description">متغيرة</span>
+                              </label>
+                      </fieldset>
+                      <input  class="form-control" type="number" name="value-input" placeholder="اكتب القيمة" style="display:none" />
+                      <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>
+                    الدورة
+                </label>
+                <fieldset>
+                        <label class="display-inline-block custom-control custom-radio">
+                          <input type="radio" name="period-trigger" value="fixed" class="custom-control-input">
+                          <span class="bg-primary custom-control-indicator"></span>
+                          <span class="custom-control-description">ثابتة</span>
+                        </label>
+                        <label class="display-inline-block custom-control custom-radio">
+                                <input type="radio" name="period-trigger" value="changed" class="custom-control-input" checked>
+                                <span class="bg-primary custom-control-indicator"></span>
+                                <span class="custom-control-description">متغيرة</span>
+                              </label>
+                      </fieldset>
+                      <fieldset name="period-input" style="display:none">
+                          <label>
+                              نوع الدورة
+                          </label>
+                            <select class="form-control">
+                                <option>
+                                    أسبوعية
+                                </option>
+                                <option>
+                                    شهرية
+                                </option>
+                                <option>
+                                    كل 3 شهور
+                                </option>
+                                <option>
+                                    كل 6 شهور
+                                </option>
+
+                            </select>
+                      </fieldset>
+                      <hr>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                        النوع
+                    </label>
+                    <fieldset>
+                            <label class="display-inline-block custom-control custom-radio">
+                              <input type="radio" name="type-trigger" value="public" class="custom-control-input" checked>
+                              <span class="bg-primary custom-control-indicator"></span>
+                              <span class="custom-control-description">عام</span>
+                            </label>
+                            <label class="display-inline-block custom-control custom-radio">
+                                    <input type="radio" name="type-trigger" value="private" class="custom-control-input">
+                                    <span class="bg-primary custom-control-indicator"></span>
+                                    <span class="custom-control-description">مخصص</span>
+                                  </label>
+                          </fieldset>
+                          <fieldset name="type-input" style="display:none">
+                          <label>
+                              ربط البدل بــ
+                          </label>
+                            <select class="form-control" name="type-attach">
+                                <option value="group-of-employee">
+                                    مجموعة معينة من الموظفين
+                                </option>
+                                <option value="jobname">
+                                    مُسمى وظيفي معين
+                                </option>
+                                <option value="shift">
+                                    دورة عمل معينة
+                                </option>
+
+                            </select>
+                      </fieldset>
+                          
+                    </div>
+                    <!--div class="form-group">
+                            <input type="text" class="form-control" placeholder="ابدأ بكتابة اسم الموظف" />
+                            <div class="item-groups">
+                                    <div class="item-group bg-primary">
+                                        <p>ريان كمال فهمي</p>
+                                        <i class="ft-x-square"></i>
+                                    </div>
+                            </div>
+                    </div-->
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-1">
+                    
+                    <fieldset>
+                            <label class="display-inline-block custom-control custom-checkbox">
+                              <input type="checkbox" name="checkInline1" checked="" class="custom-control-input">
+                              <span class="c-indicator bg-primary custom-control-indicator"></span>
+                              <span class="custom-control-description">تفعيل تلقائي بعد التثبيت !</span>
+                            </label>
+                          </fieldset>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary">
+                        تثبيت البدل
+                    </button>
+                </div>
+            </div>
+
+    </div>
+</div>
