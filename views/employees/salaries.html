@@ -1,9 +1,13 @@
-@{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css')}
+@{import('pages/users.min.css','custom_plugins/optionAppender.css','forms/selects/select2.min.css')}
 <style>
 
 .modal-footer {
   border: 0;
 }
+
+.select2-dropdown{
+    z-index: 10000000;
+  }
 
 </style>
 
@@ -64,7 +68,6 @@
                             </div>
                           </div>
 
-<div id="edit_salary"></div>
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
       <div class="content-header row">
@@ -220,7 +223,7 @@
                       <div class="col-md-9">
                         <div class="flexed-row flexed-between mb-1">
                           <p class="no-margin"> أنواع الحوافز ( 0 حافز ) </p>
-                          <a class="primary new_vacationtype_request">
+                          <a class="primary new_incentive_btn">
                             <i class="ft-plus"></i> حافز جديد
                           </a>
                         </div>
@@ -296,7 +299,7 @@
                         <div class="col-md-9">
                           <div class="flexed-row flexed-between mb-1">
                             <p class="no-margin"> أنواع العلاوات ( 0 علاوة ) </p>
-                            <a class="primary new_vacationtype_request">
+                            <a class="primary new_bonus_btn">
                               <i class="ft-plus"></i> علاوة جديد
                             </a>
                           </div>
@@ -372,7 +375,7 @@
                           <div class="col-md-9">
                             <div class="flexed-row flexed-between mb-1">
                               <p class="no-margin"> أنواع الاستقطاعات ( 0 استقطاع ) </p>
-                              <a class="primary new_vacationtype_request">
+                              <a class="primary new_deduction_btn">
                                 <i class="ft-plus"></i> استقطاع جديد
                               </a>
                             </div>
@@ -599,7 +602,7 @@
     </div>
 </div>
 
-@{import('vendors.min.js')}
+@{import('vendors.min.js','forms/select/select2.full.min.js')}
 <script>
 
 $(function(){
@@ -736,8 +739,108 @@ $(function(){
 /**
  * new allowance
  * */
-    $('#new_allowance').iziModal({
-    title: 'اضافة بدل جديد',
+ $('#new_allowance').iziModal({
+  title: 'اضافة بدل جديد',
+  subtitle: '',
+  headerColor: 'rgb(54, 68, 94)',
+  width: 400,
+  zindex:10000,
+  onOpening: function(modal){
+    
+      modal.startLoading();
+      $.ajax({
+  method:'get',
+  url:'/new_allowance',
+  success:function(data){
+    $("#new_allowance .iziModal-content").html(data);
+    modal.stopLoading();
+  }
+});
+  },
+  onOpened: function(){
+    $('.select2').select2();
+  }
+});
+
+
+$(document).on('click','.new_allowance_btn',function(){
+  $("#new_allowance").iziModal('open');
+});
+
+/**
+ * new incentive
+ * */
+ $('#new_incentive').iziModal({
+  title: 'اضافة حافز جديد',
+  subtitle: '',
+  headerColor: 'rgb(54, 68, 94)',
+  width: 400,
+  zindex:10000,
+  onOpening: function(modal){
+    
+      modal.startLoading();
+      $.ajax({
+  method:'get',
+  url:'/new_incentive',
+  success:function(data){
+    $("#new_incentive .iziModal-content").html(data);
+    modal.stopLoading();
+  }
+});
+  },
+  onOpened: function(){
+    
+
+    $('.select2').select2();
+  }
+});
+
+
+$(document).on('click','.new_incentive_btn',function(){
+  $("#new_incentive").iziModal('open');
+});
+
+
+/**
+ * new bonus
+ * */
+ $('#new_bonus').iziModal({
+  title: 'اضافة علاوة جديدة',
+  subtitle: '',
+  headerColor: 'rgb(54, 68, 94)',
+  width: 400,
+  zindex:10000,
+  onOpening: function(modal){
+    
+      modal.startLoading();
+      $.ajax({
+  method:'get',
+  url:'/new_bonus',
+  success:function(data){
+    $("#new_bonus .iziModal-content").html(data);
+    modal.stopLoading();
+  }
+});
+  },
+  onOpened: function(){
+    
+
+    $('.select2').select2();
+  }
+});
+
+
+$(document).on('click','.new_bonus_btn',function(){
+  $("#new_bonus").iziModal('open');
+});
+
+
+
+/**
+ * new deduction
+ * */
+ $('#new_deduction').iziModal({
+    title: 'اضافة استقطاع جديد',
     subtitle: '',
     headerColor: 'rgb(54, 68, 94)',
     width: 400,
@@ -747,15 +850,29 @@ $(function(){
         modal.startLoading();
         $.ajax({
     method:'get',
-    url:'/new_allowance',
+    url:'/new_deduction',
     success:function(data){
-      $("#new_allowance .iziModal-content").html(data);
+      $("#new_deduction .iziModal-content").html(data);
       modal.stopLoading();
     }
   });
     },
     onOpened: function(){
-      $(document).on('change','input[name="value-trigger"]',function(){
+      
+
+      $('.select2').select2();
+    }
+  });
+
+
+  $(document).on('click','.new_deduction_btn',function(){
+    $("#new_deduction").iziModal('open');
+  });
+
+
+
+
+  $(document).on('change','input[name="value-trigger"]',function(){
         var val = $(this).val();
         if(val == 'fixed'){
           $('input[name="value-input"]').show();
@@ -782,23 +899,25 @@ $(function(){
         }
       });
 
-      /*$(document).on('change','select[name="type-attach"]',function(){
+      $(document).on('change','select[name="type-attach"]',function(){
         var val = $(this).val();
-        alert(val);
-        if(val == 'private'){
-          
-        }else{
+        //alert(val);
+        if(val == 'group-of-employees'){
+          $('.group-of-employees-field').show();
+          $('.jobname-field').hide();
+          $('.shift-field').hide();
+        }else if(val == 'jobname'){
+          $('.group-of-employees-field').hide();
+          $('.shift-field').hide();
+          $('.jobname-field').show();
+
+        }else if(val == 'shift'){
+          $('.shift-field').show();
+          $('.group-of-employees-field').hide();
+          $('.jobname-field').hide();
           //$('fieldset[name="type-input"]').val('').hide();
         }
-      });*/
-    }
-  });
-
-
-  $(document).on('click','.new_allowance_btn',function(){
-    $("#new_allowance").iziModal('open');
-  });
-
+      });
 });
 
 

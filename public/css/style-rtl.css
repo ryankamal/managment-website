@@ -15,6 +15,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
        url('fonts/DubaiW23-Regular.ttf')  format('truetype') /* Safari, Android, iOS */
 }
 
+
 body, .navigation, .navigation .navigation-header, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .breadcrumb, .header-navbar{
     font-family: dubai !important;
 }
@@ -30,6 +31,7 @@ body, .navigation, .navigation .navigation-header, .h1, .h2, .h3, .h4, .h5, .h6,
 .height-100{
     height: 100% !important;
 }
+
 .nav.nav-pills.nav-pill-toolbar.nav-stacked .nav-item~.nav-item a.nav-link{
     border-right: 1px solid #edeff2;
 }
