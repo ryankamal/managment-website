@@ -14,6 +14,8 @@ exports.install = function() {
         F.route('new_law',new_law);
         F.route('/new_vacation',new_vacation);
         F.route('/new_vacationtype',new_vacationtype);
+        F.route('/edit_salary',edit_salary);
+        F.route('/new_allowance',new_allowance);
 
 };
 
@@ -61,4 +63,18 @@ function new_vacationtype(){
     var self = this;
     self.layout('');
     self.view('/employees/new_vacationtype');
+}
+
+
+function edit_salary(){
+    var self = this;
+    self.layout('');
+    self.view('/employees/edit_salary');
+}
+
+
+function new_allowance(){
+    var self = this;
+    self.layout('');
+    self.view('/employees/new_allowance');
 }

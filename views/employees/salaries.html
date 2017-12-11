@@ -64,7 +64,7 @@
                             </div>
                           </div>
 
-
+<div id="edit_salary"></div>
 <div class="app-content content container-fluid">
     <div class="content-wrapper">
       <div class="content-header row">
@@ -101,7 +101,7 @@
                                   </div>
                                 </div>
                               <button type="button" class="btn btn-secondary tab-btn" data-tabname="manage-tab">ادارة المرتبات</button>
-                              <button type="button" class="btn btn-secondary" data-target="#salarie_edit" data-toggle="modal">تعديل المرتبات</button>
+                              <button type="button" class="btn btn-secondary edit_salary_btn">تعديل المرتبات</button>
                             </div>
                           </div>
                         </div>
@@ -114,7 +114,7 @@
                     <div class="col-md-9">
                       <div class="flexed-row flexed-between mb-1">
                         <p class="no-margin"> أنواع البدلات ( 0 بدل ) </p>
-                        <a class="primary new_vacationtype_request">
+                        <a class="primary new_allowance_btn">
                           <i class="ft-plus"></i> بدل جديد
                         </a>
                       </div>
@@ -706,6 +706,98 @@ $(function(){
 
   
   
+
+
+    $('#edit_salary').iziModal({
+      title: 'تعديل مرتب موظف',
+      subtitle: '',
+      headerColor: 'rgb(54, 68, 94)',
+      width: 400,
+      zindex:10000,
+      onOpening: function(modal){
+        
+          modal.startLoading();
+          $.ajax({
+      method:'get',
+      url:'/edit_salary',
+      success:function(data){
+        $("#edit_salary .iziModal-content").html(data);
+        modal.stopLoading();
+      }
+    });
+      }
+    });
+  
+  
+    $(document).on('click','.edit_salary_btn',function(){
+      $("#edit_salary").iziModal('open');
+    });
+
+/**
+ * new allowance
+ * */
+    $('#new_allowance').iziModal({
+    title: 'اضافة بدل جديد',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new_allowance',
+    success:function(data){
+      $("#new_allowance .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onOpened: function(){
+      $(document).on('change','input[name="value-trigger"]',function(){
+        var val = $(this).val();
+        if(val == 'fixed'){
+          $('input[name="value-input"]').show();
+        }else{
+          $('input[name="value-input"]').val('').hide();
+        }
+      });
+
+      $(document).on('change','input[name="period-trigger"]',function(){
+        var val = $(this).val();
+        if(val == 'fixed'){
+          $('fieldset[name="period-input"]').show();
+        }else{
+          $('fieldset[name="period-input"]').val('').hide();
+        }
+      });
+
+      $(document).on('change','input[name="type-trigger"]',function(){
+        var val = $(this).val();
+        if(val == 'private'){
+          $('fieldset[name="type-input"]').show();
+        }else{
+          $('fieldset[name="type-input"]').val('').hide();
+        }
+      });
+
+      /*$(document).on('change','select[name="type-attach"]',function(){
+        var val = $(this).val();
+        alert(val);
+        if(val == 'private'){
+          
+        }else{
+          //$('fieldset[name="type-input"]').val('').hide();
+        }
+      });*/
+    }
+  });
+
+
+  $(document).on('click','.new_allowance_btn',function(){
+    $("#new_allowance").iziModal('open');
+  });
 
 });
 
