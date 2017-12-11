@@ -1,12 +1,5 @@
-@{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css')}
 
-<style>
 
-.modal-footer {
-  border: 0;
-}
-
-</style>
 
 
 
@@ -86,17 +79,19 @@
           <div class="form-group" style="text-align: left">
             <!-- button group -->
             <div class="btn-group" role="group" aria-label="Basic example">
-            <div class="btn-group">
-              <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
-                <a class="dropdown-item" href="vacations">الأجازات</a>
-                <a class="dropdown-item" href="salaries">المرتبات</a>
-                <a class="dropdown-item" href="bonuses">المكافئات</a>
-                <a class="dropdown-item" href="reports">التقييمات</a>
+              <div class="btn-group">
+                <button type="button" class="btn btn-icon btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="employees_times">الحضور والانصراف</a>
+                  <a class="dropdown-item" href="vacations">الأجازات</a>
+                  <a class="dropdown-item" href="salaries">المرتبات</a>
+                  <a class="dropdown-item" href="bonuses">المكافئات</a>
+                  <a class="dropdown-item" href="reports">التقييمات</a>
+                </div>
               </div>
-            </div>
-            <button type="button" class="btn btn-secondary" data-target="#add_report" data-toggle="modal">اضافة تقييم</button>
+            <button type="button" class="btn btn-secondary" data-target="#add_report" data-toggle="modal">
+                <i class="ft-plus icon-right"></i>
+              اضافة تقييم</button>
             </div>
            </div>
           </div>
@@ -104,36 +99,33 @@
        <div class="content-header row">
        </div>
        <div class="content-body">
-         <div class="row">
-           <div class="col-xs-12">
-             <div class="card">
-               <div class="card-body">
-                 <div class="card-block">
-                   <div class="row">
-                     <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
-                       <div class="float-xs-left pl-2">
-                         <span class="font-large-3 text-bold-300">120</span>
-                       </div>
-                       <div class="float-xs-left ml-1">
-                         <span class="blue-grey darken-1 block">اجمالي</span>
-                         <span class="blue-grey darken-1 block">الموظفين</span>
-                       </div>
-                     </div>
-                     <div class="col-lg-6 col-md-6 col-xs-12 border-right-blue-grey border-right-lighten-3 flexed-row flexed-centered flexed-vcentered">
-                       <div class="float-xs-left pl-2">
-                         <span class="font-large-3 text-bold-300">8.62</span>
-                       </div>
-                       <div class="float-xs-left ml-1">
-                         <span class="blue-grey darken-1 block">متوسط</span>
-                         <span class="blue-grey darken-1 block">التقييمات</span>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
+          <div class="row">
+              <div class="col-xs-12">
+                <div class="card bg-gradient-x-primary">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-6 col-sm-12 border-right-primary border-right-lighten-3">
+                        <div class="card-block text-xs-center">
+                          <h1 class="display-4 white"><i class="icon-users font-large-2"></i> 1579</h1>
+                          <span class="white">اجمالي الموظفين</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-sm-12">
+                        <div class="card-block text-xs-center">
+                          <h1 class="display-4 white"> 7,8</h1>
+                          <span class="white">متوسط التقييمات</span>
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
          <div class="row match-height">
        <div class="col-xl-6 col-lg-12">
          <div class="card">
@@ -143,11 +135,12 @@
 
            <div class="card-body">
              <div class="table-responsive table-outer">
-                 <table class="table table-bordered right mb-0 ">
+                 <table class="table table-bordered mb-0 ">
                    <thead>
                      <tr>
                        <th>اسم الموظف</th>
-                       <th>تاريخ التعيين</th>
+                       <th>تاريخ آخر تقييم</th>
+                       <th>آخر تقييم</th>
                        <th>متوسط التقييمات</th>
                      </tr>
                    </thead>
@@ -155,24 +148,33 @@
                      <tr>
                        <td>ريان كمال فهمي</td>
                        <td>11/8/2017</td>
-                       <td>9.1</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>9.1</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>9.1</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>9.1</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
+                       <td>9.5</td>
                        <td>9.1</td>
                      </tr>
+                     <tr>
+                        <td>ريان كمال فهمي</td>
+                        <td>11/8/2017</td>
+                        <td>9.5</td>
+                        <td>9.1</td>
+                      </tr>
+                      <tr>
+                          <td>ريان كمال فهمي</td>
+                          <td>11/8/2017</td>
+                          <td>9.5</td>
+                          <td>9.1</td>
+                        </tr>
+                        <tr>
+                            <td>ريان كمال فهمي</td>
+                            <td>11/8/2017</td>
+                            <td>9.5</td>
+                            <td>9.1</td>
+                          </tr>
+                          <tr>
+                              <td>ريان كمال فهمي</td>
+                              <td>11/8/2017</td>
+                              <td>9.5</td>
+                              <td>9.1</td>
+                            </tr>
                    </tbody>
                  </table>
                </div>
@@ -186,37 +188,46 @@
            </div>
            <div class="card-body">
              <div class="table-responsive table-outer">
-                 <table class="table table-bordered right mb-0">
+                 <table class="table table-bordered mb-0">
                    <thead>
-                     <tr>
-                       <th>اسم الموظف</th>
-                       <th>تاريخ التعيين</th>
-                       <th>متوسط التقييمات</th>
-                     </tr>
+                      <tr>
+                          <th>اسم الموظف</th>
+                          <th>تاريخ آخر تقييم</th>
+                          <th>آخر تقييم</th>
+                          <th>متوسط التقييمات</th>
+                        </tr>
                    </thead>
                    <tbody>
-                     <tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>6.3</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>6.3</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>6.3</td>
-                     </tr><tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>6.3</td>
-                     </tr>
-                     <tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>6.3</td>
-                     </tr>
+                      <tr>
+                          <td>ريان كمال فهمي</td>
+                          <td>11/8/2017</td>
+                          <td>7.5</td>
+                          <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td>ريان كمال فهمي</td>
+                            <td>11/8/2017</td>
+                            <td>7.5</td>
+                            <td>6.5</td>
+                          </tr>
+                          <tr>
+                              <td>ريان كمال فهمي</td>
+                              <td>11/8/2017</td>
+                              <td>7.5</td>
+                              <td>6.5</td>
+                            </tr>
+                            <tr>
+                                <td>ريان كمال فهمي</td>
+                                <td>11/8/2017</td>
+                                <td>7.5</td>
+                                <td>6.5</td>
+                              </tr>
+                              <tr>
+                                  <td>ريان كمال فهمي</td>
+                                  <td>11/8/2017</td>
+                                  <td>7.5</td>
+                                  <td>6.5</td>
+                                </tr>
 
 
 
@@ -238,12 +249,10 @@
 
 
 
-@{import('vendors.min.js','gallery/photo-swipe/photoswipe.min.js','gallery/photo-swipe/photoswipe-ui-default.min.js','scripts/gallery/photo-swipe/photoswipe-script.js','custom_plugins/cardToggler.js')};
+@{import('vendors.min.js')};
 <script>
 
 
 
 </script>
-@{import('vendors.min.js')};
-<div class="app-content content container-fluid">
-</div>
+
