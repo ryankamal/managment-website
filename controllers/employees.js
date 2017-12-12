@@ -19,6 +19,8 @@ exports.install = function() {
         F.route('/new_incentive',new_incentive);
         F.route('/new_bonus',new_bonus);
         F.route('/new_deduction',new_deduction);
+        F.route('/new_emp_bonus',new_emp_bonus);
+        F.route('/new_bonus_event',new_bonus_event);
 
 };
 
@@ -98,4 +100,16 @@ function new_deduction(){
     var self = this;
     self.layout('');
     self.view('/employees/new_deduction');
+}
+
+function new_emp_bonus(){
+    var self = this;
+    self.layout('');
+    self.view('/employees/new_emp_bonus');
+}
+
+function new_bonus_event(){
+    var self = this;
+    self.layout('');
+    self.view('/employees/new_bonus_event');
 }

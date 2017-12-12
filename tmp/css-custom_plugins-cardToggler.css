@@ -1,1 +1,0 @@
-.cardToggler{display:flex;flex-flow:row column;justify-content:space-around;align-items:center}.cardToggler .move{font-size:25px;cursor:pointer;padding:15px 10px;display:flex}.cardToggler .move.disabled{color:rgba(64,78,103,0.3411764705882353)}.cardToggler .head{font-size:18px}

@@ -11,70 +11,134 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                        القيمة
-                    </label>
-                    <fieldset>
-                            <label class="display-inline-block custom-control custom-radio">
-                              <input type="radio" name="value-trigger" value="fixed" class="custom-control-input">
-                              <span class="bg-primary custom-control-indicator"></span>
-                              <span class="custom-control-description">ثابتة</span>
-                            </label>
-                            <label class="display-inline-block custom-control custom-radio">
-                                    <input type="radio" name="value-trigger" value="changed" class="custom-control-input" checked>
-                                    <span class="bg-primary custom-control-indicator"></span>
-                                    <span class="custom-control-description">متغيرة</span>
-                                  </label>
-                          </fieldset>
-                          <input  class="form-control" type="number" name="value-input" placeholder="اكتب القيمة" style="display:none" />
-                          <hr>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>
+                            القيمة
+                        </label>
+                        <fieldset>
+                                <label class="display-inline-block custom-control custom-radio">
+                                  <input type="radio" name="value-type" value="fixed" class="custom-control-input">
+                                  <span class="bg-primary custom-control-indicator"></span>
+                                  <span class="custom-control-description">ثابتة</span>
+                                </label>
+                                <label class="display-inline-block custom-control custom-radio">
+                                        <input type="radio" name="value-type" value="changed" class="custom-control-input" checked>
+                                        <span class="bg-primary custom-control-indicator"></span>
+                                        <span class="custom-control-description">متغيرة</span>
+                                      </label>
+                              </fieldset>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>
-                        الدورة
-                    </label>
-                    <fieldset>
-                            <label class="display-inline-block custom-control custom-radio">
-                              <input type="radio" name="period-trigger" value="fixed" class="custom-control-input">
-                              <span class="bg-primary custom-control-indicator"></span>
-                              <span class="custom-control-description">ثابتة</span>
-                            </label>
-                            <label class="display-inline-block custom-control custom-radio">
-                                    <input type="radio" name="period-trigger" value="changed" class="custom-control-input" checked>
-                                    <span class="bg-primary custom-control-indicator"></span>
-                                    <span class="custom-control-description">متغيرة</span>
-                                  </label>
-                          </fieldset>
-                          <fieldset name="period-input" style="display:none">
-                              <label>
-                                  نوع الدورة
-                              </label>
-                                <select class="form-control">
-                                    <option>
-                                        أسبوعية
-                                    </option>
-                                    <option>
-                                        شهرية
-                                    </option>
-                                    <option>
-                                        كل 3 شهور
-                                    </option>
-                                    <option>
-                                        كل 6 شهور
-                                    </option>
-    
-                                </select>
-                          </fieldset>
-                          <hr>
+                <div class="row value-input" style="display:none">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                    <label>
+                                            حساب الحافز
+                                        </label>
+                                        <fieldset>
+                                                <label class="display-inline-block custom-control custom-radio">
+                                                  <input type="radio" name="value-trigger" value="value" class="custom-control-input" >
+                                                  <span class="bg-primary custom-control-indicator"></span>
+                                                  <span class="custom-control-description">قيمة محددة</span>
+                                                </label>
+                                                <label class="display-inline-block custom-control custom-radio">
+                                                        <input type="radio" name="value-trigger" value="percent" class="custom-control-input">
+                                                        <span class="bg-primary custom-control-indicator"></span>
+                                                        <span class="custom-control-description">نسبة من الراتب</span>
+                                                      </label>
+                                              </fieldset>
+                            
+                            </div>
+                            <div class="form-group value_value" style="display:none">
+                                    <label>
+                                            قيمة الحافز
+                                    </label>
+                                    <input type="number" class="form-control" placeholder="قيمة الحافز" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    <div class="row value_percent" style="display:none">
+                            <div class="col-md-12">
+                                    <div class="form-group">
+                                            <label>
+                                                    نسبة الحافز
+                                            </label>
+                                            <input type="number" class="form-control" placeholder="نسبة الحافز" />
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>
+                                    دورة الاستحقاق
+                                </label>
+                                <fieldset>
+                                        <label class="display-inline-block custom-control custom-radio">
+                                          <input type="radio" name="period-trigger" value="fixed" class="custom-control-input">
+                                          <span class="bg-primary custom-control-indicator"></span>
+                                          <span class="custom-control-description">ثابتة</span>
+                                        </label>
+                                        <label class="display-inline-block custom-control custom-radio">
+                                                <input type="radio" name="period-trigger" value="changed" class="custom-control-input" checked>
+                                                <span class="bg-primary custom-control-indicator"></span>
+                                                <span class="custom-control-description">متغيرة</span>
+                                              </label>
+                                      </fieldset>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row period-input"  style="display:none">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>
+                                            تاريخ الاستحقاق
+                                        </label>
+                                        <select class="form-control time-controller">
+                                                <option value="date">
+                                                    تاريخ معين
+                                                </option>
+                                                <option>
+                                                    هذا الشهر
+                                                </option>
+                                                <option>
+                                                    أسبوعي
+                                                </option>
+                                                <option>
+                                                    شهري
+                                                </option>
+                                                <option value="datemonth">
+                                                    كل شهر معين
+                                                </option>
+                                                <option value="dateevery">
+                                                    كل س من الشهور
+                                                </option>
+                                                <option value="dateevery">
+                                                    كل س من السنين
+                                                </option>
+                                                <option value="dateafter">
+                                                    بعد س من الشهور
+                                                </option>
+                                                <option value="dateafter">
+                                                    بعد س من السنين
+                                                </option>
+                                            </select>
+                                    </div>
+                                    <div class="form-group date_date" style="display:none">
+                                        <input type="number" class="form-control" placeholder="اكتب التاريخ" />
+                                    </div>
+                                    <div class="form-group data_month" style="display:none">
+                                        <input type="number" class="form-control" placeholder="اختر الشهر" />
+                                    </div>
+                                    <div class="form-group date_other" style="display:none">
+                                        <input type="number" class="form-control" placeholder="اكتب قيمة س" />
+                                    </div>
+                
+                                </div>
+                            </div>
     
     
             <div class="row">
@@ -157,7 +221,7 @@
                               
                         </div>
                         
-                        <hr>
+                        
                     </div>
                 </div>
     

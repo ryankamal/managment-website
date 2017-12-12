@@ -1,56 +1,15 @@
-@{import('pages/users.min.css','pages/timeline.min.css','gallery/photoswipe.css','gallery/default-skin/default-skin.css','custom_plugins/cardToggler.css')}
-
+@{import('pages/users.min.css','custom_plugins/optionAppender.css','forms/selects/select2.min.css')}
 <style>
 
 .modal-footer {
   border: 0;
 }
 
+.select2-dropdown{
+    z-index: 10000000;
+  }
+
 </style>
-
-
-<div class="modal fade text-xs-left" id="add_bonus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
-                          aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                  <h3 class="modal-title" id="myModalLabel35">إضافة مكافأة</h3>
-                                </div>
-                                <form>
-                                  <div class="modal-body">
-                                    <div class="col-xl-8 col-lg-6 col-md-12 mb-1">
-                                      <fieldset class="form-group">
-                                        <label for="basicInput">اسم الموظف</label>
-                                        <input type="text" class="form-control" id="basicInput">
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
-                                      <fieldset class="form-group">
-                                        <label for="basicInput">قيمة الإضافة</label>
-                                        <input type="text" class="form-control" id="basicInput">
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-6 col-md-12">
-                                      <fieldset class="form-group">
-                                        <label for="placeTextarea">سبب الإضافة</label>
-                                        <textarea class="form-control" id="placeTextarea" rows="3" placeholder="سبب الإضافة"></textarea>
-                                      </fieldset>
-                                    </div>
-                                  <div class="modal-footer">
-                                    <input type="submit" class="btn btn-outline-primary btn-lg" value="ارسال الإضافة">
-                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
-                                    value="اغلاق">
-                                  </div>
-                                </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-
-
 
 <div class="app-content content container-fluid">
    <div class="content-wrapper">
@@ -59,11 +18,11 @@
          <div class="row breadcrumbs-top">
            <div class="breadcrumb-wrapper col-xs-12">
              <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index.php">الرئيسية</a>
+               <li class="breadcrumb-item"><a href="index">الرئيسية</a>
                </li>
                <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
                </li>
-               <li class="breadcrumb-item"><a href="employees.php">الموظفين</a>
+               <li class="breadcrumb-item"><a href="employees">الموظفين</a>
                </li>
                <li class="breadcrumb-item active">المكافآت
                </li>
@@ -86,10 +45,10 @@
                       <a class="dropdown-item" href="reports">التقييمات</a>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-secondary" >
+                  <button type="button" class="btn btn-secondary new_bonus_event_btn" >
                       <i class="icon-calendar icon-right"></i>
                       جدولة مكافأة جديدة</button>
-                  <button type="button" class="btn btn-secondary" data-target="#add_bonus" data-toggle="modal">
+                  <button type="button" class="btn btn-secondary new_emp_bonus_btn" >
                       <i class="ft-plus icon-right"></i>
                     اضافة مكافأة لموظف</button>
                   
@@ -370,11 +329,138 @@
 
 
 
+      @{import('vendors.min.js','forms/select/select2.full.min.js')}
 
-
-@{import('vendors.min.js')};
 <script>
+$(function(){
+  $('#new_emp_bonus').iziModal({
+    title: 'اضافة مكافأة لموظف',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new_emp_bonus',
+    success:function(data){
+      $("#new_emp_bonus .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    },
+    onOpened: function(){
+      
+  
+      //$('.select2').select2();
+    }
+  });
+  
+  
+  $(document).on('click','.new_emp_bonus_btn',function(){
+    $("#new_emp_bonus").iziModal('open');
+  });
 
+  /**
+   * bonus event
+   * */
+   $('#new_bonus_event').iziModal({
+  title: 'جدولة مكافأة جديدة',
+  subtitle: '',
+  headerColor: 'rgb(54, 68, 94)',
+  width: 400,
+  zindex:10000,
+  onOpening: function(modal){
+    
+      modal.startLoading();
+      $.ajax({
+  method:'get',
+  url:'/new_bonus_event',
+  success:function(data){
+    $("#new_bonus_event .iziModal-content").html(data);
+    modal.stopLoading();
+  }
+});
+  },
+  onOpened: function(){
+    
+
+    $('.select2').select2();
+  }
+});
+
+
+$(document).on('click','.new_bonus_event_btn',function(){
+  $("#new_bonus_event").iziModal('open');
+});
+
+
+$(document).on('change','input[name="type-trigger"]',function(){
+        var val = $(this).val();
+        if(val == 'private'){
+          $('fieldset[name="type-input"]').show();
+        }else{
+          $('fieldset[name="type-input"]').val('').hide();
+        }
+      });
+
+
+$(document).on('change','select[name="type-attach"]',function(){
+        var val = $(this).val();
+        //alert(val);
+        if(val == 'group-of-employees'){
+          $('.group-of-employees-field').show();
+          $('.jobname-field').hide();
+          $('.shift-field').hide();
+        }else if(val == 'jobname'){
+          $('.group-of-employees-field').hide();
+          $('.shift-field').hide();
+          $('.jobname-field').show();
+
+        }else if(val == 'shift'){
+          $('.shift-field').show();
+          $('.group-of-employees-field').hide();
+          $('.jobname-field').hide();
+          //$('fieldset[name="type-input"]').val('').hide();
+        }
+      });
+
+
+$(document).on('change','.time-controller',function(){
+  var val = $(this).val();
+  if(val == 'date'){
+    $('.date_date').show();
+    $('.data_month').hide();
+    $('.date_other').hide();
+  }else if(val == 'datemonth'){
+    $('.data_month').show();
+    $('.date_date').hide();
+    $('.date_other').hide();
+  }else if(val == 'dateevery' || val == 'dateafter'){
+    $('.date_other').show();
+    $('.data_month').hide();
+    $('.date_date').hide();
+  }else{
+    $('.data_month').hide();
+    $('.date_date').hide();
+    $('.date_other').hide();
+
+  }
+});
+
+$(document).on('change','input[name="value-trigger"]',function(){
+  var val = $(this).val();
+  if(val == 'value'){
+    $('.value_value').show();
+    $('.value_percent').hide();
+  }else if(val == 'percent'){
+    $('.value_value').hide();
+    $('.value_percent').show();
+  }
+});
+});
 
 
 </script>

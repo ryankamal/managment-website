@@ -1,0 +1,122 @@
+<div class="form">
+    <div class="form-body p-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>
+                        اسم الموظف
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="ft-user"></i></span>
+                        <input type="text" class="form-control" placeholder="اسم الموظف" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                            <label>
+                                    حساب المكافأة
+                                </label>
+                                <fieldset>
+                                        <label class="display-inline-block custom-control custom-radio">
+                                          <input type="radio" name="value-trigger" value="value" class="custom-control-input" checked>
+                                          <span class="bg-primary custom-control-indicator"></span>
+                                          <span class="custom-control-description">قيمة محددة</span>
+                                        </label>
+                                        <label class="display-inline-block custom-control custom-radio">
+                                                <input type="radio" name="value-trigger" value="percent" class="custom-control-input">
+                                                <span class="bg-primary custom-control-indicator"></span>
+                                                <span class="custom-control-description">نسبة من الراتب</span>
+                                              </label>
+                                      </fieldset>
+                    
+                    </div>
+                    <div class="form-group value_value" style="display:none">
+                            <label>
+                                    قيمة المكافأة
+                            </label>
+                            <input type="number" class="form-control" placeholder="قيمة المكافأة" />
+                    </div>
+                </div>
+            </div>
+            <div class="row value_percent" style="display:none">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                    <label>
+                                            نسبة المكافأة
+                                    </label>
+                                    <input type="number" class="form-control" placeholder="نسبة المكافأة" />
+                            </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                    <label>
+                                            هذه النسبة تمثل
+                                    </label>
+                                    <input type="number" class="form-control" placeholder="0" disabled />
+                            </div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>
+                                تاريخ الاستحقاق
+                            </label>
+                            <select class="form-control time-controller">
+                                    <option value="date">
+                                        تاريخ معين
+                                    </option>
+                                    <option>
+                                        هذا الشهر
+                                    </option>
+                                    <option value="datemonth">
+                                        كل شهر معين
+                                    </option>
+                                    <option value="dateevery">
+                                        كل س من الشهور
+                                    </option>
+                                    <option value="dateevery">
+                                        كل س من السنين
+                                    </option>
+                                    <option value="dateafter">
+                                        بعد س من الشهور
+                                    </option>
+                                    <option value="dateafter">
+                                        بعد س من السنين
+                                    </option>
+                                </select>
+                        </div>
+                        <div class="form-group date_date" style="display:none">
+                            <input type="number" class="form-control" placeholder="اكتب التاريخ" />
+                        </div>
+                        <div class="form-group data_month" style="display:none">
+                            <input type="number" class="form-control" placeholder="اختر الشهر" />
+                        </div>
+                        <div class="form-group date_other" style="display:none">
+                            <input type="number" class="form-control" placeholder="اكتب قيمة س" />
+                        </div>
+
+                    </div>
+                </div>  
+           <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            سبب تخصيص المكافأة
+                        </label>
+                        <textarea class="form-control" rows="4" placeholder="سبب تخصيص المكافأة" ></textarea>
+                    </div>
+                </div>
+            </div>   
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary">
+                        اضافة المكافأة
+                    </button>
+                </div>
+            </div>    
+    </div>
+</div>
