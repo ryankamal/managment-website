@@ -1,58 +1,12 @@
-
-
-
-
-
-<div class="modal fade text-xs-left" id="add_report" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
-                          aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                  <h3 class="modal-title" id="myModalLabel35">إضافة تقييم</h3>
-                                </div>
-                                <form>
-                                  <div class="modal-body">
-                                    <div class="col-xl-12 col-lg-6 col-md-12 mb-1">
-                                      <fieldset class="form-group">
-                                        <label for="basicInput">اسم الموظف</label>
-                                        <input type="text" class="form-control" id="basicInput">
-                                      </fieldset>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-12">
-                                       <fieldset class="form-group">
-                                         <label for="basicSelect">نوع التقييم</label>
-                                         <select class="form-control" id="basicSelect">
-                                           <option>اختر نوع التقييم</option>
-                                           <option>سلبى</option>
-                                           <option>إيجابى</option>
-                                         </select>
-                                       </fieldset>
-                                     </div>
-                                     <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
-                                       <fieldset class="form-group">
-                                         <label for="basicInput">قيمة التقييم</label>
-                                         <input type="text" class="form-control" id="basicInput">
-                                       </fieldset>
-                                     </div>
-                                     <div class="col-xl-12 col-lg-6 col-md-12">
-                                       <fieldset class="form-group">
-                                         <label for="placeTextarea">سبب التقييم</label>
-                                         <textarea class="form-control" id="placeTextarea" rows="3" placeholder="سبب التقييم"></textarea>
-                                       </fieldset>
-                                     </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <input type="submit" class="btn btn-outline-primary btn-lg" value="سبب التقييم">
-                                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal"
-                                    value="اغلاق">
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
+<style>
+  .table td, .table th{
+    word-wrap: normal;
+    white-space:normal;
+  }
+  .table thead th{
+    white-space: nowrap;
+  }
+</style>
 
 
 <div class="app-content content container-fluid">
@@ -89,9 +43,13 @@
                   <a class="dropdown-item" href="reports">التقييمات</a>
                 </div>
               </div>
-            <button type="button" class="btn btn-secondary" data-target="#add_report" data-toggle="modal">
+              <button type="button" class="btn btn-secondary tab-btn " data-tabname="settings-tab">
+                <i class="ft-star icon-right"></i>
+              معايير التقييم</button>
+              <button type="button" class="btn btn-secondary new_report_btn">
                 <i class="ft-plus icon-right"></i>
               اضافة تقييم</button>
+              
             </div>
            </div>
           </div>
@@ -99,71 +57,117 @@
        <div class="content-header row">
        </div>
        <div class="content-body">
-          <div class="row">
-              <div class="col-xs-12">
-                <div class="card bg-gradient-x-primary">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-lg-6 col-sm-12 border-right-primary border-right-lighten-3">
-                        <div class="card-block text-xs-center">
-                          <h1 class="display-4 white"><i class="icon-users font-large-2"></i> 1579</h1>
-                          <span class="white">اجمالي الموظفين</span>
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-sm-12">
-                        <div class="card-block text-xs-center">
-                          <h1 class="display-4 white"> 7,8</h1>
-                          <span class="white">متوسط التقييمات</span>
-                        </div>
-                      </div>
-                      
-                      
+         <section class="tab-body" id="settings-tab" style="display:none">
+            <div class="row flexed-column flexed-vcentered">
+              <div class="col-md-9">
+                <div class="flexed-row flexed-between mb-1">
+                  <p class="no-margin">معايير التقييم ( 0 معيار )</p>
+                  <a class="primary new_standard_btn"><i class="ft-plus"></i>معيار جديد</a>
+                </div>
+                <div class="card border-top-primary border-top-3">
+                <div class="card-body">
+                  <div class="card-block">
+                    <table class="table table-striped table-bordered mb-0">
+                      <thead>
+                        <tr>
+                          <th> مسمى المعيار</th>
+                          <th>الوصف</th>
+                          <th>تفعيل</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                            <td>الأداء والإنجاز</td>
+                            <td>يركز هذا المعيار على أداء الموظف وإنجازاته الوظيفية والمهنية، ويتضمن ذلك حجم ونوعية الأداء وطبيعة الإنجازات بما في ذلك من تحقيق أهداف تزيد عن المتوقع أو وتتفوق على متطلبات عمله الوظيفي ويتضمن كذلك إنجاز مهام صعبة تتطلب وقتاً وجهداً وعملاً دءوباً.</td>
+                          <td>
+                            <input type="checkbox" id="switcherySize2" class="switchery-sm" checked="" style="display: none;" data-switchery="true">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>المبادرة والإبداع</td>
+                            <td>يركز هذا المعيار على مدى مبادرة الموظف إلى تقديم أفكار أو اقتراحات أو دراسات أو مبادرات أو أساليب عمل متميزة ومبدعة تساهم في تطوير الأداء أو تحسين الإنتاجية أو الإرتقاء بمستوى الخدمات المقدمة للمتعاملين أو تبسيط الإجراءات، ويعنى هذا المعيار بدرجة الإبداع والمبادرة ومستوى التميز والتفرد فيما قدمه الموظف من أفكار أو اقتراحات وإنجازات.</td>
+                          <td>
+                            <input type="checkbox" id="switcherySize2" class="switchery-sm" style="display: none;" data-switchery="true">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> التعاون والالتزام الوظيفي</td>
+                            <td>يركز هذا المعيار على درجة تعاون الموظف مع المتعاملين من خارج المؤسسة ومن داخلها ( المتعاملين الخارجيين والداخليين ) ومدى إيجابيته في التعامل معهم، كما يركز على درجة الإلتزام الوظيفي والسلوكي للموظف من خلال إلتزامه بالأنظمة المؤسسية واحترامه لها مدعماً بسجل وظيفي خالٍ من المخالفات بأنواعها.</td>
+                          <td>
+                            <input type="checkbox" id="switcherySize2" class="switchery-sm" checked="" style="display: none;" data-switchery="true">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>المشاركة وتحمل المسؤولية</td>
+                            <td>يركز هذا المعيار على مدى حرص الموظف على المشاركة في النشاطات والفعاليات الرسمية وغير الرسمية تنظمها / تشارك بها المؤسسة، ومدى مساهمته في الجهود التطوعية التي ترعاها الدائرة، يركز هذا المعيار على درجة تحمل الموظف لمسؤولياته الوظيفية خاصه في الحالات غير الروتينية.</td>
+                          <td>
+                            <input type="checkbox" id="switcherySize2" class="switchery-sm" checked="" style="display: none;" data-switchery="true">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+         </section>
 
-
-
-         <div class="row match-height">
-       <div class="col-xl-6 col-lg-12">
-         <div class="card">
-             <div class="card-header">
-             <h4 class="card-title">أعلى الموظفين تقييما</h4>
-           </div>
-
-           <div class="card-body">
-             <div class="table-responsive table-outer">
-                 <table class="table table-bordered mb-0 ">
-                   <thead>
-                     <tr>
-                       <th>اسم الموظف</th>
-                       <th>تاريخ آخر تقييم</th>
-                       <th>آخر تقييم</th>
-                       <th>متوسط التقييمات</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                     <tr>
-                       <td>ريان كمال فهمي</td>
-                       <td>11/8/2017</td>
-                       <td>9.5</td>
-                       <td>9.1</td>
-                     </tr>
-                     <tr>
-                        <td>ريان كمال فهمي</td>
-                        <td>11/8/2017</td>
-                        <td>9.5</td>
-                        <td>9.1</td>
-                      </tr>
-                      <tr>
-                          <td>ريان كمال فهمي</td>
-                          <td>11/8/2017</td>
-                          <td>9.5</td>
-                          <td>9.1</td>
-                        </tr>
-                        <tr>
+          <section class="tab-body" style="display:block">
+              <div class="row">
+                  <div class="col-xs-12">
+                    <div class="card bg-gradient-x-primary">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-lg-6 col-sm-12 border-right-primary border-right-lighten-3">
+                            <div class="card-block text-xs-center">
+                              <h1 class="display-4 white"><i class="icon-users font-large-2"></i> 1579</h1>
+                              <span class="white">اجمالي الموظفين</span>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-sm-12">
+                            <div class="card-block text-xs-center">
+                              <h1 class="display-4 white"> 7,8</h1>
+                              <span class="white">متوسط التقييمات</span>
+                            </div>
+                          </div>
+                          
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+    
+    
+             <div class="row match-height">
+           <div class="col-xl-6 col-lg-12">
+             <div class="card">
+                 <div class="card-header">
+                 <h4 class="card-title">أعلى الموظفين تقييما</h4>
+               </div>
+    
+               <div class="card-body">
+                 <div class="table-responsive table-outer">
+                     <table class="table table-bordered mb-0 ">
+                       <thead>
+                         <tr>
+                           <th>اسم الموظف</th>
+                           <th>تاريخ آخر تقييم</th>
+                           <th>آخر تقييم</th>
+                           <th>متوسط التقييمات</th>
+                           
+                         </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                           <td>ريان كمال فهمي</td>
+                           <td>11/8/2017</td>
+                           <td>9.5</td>
+                           <td>9.1</td>
+                         </tr>
+                         <tr>
                             <td>ريان كمال فهمي</td>
                             <td>11/8/2017</td>
                             <td>9.5</td>
@@ -175,41 +179,41 @@
                               <td>9.5</td>
                               <td>9.1</td>
                             </tr>
-                   </tbody>
-                 </table>
+                            <tr>
+                                <td>ريان كمال فهمي</td>
+                                <td>11/8/2017</td>
+                                <td>9.5</td>
+                                <td>9.1</td>
+                              </tr>
+                              <tr>
+                                  <td>ريان كمال فهمي</td>
+                                  <td>11/8/2017</td>
+                                  <td>9.5</td>
+                                  <td>9.1</td>
+                                </tr>
+                       </tbody>
+                     </table>
+                   </div>
                </div>
+             </div>
            </div>
-         </div>
-       </div>
-         <div class="col-xl-6 col-lg-12">
-         <div class="card" >
-           <div class="card-header">
-             <h4 class="card-title">أقل الموظفين تقييما<h4>
-           </div>
-           <div class="card-body">
-             <div class="table-responsive table-outer">
-                 <table class="table table-bordered mb-0">
-                   <thead>
-                      <tr>
-                          <th>اسم الموظف</th>
-                          <th>تاريخ آخر تقييم</th>
-                          <th>آخر تقييم</th>
-                          <th>متوسط التقييمات</th>
-                        </tr>
-                   </thead>
-                   <tbody>
-                      <tr>
-                          <td>ريان كمال فهمي</td>
-                          <td>11/8/2017</td>
-                          <td>7.5</td>
-                          <td>6.5</td>
-                        </tr>
-                        <tr>
-                            <td>ريان كمال فهمي</td>
-                            <td>11/8/2017</td>
-                            <td>7.5</td>
-                            <td>6.5</td>
-                          </tr>
+             <div class="col-xl-6 col-lg-12">
+             <div class="card" >
+               <div class="card-header">
+                 <h4 class="card-title">أقل الموظفين تقييما<h4>
+               </div>
+               <div class="card-body">
+                 <div class="table-responsive table-outer">
+                     <table class="table table-bordered mb-0">
+                       <thead>
+                          <tr>
+                              <th>اسم الموظف</th>
+                              <th>تاريخ آخر تقييم</th>
+                              <th>آخر تقييم</th>
+                              <th>متوسط التقييمات</th>
+                            </tr>
+                       </thead>
+                       <tbody>
                           <tr>
                               <td>ريان كمال فهمي</td>
                               <td>11/8/2017</td>
@@ -228,21 +232,34 @@
                                   <td>7.5</td>
                                   <td>6.5</td>
                                 </tr>
-
-
-
-
-
-
-                   </tbody>
-                 </table>
+                                <tr>
+                                    <td>ريان كمال فهمي</td>
+                                    <td>11/8/2017</td>
+                                    <td>7.5</td>
+                                    <td>6.5</td>
+                                  </tr>
+                                  <tr>
+                                      <td>ريان كمال فهمي</td>
+                                      <td>11/8/2017</td>
+                                      <td>7.5</td>
+                                      <td>6.5</td>
+                                    </tr>
+    
+    
+    
+    
+    
+    
+                       </tbody>
+                     </table>
+                   </div>
                </div>
+             </div>
            </div>
          </div>
-       </div>
-     </div>
-
-    </div>
+    
+        </div>
+          </section>
   </div>
 </div>
 
@@ -252,7 +269,108 @@
 @{import('vendors.min.js')};
 <script>
 
+$(function(){
+  $(document).on('click','.tab-btn',function(){
+      var tab_name = $(this).attr('data-tabname');
+      
+      if($('#'+tab_name).is(':not(:visible)')){
+        $('.tab-body:visible').fadeOut(500,function(){
+        $('#'+tab_name).fadeIn();
+        $('.tab-body:visible:not(#'+tab_name+')').hide();
+      });
 
+      }
+      $('.tab-btn').removeClass('active');
+      $(this).addClass('active');
+      
+      
+    });
+
+
+
+
+    var i = 0;
+    if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+
+        elems.forEach(function (html) {
+            var switchery = new Switchery(html);
+        });
+    } else {
+        var elems1 = document.querySelectorAll('.switchery');
+
+        for (i = 0; i < elems1.length; i++) {
+            var switchery = new Switchery(elems1[i]);
+        }
+    }
+
+    var elemSmall = document.querySelectorAll('.switchery-sm');
+    for (i = 0; i < elemSmall.length; i++) {
+        new Switchery(elemSmall[i], {className:"switchery switchery-small"});
+    }
+
+    var danger = document.querySelectorAll('.switchery-danger');
+    for (i = 0; i < danger.length; i++) {
+      new Switchery(danger[i], { color: '#DA4453' });
+    }
+
+
+
+    $('#new_standard').iziModal({
+    title: 'اضافة معيار تقييم جديد',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new_standard',
+    success:function(data){
+      $("#new_standard .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+
+
+  $(document).on('click','.new_standard_btn',function(){
+    $("#new_standard").iziModal('open');
+  });
+
+
+
+  $('#new_report').iziModal({
+    title: 'اضافة معيار تقييم جديد',
+    subtitle: '',
+    headerColor: 'rgb(54, 68, 94)',
+    width: 400,
+    zindex:10000,
+    onOpening: function(modal){
+      
+        modal.startLoading();
+        $.ajax({
+    method:'get',
+    url:'/new_report',
+    success:function(data){
+      $("#new_report .iziModal-content").html(data);
+      modal.stopLoading();
+    }
+  });
+    }
+  });
+
+
+
+  $(document).on('click','.new_report_btn',function(){
+    $("#new_report").iziModal('open');
+  });
+
+});
 
 </script>
 
