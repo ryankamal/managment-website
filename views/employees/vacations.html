@@ -9,7 +9,7 @@
           <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index">الرئيسية</a>
+                <li class="breadcrumb-item"><a href="/">الرئيسية</a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">ادارة التشغيل</a>
                 </li>
@@ -316,6 +316,115 @@
           <section class="tab-body" id="manage-tab" style="display:none">
               <div class="row flexed-column flexed-vcentered">
                   <div class="col-md-9">
+                      <div class="flexed-row flexed-between mb-1">
+                        <p class="no-margin"> الأجازات الخاصة ( 3 أجازات )</p>
+                        <a  class="primary">
+                          <i class="ft-plus"></i>
+                          أجازة جديدة
+                        </a>
+                      </div>
+                      <div class="card border-top-primary border-top-3">
+                          <div class="card-body">
+                            <div class="card-block">
+                              <table class="table table-striped table-bordered  mb-0">
+                                  <thead>
+                                      <tr>
+                                          <th>
+                                              المسمى
+                                          </th>
+                                          <th>التاريخ</th>
+                                          <th>نسبة الأجر أثناء الإجازة</th>
+                                          <th>نوع</th>
+                                          <th>اجراءات</th>
+                                          <th>تفعيل</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        ذكرى الميلاد
+                                      </td>
+                                      <td>
+                                        14/12/2018
+                                      </td>
+                                      <td>
+                                        100 %
+                                      </td>
+                                      <td>
+                                        سنوي
+                                      </td>
+                                      <td>
+                                          <div class="btn-toolbar flexed-row flexed-centered" role="toolbar" aria-label="Toolbar with button groups">
+                                              
+                                              <div class="btn-group" role="group" aria-label="Second Group" >
+                                                  <button type="button" class="btn btn-icon btn-success"><i class="ft-eye"></i></button>
+                                                <button type="button" class="btn btn-icon btn-info"><i class="ft-edit"></i></button>
+                                                <button type="button" class="btn btn-icon btn-danger"><i class="ft-trash-2"></i></button>
+                                              </div>
+                                            </div>
+                                      </td>
+                                      <td>
+                                          <input type="checkbox" id="switcherySize2" class="switchery-sm" checked/>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                          ذكرى الشركة
+                                        </td>
+                                        <td>
+                                            14/12/2018
+                                        </td>
+                                        <td>
+                                          100 %
+                                        </td>
+                                        <td>
+                                          سنوي
+                                        </td>
+                                        <td>
+                                            <div class="btn-toolbar flexed-row flexed-centered" role="toolbar" aria-label="Toolbar with button groups">
+                                                
+                                                <div class="btn-group" role="group" aria-label="Second Group" >
+                                                    <button type="button" class="btn btn-icon btn-success"><i class="ft-eye"></i></button>
+                                                  <button type="button" class="btn btn-icon btn-info"><i class="ft-edit"></i></button>
+                                                  <button type="button" class="btn btn-icon btn-danger"><i class="ft-trash-2"></i></button>
+                                                </div>
+                                              </div>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="switcherySize2" class="switchery-sm" />
+                                        </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                  <div class="col-md-9">
+                    <div class="flexed-row flexed-between mb-1">
+                      <p class="no-margin"> الأجازات الأسبوعية ( 0 أجازة )</p>
+                      <a class="primary "><i class="ft-plus"></i> أجازة جديدة</a>
+                    </div>
+                    <div class="card border-top-primary border-top-3">
+                      <div class="card-body">
+                        <div class="card-block">
+                          <div class="item-groups">
+                            <div class="item-group bg-primary">
+                              <p>الجمعة</p><i class="ft-x-square"></i>
+                            </div>
+                            <div class="item-group bg-primary">
+                              <p>السبت</p><i class="ft-x-square"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-9">
                     <div class="flexed-row flexed-between mb-1">
                       <p class="no-margin"> الأجازات الرسمية</p>
                       <p class="no-margin"> 7 أجازات</p>
@@ -414,7 +523,7 @@ $(function(){
     subtitle: '',
     headerColor: 'rgb(54, 68, 94)',
     width: 400,
-    zindex:10000,
+    z/:10000,
     onOpening: function(modal){
       
         modal.startLoading();
@@ -436,7 +545,7 @@ $(function(){
     subtitle: '',
     headerColor: 'rgb(54, 68, 94)',
     width: 400,
-    zindex:10000,
+    z/:10000,
     onOpening: function(modal){
       
         modal.startLoading();
